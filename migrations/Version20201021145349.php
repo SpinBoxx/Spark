@@ -44,6 +44,12 @@ final class Version20201021145349 extends AbstractMigration
         $this->addSql('ALTER TABLE product ADD CONSTRAINT FK_D34A04AD6BEA5664 FOREIGN KEY (quality_id_id) REFERENCES quality (id)');
         $this->addSql('ALTER TABLE product ADD CONSTRAINT FK_D34A04AD9777D11E FOREIGN KEY (category_id_id) REFERENCES category (id)');
         $this->addSql('ALTER TABLE size ADD CONSTRAINT FK_F7C0246A714819A0 FOREIGN KEY (type_id_id) REFERENCES type (id)');
+        $this->addSql('
+            INSERT INTO user (email, password, username, firstname, lastname)
+            VALUES
+                (\'admin@admin.com\',  \'$argon2id$v=19$m=65536,t=4,p=1$vXDWeyV4UpECkr6/FPbPzw$nz3qqX3kGOiojADO65zWR3xo5FMDcPjgPECZGFDhA1I\', "mimo", "mariomn", "marion");
+            '
+        );
     }
 
     public function down(Schema $schema) : void

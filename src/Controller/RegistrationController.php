@@ -14,6 +14,7 @@ use Symfony\Component\Mime\Address;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
+
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
 
 class RegistrationController extends AbstractController
@@ -35,6 +36,14 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $user->setFirstname($form->get('firstname')->getData());
+            $user->setLastname($form->get('lastname')->getData());
+            $user->setEmail($form->get('email')->getData());
+            $user->setUsername($form->get('username')->getData());
+            $user->setRole("ROLE_USER");
+            $user->setCreationDatetime(\DateTime::createFromFormat('Y-m-d H:i:s',date('Y-m-d H:i:s')));
+            $user->setIsVerified(false);
             // encode the plain password
             $user->setPassword(
                 $passwordEncoder->encodePassword(

@@ -9,8 +9,9 @@
     </head>
     <body>
 
-
+    {% if app.user %}
         <h1>Bonjour {{ app.user.username }}</h1>
+    {% endif %}
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>

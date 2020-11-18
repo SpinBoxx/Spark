@@ -1,4 +1,4 @@
-#Spark
+# Spark
 ## Git
 ### Ajouter une fonctionnalité au projet
 1. Positionnez vous sur la branche master : `git checkout master`
@@ -10,6 +10,7 @@
 4. Vous faites des commits sur cette branche
 5. Assurez vous d'être bien à jour avec la branche master, pour cela retournez sur votre branche master en local `git checkout master` et faites un `git pull origin master` retournez sur votre branche `git checkout page-login` et faite un rebase `git rebase master`
 6. Vous pouvez pousser votre branche qui contient vos changements `git push origin page-login` ce qui va créer une branche identique à celle que vous avez en local sur le repo distant
-7. Créez une pull request sur github vous pouvez la préfixez de `WIP` si votre travail n'est pas terminé. Vous pouvez rédigez une description de ce que ovus avez fais ou des changements sur le projet que votre branche provoque...
+7. Créez une pull request sur github vous pouvez la préfixez de `WIP` si votre travail n'est pas terminé. Vous pouvez rédigez une description de ce que vous avez fais ou des changements sur le projet que votre branche provoque...
 8. Enfin, après la vérification de plusieurs personnes (ex: 2 emoji pouce :thumbsup: minimum) on peut mergé la branche dans master
 9. Les modifications urgentes comme la correction de bugs bloquants pourront être mergés directement.
+10. Vous pouvez faire un `git push origin ma-branche` si la pull request existe déjà pour cette branche elle se mettra à jour automatiquement

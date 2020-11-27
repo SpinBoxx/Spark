@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -28,27 +29,27 @@ class User implements UserInterface
     private $username;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $firstname;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $lastname;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $email;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $password;
 
     /**
-     * @ORM\Column(type="string", length=20)
+     * @ORM\Column(type="string", length=20, nullable=true)
      */
     private $role;
 
@@ -93,12 +94,12 @@ class User implements UserInterface
     private $picture_profil;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="string")
      */
     private $creation_datetime;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $update_datetime;
 
@@ -107,9 +108,12 @@ class User implements UserInterface
      */
     private $isVerified = false;
 
-    public function __construct()
+    public function __construct($username, $password, $email)
     {
-        $this->state_id = new ArrayCollection();
+        $this->username = $username;
+        $this->password = $password;
+        $this->email = $email;
+        $this->creation_datetime = DateTime::createFromFormat('Y-m-d H:i:s',date('Y-m-d H:i:s'))->format("d-m-Y H:i:s");
     }
 
     public function getId(): ?int

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Créer un compte{% endblock %}
+{% block title %}Se connecter{% endblock %}
 
  {% block stylesheets %}
      <link rel="stylesheet" href="{{ asset('style/register.css') }}">
@@ -16,29 +16,41 @@
             <div class="col-lg-6 col-md-6 d-none d-md-block image-container">
             </div>
             <div class="col-lg-6 col-md-6 form-container">
-                <div class="col-lg-8 col-md-10 col-sm-9  form-container form-box text-center">
-                    <div></div>
+                <div class="col-lg-8 col-md-9 col-sm-12 col-12 form-container form-box text-center">
                     <div class="logo mb-3">
                         <img src="https://le-datascientist.fr/wp-content/uploads/2019/02/logo-apache-spark.png" width="150px" alt="">
                     </div>
                     <div class="heading mb-4">
-                        <h4 id="titre">Créer un compte</h4>
+                        <h4>Se connecter</h4>
                     </div>
-                    <form action="{{ path('app_register_validate') }}" method="post">
-                        <div class="form-input">
-                            <span><i class="far fa-user"></i></span>
-                            <input type="text" name="pseudo" placeholder="Veuillez entrer votre pseudo" required>
-                        </div>
+                    <div class="text-left">
+                        <h5>
+                            <a href="{{ path('app_register') }}" class="havent-account">Pas de compte ?</a>
+                        </h5>
+                    </div>
+                    <form action="">
                         <div class="form-input">
                             <span><i class="far fa-envelope"></i></span>
                             <input type="email" name="email" placeholder="Veuillez entrer votre adresse email" required>
                         </div>
                         <div class="form-input">
                             <span><i class="fa fa-lock"></i></span>
-{#                            <span class="eye"><i class="fa fa-eye"></i></span>#}
                             <input type="password" name="password" placeholder="Veuillez entrer votre mot de passe" required>
                         </div>
-                        <div class="text-left mb-3 text-center">
+                        <div class="row mb-3">
+                            <div class="col-6 d-flex">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="cb1">
+                                    <label for="cb1" class="custom-control-label">Se souvenir de moi</label>
+                                </div>
+                            </div>
+                            <div class="col-6 text-right">
+                                <a href="" class="forget-password">J'ai oublié le mot de passe</a>
+                            </div>
+                        </div>
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"
+                        >
+                        <div class="text-left mb-3">
                             <button type="submit" class="btn">Valider</button>
                         </div>
                         <div class="text-center mb-2">
@@ -47,11 +59,13 @@
                             <a href="" class="btn btn-social btn-google">Google</a>
                             <a href="" class="btn btn-social btn-twitter">Twitter</a>
                         </div>
+
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
 
     <script>
         $(document).ready(function() {
@@ -68,7 +82,6 @@
                 }
             });
         });
-
     </script>
 
 {% endblock %}

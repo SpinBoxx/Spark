@@ -32,6 +32,20 @@ class Color
      */
     private $hex_color;
 
+    /**
+     * Color constructor.
+     * @param $id
+     * @param $code
+     * @param $label
+     * @param $hex_color
+     */
+    public function __construct($code, $label, $hex_color)
+    {
+        $this->code = $code;
+        $this->label = $label;
+        $this->hex_color = $hex_color;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -72,4 +86,5 @@ class Color
 
         return $this;
     }
+
 }

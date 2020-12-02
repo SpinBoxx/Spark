@@ -5,25 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="28ff6e69-454e-41c9-b37b-ecf6c22f9d14" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/login/login.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Shop-ping.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Shop-ping.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/PageProduitsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PageProduitsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/style/register.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/style/register.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/page_produits/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/page_produits/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/confirmation_email.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/confirmation_email.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/register.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login/login.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/registration/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/register.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,7 +200,9 @@
       <workItem from="1606336791006" duration="570000" />
       <workItem from="1606337412309" duration="2946000" />
       <workItem from="1606374904123" duration="1252000" />
-      <workItem from="1606484626918" duration="22804000" />
+      <workItem from="1606484626918" duration="24081000" />
+      <workItem from="1606771448249" duration="913000" />
+      <workItem from="1606895350760" duration="2262000" />
     </task>
     <servers />
   </component>
@@ -244,6 +232,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="752" y="282" width="507" height="273" key="#com.intellij.ide.actionMacro.EditMacrosDialog/0.0.1536.824@0.0.1536.824" timestamp="1602697788292" />
+    <state x="640" y="256" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1606897526561">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="640" y="256" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606897526561" />
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606499612302">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -261,26 +253,26 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="646" y="310" width="387" height="203" key="Github.ShareDialog/0.0.1536.824@0.0.1536.824" timestamp="1602692599810" />
-    <state width="1877" height="190" key="GridCell.Tab.0.bottom" timestamp="1606506207663">
+    <state width="1877" height="190" key="GridCell.Tab.0.bottom" timestamp="1606523372775">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1088" height="213" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1602697100864" />
-    <state width="1877" height="190" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1606506207663" />
-    <state width="1877" height="190" key="GridCell.Tab.0.center" timestamp="1606506207663">
+    <state width="1877" height="190" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1606523372775" />
+    <state width="1877" height="190" key="GridCell.Tab.0.center" timestamp="1606523372774">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1088" height="213" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1602697100864" />
-    <state width="1877" height="190" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1606506207663" />
-    <state width="1877" height="190" key="GridCell.Tab.0.left" timestamp="1606506207663">
+    <state width="1877" height="190" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1606523372774" />
+    <state width="1877" height="190" key="GridCell.Tab.0.left" timestamp="1606523372774">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1088" height="213" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1602697100864" />
-    <state width="1877" height="190" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1606506207663" />
-    <state width="1877" height="190" key="GridCell.Tab.0.right" timestamp="1606506207663">
+    <state width="1877" height="190" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1606523372774" />
+    <state width="1877" height="190" key="GridCell.Tab.0.right" timestamp="1606523372774">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1088" height="213" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1602697100864" />
-    <state width="1877" height="190" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1606506207663" />
+    <state width="1877" height="190" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1606523372774" />
     <state x="528" y="135" key="NewPhpClassDialog" timestamp="1602695727285">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

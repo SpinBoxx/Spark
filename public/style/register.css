@@ -1,14 +1,13 @@
 .image-container{
-    background: url("https://www.saint-brevin.fr/medias/2019/05/sportif.png") center no-repeat;
-    background-size: cover;
+    background: url("https://i.ibb.co/pPZ2TPb/image-3.png") center no-repeat;
+    background-size: 80%;
     height: 100vh;
 }
+
 .form-container{
-    background-color: #69411b;
+    background-color: #f6f6f6;
     display: flex;
     justify-content: center;
-
-
 }
 
 .form-box{
@@ -17,8 +16,6 @@
     justify-content: center;
     min-height: 100vh;
 }
-
-
 
 .form-box h4{
     font-weight: bold;
@@ -68,7 +65,7 @@
 
 .form-box input[type="checkbox"]:not(:checked) + label:before{
     background: transparent;
-    border: 3px solid #fff;
+    border: 3px solid black;
     width: 15px;
     height: 15px;
 }
@@ -80,12 +77,12 @@
 }
 
 .forget-password{
-    color: #fff;
+    color: black;
     font-weight: bold;
 }
 
 .havent-account{
-    color: #fff;
+    color: black;
     font-weight: bold;
 }
 
@@ -101,7 +98,7 @@
 }
 
 .custom-control-label{
-    color: #fff;
+    color: black;
     font-weight: bold;
 }
 

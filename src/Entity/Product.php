@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ProductRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\Date;
 
 /**
  * @ORM\Entity(repositoryClass=ProductRepository::class)
@@ -45,21 +46,15 @@ class Product
     private $picture_product = [];
 
     /**
-     * @ORM\ManyToOne(targetEntity=Gender::class)
+     * @ORM\Column(type="string", length=255)
      */
     private $gender;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Size::class)
+     * @ORM\Column(type="string", length=255)
      * @ORM\JoinColumn(nullable=false)
      */
     private $size;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=Type::class)
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $type;
 
     /**
      * @ORM\ManyToOne(targetEntity=Color::class)
@@ -73,19 +68,19 @@ class Product
     private $color_secondary;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Brand::class)
+     * @ORM\Column(type="string", length=255)
      * @ORM\JoinColumn(nullable=false)
      */
     private $brand;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Quality::class)
+     * @ORM\Column(type="string", length=255)
      * @ORM\JoinColumn(nullable=false)
      */
     private $quality;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Category::class)
+     * @ORM\Column(type="string", length=255)
      * @ORM\JoinColumn(nullable=false)
      */
     private $category;
@@ -109,6 +104,14 @@ class Product
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $update_datetime;
+
+    /**
+     * Product constructor.
+     */
+    public function __construct()
+    {
+        $this->setCreationDatetime(new \DateTime('now'));
+    }
 
     public function getId(): ?int
     {

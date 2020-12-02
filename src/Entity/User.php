@@ -107,10 +107,29 @@ class User implements UserInterface
      */
     private $isVerified = false;
 
-    public function __construct()
+    /**
+     * User constructor.
+     * @param $username
+     * @param $firstname
+     * @param $lastname
+     * @param $email
+     * @param $password
+     * @param $role
+     * @param $creation_datetime
+     * @param bool $isVerified
+     */
+    public function __construct($username, $firstname, $lastname, $email, $password, $role, $creation_datetime, bool $isVerified)
     {
-        $this->state_id = new ArrayCollection();
+        $this->username = $username;
+        $this->firstname = $firstname;
+        $this->lastname = $lastname;
+        $this->email = $email;
+        $this->password = $password;
+        $this->role = $role;
+        $this->creation_datetime = $creation_datetime;
+        $this->isVerified = $isVerified;
     }
+
 
     public function getId(): ?int
     {

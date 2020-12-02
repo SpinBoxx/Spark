@@ -4,7 +4,6 @@ namespace App\Entity;
 
 use App\Repository\ProductRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints\Date;
 
 /**
  * @ORM\Entity(repositoryClass=ProductRepository::class)
@@ -25,7 +24,7 @@ class Product
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity=State::class)
+     * @ORM\ManyToOne(targetEntity=State::class,cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $state;
@@ -57,13 +56,13 @@ class Product
     private $size;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Color::class)
+     * @ORM\ManyToOne(targetEntity=Color::class,cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $color_primary;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Color::class)
+     * @ORM\ManyToOne(targetEntity=Color::class,cascade={"persist"})
      */
     private $color_secondary;
 
@@ -80,7 +79,7 @@ class Product
     private $quality;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\ManyToOne(targetEntity=Category::class,cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $category;
@@ -107,11 +106,38 @@ class Product
 
     /**
      * Product constructor.
+     * @param $user
+     * @param $state
+     * @param $title
+     * @param $description
+     * @param array $picture_product
+     * @param $gender
+     * @param $size
+     * @param $color_primary
+     * @param $color_secondary
+     * @param $brand
+     * @param $quality
+     * @param $category
+     * @param $price
      */
-    public function __construct()
+    public function __construct($user, $state, $title, $description, array $picture_product, $gender, $size, $color_primary, $color_secondary, $brand, $quality, $category, $price)
     {
-        $this->setCreationDatetime(new \DateTime('now'));
+        $this->user = $user;
+        $this->state = $state;
+        $this->title = $title;
+        $this->description = $description;
+        $this->picture_product = $picture_product;
+        $this->gender = $gender;
+        $this->size = $size;
+        $this->color_primary = $color_primary;
+        $this->color_secondary = $color_secondary;
+        $this->brand = $brand;
+        $this->quality = $quality;
+        $this->category = $category;
+        $this->price = $price;
+        $this->creation_datetime = new \DateTime('now');
     }
+
 
     public function getId(): ?int
     {
@@ -166,40 +192,148 @@ class Product
         return $this;
     }
 
-    public function getGenderId(): ?Gender
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param mixed $user
+     */
+    public function setUser($user): void
+    {
+        $this->user = $user;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getState()
+    {
+        return $this->state;
+    }
+
+    /**
+     * @param mixed $state
+     */
+    public function setState($state): void
+    {
+        $this->state = $state;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getGender()
     {
         return $this->gender;
     }
 
-    public function setGenderId(?Gender $gender): self
+    /**
+     * @param mixed $gender
+     */
+    public function setGender($gender): void
     {
         $this->gender = $gender;
-
-        return $this;
     }
 
-    public function getSizeId(): ?Size
+    /**
+     * @return mixed
+     */
+    public function getSize()
     {
         return $this->size;
     }
 
-    public function setSizeId(?Size $size): self
+    /**
+     * @param mixed $size
+     */
+    public function setSize($size): void
     {
         $this->size = $size;
-
-        return $this;
     }
 
-    public function getTypeId(): ?Type
+    /**
+     * @return mixed
+     */
+    public function getColorPrimary()
     {
-        return $this->type;
+        return $this->color_primary;
     }
 
-    public function setTypeId(?Type $type): self
+    /**
+     * @param mixed $color_primary
+     */
+    public function setColorPrimary($color_primary): void
     {
-        $this->type = $type;
+        $this->color_primary = $color_primary;
+    }
 
-        return $this;
+    /**
+     * @return mixed
+     */
+    public function getColorSecondary()
+    {
+        return $this->color_secondary;
+    }
+
+    /**
+     * @param mixed $color_secondary
+     */
+    public function setColorSecondary($color_secondary): void
+    {
+        $this->color_secondary = $color_secondary;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBrand()
+    {
+        return $this->brand;
+    }
+
+    /**
+     * @param mixed $brand
+     */
+    public function setBrand($brand): void
+    {
+        $this->brand = $brand;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getQuality()
+    {
+        return $this->quality;
+    }
+
+    /**
+     * @param mixed $quality
+     */
+    public function setQuality($quality): void
+    {
+        $this->quality = $quality;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param mixed $category
+     */
+    public function setCategory($category): void
+    {
+        $this->category = $category;
     }
 
     public function getColorPrimaryId(): ?Color
@@ -226,29 +360,6 @@ class Product
         return $this;
     }
 
-    public function getBrandId(): ?Brand
-    {
-        return $this->brand;
-    }
-
-    public function setBrandId(?Brand $brand): self
-    {
-        $this->brand = $brand;
-
-        return $this;
-    }
-
-    public function getQualityId(): ?Quality
-    {
-        return $this->quality;
-    }
-
-    public function setQualityId(?Quality $quality): self
-    {
-        $this->quality = $quality;
-
-        return $this;
-    }
 
     public function getCategoryId(): ?Category
     {

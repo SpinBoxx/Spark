@@ -2,11 +2,11 @@
 
 namespace App\Command;
 
-use App\Entity\Brand;
+use App\Entity\Category;
 use App\Entity\Color;
-use App\Entity\Gender;
-use App\Entity\Size;
-use App\Entity\Type;
+use App\Entity\Product;
+use App\Entity\State;
+use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -62,12 +62,12 @@ class PopulateDatabaseCommand extends Command
             "Kappa",
             "New Balance"
         ];
-        $sizes = ["XS","S","M","L","XL"];
+        $sizes = ["XS", "S", "M", "L", "XL"];
         $genders = ["Homme", "Femme", "NA", "Enfant"];
         $color_repo = $this->em->getRepository(Color::class);
-        $brand_repo = $this->em->getRepository(Brand::class);
-        $size_repo = $this->em->getRepository(Size::class);
-        $gender_repo = $this->em->getRepository(Gender::class);
+        $product_repo = $this->em->getRepository(Product::class);
+        $user_repo = $this->em->getRepository(User::class);
+
         $connection = $this->em->getConnection();
         $io = new SymfonyStyle($input, $output);
 
@@ -87,42 +87,6 @@ class PopulateDatabaseCommand extends Command
                 $io->note($color . " " . $hex . " Created");
             }
 
-            //remove all existing brand
-
-            foreach ($brand_repo->findAll() as $brand) {
-                $this->em->remove($brand);
-            }
-
-            $io->note("Brand table data removed");
-            foreach ($brands as $brand) {
-                $this->em->persist(new Brand($slugify->slugify($brand), $brand));
-                $io->note($brand . " Created");
-            }
-
-            //remove all existing size
-
-//            foreach ($size_repo->findAll() as $size) {
-//                $this->em->remove($size);
-//            }
-//
-//            $io->note("Size table data removed");
-//            foreach ($sizes as $size) {
-//                $this->em->persist(new Size(new Type(), $slugify->slugify($size), $size));
-//                $io->note($size . " Created");
-//            }
-
-            //remove all existing gender
-
-            foreach ($gender_repo->findAll() as $gender) {
-                $this->em->remove($gender);
-            }
-
-            $io->note("Gender table data removed");
-            foreach ($genders as $gender) {
-                $this->em->persist(new Gender($slugify->slugify($gender), $gender));
-                $io->note($gender . " Created");
-            }
-
         } else {
             foreach ($color_array as $color => $hex) {
                 // Check if NOT exist
@@ -132,30 +96,36 @@ class PopulateDatabaseCommand extends Command
                 }
                 $io->note($color . " " . $hex . " already exist");
             }
-            foreach ($brands as $brand) {
-                // Check if NOT exist
-                if ($brand_repo->findBy(["label" => $brand]) == null) {
-                    $this->em->persist(new Brand($slugify->slugify($brand), $brand));
-                    $io->note($brand);
-                }
-                $io->note($brand . " already exist");
-            }
-//            foreach ($sizes as $size) {
-//                // Check if NOT exist
-//                if ($brand_repo->findBy(["label" => $size]) == null) {
-//                    $this->em->persist(new Size(new Type(), $slugify->slugify($size), $size));
-//                    $io->note($size);
-//                }
-//                $io->note($brand . " already exist");
-//            }
-            foreach ($genders as $gender) {
-                // Check if NOT exist
-                if ($gender_repo->findBy(["label" => $gender]) == null) {
-                    $this->em->persist(new Gender($slugify->slugify($gender), $gender));
-                    $io->note($gender);
-                }
-                $io->note($gender . " already exist");
-            }
+            //Add a User
+            $this->em->persist(new User('username',
+                'jean',
+                'dupont',
+                'jean.dupont@email.com',
+                base64_encode('password'),
+                'ROLE_USER',
+                new \DateTime('now'),
+            1
+            ));
+            // Add a product
+            $user = $user_repo->findOneBy(['username' => 'alexis']);
+
+            $this->em->persist(new Product($user,
+                new State('Vendu', 'Vendu'),
+                'title',
+                'description',
+                [],
+                'Male',
+                'XS',
+                new Color('Red', 'Red', '#FFFFFF'),
+                new Color('Red', 'Red', '#FFFFFF'),
+                'Adidas',
+                'Neuf',
+                new Category('Tennis', 'Tennis'),
+                1.25
+            ));
+            $io->note("Product creatd");
+
+
         }
         $this->em->flush();
         $io->success('Succesfully populate database');

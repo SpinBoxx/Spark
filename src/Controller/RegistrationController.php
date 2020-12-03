@@ -40,14 +40,21 @@ class RegistrationController extends AbstractController
     public function register(Request $request, UserPasswordEncoderInterface $encoder): Response
     {
         $request = $request->request->all();
-        $user = new User($request['pseudo'], $request['email']);
-        $hash = $encoder->encodePassword($user, $request['password']);
-        $user->setPassword($hash);
-        $user->setRoles(['ROLE_USER']);
-        $this->em->persist($user);
-        $this->em->flush();
+        $userExiste = $this->em->getRepository(User::class)->findOneBy(['email' => $request['email']]);
+        if($userExiste instanceof User){
+            $this->addFlash('error', 'L\'email est deja pris');
+            return $this->render('registration/register.html.twig');
+        }else{
+            $user = new User($request['pseudo'], $request['email']);
+            $hash = $encoder->encodePassword($user, $request['password']);
+            $user->setPassword($hash);
+            $user->setRoles(['ROLE_USER']);
+            $this->em->persist($user);
+            $this->em->flush();
+            return $this->render('login/login.html.twig');
+        }
 
-        return $this->render('login/login.html.twig');
+
     }
 
     /**

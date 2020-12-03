@@ -1,11 +1,16 @@
-<h1>Hi! Please confirm your email!</h1>
+{% extends 'base_email.html.twig' %}
 
-<p>
-    Please confirm your email address by clicking the following link: <br><br>
-    <a href="{{ signedUrl|raw }}">Confirm my Email</a>.
-    This link will expire in {{ expiresAt|date('g') }} hour(s).
-</p>
+{% block title %}Log in!{% endblock %}
 
-<p>
-    Cheers!
-</p>
+{% block body %}
+    <h1 style="color: darkblue; text-align: center">Bienvenue dans la communauté Spark {{ username }} ! </h1>
+    <p>
+        Veuillez cliquer sur le lien ci-dessous pour confirmer votre compte : <br><br>
+        <a href="{{ path('app_login') }}">Comfirmer mon compte</a>.
+        This link will expire in {{ expiration_date }}.
+    </p>
+    <p>
+        Cheers!
+    </p>
+{% endblock %}
+

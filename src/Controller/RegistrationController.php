@@ -4,12 +4,12 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Security\EmailVerifier;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
 
 class RegistrationController extends AbstractController
@@ -34,12 +34,16 @@ class RegistrationController extends AbstractController
     /**
      * @Route("/register/validate", name="app_register_validate")
      * @param Request $request
+     * @param UserPasswordEncoderInterface $encoder
      * @return Response
      */
-    public function register(Request $request): Response
+    public function register(Request $request, UserPasswordEncoderInterface $encoder): Response
     {
         $request = $request->request->all();
-        $user = new User($request['pseudo'], $request['email'], sha1($request['pseudo']));
+        $user = new User($request['pseudo'], $request['email']);
+        $hash = $encoder->encodePassword($user, $request['password']);
+        $user->setPassword($hash);
+        $user->setRoles(['ROLE_USER']);
         $this->em->persist($user);
         $this->em->flush();
 

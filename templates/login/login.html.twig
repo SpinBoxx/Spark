@@ -10,6 +10,9 @@
     {% for flashError in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
 
     <div class="container-fluid">
         <div class="row">
@@ -28,7 +31,8 @@
                             <a href="{{ path('app_register') }}" class="havent-account">Pas de compte ?</a>
                         </h5>
                     </div>
-                    <form action="{{ path('app_login_validate') }}" method="post">
+
+                    <form method="post">
                         <div class="form-input">
                             <span><i class="far fa-envelope"></i></span>
                             <input type="email" name="email" placeholder="Veuillez entrer votre adresse email" required>
@@ -59,7 +63,6 @@
                             <a href="" class="btn btn-social btn-google">Google</a>
                             <a href="" class="btn btn-social btn-twitter">Twitter</a>
                         </div>
-
                     </form>
                 </div>
             </div>

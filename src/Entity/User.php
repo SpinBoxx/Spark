@@ -49,9 +49,9 @@ class User implements UserInterface
     private $password;
 
     /**
-     * @ORM\Column(type="string", length=20, nullable=true)
+     * @ORM\Column(type="json")
      */
-    private $role;
+    private $roles = [];
 
     /**
      * @ORM\Column(type="string", length=10, nullable=true)
@@ -108,10 +108,9 @@ class User implements UserInterface
      */
     private $isVerified = false;
 
-    public function __construct($username, $password, $email)
+    public function __construct($username, $email)
     {
         $this->username = $username;
-        $this->password = $password;
         $this->email = $email;
         $this->creation_datetime = DateTime::createFromFormat('Y-m-d H:i:s',date('Y-m-d H:i:s'))->format("d-m-Y H:i:s");
     }
@@ -181,14 +180,21 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getRole(): ?string
+    /**
+     * @see UserInterface
+     */
+    public function getRoles(): array
     {
-        return ['ROLE_USER'];
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
     }
 
-    public function setRole(string $role): self
+    public function setRoles(array $roles): self
     {
-        $this->role = $role;
+        $this->roles = $roles;
 
         return $this;
     }
@@ -353,7 +359,6 @@ class User implements UserInterface
      */
     public function getSalt(){}
 
-
     /**
      * Removes sensitive data from the user.
      *
@@ -362,10 +367,6 @@ class User implements UserInterface
      */
     public function eraseCredentials(){}
 
-    public function getRoles()
-    {
-        return array('ROLE_USER');
-    }
 
     public function isVerified(): bool
     {

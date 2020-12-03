@@ -6,6 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="28ff6e69-454e-41c9-b37b-ecf6c22f9d14" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/translation.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/translation.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/login/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login/login.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -148,7 +155,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/registration" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../testLogin" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -199,7 +206,8 @@
       <workItem from="1606374904123" duration="1252000" />
       <workItem from="1606484626918" duration="24081000" />
       <workItem from="1606771448249" duration="913000" />
-      <workItem from="1606895350760" duration="2705000" />
+      <workItem from="1606895350760" duration="19763000" />
+      <workItem from="1606989170626" duration="7069000" />
     </task>
     <servers />
   </component>
@@ -229,6 +237,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="752" y="282" width="507" height="273" key="#com.intellij.ide.actionMacro.EditMacrosDialog/0.0.1536.824@0.0.1536.824" timestamp="1602697788292" />
+    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser" timestamp="1606904374914">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1606904374914" />
     <state x="640" y="256" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1606897526561">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -241,11 +253,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="358" y="165" width="482" height="498" key="EnvironmentVariablesDialog/0.0.1536.824@0.0.1536.824" timestamp="1602697119052" />
-    <state x="686" y="211" key="FileChooserDialogImpl" timestamp="1606486695541">
+    <state x="686" y="211" key="FileChooserDialogImpl" timestamp="1606991741655">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1602697036610" />
-    <state x="686" y="211" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1606486695541" />
+    <state x="686" y="211" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1606991741655" />
     <state x="646" y="310" width="387" height="203" key="Github.ShareDialog" timestamp="1602692599810">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -279,14 +291,18 @@
     </state>
     <state x="480" y="64" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1602697915013" />
     <state x="600" y="81" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1606338391825" />
-    <state x="612" y="185" width="844" height="534" key="find.popup" timestamp="1606166121360">
+    <state x="483" y="168" width="1126" height="684" key="find.popup" timestamp="1607000087173">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="612" y="185" width="844" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1606166121360" />
+    <state x="483" y="168" width="1126" height="684" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1607000087173" />
     <state x="93" y="93" width="1350" height="638" key="git4idea.log.GitShowExternalLogAction" timestamp="1602692682318">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="git4idea.log.GitShowExternalLogAction/0.0.1536.824@0.0.1536.824" timestamp="1602692682318" />
+    <state x="1283" y="295" key="refactoring.ChangeSignatureDialog" timestamp="1606912073407">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1283" y="295" key="refactoring.ChangeSignatureDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606912073407" />
     <state x="539" y="183" width="840" height="856" key="search.everywhere.popup" timestamp="1606252162449">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -28,29 +29,29 @@ class User implements UserInterface
     private $username;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $firstname;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $lastname;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $email;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $password;
 
     /**
-     * @ORM\Column(type="string", length=20)
+     * @ORM\Column(type="json")
      */
-    private $role;
+    private $roles = [];
 
     /**
      * @ORM\Column(type="string", length=10, nullable=true)
@@ -93,12 +94,12 @@ class User implements UserInterface
     private $picture_profil;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="string")
      */
     private $creation_datetime;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $update_datetime;
 
@@ -107,27 +108,12 @@ class User implements UserInterface
      */
     private $isVerified = false;
 
-    /**
-     * User constructor.
-     * @param $username
-     * @param $firstname
-     * @param $lastname
-     * @param $email
-     * @param $password
-     * @param $role
-     * @param $creation_datetime
-     * @param bool $isVerified
-     */
-    public function __construct($username, $firstname, $lastname, $email, $password, $role, $creation_datetime, bool $isVerified)
+
+    public function __construct($username, $email)
     {
         $this->username = $username;
-        $this->firstname = $firstname;
-        $this->lastname = $lastname;
         $this->email = $email;
-        $this->password = $password;
-        $this->role = $role;
-        $this->creation_datetime = $creation_datetime;
-        $this->isVerified = $isVerified;
+        $this->creation_datetime = DateTime::createFromFormat('Y-m-d H:i:s',date('Y-m-d H:i:s'))->format("d-m-Y H:i:s");
     }
 
 
@@ -196,14 +182,21 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getRole(): ?string
+    /**
+     * @see UserInterface
+     */
+    public function getRoles(): array
     {
-        return ['ROLE_USER'];
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
     }
 
-    public function setRole(string $role): self
+    public function setRoles(array $roles): self
     {
-        $this->role = $role;
+        $this->roles = $roles;
 
         return $this;
     }
@@ -368,7 +361,6 @@ class User implements UserInterface
      */
     public function getSalt(){}
 
-
     /**
      * Removes sensitive data from the user.
      *
@@ -377,10 +369,6 @@ class User implements UserInterface
      */
     public function eraseCredentials(){}
 
-    public function getRoles()
-    {
-        return array('ROLE_USER');
-    }
 
     public function isVerified(): bool
     {

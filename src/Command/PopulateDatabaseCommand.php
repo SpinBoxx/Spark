@@ -9,7 +9,7 @@ use App\Entity\State;
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -22,11 +22,13 @@ class PopulateDatabaseCommand extends Command
 
     /** @var EntityManagerInterface $em * */
     private $em;
+    private $encoder;
 
-    public function __construct(EntityManagerInterface $em)
+    public function __construct(EntityManagerInterface $em,  UserPasswordEncoderInterface $encoder)
     {
         parent::__construct();
         $this->em = $em;
+        $this->encoder = $encoder;
     }
 
     protected function configure()
@@ -97,17 +99,22 @@ class PopulateDatabaseCommand extends Command
                 $io->note($color . " " . $hex . " already exist");
             }
             //Add a User
-            $this->em->persist(new User('username',
+           $user = new User('username',
                 'jean',
                 'dupont',
                 'jean.dupont@email.com',
-                base64_encode('password'),
+                '',
                 'ROLE_USER',
                 new \DateTime('now'),
-            1
-            ));
+                1
+            );
+            $user->setRoles(['ROLE_USER']);
+            $hash = $this->encoder->encodePassword($user, 'password');
+            $user->setPassword($hash);
+            $this->em->persist($user);
+            $this->em->flush();
             // Add a product
-            $user = $user_repo->findOneBy(['username' => 'alexis']);
+            $user = $user_repo->findOneBy(['username' => 'username']);
 
             $this->em->persist(new Product($user,
                 new State('Vendu', 'Vendu'),
@@ -123,7 +130,7 @@ class PopulateDatabaseCommand extends Command
                 new Category('Tennis', 'Tennis'),
                 1.25
             ));
-            $io->note("Product creatd");
+            $io->note("Product created");
 
 
         }

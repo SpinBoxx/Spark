@@ -91,22 +91,17 @@ class PopulateDatabaseCommand extends Command
 
         } else {
             foreach ($color_array as $color => $hex) {
-                // Check if NOT exist
-                if ($color_repo->findBy(["label" => $color]) == null) {
+                // Check if exist
+                if ($color_repo->findBy(["label" => $color])) {
+                    $io->note($color . " " . $hex . " already exist");
+                }else {
                     $this->em->persist(new Color($slugify->slugify($color), $color, $hex));
                     $io->note($color . " " . $hex);
                 }
-                $io->note($color . " " . $hex . " already exist");
             }
             //Add a User
            $user = new User('username',
-                'jean',
-                'dupont',
-                'jean.dupont@email.com',
-                '',
-                'ROLE_USER',
-                new \DateTime('now'),
-                1
+                'jean.dupont@email.com'
             );
             $user->setRoles(['ROLE_USER']);
             $hash = $this->encoder->encodePassword($user, 'password');

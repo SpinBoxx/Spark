@@ -31,7 +31,7 @@ class ProductController extends AbstractController
             return $this->redirectToRoute('task_success');
         }
 
-        return $this->render('product/index.html.twig', [
+        return $this->render('product/addproduct.html.twig', [
             'controller_name' => 'ProductController',
             'form' => $form->createView()
         ]);

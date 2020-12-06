@@ -23,7 +23,12 @@ class ProductType extends AbstractType
             ->add('title', TextType::class)
             ->add('description',TextareaType::class)
             ->add('picture_product')
-            ->add('gender', ChoiceType::class )
+            ->add('gender', ChoiceType::class, [
+                'choices' => [
+                    'Homme' => "homme",
+                    'Femme' => "femme",
+                    'NA' => "na",
+                ]])
             ->add('size', ChoiceType::class)
             ->add('brand', ChoiceType::class)
             ->add('quality', ChoiceType::class)
@@ -31,6 +36,14 @@ class ProductType extends AbstractType
             ->add('price', MoneyType::class)
             ->add('color_primary', ColorType::class)
             ->add('color_secondary', ColorType::class)
+            ->add('link', TextType::class)
+            ->add('picture_product', FileType::class, [
+                'multiple' => true,
+                'attr'     => [
+                    'accept' => 'image/*',
+                    'multiple' => 'multiple'
+                ]
+            ])
             ->add('save', SubmitType::class)
         ;
     }

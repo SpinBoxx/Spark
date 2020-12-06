@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+ {% block stylesheets %}
+     <link rel="stylesheet" href="{{ asset('style/register.css') }}">
+ {% endblock %}
+
+{% block title %}Hello ProductController!{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="row justify-content-center">
+               <h2>Vous aussi vendez vos affaires</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        {{ form_widget(form.title,{'attr': {'class':'form-control','placeholder': "Titre"}}) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_widget(form.category,{'attr': {'class':'form-control','placeholder': "Categorie"}}) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_widget(form.price,{'attr': {'class':'form-control','placeholder': "Prix"}}) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_widget(form.color_primary,{'attr': {'class':'form-control','placeholder': "Couleur primaire"}}) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_widget(form.size,{'attr': {'class':'form-control','placeholder': ""}}) }}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        {{ form_widget(form.brand,{'attr': {'class':'form-control','placeholder': "Marque"}}) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_widget(form.quality,{'attr': {'class':'form-control','placeholder': "Qualité"}}) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_widget(form.link,{'attr': {'class':'form-control','placeholder': "Lien officiel du produit"}}) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_widget(form.color_secondary,{'attr': {'class':'form-control','placeholder': "Couleur secondaire"}}) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_widget(form.gender,{'attr': {'class':'form-control','placeholder': "Genre"}}) }}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row align-items-center">
+        <div class="col-md-4">
+            <div class="form-group">
+                {{ form_widget(form.picture_product,{'attr': {'class':'form-control'}}) }}
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

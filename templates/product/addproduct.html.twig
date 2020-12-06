@@ -9,30 +9,30 @@
 {% block body %}
 
 <div class="container">
-    <div class="row">
+    <div class="row align-items-center">
         <div class="col-md-8">
-            <div class="row justify-content-center">
+            <div class="row">
                <h2>Vous aussi vendez vos affaires</h2>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-md-4">
+            <div class="row justify-content-center ">
+                <div class="col-md-6 justify-content-start">
                     <div class="form-group">
-                        {{ form_widget(form.title,{'attr': {'class':'form-control','placeholder': "Titre"}}) }}
+                        {{ form_widget(form.title,{'attr': {'class':'form-control','placeholder': "Nom du produit *"}}) }}
                     </div>
                     <div class="form-group">
                         {{ form_widget(form.category,{'attr': {'class':'form-control','placeholder': "Categorie"}}) }}
                     </div>
                     <div class="form-group">
-                        {{ form_widget(form.price,{'attr': {'class':'form-control','placeholder': "Prix"}}) }}
+                        {{ form_widget(form.price,{'attr': {'class':'form-control','placeholder': "9,99 €"},'money_pattern': '{{ widget }}'}) }}
                     </div>
                     <div class="form-group">
                         {{ form_widget(form.color_primary,{'attr': {'class':'form-control','placeholder': "Couleur primaire"}}) }}
                     </div>
                     <div class="form-group">
-                        {{ form_widget(form.size,{'attr': {'class':'form-control','placeholder': ""}}) }}
+                        {{ form_widget(form.size,{'attr': {'class':'form-control'}}) }}
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6 justify-content-end">
                     <div class="form-group">
                         {{ form_widget(form.brand,{'attr': {'class':'form-control','placeholder': "Marque"}}) }}
                     </div>
@@ -50,14 +50,18 @@
                     </div>
                 </div>
             </div>
-
-        </div>
-        <div class="row align-items-center">
-        <div class="col-md-4">
             <div class="form-group">
-                {{ form_widget(form.picture_product,{'attr': {'class':'form-control'}}) }}
+                {{ form_widget(form.description,{'attr': {'class':'form-control','placeholder': "description"}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_row(form.save,{'attr': {'class':'form-control btn-success' }}) }}
             </div>
         </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                {{ form_widget(form.picture_product,{'attr': {'class':'form-control'}}) }}
+                {{ form_label(form.picture_product) }}
+            </div>
         </div>
     </div>
 </div>

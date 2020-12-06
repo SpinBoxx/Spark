@@ -20,31 +20,48 @@ class ProductType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title', TextType::class)
-            ->add('description',TextareaType::class)
-            ->add('picture_product')
+            ->add('title', TextType::class, ['required' => true])
+            ->add('description',TextareaType::class, ['required' => true])
             ->add('gender', ChoiceType::class, [
+                'placeholder' => 'Genre',
                 'choices' => [
                     'Homme' => "homme",
                     'Femme' => "femme",
+                    'Enfant' => "enfant",
                     'NA' => "na",
-                ]])
-            ->add('size', ChoiceType::class)
-            ->add('brand', ChoiceType::class)
-            ->add('quality', ChoiceType::class)
-            ->add('category', ChoiceType::class)
-            ->add('price', MoneyType::class)
-            ->add('color_primary', ColorType::class)
+                ],
+                'required' => true])
+            ->add('size', ChoiceType::class, ['placeholder' => 'Taille',
+                'choices' => [
+                    'Chaussure' => [
+                        '20' => '20',
+                        '21' => '21',
+                    ],
+                    'Vêtement' => [
+                        'XS' => 'xs',
+                        'S' => 's',
+                        'M' => 'm',
+                        'L' => 'l',
+                        'XL' => 'xl',
+                    ],
+                ],
+                'required' => true])
+            ->add('brand', ChoiceType::class, ['placeholder' => 'Marque du produit'])
+            ->add('quality', ChoiceType::class, ['required' => true, 'placeholder' => 'Qualité du produit'])
+            ->add('category', ChoiceType::class, ['required' => true, 'placeholder' => 'Catégorie'])
+            ->add('price', MoneyType::class, ['required' => true])
+            ->add('color_primary', ColorType::class, ['required' => true])
             ->add('color_secondary', ColorType::class)
             ->add('link', TextType::class)
             ->add('picture_product', FileType::class, [
+                'label' => 'Uniquements les fichiers du type .jpg .jpeg .png sont acceptés.',
                 'multiple' => true,
                 'attr'     => [
                     'accept' => 'image/*',
                     'multiple' => 'multiple'
                 ]
             ])
-            ->add('save', SubmitType::class)
+            ->add('save', SubmitType::class, ['label' => 'Déposer mon annonce'])
         ;
     }
 

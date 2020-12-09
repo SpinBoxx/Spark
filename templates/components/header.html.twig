@@ -1,0 +1,40 @@
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('style/header.css') }}">
+{% endblock %}
+
+<div class="complete_header">
+    <div class="top_header">
+        <div class="div_header_logo"><img src={{ asset('images/header/Spark_logo_temp.svg') }}></div>
+        <div class="searchBar_header_div">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Rechercher des articles">
+        </div>
+        <div class="header_user_option">
+            <div class="top_header_icons">
+                <a href=""><img src={{ asset('images/header/send_icon.svg') }}></a>
+                <span>|</span>
+                <a href=""><img src={{ asset('images/header/message.svg') }}></a>
+                <span>|</span>
+                <a href=""><img src={{ asset('images/header/favorite_icon.svg') }}></a>
+            </div>
+            <div class="header_profil">
+                <img src="https://i.pravatar.cc/300">
+                <div>
+                    <p>John Doe<i class="fas fa-chevron-down"></i></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sub_header">
+        <div class="left_sub_header">
+            <a href=""><h3>Femme</h3></a>
+            <a href=""><h3>Homme</h3></a>
+            <a href=""><h3>Enfant</h3></a>
+            <a href=""><h3>Sport</h3></a>
+        </div>
+        <div class="right_sub_header">
+            <a href=""><h3>F.A.Q</h3></a>
+            <a href=""><h3>A propos</h3></a>
+        </div>
+    </div>
+</div>

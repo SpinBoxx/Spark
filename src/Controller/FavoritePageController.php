@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class FavoritePageController extends AbstractController
 {
     /**
-     * @Route("/favorite", name="favorite_page")
+     * @Route("/mes-favoris", name="favorite_page")
      */
     public function index(): Response
     {

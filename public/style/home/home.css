@@ -4,7 +4,7 @@ body{
 
 .image-container{
     background: url('https://i.ibb.co/RzC8fG9/image-body.png') center no-repeat;
-    background-size: 70%;
+    background-size: 50%;
     height: 100vh;
 
 }
@@ -15,6 +15,57 @@ body{
     justify-content: center;
 }
 
+.text-block-1{
+    position: relative;
+    top: -7%;
+    left: 20%;
+}
+
+.text-title{
+    font-weight: bold;
+    font-size: 4em;
+    color: #3e3e3e;
+}
+
+.text-comment{
+    font-weight: lighter;
+    font-size: 25px;
+    color: #3e3e3e;
+}
+
+.btn-buy{
+    background-color: #6fcf97;
+    display:inline-block;
+    color: white;
+    height: 40px;
+    width: 140px;
+    line-height:40px;
+    vertical-align: middle;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.btn-buy:link{
+    text-decoration: none;
+}
+
+.btn-buy:hover{
+    background-color: #3b9d62;
+    color: white;
+}
+
+.sell-now:link {
+    margin-left: 3%;
+    text-decoration:none;
+}
+
+.sell-now:hover {
+    margin-left: 3%;
+    text-decoration:none;
+    color: #2a71ba;
+    height: 40px;
+    border-bottom: 2px outset #2a71ba;
+}
 
 .circle{
     left: 40%;

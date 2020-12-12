@@ -1,0 +1,24 @@
+.photo-header{
+
+}
+
+.header-div-container{
+    position: absolute;
+    top: 45%;
+    left: 25%;
+    border: 2px solid black;
+    height: 200px;
+    width: 350px;
+    line-height:50px;
+    vertical-align: middle;
+    display: block;
+    border-top-right-radius: 44px;
+    border-bottom-left-radius: 44px;
+}
+.header-div-container h2{
+    margin-top: 10%;
+}
+
+.btn-header-container{
+    display: inline-block;
+}

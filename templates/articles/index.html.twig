@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tous les articles{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('style/articles/articles.css') }}">
+{% endblock %}
+
+{% block body %}
+
+<div class="">
+    <div class="photo-header">
+        <img src="{{ asset('images/articles/header-photo.png') }}" alt="" width="1920px">
+        <div class="header-div-container">
+            <h2>Envie de vendre <br> tes affaires inutilisés ?</h2>
+            <div class="btn-header-container">
+                <a href="">Je vends !</a>
+                <a href="">Comment ça marche ?</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

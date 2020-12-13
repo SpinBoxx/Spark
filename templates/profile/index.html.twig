@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ProfilController!{% endblock %}
+
+{% block body %}
+
+    <style>
+        h2{
+            font-family: "Poppins", sans-serif;
+            font-weight: 700;
+            font-size: 2.5rem;
+            color: rgba(0, 0, 0, 0.75);
+            text-align: left;
+            margin-bottom: 0;
+            margin-left: 6rem;
+            margin-top: 3rem;
+        }
+        #article_page_complete{
+            margin: 0 4rem;
+        }
+    </style>
+
+    <div id="description_profil"></div>
+
+    <div id="article_page_complete">
+        {% include 'components/articleCard.html.twig' %}
+    </div>
+
+{% endblock %}

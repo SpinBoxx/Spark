@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ErrorPageController extends AbstractController
 {
     /**
-     * @Route("/error", name="error_page")
+     * @Route("/error404", name="error_page")
      */
     public function index(): Response
     {

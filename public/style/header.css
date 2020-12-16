@@ -45,7 +45,8 @@ body{
     margin: auto
 }
 
-.div_header_logo > img {
+.div_header_logo > a >  img {
+    cursor: pointer;
     height: 40px;
 }
 

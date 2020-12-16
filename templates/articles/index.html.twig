@@ -3,21 +3,32 @@
 {% block title %}Tous les articles{% endblock %}
 
 {% block stylesheets %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('style/articles/articles.css') }}">
 {% endblock %}
 
 {% block body %}
 
-<div class="">
-    <div class="photo-header">
-        <img src="{{ asset('images/articles/header-photo.png') }}" alt="" width="1920px">
-        <div class="header-div-container">
-            <h2>Envie de vendre <br> tes affaires inutilisés ?</h2>
+    <div class="banner-area">
+        <div class="inner-container">
+            <h2>Envie de vendre <br> tes affaires inutilisées ?</h2>
             <div class="btn-header-container">
-                <a href="">Je vends !</a>
-                <a href="">Comment ça marche ?</a>
+                <a href="" class="sell">Je vends !</a>
+                <a href="" class="how-this-work">Comment ça marche ?</a>
             </div>
         </div>
     </div>
-</div>
+
+    <div class="sports-bar">
+        <h2 class="sports-bar-title">Retrouver vos sports préférés</h2>
+        <div class="image-sport-container text-center">
+            <i class="fas fa-chevron-circle-left fa-6x"></i>
+            <img src="{{ asset('images/articles/foot.png') }}" alt="">
+            <img src="{{ asset('images/articles/rubgy.png') }}" alt="">
+            <img src="{{ asset('images/articles/tennis.png') }}" alt="">
+            <img src="{{ asset('images/articles/basket.png') }}" alt="">
+            <img src="{{ asset('images/articles/boxe.png') }}" alt="">
+            <i class="fas fa-chevron-circle-right fa-6x"></i>
+        </div>
+    </div>
 {% endblock %}

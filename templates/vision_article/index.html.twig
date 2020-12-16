@@ -11,23 +11,23 @@
         <div class="row text-dark">
             <div class="col-sm">
                 <div class="text-center">
-                    <img src={{ asset('images/visionArticle/racket.png') }} alt="" style="width: 540px" class="my-5">
+                    <img src={{ asset('images/favorite/raquette.png') }} alt="" style="width: 540px" class="my-5">
                 </div>
                 <div class="row text-dark">
                     <div class="col-sm">
-                        <img src={{ asset('images/visionArticle/racket.png') }} alt="" style="width: 125px">
+                        <img src={{ asset('images/favorite/raquette.png') }} alt="" style="width: 125px">
                     </div>
                     <div class="col-sm">
-                        <img src={{ asset('images/visionArticle/racket.png') }} alt="" style="width: 125px">
+                        <img src={{ asset('images/favorite/raquette.png') }} alt="" style="width: 125px">
                     </div>
                     <div class="col-sm">
-                        <img src={{ asset('images/visionArticle/racket.png') }} alt="" style="width: 125px">
+                        <img src={{ asset('images/favorite/raquette.png') }} alt="" style="width: 125px">
                     </div>
                     <div class="col-sm">
-                        <img src={{ asset('images/visionArticle/racket.png') }} alt="" style="width: 125px">
+                        <img src={{ asset('images/favorite/raquette.png') }} alt="" style="width: 125px">
                     </div>
                     <div class="col-sm">
-                        <img src={{ asset('images/visionArticle/racket.png') }} alt="" style="width: 125px">
+                        <img src={{ asset('images/favorite/raquette.png') }} alt="" style="width: 125px">
                     </div>
                 </div>
             </div>
@@ -52,7 +52,7 @@
                     <h4 class="">Ajouter au favoris</h4>
                 </div>
             </div>
-            <div class="col-5 bg-light py-3">
+            <div class="col-5 bg-light py-5 px-4">
                 <h4>A propos du vendeur</h4>
                 <hr>
                 <div class="header_profil">
@@ -75,38 +75,39 @@
             <section id="favorite_card_section">
                 {% for i in 0..4 %}
                     <div class="favorite_card_div">
-                        <div class="favorite_card_align_heart">
-                            <div class="favorite_card_heart">
-                                <i class="fas fa-heart"></i>
-                            </div>
-                        </div>
-                        <div class="favorite_card_price">
-                            <p>15.99€</p>
-                        </div>
-                        <div class="favorite_card_div_image">
-                        </div>
-                        <div class="favorite_card_top_line_description">
-                            <div class="favorite_card_seller">
-                                <img src="https://i.pravatar.cc/300">
-                                <div>
-                                    <p>John Doe</p>
+                        <div>
+                            <div class="favorite_card_align_heart">
+                                <div class="favorite_card_heart">
+                                    <i class="fas fa-heart"></i>
                                 </div>
                             </div>
-                            <div class="favorite_card_date">
-                                <p>09/12/2020</p>
+                            <div class="favorite_card_div_image">
                             </div>
-                        </div>
-                        <div class="favorite_card_description">
-                            <h4>My Babolat 1</h4>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            </p>
-                        </div>
-                        <div class="favorite_card_sub_line_description">
-                            <p><a href="">Voir l'article ></a></p>
+                            <div class="favorite_card_top_line_description">
+                                <div class="favorite_card_seller">
+
+                                    <img src="https://i.pravatar.cc/300">
+                                    <div>
+                                        <p>John Doe</p>
+                                    </div>
+                                </div>
+                                <div class="favorite_card_date">
+                                    <p>09/12/2020</p>
+                                </div>
+                            </div>
+                            <div class="favorite_card_description">
+                                <h4>My Babolat 1</h4>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+                                    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                </p>
+                            </div>
+                            <div class="favorite_card_sub_line_description">
+                                <p>159.99€</p>
+                                <p><a href="">Voir l'article ></a></p>
+                            </div>
                         </div>
                     </div>
                 {% endfor %}

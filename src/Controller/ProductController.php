@@ -11,14 +11,14 @@ use Symfony\Component\Routing\Annotation\Route;
 class ProductController extends AbstractController
 {
     /**
-     * @Route("/newproduct", name="new_product")
+     * @Route("/ajouter-un-produite", name="add_product")
      */
     public function index(): Response
     {
         $product = new Product();
 
         return $this->render('product/addproduct.html.twig', [
-            'controller_name' => 'ProductController',
+
         ]);
     }
 }

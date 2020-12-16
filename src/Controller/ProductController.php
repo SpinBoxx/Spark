@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ProductController extends AbstractController
 {
     /**
-     * @Route("/ajouter-un-produite", name="add_product")
+     * @Route("/ajouter-un-produit", name="add_product")
      */
     public function index(): Response
     {

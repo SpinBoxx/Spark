@@ -1,13 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello MessagingController!{% endblock %}
+{% block title %}Mes messages{% endblock %}
 
 {% block body %}
     <h3 class="text-center my-5">Vous n’avez pas encore de message, relax !</h3>
     <div class="d-flex justify-content-center">
-        <img src="img/person.png" alt="">
+        <img src="../../public/images/messages/person.png" alt="">
         <svg width="1440" height="825" viewBox="0 0 1440 825" fill="none" xmlns="http://www.w3.org/2000/svg">
             <ellipse cx="724.5" cy="784" rx="834.5" ry="784" fill="#F4F4F4"/>
+            <img src="{{ asset('images/messages/person.png') }}" alt="">
+        </svg>
         </svg>
     </div>
 {% endblock %}

@@ -1,0 +1,30 @@
+.upload-btn-wrapper{
+     cursor: pointer;
+     background: #EFF9FA;
+     border: 2px solid #3E3E3E;
+     border-radius: 30px;
+     display: flex;
+     justify-content: center;
+     padding: 10px 10px 10px 10px;
+     width: 50%;
+}
+.upload-btn-wrapper:after {
+     content: "";
+     display: block;
+     padding-bottom: 100%;
+}
+.upload-btn-wrapper>input{
+     cursor: pointer;
+     visibility: hidden;
+}
+.upload-btn-wrapper>figure{
+     text-align: center;
+}
+.upload-btn-wrapper>img{
+     max-width:100%;
+     max-height:100%;
+     cursor: pointer;
+}
+#product_save{
+     height: fit-content;
+}

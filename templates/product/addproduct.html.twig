@@ -1,69 +1,118 @@
 {% extends 'base.html.twig' %}
 
  {% block stylesheets %}
-     <link rel="stylesheet" href="{{ asset('style/register.css') }}">
+     <link rel="stylesheet" href="{{ asset('style/newproduct.css') }}">
  {% endblock %}
 
 {% block title %}Hello ProductController!{% endblock %}
 
 {% block body %}
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-12">
+                    <h2>Vous aussi vendez vos affaires</h2>
+                    </div>
+                </div>
+                <div class="row justify-content-center ">
+                    <div class="col-md-6 justify-content-start">
+                        <div class="form-group">
+                            <input type="text" id="product_title" name="title" required="required" class="form-control"
+                                   placeholder="Nom du produit *">
+                        </div>
+                        <div class="form-group">
+                            <select id="product_category" name="category" required="required" class="form-control"
+                                    placeholder="Categorie">
+                                <option value="" selected="selected">Catégorie</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="product_price" name="price" required="required" class="form-control"
+                                   placeholder="9,99 €">
+                        </div>
+                        <div class="form-group">
+                            <input type="color" id="product_color_primary" name="color_primary" class="form-control"
+                                   placeholder="Couleur primaire">
+                        </div>
+                        <div class="form-group">
+                            <select id="product_size" name="size" required="required" class="form-control">
+                                <option value="" selected="selected">Taille</option>
+                                <optgroup label="Chaussure">
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                </optgroup>
+                                <optgroup label="Vêtement">
+                                    <option value="xs">XS</option>
+                                    <option value="s">S</option>
+                                    <option value="m">M</option>
+                                    <option value="l">L</option>
+                                    <option value="xl">XL</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6 justify-content-end">
+                        <div class="form-group">
+                            <select id="product_brand" name="brand" required="required" class="form-control"
+                                    placeholder="Marque">
+                                <option value="" selected="selected">Marque du produit</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select id="product_quality" name="quality" required="required" class="form-control"
+                                    placeholder="Qualité">
+                                <option value="" selected="selected">Qualité du produit</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="product_link" name="link" required="required" class="form-control"
+                                   placeholder="Lien officiel du produit">
+                        </div>
+                        <div class="form-group">
+                            <input type="color" id="product_color_secondary" name="color_secondary" class="form-control"
+                                   placeholder="Couleur secondaire">
+                        </div>
+                        <div class="form-group">
+                            <select id="product_gender" name="gender" required="required" class="form-control"
+                                    placeholder="Genre">
+                                <option value="" selected="selected">Genre</option>
+                                <option value="homme">Homme</option>
+                                <option value="femme">Femme</option>
+                                <option value="enfant">Enfant</option>
+                                <option value="na">NA</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <textarea id="product_description" name="description" required="required" class="form-control"
+                              placeholder="description"></textarea>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label for="product_picture_product" class="upload-btn-wrapper justify-content-center required">
+                    <figure>
+                        <img src="{{ asset('images/icon/addfile.png') }}" alt="No image">
+                        <figcaption><b>Ajoutez une photo à votre produit</b></figcaption>
+                        <figcaption>Choissisez une photo nette et de bonne qualité.</figcaption>
+                    </figure>
+                </label>
+                <span><b>Format photo</b></span>
+                <p>Uniquements les fichiers du type .jpg .jpeg .png sont acceptés.</p>
+                <input hidden type="file" id="product_picture_product" name="picture_product[]" required="required"
+                       accept="image/*" multiple="multiple" class="form-control">
+            </div>
+            <div class="col-md-3 offset-md-5">
+                <div class="form-group">
+                    <div>
+                        <button type="submit" id="product_save" name="save" class="form-control btn-success">Déposer mon annonce
+                        </button>
+                    </div>
+                </div>
+            </div>
 
-<div class="container">
-    <div class="row align-items-center">
-        <div class="col-md-8">
-            <div class="row">
-               <h2>Vous aussi vendez vos affaires</h2>
-            </div>
-            <div class="row justify-content-center ">
-                <div class="col-md-6 justify-content-start">
-                    <div class="form-group">
-                        {{ form_widget(form.title,{'attr': {'class':'form-control','placeholder': "Nom du produit *"}}) }}
-                    </div>
-                    <div class="form-group">
-                        {{ form_widget(form.category,{'attr': {'class':'form-control','placeholder': "Categorie"}}) }}
-                    </div>
-                    <div class="form-group">
-                        {{ form_widget(form.price,{'attr': {'class':'form-control','placeholder': "9,99 €"},'money_pattern': '{{ widget }}'}) }}
-                    </div>
-                    <div class="form-group">
-                        {{ form_widget(form.color_primary,{'attr': {'class':'form-control','placeholder': "Couleur primaire"}}) }}
-                    </div>
-                    <div class="form-group">
-                        {{ form_widget(form.size,{'attr': {'class':'form-control'}}) }}
-                    </div>
-                </div>
-                <div class="col-md-6 justify-content-end">
-                    <div class="form-group">
-                        {{ form_widget(form.brand,{'attr': {'class':'form-control','placeholder': "Marque"}}) }}
-                    </div>
-                    <div class="form-group">
-                        {{ form_widget(form.quality,{'attr': {'class':'form-control','placeholder': "Qualité"}}) }}
-                    </div>
-                    <div class="form-group">
-                        {{ form_widget(form.link,{'attr': {'class':'form-control','placeholder': "Lien officiel du produit"}}) }}
-                    </div>
-                    <div class="form-group">
-                        {{ form_widget(form.color_secondary,{'attr': {'class':'form-control','placeholder': "Couleur secondaire"}}) }}
-                    </div>
-                    <div class="form-group">
-                        {{ form_widget(form.gender,{'attr': {'class':'form-control','placeholder': "Genre"}}) }}
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                {{ form_widget(form.description,{'attr': {'class':'form-control','placeholder': "description"}}) }}
-            </div>
-            <div class="form-group">
-                {{ form_row(form.save,{'attr': {'class':'form-control btn-success' }}) }}
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="form-group">
-                {{ form_widget(form.picture_product,{'attr': {'class':'form-control'}}) }}
-                {{ form_label(form.picture_product) }}
-            </div>
         </div>
     </div>
-</div>
 
 {% endblock %}

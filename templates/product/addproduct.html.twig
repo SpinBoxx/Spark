@@ -18,17 +18,17 @@
                 <div class="row justify-content-center ">
                     <div class="col-md-6 justify-content-start">
                         <div class="form-group">
-                            <input type="text" id="product_title" name="title" required="required" class="text-input-field form-control"
+                            <input type="text" id="product_title" name="title" required class="text-input-field form-control"
                                    placeholder="Nom du produit">
                         </div>
                         <div class="form-group">
-                            <select id="product_category" name="category" required="required" class="select-input-field form-control"
+                            <select id="product_category" name="category" required class="select-input-field form-control"
                                     placeholder="Categorie">
                                 <option value="" selected="selected">Catégorie</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <input type="text" id="product_price" name="price" required="required" class="text-input-field form-control"
+                            <input type="text" id="product_price" name="price" required class="text-input-field form-control"
                                    placeholder="9,99 €">
                         </div>
                         <div class="form-group color-input-field">
@@ -38,7 +38,7 @@
                             </label>
                         </div>
                         <div class="form-group">
-                            <select id="product_size" name="size" required="required" class="select-input-field form-control">
+                            <select id="product_size" name="size" required class="select-input-field form-control">
                                 <option value="" selected="selected">Taille</option>
                                 <optgroup label="Chaussure">
                                     <option value="20">20</option>
@@ -56,13 +56,13 @@
                     </div>
                     <div class="col-md-6 justify-content-end">
                         <div class="form-group">
-                            <select id="product_brand" name="brand" required="required" class="select-input-field form-control"
+                            <select id="product_brand" name="brand" required class="select-input-field form-control"
                                     placeholder="Marque">
                                 <option value="" selected="selected">Marque du produit</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <select id="product_quality" name="quality" required="required" class="select-input-field form-control"
+                            <select id="product_quality" name="quality" required class="select-input-field form-control"
                                     placeholder="Qualité">
                                 <option value="" selected="selected">Qualité du produit</option>
                             </select>
@@ -77,10 +77,12 @@
                                        id="product_color_secondary"
                                        name="color_secondary"
                                        class="form-control"
-                                       placeholder="Couleur secondaire"></label>
+                                       placeholder="Couleur secondaire"
+                                >
+                            </label>
                         </div>
                         <div class="form-group">
-                            <select id="product_gender" name="gender" required="required" class="select-input-field form-control"
+                            <select id="product_gender" name="gender" required class="select-input-field form-control"
                                     placeholder="Genre">
                                 <option value="" selected="selected">Genre</option>
                                 <option value="homme">Homme</option>
@@ -92,8 +94,9 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <textarea id="product_description" name="description" required="required" class="text-input-field form-control"
-                              placeholder="Description"></textarea>
+                    <textarea id="product_description" name="description" required class="text-input-field form-control"
+                              placeholder="Description">
+                    </textarea>
                 </div>
             </div>
             <div class="col-md-3">
@@ -112,7 +115,7 @@
             <div class="col-md-3 offset-md-5">
                 <div class="form-group">
                     <div>
-                        <button type="submit" id="product_save" name="save" class="form-control btn-success">Déposer mon annonce
+                        <button type="submit" id="product_save" name="save" class="">Déposer mon annonce
                         </button>
                     </div>
                 </div>

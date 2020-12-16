@@ -50,9 +50,7 @@
 .select-input-field:focus{
      box-shadow: none;
 }
-.color-input-field{
 
-}
 .color-input-field input{
      outline: 0;
      border-radius: 0px;
@@ -85,3 +83,18 @@ input[type=color] {
 .form-control{
      padding: 0;
 }
+
+#product_save{
+     background-color: #6fcf97;
+     border: none;
+     border-radius: 18px;
+     height: 60px;
+     width: 150px;
+     color: white;
+}
+
+#product_save:hover{
+     border-bottom: 3px solid #30d48d;
+     background-color: #30d48d;
+}
+

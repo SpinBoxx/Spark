@@ -57,7 +57,8 @@
         "symfony/phpunit-bridge": "^5.1",
         "symfony/stopwatch": "^5.1",
         "symfony/var-dumper": "^5.1",
-        "symfony/web-profiler-bundle": "^5.1"
+        "symfony/web-profiler-bundle": "^5.1",
+        "symfony/web-server-bundle": "4.4.2"
     },
     "config": {
         "optimize-autoloader": true,

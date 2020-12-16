@@ -1,0 +1,92 @@
+.profil_section{
+    margin-right: 4rem;
+    background-color: #f6f6f6;
+    margin-top: 4rem;
+    margin-left: 4rem;
+    border-radius: 9px;
+    flex: auto;
+    padding: 1rem;
+}
+
+.article_number > p{
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: rgba(0, 0, 0, 0.75);
+    text-align: left;
+    margin-top: 10px;
+    margin-left: 6rem;
+}
+
+#article_page_complete{
+    margin: 0 4rem;
+}
+.align_article_card_seller{
+    display: flex;
+    margin-top: auto;
+    margin-bottom: auto;
+    justify-content: space-between;
+}
+
+.profil_seller > img {
+    z-index: 1;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.profil_seller > div {
+    height: 35px;
+    display: flex;
+}
+
+.profil_seller > div > p {
+    font-family: "Poppins", sans-serif;
+    font-size: larger;
+    margin-top: 17px;
+    color: rgba(0, 0, 0, 0.75);
+    padding-left: 8px;
+}
+
+.profil_seller {
+    display: flex;
+}
+
+.align_location > a > img{
+    height: 20px;
+    width: 2rem;
+}
+.align_location{
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 15px;
+    margin-left: 10px;
+}
+.description_profil{
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 20px;
+}
+.align_description_profil > h4 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    width: 10rem;
+    margin-top: 15px;
+    margin-left: 20px;
+}
+.button {
+    display: flex;
+    justify-content: flex-end;
+}
+.contact_button {
+    background-color: #61b785;
+    border-radius: 10px;
+    border: 0;
+    height: 40px;
+}
+.report_button {
+    background-color: #f6f6f6;
+    border: 0;
+    font-weight: 800;
+    height: 30px;
+}

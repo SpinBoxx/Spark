@@ -14,12 +14,13 @@
     font-size: 0.9rem;
     color: rgba(0, 0, 0, 0.75);
     text-align: left;
-    margin-top: 10px;
+    margin-top: 25px;
     margin-left: 6rem;
 }
 
-#article_page_complete{
+.article_page_complete{
     margin: 0 4rem;
+    position: absolute;
 }
 .align_article_card_seller{
     display: flex;
@@ -79,14 +80,23 @@
     justify-content: flex-end;
 }
 .contact_button {
-    background-color: #61b785;
+    background-color: #6FCF97;
     border-radius: 10px;
     border: 0;
     height: 40px;
+    color: white;
 }
 .report_button {
     background-color: #f6f6f6;
     border: 0;
     font-weight: 800;
     height: 30px;
+}
+.edit_button {
+    display: flex;
+    justify-content: flex-end;
+}
+.edit_button > a > img{
+    height: 25px;
+    width: 2rem;
 }

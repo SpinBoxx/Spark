@@ -1,6 +1,7 @@
 #article_card_section{
     display: flex;
     flex-wrap: wrap;
+    text-align: center;
 }
 
 .article_card_div{
@@ -10,6 +11,7 @@
     margin: 1.5rem;
     border-radius: 9px;
     box-shadow: 0px 10px 23px -6px rgba(0, 0, 0, 0.25);
+
 }
 
 .article_card_div > div {
@@ -112,17 +114,11 @@
     color: rgba(0, 0, 0, 0.75);
 }
 
-.article_card_align_price{
-    display: flex;
-    justify-content: flex-start;
-}
-
 .article_card_price{
     height: 30px;
     border-radius: 0px 0px 5px 0px;
     padding-left: 5px;
     padding-right: 5px;
-    overflow: hidden;
     background-color: #FFFFFF;
     position: absolute;
 }

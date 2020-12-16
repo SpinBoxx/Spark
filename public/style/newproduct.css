@@ -6,12 +6,6 @@
      display: flex;
      justify-content: center;
      padding: 10px 10px 10px 10px;
-     width: 50%;
-}
-.upload-btn-wrapper:after {
-     content: "";
-     display: block;
-     padding-bottom: 100%;
 }
 .upload-btn-wrapper>input{
      cursor: pointer;

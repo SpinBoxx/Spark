@@ -8,7 +8,7 @@
 
 {% block body %}
     <div class="container">
-        <form action="{{ path('add_product_validate') }}" method="post">
+        <form action="{{ path('product_insert') }}" method="post">
             <div class="row align-items-center">
                 <div class="col-md-8">
                     <div class="row">
@@ -30,7 +30,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <input type="text" id="product_price" name="price" required class="text-input-field form-control"
+                                <input type="number" id="product_price" name="price" required class="text-input-field form-control"
                                        placeholder="9.99 €">
                             </div>
                             <div class="form-group color-input-field">

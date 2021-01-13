@@ -4,10 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Color;
 use App\Entity\Product;
-use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\ColorType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -24,19 +22,22 @@ class ProductController extends AbstractController
     }
 
     /**
-     * @Route("/ajouter-un-produit", name="add_product")
+     * @Route("/ajouter-un-produit", name="product_add")
+     * @param Request $request
+     * @return Response
      */
     public function index(Request $request): Response
     {
-
         return $this->render('product/addproduct.html.twig', [
-
         ]);
     }
+
     /**
-     * @Route("/ajouter-un-produit/validated", name="add_product_validate")
+     * @Route("/prodcuct-insert", name="product_insert")
+     * @param Request $request
+     * @return Response
      */
-    public function validate(Request $request): Response
+    public function insertProduct(Request $request): Response
     {
         $product = new Product();
         if ($this->isGranted('ROLE_USER') == false) {
@@ -62,7 +63,6 @@ class ProductController extends AbstractController
                     $this->em->persist($newcolor);
                     $newcolor->setCode("code");
                     $newcolor->setLabel("label");
-                    $this->em->flush();
                     $product->setColorPrimary($newcolor);
                 }else{
                     $product->setColorPrimary($color);
@@ -79,7 +79,6 @@ class ProductController extends AbstractController
                     $newcolor->setCode("code");
                     $newcolor->setLabel("label");
                     $this->em->persist($newcolor);
-                    $this->em->flush();
                     $product->setColorPrimary($newcolor);
                 }else{
                     $product->setColorPrimary($color);
@@ -106,10 +105,9 @@ class ProductController extends AbstractController
             if($request['description'] != null){
                 $product->setDescription($request['description']);
             }
-            if($request['picture_product'] != null){
+            if($request['picture_product'] != null) {
                 $product->setPictureProduct([$request['picture_product']]);
             }
-
             $product->setUserId($this->security->getUser());
             $this->em->persist($product);
             $this->em->flush();

@@ -1,0 +1,128 @@
+{% extends 'base.html.twig' %}
+
+ {% block stylesheets %}
+     <link rel="stylesheet" href="{{ asset('style/newproduct.css') }}">
+ {% endblock %}
+
+{% block title %}Ajouter un produit{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <form>
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-12">
+                        <h2 class="new-product-title md-5">Vous aussi vendez vos affaires</h2>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center ">
+                        <div class="col-md-6 justify-content-start">
+                            <div class="form-group">
+                                <input type="text" id="product_title" name="title" required class="text-input-field form-control"
+                                       placeholder="Nom du produit">
+                            </div>
+                            <div class="form-group">
+                                <select id="product_category" name="category" class="select-input-field form-control"
+                                        placeholder="Categorie">
+                                    <option value="">Catégorie</option>
+                                    <option value="" selected>Catégorie2</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="product_price" name="price" required class="text-input-field form-control"
+                                       placeholder="9,99 €">
+                            </div>
+                            <div class="form-group color-input-field">
+                                <label for="product_color_primary">Couleur primaire
+                                    <input type="color" id="product_color_primary" name="color_primary" class="form-control"
+                                           placeholder="Couleur primaire">
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <select id="product_size" name="size" class="select-input-field form-control">
+                                    <option value="" selected>Taille</option>
+                                    <optgroup label="Chaussure">
+                                        <option value="20">20</option>
+                                        <option value="21">21</option>
+                                    </optgroup>
+                                    <optgroup label="Vêtement">
+                                        <option value="xs">XS</option>
+                                        <option value="s">S</option>
+                                        <option value="m">M</option>
+                                        <option value="l">L</option>
+                                        <option value="xl">XL</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6 justify-content-end">
+                            <div class="form-group">
+                                <select id="product_brand" name="brand" class="select-input-field form-control"
+                                        placeholder="Marque">
+                                    <option value="" selected>Marque du produit</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <select id="product_quality" name="quality" class="select-input-field form-control"
+                                        placeholder="Qualité">
+                                    <option value="" selected>Qualité du produit</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="product_link" name="link" class="text-input-field form-control"
+                                       placeholder="Lien officiel du produit">
+                            </div>
+                            <div class="form-group color-input-field">
+                                <label for="product_color_secondary">Couleur secondaire
+                                    <input type="color"
+                                           id="product_color_secondary"
+                                           name="color_secondary"
+                                           class="form-control"
+                                           placeholder="Couleur secondaire"
+                                    >
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <select id="product_gender" name="gender" class="select-input-field form-control"
+                                        placeholder="Genre">
+                                    <option value="" selected>Genre</option>
+                                    <option value="homme">Homme</option>
+                                    <option value="femme">Femme</option>
+                                    <option value="enfant">Enfant</option>
+                                    <option value="na">NA</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="product_description" name="description" required class="text-input-field form-control"
+                                  placeholder="Description">
+                        </textarea>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3">
+                    <label for="product_picture_product" class="upload-btn-wrapper justify-content-center required">
+                        <figure>
+                            <img src="{{ asset('images/icon/addfile.png') }}" alt="No image">
+                            <figcaption><b>Ajoutez une photo à votre produit</b></figcaption>
+                            <figcaption>Choissisez une photo nette et de bonne qualité.</figcaption>
+                        </figure>
+                    </label>
+                    <span><b>Format photo</b></span>
+                    <p>Uniquements les fichiers du type .jpg .jpeg .png sont acceptés.</p>
+                    <input hidden type="file" id="product_picture_product" name="picture_product" required
+                           accept="image/*" multiple="multiple" class="form-control">
+                </div>
+                <div class="col-md-3 offset-md-5">
+                    <div class="form-group">
+                        <div>
+                            <button type="submit" id="product_save" name="save">Déposer mon annonce
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

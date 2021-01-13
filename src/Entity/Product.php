@@ -166,101 +166,119 @@ class Product
         return $this;
     }
 
-    public function getGenderId(): ?Gender
+    /**
+     * @return mixed
+     */
+    public function getGender()
     {
         return $this->gender;
     }
 
-    public function setGenderId(?Gender $gender): self
+    /**
+     * @param mixed $gender
+     */
+    public function setGender($gender): void
     {
         $this->gender = $gender;
-
-        return $this;
     }
 
-    public function getSizeId(): ?Size
+    /**
+     * @return mixed
+     */
+    public function getSize()
     {
         return $this->size;
     }
 
-    public function setSizeId(?Size $size): self
+    /**
+     * @param mixed $size
+     */
+    public function setSize($size): void
     {
         $this->size = $size;
-
-        return $this;
     }
 
-    public function getTypeId(): ?Type
-    {
-        return $this->type;
-    }
-
-    public function setTypeId(?Type $type): self
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    public function getColorPrimaryId(): ?Color
+    /**
+     * @return mixed
+     */
+    public function getColorPrimary()
     {
         return $this->color_primary;
     }
 
-    public function setColorPrimaryId(?Color $color_primary): self
+    /**
+     * @param mixed $color_primary
+     */
+    public function setColorPrimary($color_primary): void
     {
         $this->color_primary = $color_primary;
-
-        return $this;
     }
 
-    public function getColorSecondaryId(): ?Color
+    /**
+     * @return mixed
+     */
+    public function getColorSecondary()
     {
         return $this->color_secondary;
     }
 
-    public function setColorSecondaryId(?Color $color_secondary): self
+    /**
+     * @param mixed $color_secondary
+     */
+    public function setColorSecondary($color_secondary): void
     {
         $this->color_secondary = $color_secondary;
-
-        return $this;
     }
 
-    public function getBrandId(): ?Brand
+
+    /**
+     * @return mixed
+     */
+    public function getBrand()
     {
         return $this->brand;
     }
 
-    public function setBrandId(?Brand $brand): self
+    /**
+     * @param mixed $brand
+     */
+    public function setBrand($brand): void
     {
         $this->brand = $brand;
-
-        return $this;
     }
 
-    public function getQualityId(): ?Quality
+    /**
+     * @return mixed
+     */
+    public function getQuality()
     {
         return $this->quality;
     }
 
-    public function setQualityId(?Quality $quality): self
+    /**
+     * @param mixed $quality
+     */
+    public function setQuality($quality): void
     {
         $this->quality = $quality;
-
-        return $this;
     }
 
-    public function getCategoryId(): ?Category
+    /**
+     * @return mixed
+     */
+    public function getCategory()
     {
         return $this->category;
     }
 
-    public function setCategoryId(?Category $category): self
+    /**
+     * @param mixed $category
+     */
+    public function setCategory($category): void
     {
         $this->category = $category;
-
-        return $this;
     }
+
 
     public function getPrice(): ?float
     {

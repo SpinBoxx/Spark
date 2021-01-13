@@ -1,0 +1,80 @@
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('style/footer.css') }}">
+{% endblock %}
+
+<div class="row bg-light text-dark py-3 px-5">
+    <div class="col-sm-3 mb-3">
+        <h5>Besoin d'aide ?</h5>
+        <a href="#" target="_blank" class="linkDefault">
+            <p>Suivre mon colis</p>
+        </a>
+        <a href="#" target="_blank" class="linkDefault">
+            <p>Guide des tailles</p>
+        </a>
+        <a href="#" target="_blank" class="linkDefault">
+            <p>Livraisons</p>
+        </a>
+        <a href="#" target="_blank" class="linkDefault">
+            <p>Retours</p>
+        </a>
+    </div>
+    <div class="col-sm-3 mb-5">
+        <h5>Suivez-nous</h5>
+        <div class="row mt-3">
+            <a href="https://www.facebook.com/" target="_blank">
+                <img src="{{ asset('images/social/facebook_icon.png') }}" alt="facebook" class="facebook">
+            </a>
+            <a href="https://twitter.com/" target="_blank">
+                <img src="{{ asset('images/social/twitter_icon.png') }}" alt="twitter" class="twitter">
+            </a>
+            <a href="https://www.instagram.com/" target="_blank">
+                <img src="{{ asset('images/social/instagram_icon.png') }}" alt="instagram" class="instagram">
+            </a>
+        </div>
+    </div>
+    <div class="col-sm-3 mb-3">
+        <h5>Nos garanties</h5>
+        <a href="#" target="_blank" class="linkDefault">
+            <p>Protection acheteurs & vendeurs</p>
+        </a>
+        <a href="#" target="_blank" class="linkDefault">
+            <p>Paiement sécurisé</p></div>
+        </a>
+    <div class="col-sm-3 mb-3">
+        <h5>Moyen de paiement</h5>
+        <a href="https://www.paypal.com" target="_blank">
+            <img src="{{ asset('images/social/paypal_icon.png') }}" alt="paypal" class="paypal">
+        </a>
+    </div>
+</div>
+<div class="row bg-dark text-white py-2 px-5">
+    <div class="col-sm-3">
+        <a href="#" target="_blank" class="linkWhite">
+            <p>Mentions légales</p>
+        </a>
+    </div>
+    <div class="col-sm-3">
+        <a href="#" target="_blank" class="linkWhite">
+            <p>Protection des données</p>
+        </a>
+    </div>
+    <div class="col-sm-3">
+        <a href="#" target="_blank" class="linkWhite">
+            <p>Paramètres des données</p>
+        </a>
+    </div>
+    <div class="col-sm-3">
+        <a href="#" target="_blank" class="linkWhite">
+            <p>Plan du site</p>
+        </a>
+    </div>
+</div>
+<div class="row bg-dark text-white py-1 px-4 backOnTop" id="goOnTop">
+    <div class="col">
+        <a href="#navBar" class="linkWhite">
+            {# TODO - Penser à ajouter l'ID navBar au Header final pour retourner en haut de la page#}
+            {# TODO - Voir pour avoir un 'SmoothScroll' #}
+            <p>Retourner en haut ↑</p>
+        </a>
+    </div>
+</div>

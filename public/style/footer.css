@@ -1,0 +1,29 @@
+.facebook {
+  width: 40px;
+  height: 43px;
+  margin-right: 8px;
+}
+.twitter {
+  width: 40px;
+  height: 43px;
+  margin-right: 8px;
+}
+.instagram {
+  width: 40px;
+  height: 43px;
+}
+.paypal {
+  width: 125px;
+}
+.backOnTop {
+  text-align: right;
+}
+.linkDefault {
+  color: black
+}
+.linkWhite {
+  color: white
+}
+.linkWhite:hover {
+  color: white
+}

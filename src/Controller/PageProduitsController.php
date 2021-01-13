@@ -42,7 +42,7 @@ class PageProduitsController extends AbstractController
             ]);
             $mailer->send($email);
         return $this->render('page_produits/index.html.twig', [
-            'controller_name' => 'PageProduitsController',
+
         ]);
     }
 }

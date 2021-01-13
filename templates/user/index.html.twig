@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserController!{% endblock %}
+
+{% block body %}
+    <h1>Hello {{ user_firstname }}</h1>
+    <form>
+        <label>Nom d'utilisateur</label>
+        <input value="{{ app.user.username }}" type="text"/>
+    </form>
+{% endblock %}

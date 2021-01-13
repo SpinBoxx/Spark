@@ -1,0 +1,50 @@
+.avatar {
+  height: 72px;
+}
+.avatar:hover {
+  height: 80px;
+}
+.trash {
+  height: 50px;
+}
+.linkDefault {
+  color: black;
+}
+.title {
+  position: absolute;
+  z-index: 3;
+  /* top: 50%;  */
+  left: 50%; /* à 50%/50% du parent référent */
+  transform: translate(-50%);
+  width: 100%;
+}
+.imgContainer {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+.person {
+  position: absolute;
+  z-index: 2;
+  top: 50%; 
+  left: 50%; /* à 50%/50% du parent référent */
+  transform: translate(-50%, -40%);
+}
+.ellipse {
+  position: absolute;
+  z-index: 1;
+  top: 50%; left: 50%; /* à 50%/50% du parent référent */
+  transform: translate(-50%, -35%);
+  height: 100vh;
+}
+
+@media screen and (max-width: 700px) {
+  .person {
+    position: absolute;
+    z-index: 2;
+    top: 50%; 
+    left: 50%; /* à 50%/50% du parent référent */
+    transform: translate(-50%, -40%);
+    height: 550px;
+  }
+}

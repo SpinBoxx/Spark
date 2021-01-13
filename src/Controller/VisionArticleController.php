@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class VisionArticleController extends AbstractController
 {
     /**
-     * @Route("/visionarticle", name="vision_article")
+     * @Route("/article", name="vision_article")
      */
     public function index(): Response
     {

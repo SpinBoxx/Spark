@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class MessagingController extends AbstractController
 {
     /**
-     * @Route("/messaging/no-messages", name="no-messages")
+     * @Route("/mes-messages/no", name="no-messages")
      */
     public function noMessages(): Response
     {
@@ -19,7 +19,7 @@ class MessagingController extends AbstractController
     }
 
     /**
-     * @Route("/messaging/messages", name="messages")
+     * @Route("/mes-messages", name="messages")
      */
     public function messages(): Response
     {

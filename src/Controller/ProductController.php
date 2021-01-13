@@ -2,19 +2,25 @@
 
 namespace App\Controller;
 
+use App\Entity\Color;
 use App\Entity\Product;
+use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\ColorType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Security;
 
 class ProductController extends AbstractController
 {
     private $em;
-    public function __construct(EntityManagerInterface $em)
+    private $security;
+    public function __construct(EntityManagerInterface $em, Security $security)
     {
         $this->em = $em;
+        $this->security = $security;
     }
 
     /**
@@ -47,10 +53,37 @@ class ProductController extends AbstractController
                 $product->setPrice($request['price']);
             }
             if($request['color_primary'] != null){
-                $product->setColorPrimary($request['color_primary']);
+                // on cherche la couleur dans le repo
+                $color = $this->em->getRepository(Color::class)->findOneBy(["hex_color" => $request['color_primary']]);
+                // si elle existe pas on la créé
+                if($color == null){
+                    $newcolor = new Color();
+                    $newcolor->setHexColor($request['color_primary']);
+                    $this->em->persist($newcolor);
+                    $newcolor->setCode("code");
+                    $newcolor->setLabel("label");
+                    $this->em->flush();
+                    $product->setColorPrimary($newcolor);
+                }else{
+                    $product->setColorPrimary($color);
+                }
+
             }
             if($request['color_secondary'] != null){
-                $product->setColorSecondary($request['color_secondary']);
+                // on cherche la couleur dans le repo
+                $color = $this->em->getRepository(Color::class)->findOneBy(["hex_color" => $request['color_secondary']]);
+                // si elle existe pas on la créé
+                if($color == null){
+                    $newcolor = new Color();
+                    $newcolor->setHexColor($request['color_secondary']);
+                    $newcolor->setCode("code");
+                    $newcolor->setLabel("label");
+                    $this->em->persist($newcolor);
+                    $this->em->flush();
+                    $product->setColorPrimary($newcolor);
+                }else{
+                    $product->setColorPrimary($color);
+                }
             }
             if($request['size'] != null){
                 $product->setSize($request['size']);
@@ -74,11 +107,13 @@ class ProductController extends AbstractController
                 $product->setDescription($request['description']);
             }
             if($request['picture_product'] != null){
-                $product->setPictureProduct($request['picture_product']);
+                $product->setPictureProduct([$request['picture_product']]);
             }
+
+            $product->setUserId($this->security->getUser());
             $this->em->persist($product);
             $this->em->flush();
-            return  $this->redirectToRoute('accueil');
+            return  $this->redirect("/");
         }
 
     }

@@ -26,7 +26,7 @@ class Product
 
     /**
      * @ORM\ManyToOne(targetEntity=State::class)
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $state;
 

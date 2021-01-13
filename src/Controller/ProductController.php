@@ -21,4 +21,12 @@ class ProductController extends AbstractController
 
         ]);
     }
+    /**
+     * @Route("/produit/{id}", name="vue_produit")
+     */
+    public function display_product(): Response
+    {
+        return $this->render('product/view_product.html.twig', [
+        ]);
+    }
 }

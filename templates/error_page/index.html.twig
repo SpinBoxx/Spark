@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('style/error.css') }}">
+{% endblock %}
+
+{% block body %}
+<style>
+    .section-error{
+        overflow-x: hidden;
+    }
+</style>
+
+    <section class="section-error">
+        <div class="error_page_left_side">
+            <div>
+                <h2>Page inaccessible !</h2>
+                <p>La page que vous avez essayé d'atteindre n'existe pas, ou n'existe plus.<br>Vous pouvez retourner sur vos pas, ou sur la page d'accueil.</p>
+                <div class="error_page_div_align_btn">
+                    <button class="error_btn_return" type="button" onclick="history.back(-1)">Page prècedente</button><a class="main_link" href="/" >Retourner à l'accueil</a>
+                </div>
+            </div>
+        </div>
+        <div class="error_page_right_side">
+            <img src="{{ asset('images/error/image_error404.png') }}" alt="">
+        </div>
+    </section>
+
+{% endblock %}

@@ -1,0 +1,53 @@
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('style/header.css') }}">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+{% endblock %}
+
+<div class="complete_header">
+    <div class="top_header">
+        <div class="div_header_logo">
+            <a href="#">
+                <img src={{ asset('images/header/Spark_logo_temp.svg') }}>
+            </a>
+        </div>
+        <div class="searchBar_header_div">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Rechercher des articles">
+        </div>
+        <div class="header_user_option">
+            <div class="top_header_icons">
+                <a href=""><img src={{ asset('images/header/send_icon.svg') }}></a>
+                <span>|</span>
+                <a href=""><img src={{ asset('images/header/message.svg') }}></a>
+                <span>|</span>
+                <a href=""><img src={{ asset('images/header/favorite_icon.svg') }}></a>
+            </div>
+            <div class="header_profil">
+                <img src="https://i.pravatar.cc/300">
+                <div>
+                    <p>John Doe<i class="fas fa-chevron-down"></i></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sub_header">
+        <div class="left_sub_header dropdown-header">
+            <span>Catégories</span>
+            <div class="dropdown-header-content">
+                <a href=""><h3>Femme</h3></a>
+                <a href=""><h3>Homme</h3></a>
+                <a href=""><h3>Enfant</h3></a>
+                <a href=""><h3>Sport</h3></a>
+            </div>
+        </div>
+        <div class="right_sub_header">
+            <a href=""><h3>F.A.Q</h3></a>
+            <a href=""><h3>A propos</h3></a>
+            <form id="search_expand_header">
+                <input type="search" placeholder="Search" spellcheck="false">
+            </form>
+        </div>
+    </div>
+</div>

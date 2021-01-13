@@ -46,7 +46,8 @@ class Product
     private $picture_product = [];
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\ManyToOne(targetEntity=Gender::class)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $gender;
 
@@ -74,7 +75,7 @@ class Product
     private $brand;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\ManyToOne(targetEntity=Quality::class)
      * @ORM\JoinColumn(nullable=false)
      */
     private $quality;

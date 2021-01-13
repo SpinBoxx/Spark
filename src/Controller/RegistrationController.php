@@ -28,6 +28,9 @@ class RegistrationController extends AbstractController
      */
     public function indexRegister(): Response
     {
+        if ($this->getUser()) {
+            return $this->redirectToRoute('accueil');
+        }
         return $this->render('registration/register.html.twig');
     }
 

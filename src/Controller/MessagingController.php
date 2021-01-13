@@ -9,22 +9,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class MessagingController extends AbstractController
 {
     /**
-     * @Route("/messaging/no-messages", name="no-messages")
-     */
-    public function noMessages(): Response
-    {
-        return $this->render('messaging/no-messages.html.twig', [
-            'controller_name' => 'MessagingController',
-        ]);
-    }
-
-    /**
-     * @Route("/messaging/messages", name="messages")
+     * @Route("/mes-messages", name="messages")
      */
     public function messages(): Response
     {
-        return $this->render('messaging/messages.html.twig', [
-            'controller_name' => 'MessagingController',
+        return $this->render('messages/messages.html.twig', [
+
         ]);
     }
 }

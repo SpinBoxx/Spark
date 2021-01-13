@@ -3,22 +3,22 @@
 {% block title %}Mes messages{% endblock %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('style/messaging.css') }}">
+    <link rel="stylesheet" href="{{ asset('style/messages.css') }}">
 {% endblock %}
 
 {% block body %}
     <h2 class="m-5">Boîte de réception</h2>
-    <table class="table table-striped table-hover mx-5"  style="width: 75%">
+    <table class="table table-striped table-hover mx-5"  style="width: 85%">
         <tbody>
             {% for i in 0..5 %}
                 <tr>
-                    <th scope="row">
+                    <td scope="row">
                         <a href="#">
                             <img src="{{ asset('images/messages/avatar.png') }}" alt="avatar" class="avatar">
                         </a>
-                    </th>
-                    <td><a href="#"><h5 class="pt-4 linkDefault">John Doe</h5></a></td>
-                    <td><a href="#"><p class="pt-4 linkDefault">Cet acheteur vous a fait une offre !</p></a></td>
+                    </td>
+                    <td><a  href="#"><h5 class="pt-4 linkDefault" id="name">John Doe</h5></a></td>
+                    <td><a href="#"><p class="pt-4 linkDefault" id="link">Cet acheteur vous a fait une offre !</p></a></td>
                     <td class="pt-4">
                         <img src="{{ asset('images/messages/trash.png') }}" alt="trash" class="trash">
                     </td>

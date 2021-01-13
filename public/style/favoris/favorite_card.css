@@ -23,7 +23,7 @@
 .favorite_card_div_image{
     height: 57%;
     width: 100%;
-    background: no-repeat center/50% url(../images/favorite/raquette.png);
+    background: no-repeat center/50% url(../../images/favorite/raquette.png);
     background-size:cover;
     border-radius: 9px;
 }
@@ -138,5 +138,32 @@
 @media screen and (max-width: 800px) {
     .favorite_card_div {
         zoom: 0.9;
+    }
+}
+
+ h2{
+     font-family: "Poppins", sans-serif;
+     font-weight: 700;
+     font-size: 2.5rem;
+     color: rgba(0, 0, 0, 0.75);
+     text-align: left;
+     margin-bottom: 0;
+     margin-left: 6rem;
+     margin-top: 3rem;
+ }
+
+#favorite_page_complete{
+    margin: 0 4rem;
+}
+
+@media screen and (max-width: 800px) {
+    #favorite_page_complete {
+        margin: 0;
+    }
+
+    h2 {
+        margin-left: 3rem;
+        margin-top: 2rem;
+        font-size: 2rem;
     }
 }

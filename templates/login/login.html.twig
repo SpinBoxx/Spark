@@ -1,90 +1,51 @@
 {% extends 'base.html.twig' %}
-
-{% block title %}Se connecter{% endblock %}
-
- {% block stylesheets %}
-     <link rel="stylesheet" href="{{ asset('style/register.css') }}">
- {% endblock %}
-
 {% block body %}
-    {% for flashError in app.flashes('verify_email_error') %}
-        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
-    {% endfor %}
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+    <script src="https://kit.fontawesome.com/13dc29a021.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('style/login/login.css') }}">
+    {% endblock %}
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-7 col-md-7 col-sm-1 d-none d-md-block image-container">
-            </div>
-            <div class="col-lg-5 col-md-5 col-sm-11 form-container">
-                <div class="col-lg-8 col-md-9 col-sm-12 col-12 form-container form-box text-center">
-                    <div class="logo mb-3">
-                        <img src="https://le-datascientist.fr/wp-content/uploads/2019/02/logo-apache-spark.png" width="150px" alt="">
-                    </div>
-                    <div class="heading mb-4">
-                        <h4 class="text-primary">Se connecter</h4>
-                    </div>
-                    <div class="text-left">
-                        <h5>
-                            <a href="{{ path('app_register') }}" class="havent-account">Pas de compte ?</a>
-                        </h5>
-                    </div>
 
-                    <form method="post">
-                        <div class="form-input">
-                            <span><i class="far fa-envelope"></i></span>
-                            <input type="email" name="email" placeholder="Veuillez entrer votre adresse email" required>
-                        </div>
-                        <div class="form-input">
-                            <span><i class="fa fa-lock"></i></span>
-                            <input type="password" name="password" placeholder="Veuillez entrer votre mot de passe" required>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-6 d-flex">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="cb1">
-                                    <label for="cb1" class="custom-control-label">Se souvenir de moi</label>
-                                </div>
-                            </div>
-                            <div class="col-6 text-right">
-                                <a href="" class="forget-password">J'ai oublié le mot de passe</a>
-                            </div>
-                        </div>
-                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"
-                        >
-                        <div class="text-left mb-3">
-                            <button type="submit" class="btn">Se connecter</button>
-                        </div>
-                        <div class="text-center mb-2">
-                            <div class="mb-3" style="color: black; font-weight: bold">Se connecter avec</div>
-                            <a href="" class="btn btn-social btn-facebook">Facebook</a>
-                            <a href="" class="btn btn-social btn-google">Google</a>
-                            <a href="" class="btn btn-social btn-twitter">Twitter</a>
-                        </div>
-                    </form>
+
+
+    <div class="login_section">
+        <div class="left_login_div">
+            <img src="{{ asset('images/image_login.png') }}">
+        </div>
+        <div class="right_login_div">
+            <section>
+                <h2>Connexion</h2>
+                <form class="login_input_form" method="post">
+                    <div class="label_input">
+                        <label>
+                            <i class="fas fa-user"></i>
+                            <input class="text_input" name="email" type="text" placeholder="Email">
+                        </label>
+                    </div>
+                    <div class="label_input">
+                        <label>
+                            <i class="fas fa-unlock"></i>
+                            <input class="text_input" name="password" type="password" placeholder="Mot de passe">
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input name="remember_me" type="checkbox">
+                            Se souvenir de moi
+                        </label>
+                    </div>
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                    <button class="login_submit_btn" type="submit">Se connecter</button>
+                </form>
+                <div>
+                    <a class="main_link" href="">Créer un compte</a>
                 </div>
-            </div>
+                <div>
+                    <a class="secondary_link" href="">Mot de passe oublié ?</a>
+                </div>
+            </section>
         </div>
     </div>
-
-
-    <script>
-        $(document).ready(function() {
-            $(".show-password, .hide-password").on('click', function() {
-                var passwordId = $(this).parents('li:first').find('input').attr('id');
-                if ($(this).hasClass('show-password')) {
-                    $("#" + passwordId).attr("type", "text");
-                    $(this).parent().find(".show-password").hide();
-                    $(this).parent().find(".hide-password").show();
-                } else {
-                    $("#" + passwordId).attr("type", "password");
-                    $(this).parent().find(".hide-password").hide();
-                    $(this).parent().find(".show-password").show();
-                }
-            });
-        });
-    </script>
 
 {% endblock %}

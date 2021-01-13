@@ -51,7 +51,7 @@ class RegistrationController extends AbstractController
             $user->setRoles(['ROLE_USER']);
             $this->em->persist($user);
             $this->em->flush();
-            return $this->render('login/login-2.html.twig');
+            return $this->render('login.html.twig');
         }
 
 

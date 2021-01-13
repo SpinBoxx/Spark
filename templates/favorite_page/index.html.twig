@@ -1,42 +1,49 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}FavoritePageController!{% endblock %}
-
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('style/favoris/favorite_card.css')}}">
+{% endblock %}
 {% block body %}
 
-    <style>
-    h2{
-        font-family: "Poppins", sans-serif;
-        font-weight: 700;
-        font-size: 2.5rem;
-        color: rgba(0, 0, 0, 0.75);
-        text-align: left;
-        margin-bottom: 0;
-        margin-left: 6rem;
-        margin-top: 3rem;
-    }
-
-    #favorite_page_complete{
-        margin: 0 4rem;
-    }
-
-    @media screen and (max-width: 800px) {
-        #favorite_page_complete {
-            margin: 0;
-        }
-
-        h2 {
-            margin-left: 3rem;
-            margin-top: 2rem;
-            font-size: 2rem;
-        }
-    }
-
-</style>
-
-    <h2>Vos favoris</h2>
-    <div id="favorite_page_complete">
-        {% include 'components/favoriteCard.html.twig' %}
-    </div>
-
+<h2>Mes favoris</h2>
+    <section id="favorite_card_section">
+        {% for i in 0..10 %}
+            <div class="favorite_card_div">
+                <div>
+                    <div class="favorite_card_align_heart">
+                        <div class="favorite_card_heart">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="favorite_card_div_image">
+                    </div>
+                    <div class="favorite_card_top_line_description">
+                        <div class="favorite_card_seller">
+                            <img src="https://i.pravatar.cc/300">
+                            <div>
+                                <p>John Doe</p>
+                            </div>
+                        </div>
+                        <div class="favorite_card_date">
+                            <p>09/12/2020</p>
+                        </div>
+                    </div>
+                    <div class="favorite_card_description">
+                        <h4>My Babolat 1</h4>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+                            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                    </div>
+                    <div class="favorite_card_sub_line_description">
+                        <p>159.99€</p>
+                        <p><a href="">Voir l'article ></a></p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </section>
 {% endblock %}

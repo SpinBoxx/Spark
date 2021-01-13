@@ -1,6 +1,7 @@
 #favorite_card_section{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .favorite_card_div{
@@ -132,4 +133,10 @@
     font-size: 25px;
     color: #F26F6F;
     margin: auto 0;
+}
+
+@media screen and (max-width: 800px) {
+    .favorite_card_div {
+        zoom: 0.9;
+    }
 }

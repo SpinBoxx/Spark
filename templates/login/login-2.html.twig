@@ -1,5 +1,6 @@
 {% block body %}
     <script src="https://kit.fontawesome.com/13dc29a021.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
@@ -165,6 +166,37 @@
 
         .main_link{
             margin: 0 !important;
+        }
+
+        @media screen and (max-width: 768px) {
+            .left_login_div {
+                display: none;
+            }
+        }
+
+        @media screen and (max-width: 425px) {
+            h2 {
+                font-size: 2.5rem;
+            }
+
+            .right_login_div h2 {
+                margin-bottom: 2rem;
+            }
+
+            .login_submit_btn, .right_login_div > section > div:not(:last-child) {
+                align-self: center;
+            }
+
+            section div:last-child {
+                align-self: end;
+            }
+
+        }
+
+        @media screen and (max-width: 320px) {
+            .login_section {
+                zoom: 0.9;
+            }
         }
 
     </style>

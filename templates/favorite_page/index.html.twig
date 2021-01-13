@@ -3,7 +3,8 @@
 {% block title %}FavoritePageController!{% endblock %}
 
 {% block body %}
-<style>
+
+    <style>
     h2{
         font-family: "Poppins", sans-serif;
         font-weight: 700;
@@ -18,11 +19,24 @@
     #favorite_page_complete{
         margin: 0 4rem;
     }
+
+    @media screen and (max-width: 800px) {
+        #favorite_page_complete {
+            margin: 0;
+        }
+
+        h2 {
+            margin-left: 3rem;
+            margin-top: 2rem;
+            font-size: 2rem;
+        }
+    }
+
 </style>
 
     <h2>Vos favoris</h2>
     <div id="favorite_page_complete">
-        {% include 'components/favoriteCar.html.twig' %}
+        {% include 'components/favoriteCard.html.twig' %}
     </div>
 
 {% endblock %}

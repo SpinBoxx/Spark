@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+ {% block stylesheets %}
+     <link rel="stylesheet" href="{{ asset('style/home/home.css') }}">
+ {% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-5 col-md-5 col-sm-11 text-container">
+                <div class="text-block-1">
+                    <h1 class="text-title mb-5">Prêt à faire du <br> tri dans tes affaires ?</h1>
+                    <p class="text-comment">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing <br>
+                        elit, sed do eiusmod tempor incididunt ut labore et dolore <br>
+                        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation <br>
+                        ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                    <div class="block-btn mt-4">
+                        <a href="#" class="btn-buy">J'achète !</a>
+                        <a href="#" class="sell-now">Vendre maintenant</a>
+                    </div>
+                </div>
+            </div>
+            <div class="circle"></div>
+            <div class="col-lg-7 col-md-7 col-sm-1 d-none d-md-block image-container">
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

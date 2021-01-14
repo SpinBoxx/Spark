@@ -279,7 +279,7 @@ body{
 .favorite_card_price{
     position: absolute;
     height: 30px;
-    width: 63px;
+    width: auto;
     text-align: left;
     background-color: #f6f6f6;
     border-bottom-right-radius: 6px;
@@ -290,4 +290,8 @@ body{
     margin-top: 3px;
     font-weight: bold;
     font-size: 15px;
+}
+.favorite_card_price > p:after{
+    content: "€";
+    margin-right: 3px;
 }

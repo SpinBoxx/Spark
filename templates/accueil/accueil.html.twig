@@ -32,9 +32,11 @@
     </div>
     <div class="show-articles mt-4">
         <h2>Mis en ligne récemment</h2>
+
     </div>
     <section id="favorite_card_section">
         {% for produit in produits %}
+
             <div class="favorite_card_div">
                 <div>
                     <div class="favorite_card_align_heart">
@@ -43,7 +45,7 @@
                         </div>
                     </div>
                     <div class="favorite_card_price">
-                        <p>15.99€</p>
+                        <p>{{ produit.price }}</p>
                     </div>
                     <div class="favorite_card_div_image">
                     </div>
@@ -51,20 +53,17 @@
                         <div class="favorite_card_seller">
                             <img src="https://i.pravatar.cc/300">
                             <div>
-                                <p>John Doe</p>
+                                <p>{{ produit.user.firstname }} {{ produit.user.lastname|upper }}</p>
                             </div>
                         </div>
                         <div class="favorite_card_date">
-                            <p>09/12/2020</p>
+                            <p>{{ produit.creationDatetime|date('d/m/Y') }}</p>
                         </div>
                     </div>
                     <div class="favorite_card_description">
-                        <h4>My Babolat 1</h4>
+                        <h4>{{ produit.title }}</h4>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                           {{ produit.description }}
                         </p>
                     </div>
                     <div class="favorite_card_sub_line_description">

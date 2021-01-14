@@ -3,7 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Color;
+use App\Entity\Gender;
 use App\Entity\Product;
+use App\Entity\Quality;
+use App\Entity\State;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -28,7 +31,11 @@ class ProductController extends AbstractController
      */
     public function index(Request $request): Response
     {
+        $genders = $this->em->getRepository(Gender::class)->findAll();
+        $qualitys = $this->em->getRepository(Quality::class)->findAll();
         return $this->render('product/addproduct.html.twig', [
+            'genders' => $genders,
+            'qualitys' => $qualitys,
         ]);
     }
 
@@ -40,6 +47,8 @@ class ProductController extends AbstractController
     public function insertProduct(Request $request): Response
     {
         $product = new Product();
+        $state = $this->em->getRepository(State::class)->findOneBy(['code'=>'en_vente']);
+        $product->setStateId($state);
         if ($this->isGranted('ROLE_USER') == false) {
             return  $this->redirectToRoute('app_login');
         }else{
@@ -94,13 +103,19 @@ class ProductController extends AbstractController
                 $product->setQuality($request['quality']);
             }
             if($request['quality'] != null){
-                $product->setQuality($request['quality']);
+                $quality = $this->em->getRepository(Quality::class)->find($request['quality']);
+                if($quality instanceof Quality){
+                    $product->setQuality($quality);
+                }
             }
             if($request['link'] != null){
                 $product->setLink($request['link']);
             }
             if($request['gender'] != null){
-                $product->setGender($request['gender']);
+                $gender = $this->em->getRepository(Gender::class)->find($request['gender']);
+                if($gender instanceof Gender){
+                    $product->setGender($gender);
+                }
             }
             if($request['description'] != null){
                 $product->setDescription($request['description']);
@@ -115,8 +130,6 @@ class ProductController extends AbstractController
         }
 
     }
-
-
 
     /**
      * @Route("/produit/{id}", name="product")

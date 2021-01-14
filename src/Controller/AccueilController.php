@@ -25,6 +25,7 @@ class AccueilController extends AbstractController
     public function index(): Response
     {
         $produits = $this->em->getRepository(Product::class)->findAll();
+
         return $this->render('accueil/accueil.html.twig', [
             'produits' => $produits,
         ]);

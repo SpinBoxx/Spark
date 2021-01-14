@@ -6,12 +6,13 @@
 {% endblock %}
 
 <div class="complete_header">
-    <div class="top_header">
+    <div class="top_header" >
         <div class="div_header_logo">
-            <a href="{{ path('accueil') }}">
+            <a href="{{ path('accueil') }}" {% if app.user == null %}style="margin-left: 50%;"{% endif %}>
                 <img src={{ asset('images/header/logo.png') }}>
             </a>
         </div>
+        {% if app.user != null %}
         <div class="searchBar_header_div">
             <i class="fas fa-search"></i>
             <input type="text" placeholder="Rechercher des articles">
@@ -49,5 +50,7 @@
                 <input type="search" placeholder="Search" spellcheck="false">
             </form>
         </div>
+        {% endif %}
+
     </div>
 </div>

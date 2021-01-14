@@ -13,7 +13,7 @@
         <div class="inner-container">
             <h2>Envie de vendre <br> tes affaires inutilisées ?</h2>
             <div class="btn-header-container">
-                <a href="" class="sell">Je vends !</a>
+                <a href="{{ path('product_add') }}" class="sell">Je vends !</a>
                 <a href="" class="how-this-work">Comment ça marche ?</a>
             </div>
         </div>
@@ -34,7 +34,7 @@
         <h2>Mis en ligne récemment</h2>
     </div>
     <section id="favorite_card_section">
-        {% for i in 0..10 %}
+        {% for produit in produits %}
             <div class="favorite_card_div">
                 <div>
                     <div class="favorite_card_align_heart">

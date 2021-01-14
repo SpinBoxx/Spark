@@ -6,15 +6,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class FooterController extends AbstractController
+class MessagingController extends AbstractController
 {
     /**
-     * @Route("/footer", name="footer")
+     * @Route("/mes-messages", name="messages")
      */
-    public function index(): Response
+    public function messages(): Response
     {
-        return $this->render('footer/footer.html.twig', [
-            'controller_name' => 'FooterController',
+        return $this->render('messages/messages.html.twig', [
+
         ]);
     }
 }

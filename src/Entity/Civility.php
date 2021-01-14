@@ -27,6 +27,12 @@ class Civility
      */
     private $label;
 
+    public function __construct($code,$label)
+    {
+        $this->code = $code;
+        $this->label = $label;
+    }
+
     public function getId(): ?int
     {
         return $this->id;

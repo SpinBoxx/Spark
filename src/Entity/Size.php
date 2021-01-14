@@ -21,7 +21,7 @@ class Size
      * @ORM\ManyToOne(targetEntity=Type::class)
      * @ORM\JoinColumn(nullable=false)
      */
-    private $type_id;
+    private $type;
 
     /**
      * @ORM\Column(type="string", length=255)

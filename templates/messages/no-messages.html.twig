@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes messages | Aucun message{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('style/messages/messages.css') }}">
+{% endblock %}
+
+{% block body %}
+    <h3 class="text-center my-5 title">Vous n’avez pas encore de message, relax !</h3>
+    <div class="imgContainer">
+        <img src="{{ asset('images/messages/ellipse.png') }}" alt="ellipse" class="ellipse">
+        <img src="{{ asset('images/messages/person.png') }}" alt="person" class="person">
+    </div>
+{% endblock %}

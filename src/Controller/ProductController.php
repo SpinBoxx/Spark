@@ -115,4 +115,15 @@ class ProductController extends AbstractController
         }
 
     }
+
+
+
+    /**
+     * @Route("/produit/{id}", name="product")
+     */
+    public function display_product(): Response
+    {
+        return $this->render('product/view_product.html.twig', [
+        ]);
+    }
 }

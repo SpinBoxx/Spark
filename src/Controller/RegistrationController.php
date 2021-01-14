@@ -28,6 +28,9 @@ class RegistrationController extends AbstractController
      */
     public function indexRegister(): Response
     {
+        if ($this->getUser()) {
+            return $this->redirectToRoute('accueil');
+        }
         return $this->render('registration/register.html.twig');
     }
 
@@ -51,7 +54,7 @@ class RegistrationController extends AbstractController
             $user->setRoles(['ROLE_USER']);
             $this->em->persist($user);
             $this->em->flush();
-            return $this->render('login/login.html.twig');
+            return $this->render('login.html.twig');
         }
 
 

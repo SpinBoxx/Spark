@@ -35,7 +35,7 @@
 
     </div>
     <section id="favorite_card_section">
-        {% for produit in produits %}
+        {% for product in products %}
 
             <div class="favorite_card_div">
                 <div>
@@ -45,7 +45,7 @@
                         </div>
                     </div>
                     <div class="favorite_card_price">
-                        <p>{{ produit.price }}</p>
+                        <p>{{ product.price }}</p>
                     </div>
                     <div class="favorite_card_div_image">
                     </div>
@@ -53,25 +53,29 @@
                         <div class="favorite_card_seller">
                             <img src="https://i.pravatar.cc/300">
                             <div>
-                                <p>{{ produit.user.firstname }} {{ produit.user.lastname|upper }}</p>
+                                <p>{{ product.user.firstname }} {{ product.user.lastname|upper }}</p>
                             </div>
                         </div>
                         <div class="favorite_card_date">
-                            <p>{{ produit.creationDatetime|date('d/m/Y') }}</p>
+                            <p>{{ product.creationDatetime|date('d/m/Y') }}</p>
                         </div>
                     </div>
                     <div class="favorite_card_description">
-                        <h4>{{ produit.title }}</h4>
+                        <h4>{{ product.title }}</h4>
                         <p>
-                           {{ produit.description }}
+                           {{ product.description }}
                         </p>
                     </div>
                     <div class="favorite_card_sub_line_description">
-                        <p><a href="">Voir l'article ></a></p>
+                        <p><a href="{{ path('product_show', {'id' : product.id }) }}">Voir l'article></a></p>
                     </div>
                 </div>
             </div>
         {% endfor %}
     </section>
+
+    {% block javascript %}
+
+    {% endblock %}
 
 {% endblock %}

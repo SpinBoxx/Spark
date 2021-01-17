@@ -13,20 +13,20 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-7 col-md-7 d-none d-md-block image-container">
+            <div class="col-lg-6 col-md-7 d-none d-md-block image-container">
             </div>
-            <div class="col-lg-5 col-md-5 form-container">
+            <div class="col-lg-6 col-md-5 form-container">
                 <div class="col-lg-8 col-md-10 col-sm-9  form-container form-box text-center">
                     <div></div>
                     <div class="logo mb-3">
-                        <img src="https://le-datascientist.fr/wp-content/uploads/2019/02/logo-apache-spark.png" width="150px" alt="">
+                        <img src="{{ asset('images/header/logo.png') }}" width="150px" alt="">
                     </div>
                     <div class="heading mb-4">
                         <h4 id="titre">Créer un compte</h4>
                     </div>
                     <form action="{{ path('app_register_validate') }}" method="post">
                         <div class="form-input">
-                            <span><i class="far fa-user"></i></span>
+                            <span><i class="fas fa-user"></i></span>
                             <input type="text" name="pseudo" placeholder="Veuillez entrer votre pseudo" required>
                         </div>
                         <div class="form-input">

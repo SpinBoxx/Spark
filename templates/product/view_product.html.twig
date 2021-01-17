@@ -1,48 +1,47 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Page Article unique!{% endblock %}
+{% block title %}{{ product.title }}{% endblock %}
 
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('style/favoris/favorite_card.css')}}">
 {% endblock %}
 
 {% block body %}
-    <div class="px-5 py-4">
-        <div class="row text-dark">
+    <div class="px-5 py-4 ">
+        <div class="row text-dark container-view-product">
             <div class="col-sm">
                 <div class="text-center">
-                    <img src={{ asset('images/favoris/raquette.png') }} alt="" style="width: 540px" class="my-5">
+                    <img src={{ asset('images/favoris/raquette.png') }} alt="" style="width: 540px" class="my-5" id="main-img" class="main-img">
                 </div>
                 <div class="row text-dark">
                     <div class="col-sm">
-                        <img src={{ asset('images/favoris/raquette.png') }} alt="" style="width: 125px">
+                        <img src={{ asset('images/favoris/ballon.jpg') }} alt="" style="width: 125px" id="2-img" class="second-img">
                     </div>
                     <div class="col-sm">
-                        <img src={{ asset('images/favoris/raquette.png') }} alt="" style="width: 125px">
+                        <img src={{ asset('images/favoris/raquette.png') }} alt="" style="width: 125px" id="3-img" class="second-img">
                     </div>
                     <div class="col-sm">
-                        <img src={{ asset('images/favoris/raquette.png') }} alt="" style="width: 125px">
+                        <img src={{ asset('images/favoris/raquette.png') }} alt="" style="width: 125px" id="4-img" class="second-img">
                     </div>
                     <div class="col-sm">
-                        <img src={{ asset('images/favoris/raquette.png') }} alt="" style="width: 125px">
+                        <img src={{ asset('images/favoris/raquette.png') }} alt="" style="width: 125px" id="5-img" class="second-img">
                     </div>
                     <div class="col-sm">
-                        <img src={{ asset('images/favoris/raquette.png') }} alt="" style="width: 125px">
+                        <img src={{ asset('images/favoris/raquette.png') }} alt="" style="width: 125px" id="6-img" class="second-img">
                     </div>
                 </div>
             </div>
             <div class="col-5 bg-light p-4 ">
-                <h4 class="mb-4">539.99 €</h4>
-                <p class="text-secondary">Marque : XXX</p>
-                <p class="text-secondary">Taille : XXX</p>
-                <p class="text-secondary">État : XXX</p>
-                <p class="text-secondary">Couleur : XXX</p>
-                <p class="text-secondary">Ajouté il y a : XXX</p>
+                <h4 class="mb-4">{{ product.title }}</h4>
+                <p class="text-secondary">{{ product.brand }}</p>
+                <p class="text-secondary">{{ product.size }}</p>
+                <p class="text-secondary">{{ product.quality.label }}</p>
+                <p class="text-secondary">{{ product.colorPrimary.label }}</p>
+                <p class="text-secondary">{{ product.creationDatetime|date("d/m/Y") }}</p>
                 <p class="font-weight-bold">Description</p>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta quidem, laborum autem tenetur deleniti ipsam adipisci, non accusamus tempore fugit dolore, dolor obcaecati. Minus aut quod quae et perspiciatis architecto?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta quidem, laborum autem tenetur deleniti ipsam adipisci, non accusamus tempore fugit dolore, dolor obcaecati. Minus aut quod quae et perspiciatis architecto?</p>
+                <p>{{ product.description }}</p>
                 <hr>
                 <button href="#" class="btn py-2 mb-4" style="background: #ffffff; border-color:#000000; width:100%">Envoyer un message</button>
-                <button href="#" class="btn py-2" style="background: #28ca7f; color : #ffffff; width:100%">Se connecter</button>
             </div>
         </div>
         <div class="row text-dark my-5">
@@ -106,7 +105,7 @@
                             </div>
                             <div class="favorite_card_sub_line_description">
                                 <p>159.99€</p>
-                                <p><a href="">Voir l'article ></a></p>
+                                <p><a href=>Voir l'article ></a></p>
                             </div>
                         </div>
                     </div>
@@ -114,4 +113,16 @@
             </section> 
         </div>
     </div>
+
+    <script>
+        // function changeImage(id){
+        //     console.log(id)
+        // }
+
+        $('.second-img').on('click', function (){
+            console.log($('.main-img').id)
+            console.log(this.id)
+        })
+    </script>
 {% endblock %}
+

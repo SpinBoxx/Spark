@@ -14,30 +14,29 @@
     </head>
     <body>
 
-    {% include 'components/header.html.twig' %}
+        {% include 'components/header.html.twig' %}
 
-    {% for label, messages in app.flashes(['success', 'warning']) %}
-        {% for message in messages %}
-            <div class="alert alert-success alert-dismissible">
-                {{ message }}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
+        {% for label, messages in app.flashes(['success', 'warning']) %}
+            {% for message in messages %}
+                <div class="alert alert-success alert-dismissible">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endfor %}
         {% endfor %}
-    {% endfor %}
-    {% for label, messages in app.flashes(['error']) %}
-        {% for message in messages %}
-            <div class="alert alert-danger alert-dismissible">
-                {{ message }}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
+        {% for label, messages in app.flashes(['error']) %}
+            {% for message in messages %}
+                <div class="alert alert-danger alert-dismissible">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endfor %}
         {% endfor %}
-    {% endfor %}
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
     </body>
     <div id="footer" class="overflow-hidden">
         {% include "./footer/footer.html.twig" %}

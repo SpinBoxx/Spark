@@ -18,10 +18,21 @@ class ProductController extends AbstractController
 {
     private $em;
     private $security;
-    public function __construct(EntityManagerInterface $em, Security $security)
-    {
+
+    public function __construct(EntityManagerInterface $em, Security $security){
         $this->em = $em;
         $this->security = $security;
+    }
+
+    /**
+     * @Route("/", name="accueil")
+     * @return Response
+     */
+    public function index(): Response{
+        $products = $this->em->getRepository(Product::class)->findAll();
+        return $this->render('accueil/accueil.html.twig', [
+            'products' => $products,
+        ]);
     }
 
     /**
@@ -29,7 +40,7 @@ class ProductController extends AbstractController
      * @param Request $request
      * @return Response
      */
-    public function index(Request $request): Response
+    public function addProduct(Request $request): Response
     {
         $genders = $this->em->getRepository(Gender::class)->findAll();
         $qualitys = $this->em->getRepository(Quality::class)->findAll();
@@ -47,8 +58,8 @@ class ProductController extends AbstractController
     public function insertProduct(Request $request): Response
     {
         $product = new Product();
-        $state = $this->em->getRepository(State::class)->findOneBy(['code'=>'en_vente']);
-        $product->setStateId($state);
+        $state = $this->em->getRepository(State::class)->findOneBy(['code'=>'in_sell']);
+        $product->setState($state);
         if ($this->isGranted('ROLE_USER') == false) {
             return  $this->redirectToRoute('app_login');
         }else{
@@ -123,7 +134,7 @@ class ProductController extends AbstractController
             if($request['picture_product'] != null) {
                 $product->setPictureProduct([$request['picture_product']]);
             }
-            $product->setUserId($this->security->getUser());
+            $product->setUser($this->security->getUser());
             $this->em->persist($product);
             $this->em->flush();
             return  $this->redirect("/");
@@ -132,11 +143,18 @@ class ProductController extends AbstractController
     }
 
     /**
-     * @Route("/produit/{id}", name="product")
+     * @Route("/produit/{id}", name="product_show")
+     * @param $id
+     * @return Response
      */
-    public function display_product(): Response
+    public function show_product($id): Response
     {
-        return $this->render('product/view_product.html.twig', [
-        ]);
+        $product = $this->em->getRepository(Product::class)->find($id);
+        if($product instanceof Product){
+            return $this->render('product/view_product.html.twig', [
+                'product' => $product,
+            ]);
+        }
+        return $this->redirectToRoute('accueil');
     }
 }

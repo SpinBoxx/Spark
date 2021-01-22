@@ -161,12 +161,15 @@ body{
     height: 100%;
 }
 
-.favorite_card_div_image{
-    height: 57%;
+#main-img{
+    height: 100%;
     width: 100%;
-    background: no-repeat center/50% url(../../images/accueil/raquette.png);
     background-size:cover;
     border-radius: 9px;
+}
+
+.about-seller{
+
 }
 
 .favorite_card_top_line_description{

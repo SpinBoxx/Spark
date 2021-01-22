@@ -7,9 +7,9 @@
 {% endblock %}
 
 {% block body %}
-    <h2 class="m-5">Boîte de réception</h2>
-    <table class="table table-striped table-hover mx-5"  style="width: 85%">
-        <tbody>
+    <div class="message-container">
+        <table class="table table-striped table-hover mx-5 table-message"  style="width: 94%">
+            <tbody>
             {% for i in 0..5 %}
                 <tr>
                     <td scope="row">
@@ -24,6 +24,7 @@
                     </td>
                 </tr>
             {% endfor %}
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
 {% endblock %}

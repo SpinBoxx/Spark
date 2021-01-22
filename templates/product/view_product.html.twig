@@ -33,11 +33,11 @@
             </div>
             <div class="col-5 bg-light p-4 ">
                 <h4 class="mb-4">{{ product.title }}</h4>
-                <p class="text-secondary">{{ product.brand }}</p>
-                <p class="text-secondary">{{ product.size }}</p>
-                <p class="text-secondary">{{ product.quality.label }}</p>
-                <p class="text-secondary">{{ product.colorPrimary.label }}</p>
-                <p class="text-secondary">{{ product.creationDatetime|date("d/m/Y") }}</p>
+                <p class="text-secondary">Marque : {{ product.brand }}</p>
+                <p class="text-secondary">Taille : {{ product.size }}</p>
+                <p class="text-secondary">Qualité : {{ product.quality.label }}</p>
+                <p class="text-secondary">Couleur principale : {{ product.colorPrimary.label }}</p>
+                <p class="text-secondary">Posté il y a : {{ product.creationDatetime|date("d/m/Y") }}</p>
                 <p class="font-weight-bold">Description</p>
                 <p>{{ product.description }}</p>
                 <hr>
@@ -54,16 +54,16 @@
             <div class="col-5 bg-light py-5 px-4">
                 <h4>A propos du vendeur</h4>
                 <hr>
-                <div class="header_profil">
-                    <div class="row text-dark ml-1" >
+                <div class="about-seller">
+                    <div class="row text-dark ml-1">
                         <div class="col-sm">
                             <div class="row text-dark ml-1 favorite_card_seller" >
-                                <img src="https://i.pravatar.cc/300" style="width: 30px;">
-                                <p class="ml-3">John Doe</p>
+                                <img src="https://i.pravatar.cc/300" style="width: 35px;">
+                                <p class="">John Doe</p>
                             </div>
                         </div>
-                        <div class="col-sm">
-                            <a href="#">Voir le profil</a>
+                        <div class="col-sm mt-4">
+                            <a href="#" class="ml-5 btn btn-primary">Voir le profil <i class="fas fa-external-link-square-alt text-white"></i></a>
                         </div>
                     </div>
                 </div>
@@ -84,7 +84,6 @@
                             </div>
                             <div class="favorite_card_top_line_description">
                                 <div class="favorite_card_seller">
-
                                     <img src="https://i.pravatar.cc/300">
                                     <div>
                                         <p>John Doe</p>
@@ -115,13 +114,9 @@
     </div>
 
     <script>
-        // function changeImage(id){
-        //     console.log(id)
-        // }
-
         $('.second-img').on('click', function (){
-            console.log($('.main-img').id)
-            console.log(this.id)
+            var main = document.querySelector('#main-img');
+            main.src = this.src
         })
     </script>
 {% endblock %}

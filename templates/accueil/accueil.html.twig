@@ -36,7 +36,6 @@
     </div>
     <section id="favorite_card_section">
         {% for product in products %}
-
             <div class="favorite_card_div">
                 <div>
                     <div class="favorite_card_align_heart">
@@ -48,6 +47,9 @@
                         <p>{{ product.price }}</p>
                     </div>
                     <div class="favorite_card_div_image">
+                        <a href="{{ path('product_show', {'id' : product.id }) }}">
+                            <img src={{ asset('images/favoris/raquette.png') }} alt="" class=" main-img" id="main-img">
+                        </a>
                     </div>
                     <div class="favorite_card_top_line_description">
                         <div class="favorite_card_seller">

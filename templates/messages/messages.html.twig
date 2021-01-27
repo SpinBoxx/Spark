@@ -27,4 +27,13 @@
             </tbody>
         </table>
     </div>
+
+    <script>
+        $('.trash').click(function (){
+            $.ajax({
+                url : '{{ path('messages') }}',
+                method : 'GET'
+            })
+        })
+    </script>
 {% endblock %}

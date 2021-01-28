@@ -1,0 +1,8 @@
+{
+  "requires": true,
+  "lockfileVersion": 1,
+  "dependencies": {
+    "bootstrap": "^4.6.0",
+    "jquery": "^3.5.1"
+  }
+}

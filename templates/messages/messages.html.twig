@@ -8,6 +8,7 @@
 
 {% block body %}
     <div class="message-container">
+        <h1 class="bb">CC</h1>
         <table class="table table-striped table-hover mx-5 table-message"  style="width: 94%">
             <tbody>
             {% for message in messages %}
@@ -20,7 +21,7 @@
                     <td><a  href="#"><h5 class="pt-4 linkDefault" id="name">{{ message.sender.username }}</h5></a></td>
                     <td><a href="#"><p class="pt-4 linkDefault" id="link">{{ message.object }}</p></a></td>
                     <td class="pt-4">
-                        <img src="{{ asset('images/messages/trash.png') }}" alt="trash" class="trash" id="{{ message.id }}">
+                        <img src="{{ asset('images/messages/trash.png') }}" alt="trash" data-url="{{ path('messages_delete',{'id' : message.id}) }}" class="trash" id="{{ message.id }}">
                     </td>
                 </tr>
             {% endfor %}
@@ -29,15 +30,18 @@
     </div>
 
     <script>
-        $('.trash').on('click', function (){
-            var id = this.id
+
+        $('.bb').click(function(){
+            var url = $(this).attr("data-url")
             $.ajax({
-                method: "POST",
-                url: "{{ path('messages_delete', {'id' : 1}) }}",
-                success: function () {
-                    alert('ok')
+                url : url,
+                method : 'GET',
+                success: function(data)
+                {
+                    $('body').html(data)
                 }
             })
+
         })
     </script>
 

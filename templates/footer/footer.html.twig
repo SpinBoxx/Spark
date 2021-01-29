@@ -1,5 +1,6 @@
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('style/footer/footer.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 {% endblock %}
 
 <div class="row bg-light text-dark py-3 px-5">
@@ -20,14 +21,14 @@
     </div>
     <div class="col-sm-3 mb-5">
         <h5>Suivez-nous</h5>
-        <div class="row mt-3">
-            <a href="https://www.facebook.com/" target="_blank">
+        <div class="row mt-3" style="display: inherit">
+            <a href="https://www.facebook.com/" target="_blank" style="text-decoration: none">
                 <img src="{{ asset('images/social/facebook_icon.png') }}" alt="facebook" class="facebook">
             </a>
-            <a href="https://twitter.com/" target="_blank">
+            <a href="https://twitter.com/" target="_blank" style="text-decoration: none">
                 <img src="{{ asset('images/social/twitter_icon.png') }}" alt="twitter" class="twitter">
             </a>
-            <a href="https://www.instagram.com/" target="_blank">
+            <a href="https://www.instagram.com/" target="_blank" style="text-decoration: none">
                 <img src="{{ asset('images/social/instagram_icon.png') }}" alt="instagram" class="instagram">
             </a>
         </div>
@@ -38,8 +39,9 @@
             <p>Protection acheteurs & vendeurs</p>
         </a>
         <a href="#" target="_blank" class="linkDefault">
-            <p>Paiement sécurisé</p></div>
+            <p>Paiement sécurisé</p>
         </a>
+    </div>
     <div class="col-sm-3 mb-3">
         <h5>Moyen de paiement</h5>
         <a href="https://www.paypal.com" target="_blank">

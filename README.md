@@ -14,3 +14,6 @@
 8. Enfin, après la vérification de plusieurs personnes (ex: 2 emoji pouce :thumbsup: minimum) on peut mergé la branche dans master
 9. Les modifications urgentes comme la correction de bugs bloquants pourront être mergés directement.
 10. Vous pouvez faire un `git push origin ma-branche` si la pull request existe déjà pour cette branche elle se mettra à jour automatiquement
+*bonjour
+*fww
+*fefe

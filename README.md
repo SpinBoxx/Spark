@@ -1,7 +1,7 @@
 # Spark
 ## Git
 ### Ajouter une fonctionnalité au *projet*
-1. Positionnez vous sur la branche master : `git checkout master`
+1. Positionnez vous sur la branche **master** : `git checkout master`
 2. Mettez à jour votre branche master :
 `git pull origin master`
 3.  1. Créez une nouvelle branche avec un nom en rapport avec ce que vous voulez ajoutez :

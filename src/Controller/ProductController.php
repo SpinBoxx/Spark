@@ -174,8 +174,8 @@ class ProductController extends AbstractController
         if($user->getId() === $current_user->getId()){
             $this->em->remove($product);
             $this->em->flush();
-            return $this->redirectToRoute('user_ads');
+            return new Response(200);
         }
-        return $this->redirectToRoute('accueil');
+        return new Response(500);
     }
 }

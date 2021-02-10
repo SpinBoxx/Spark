@@ -46,12 +46,11 @@
         $('.trash').click(function(){
             var url = $(this).attr("data-url")
             var thiss = $(this);
-            console.log($(this).parents('td').parents('tr'))
             $.ajax({
                 url : url,
                 method : 'GET',
                 success: function (){
-
+                    $(thiss).parents('td').parents('tr').remove()
                     toastr.success('Message bien supprimé.')
                 },
                 error: function (){

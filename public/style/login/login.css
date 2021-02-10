@@ -76,6 +76,22 @@ h2{
     flex-direction: column;
 }
 
+.login_logo_lg {
+    width: 56%;
+    position: absolute;
+    top: 10px;
+    display: flex;
+    height: 50px;
+    justify-content: flex-end;
+}
+
+.login_logo_lg>img {
+    position: absolute;
+    top: 3%;
+    height: 40px;
+    width: auto;
+}
+
 .login_input_form{
     display: flex;
     flex-direction: column;
@@ -166,6 +182,14 @@ i{
 @media screen and (max-width: 768px) {
     .left_login_div {
         display: none;
+    }
+
+    .logo_spark_md {
+        display: initial !important;
+        position: absolute;
+        right: 1rem;
+        top: 1.2rem;
+        height: 40px;
     }
 }
 

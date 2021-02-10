@@ -8,12 +8,12 @@
 
 {% block body %}
     <div class="container">
-        <form>
+        <form action="{{ path('product_insert') }}" method="post">
             <div class="row align-items-center">
                 <div class="col-md-8">
                     <div class="row">
-                        <div class="col-md-12">
-                        <h2 class="new-product-title md-5">Vous aussi vendez vos affaires</h2>
+                        <div class="col-md-12 h2-title">
+                            <h2 class="new-product-title md-5">Vous aussi vendez vos affaires</h2>
                         </div>
                     </div>
                     <div class="row justify-content-center ">
@@ -23,15 +23,15 @@
                                        placeholder="Nom du produit">
                             </div>
                             <div class="form-group">
-                                <select id="product_category" name="category" class="select-input-field form-control"
-                                        placeholder="Categorie">
-                                    <option value="">Catégorie</option>
-                                    <option value="" selected>Catégorie2</option>
+                                <select id="product_category" name="category" class="select-input-field form-control">
+                                    <option value="" disabled selected>Categorie</option>
+                                    <option value="vetements">Vêtements</option>
+                                    <option value="raquette">Raquette</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <input type="text" id="product_price" name="price" required class="text-input-field form-control"
-                                       placeholder="9,99 €">
+                                <input type="number" id="product_price" name="price" required class="text-input-field form-control"
+                                       placeholder="9.99 €">
                             </div>
                             <div class="form-group color-input-field">
                                 <label for="product_color_primary">Couleur primaire
@@ -41,7 +41,7 @@
                             </div>
                             <div class="form-group">
                                 <select id="product_size" name="size" class="select-input-field form-control">
-                                    <option value="" selected>Taille</option>
+                                    <option value="" disabled selected>Taille</option>
                                     <optgroup label="Chaussure">
                                         <option value="20">20</option>
                                         <option value="21">21</option>
@@ -58,15 +58,18 @@
                         </div>
                         <div class="col-md-6 justify-content-end">
                             <div class="form-group">
-                                <select id="product_brand" name="brand" class="select-input-field form-control"
-                                        placeholder="Marque">
-                                    <option value="" selected>Marque du produit</option>
+                                <select id="product_brand" name="brand" class="select-input-field form-control">
+                                    <option value="" disabled selected>Marque du produit</option>
+                                    <option value="Aucune">Aucune marque</option>
+                                    <option value="adidas">Adidas</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <select id="product_quality" name="quality" class="select-input-field form-control"
-                                        placeholder="Qualité">
-                                    <option value="" selected>Qualité du produit</option>
+                                <select id="product_quality" name="quality" class="select-input-field form-control">
+                                    <option value="" disabled selected>Qualité du produit</option>
+                                    {% for quality in qualitys %}
+                                        <option value="{{ quality.id }}" >{{ quality.label }}</option>
+                                    {% endfor %}
                                 </select>
                             </div>
                             <div class="form-group">
@@ -84,21 +87,17 @@
                                 </label>
                             </div>
                             <div class="form-group">
-                                <select id="product_gender" name="gender" class="select-input-field form-control"
-                                        placeholder="Genre">
-                                    <option value="" selected>Genre</option>
-                                    <option value="homme">Homme</option>
-                                    <option value="femme">Femme</option>
-                                    <option value="enfant">Enfant</option>
-                                    <option value="na">NA</option>
+                                <select id="product_gender" name="gender" class="select-input-field form-control">
+                                    <option value="" disabled selected>Genre</option>
+                                    {% for gender in genders %}
+                                        <option value="{{ gender.id }}">{{ gender.label }}</option>
+                                    {% endfor %}
                                 </select>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <textarea id="product_description" name="description" required class="text-input-field form-control"
-                                  placeholder="Description">
-                        </textarea>
+                        <textarea id="product_description" name="description" required class="text-input-field form-control" placeholder="Description"></textarea>
                     </div>
                 </div>
                 <div class="col-md-4 col-lg-3">

@@ -3,27 +3,62 @@
 {% block title %}Mes messages{% endblock %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('style/messages.css') }}">
+    <link rel="stylesheet" href="{{ asset('style/messages/messages.css') }}">
 {% endblock %}
 
 {% block body %}
-    <h2 class="m-5">Boîte de réception</h2>
-    <table class="table table-striped table-hover mx-5"  style="width: 85%">
-        <tbody>
-            {% for i in 0..5 %}
+    <div class="message-container">
+        <table class="table table-striped table-hover mx-5 table-message"  style="width: 94%">
+            <tbody>
+            {% for message in messages %}
                 <tr>
                     <td scope="row">
                         <a href="#">
                             <img src="{{ asset('images/messages/avatar.png') }}" alt="avatar" class="avatar">
                         </a>
                     </td>
-                    <td><a  href="#"><h5 class="pt-4 linkDefault" id="name">John Doe</h5></a></td>
-                    <td><a href="#"><p class="pt-4 linkDefault" id="link">Cet acheteur vous a fait une offre !</p></a></td>
+                    <td>
+                        <a  href="#" id="message-sender-a">
+                            <h5 class="pt-4 linkDefault">
+                                {{ message.sender.username }}
+                            </h5>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="#" id="message-object-a">
+                            <p class="pt-4 linkDefault" >
+                                {{ message.object }}
+                            </p>
+                        </a>
+                    </td>
                     <td class="pt-4">
-                        <img src="{{ asset('images/messages/trash.png') }}" alt="trash" class="trash">
+                        <img src="{{ asset('images/messages/trash.png') }}" alt="trash" title="Supprimer le message"
+                             data-url="{{ path('messages_delete',{'id' : message.id}) }}" class="trash" id="{{ message.id }}">
                     </td>
                 </tr>
             {% endfor %}
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+
+        $('.trash').click(function(){
+            var url = $(this).attr("data-url")
+            var thiss = $(this);
+            console.log($(this).parents('td').parents('tr'))
+            $.ajax({
+                url : url,
+                method : 'GET',
+                success: function (){
+
+                    toastr.success('Message bien supprimé.')
+                },
+                error: function (){
+                    toastr.error('Impossible de supprimer le message.')
+                },
+            })
+        })
+    </script>
+
 {% endblock %}

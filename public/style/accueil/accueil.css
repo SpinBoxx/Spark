@@ -3,6 +3,7 @@
     padding: 0;
 }
 
+
 body{
 
 }
@@ -161,12 +162,15 @@ body{
     height: 100%;
 }
 
-.favorite_card_div_image{
-    height: 57%;
+#main-img{
+    height: 100%;
     width: 100%;
-    background: no-repeat center/50% url(../../images/accueil/raquette.png);
     background-size:cover;
     border-radius: 9px;
+}
+
+.about-seller{
+
 }
 
 .favorite_card_top_line_description{
@@ -279,7 +283,7 @@ body{
 .favorite_card_price{
     position: absolute;
     height: 30px;
-    width: 63px;
+    width: auto;
     text-align: left;
     background-color: #f6f6f6;
     border-bottom-right-radius: 6px;
@@ -290,4 +294,8 @@ body{
     margin-top: 3px;
     font-weight: bold;
     font-size: 15px;
+}
+.favorite_card_price > p:after{
+    content: "€";
+    margin-right: 3px;
 }

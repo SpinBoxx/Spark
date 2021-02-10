@@ -9,12 +9,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class ErrorPageController extends AbstractController
 {
     /**
-     * @Route("/error404", name="error_page")
+     * @Route("/error404", name="error")
      */
     public function index(): Response
     {
-        return $this->render('error_page/index.html.twig', [
-            'controller_name' => 'ErrorPageController',
+        return $this->render('error/error404.twig', [
+
         ]);
     }
 }

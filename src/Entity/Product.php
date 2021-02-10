@@ -26,7 +26,7 @@ class Product
 
     /**
      * @ORM\ManyToOne(targetEntity=State::class)
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $state;
 
@@ -46,7 +46,8 @@ class Product
     private $picture_product = [];
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\ManyToOne(targetEntity=Gender::class)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $gender;
 
@@ -74,7 +75,7 @@ class Product
     private $brand;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\ManyToOne(targetEntity=Quality::class)
      * @ORM\JoinColumn(nullable=false)
      */
     private $quality;
@@ -118,24 +119,24 @@ class Product
         return $this->id;
     }
 
-    public function getUserId(): ?User
+    public function getUser(): ?User
     {
         return $this->user;
     }
 
-    public function setUserId(?User $user): self
+    public function setUser(?User $user): self
     {
         $this->user = $user;
 
         return $this;
     }
 
-    public function getStateId(): ?State
+    public function getState(): ?State
     {
         return $this->state;
     }
 
-    public function setStateId(?State $state): self
+    public function setState(?State $state): self
     {
         $this->state = $state;
 

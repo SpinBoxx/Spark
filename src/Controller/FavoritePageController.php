@@ -9,12 +9,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class FavoritePageController extends AbstractController
 {
     /**
-     * @Route("/mes-favoris", name="favorite_page")
+     * @Route("/mes-favoris", name="favoris")
      */
     public function index(): Response
     {
-        return $this->render('favorite_page/index.html.twig', [
-            'controller_name' => 'FavoritePageController',
+        return $this->render('favoris/favoris.html.twig', [
+
         ]);
     }
 }

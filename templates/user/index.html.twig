@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon compte{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        {% include 'user/user_nav.html.twig' %}
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            {% if app.user %}
+            <h1>Modifier votre profil</h1>
+            <form action="{{ path('user_update') }}" method="post">
+                <div class="form-group">
+                    <label>Nom d'utilisateur</label>
+                    <input class="text-input-field form-control"  name="username" value="{{ app.user.username }}" type="text"/>
+                </div>
+                <div class="form-group">
+                    <label>Nom</label>
+                    <input class="text-input-field form-control" name="lastname" value="{{ app.user.lastname|upper }}" type="text"/>
+                </div>
+                <div class="form-group">
+                    <label>Prénom</label>
+                    <input class="text-input-field form-control" name="firstname" value="{{ app.user.firstname|capitalize }}" type="text"/>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input class="text-input-field form-control" name="email" value="{{ app.user.email }}" type="email"/>
+                </div>
+                <div class="form-group">
+                    <label>Téléphone</label>
+                    <input class="text-input-field form-control" name="phone" value="{{ app.user.phone }}" type="text"/>
+                </div>
+                <div class="form-group">
+                    <label>Adresse</label>
+                    <input class="text-input-field form-control" name="postal_address" value="{{ app.user.postal_address }}" type="text"/>
+                </div>
+                <div class="form-group">
+                    <label>Code postal</label>
+                    <input class="text-input-field form-control" name="postal_code" value="{{ app.user.postal_code }}" type="text"/>
+                </div>
+                <div class="form-group">
+                    <label>Ville</label>
+                    <input class="text-input-field form-control" name="city" value="{{ app.user.city }}" type="text"/>
+                </div>
+                <div class="form-group">
+                    <label>Département</label>
+                    <input class="text-input-field form-control" name="department" value="{{ app.user.department }}" type="text"/>
+                </div>
+                <div class="form-group">
+                    <input class="text-input-field form-control bg-success" value="Mettre à jour" name="update_user" type="submit"/>
+                </div>
+            </form>
+             {% endif %}
+        </div>
+    </div>
+
+</div>
+{% endblock %}

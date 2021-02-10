@@ -211,24 +211,24 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getPostalAddress(): ?string
+    public function getPostal_Address(): ?string
     {
         return $this->postal_address;
     }
 
-    public function setPostalAddress(?string $postal_address): self
+    public function setPostal_Address(?string $postal_address): self
     {
         $this->postal_address = $postal_address;
 
         return $this;
     }
 
-    public function getPostalCode(): ?string
+    public function getPostal_Code(): ?string
     {
         return $this->postal_code;
     }
 
-    public function setPostalCode(?string $postal_code): self
+    public function setPostal_Code(?string $postal_code): self
     {
         $this->postal_code = $postal_code;
 

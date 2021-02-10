@@ -41,7 +41,7 @@
 }
 
 .favorite_card_seller{
-    display: block;
+    display: flex;
     margin-top: auto;
     margin-bottom: auto;
 }

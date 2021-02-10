@@ -34,9 +34,9 @@
         <div class="left_sub_header dropdown-header">
             <span>Catégories</span>
             <div class="dropdown-header-content">
-                <a href=""><h3>Femme</h3></a>
-                <a href=""><h3>Homme</h3></a>
-                <a href=""><h3>Enfant</h3></a>
+                <a id="woman-title"><h3>Femme</h3></a>
+                <a id="man-title"><h3>Homme</h3></a>
+                <a id="children-title"><h3>Enfant</h3></a>
             </div>
         </div>
         <div class="right_sub_header">
@@ -46,7 +46,130 @@
                 <input type="search" placeholder="Search" spellcheck="false">
             </form>
         </div>
-        {% endif %}
-
     </div>
+
+    <div class="row bg-light text-dark py-3 px-5" id="woman-window">
+        <div class="col-sm-3 mb-3">
+            <h5 class="menu-subtitle">Femme</h5>
+            {# https://www.flaticon.com/packs/men-fashion?word=wear #}
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/clothing/034-Sportswear.svg')}}><p class="menu-item">... Tout les produits</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/clothing/new.svg')}}><p class="menu-item">Nouveauté</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/clothing/041-tshirt.svg')}}><p class="menu-item">T-shirt</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/clothing/029-shirt.svg')}}><p class="menu-item">Polo</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/clothing/019-trousers.svg')}}><p class="menu-item">Pantalon</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/clothing/030-pants.svg')}}><p class="menu-item">Short</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/clothing/032-sneaker.svg')}}><p class="menu-item">Chaussures</p></a>
+        </div>
+        <div class="col-sm-3 mb-3">
+            <h5 class="menu-subtitle">Sport</h5>
+            {# https://www.flaticon.com/packs/sport-equipment-33?word=wear #}
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/sports/045-whistle.svg')}}><p class="menu-item">... Tout les sports</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/sports/017-goal.svg')}}><p class="menu-item">Football</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/sports/035-rugby.svg')}}><p class="menu-item">Rugby</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/sports/042-tennis.svg')}}><p class="menu-item">Tennis</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/sports/001-basketball-ball.svg')}}><p class="menu-item">Basket-ball</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/sports/009-boxing-gloves.svg')}}><p class="menu-item">Boxe</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/sports/018-golf.svg')}}><p class="menu-item">Golf</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/sports/005-bicycle.svg')}}><p class="menu-item">Cyclisme</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/sports/041-swimming-pool.svg')}}><p class="menu-item">Natation</p></a>
+        </div>
+        <div class="col-sm-3 mb-3">
+            <h5 class="menu-subtitle">Marques</h5>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/shopping-cart.svg')}}><p>... Tout les marques</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/brand.svg')}}><p>Lorem Ipsum</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/brand.svg')}}><p>Lorem Ipsum</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/brand.svg')}}><p>Lorem Ipsum</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/brand.svg')}}><p>Lorem Ipsum</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/brand.svg')}}><p>Lorem Ipsum</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/brand.svg')}}><p>Lorem Ipsum</p></a>
+        </div>
+        <div class="col-sm-2 mb-3">
+            <img class="menu-img" src="{{ asset('images/header/illustrations/woman/image_woman' ~ random(1) ~ '.png') }}">
+        </div>
+    </div>
+
+    <div class="row bg-light text-dark py-3 px-5" id="man-window">
+        <div class="col-sm-3 mb-3">
+            <h5 class="menu-subtitle">Homme</h5>
+            {# https://www.flaticon.com/packs/men-fashion?word=wear #}
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/clothing/034-Sportswear.svg')}}><p class="menu-item">... Tout les produits</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/clothing/new.svg')}}><p class="menu-item">Nouveauté</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/clothing/041-tshirt.svg')}}><p class="menu-item">T-shirt</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/clothing/029-shirt.svg')}}><p class="menu-item">Polo</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/clothing/019-trousers.svg')}}><p class="menu-item">Pantalon</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/clothing/030-pants.svg')}}><p class="menu-item">Short</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/clothing/032-sneaker.svg')}}><p class="menu-item">Chaussures</p></a>
+        </div>
+        <div class="col-sm-3 mb-3">
+            <h5 class="menu-subtitle">Sport</h5>
+            {# https://www.flaticon.com/packs/sport-equipment-33?word=wear #}
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/sports/045-whistle.svg')}}><p class="menu-item">... Tout les sports</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/sports/017-goal.svg')}}><p class="menu-item">Football</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/sports/035-rugby.svg')}}><p class="menu-item">Rugby</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/sports/042-tennis.svg')}}><p class="menu-item">Tennis</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/sports/001-basketball-ball.svg')}}><p class="menu-item">Basket-ball</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/sports/009-boxing-gloves.svg')}}><p class="menu-item">Boxe</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/sports/018-golf.svg')}}><p class="menu-item">Golf</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/sports/005-bicycle.svg')}}><p class="menu-item">Cyclisme</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/sports/041-swimming-pool.svg')}}><p class="menu-item">Natation</p></a>
+        </div>
+        <div class="col-sm-3 mb-3">
+            <h5 class="menu-subtitle">Marques</h5>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/shopping-cart.svg')}}><p>... Tout les marques</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/brand.svg')}}><p>Lorem Ipsum</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/brand.svg')}}><p>Lorem Ipsum</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/brand.svg')}}><p>Lorem Ipsum</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/brand.svg')}}><p>Lorem Ipsum</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/brand.svg')}}><p>Lorem Ipsum</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/brand.svg')}}><p>Lorem Ipsum</p></a>
+        </div>
+        <div class="col-sm-2 mb-3">
+            <img class="menu-img" src="{{ asset('images/header/illustrations/man/image_man' ~ random(1) ~ '.png') }}">
+        </div>
+    </div>
+
+    <div class="row bg-light text-dark py-3 px-5" id="children-window">
+        <div class="col-sm-3 mb-3">
+            <h5 class="menu-subtitle">Enfant</h5>
+            {# https://www.flaticon.com/packs/men-fashion?word=wear #}
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/clothing/034-Sportswear.svg')}}><p class="menu-item">... Tout les produits</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/clothing/new.svg')}}><p class="menu-item">Nouveauté</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/clothing/041-tshirt.svg')}}><p class="menu-item">T-shirt</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/clothing/029-shirt.svg')}}><p class="menu-item">Polo</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/clothing/019-trousers.svg')}}><p class="menu-item">Pantalon</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/clothing/030-pants.svg')}}><p class="menu-item">Short</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/clothing/032-sneaker.svg')}}><p class="menu-item">Chaussures</p></a>
+        </div>
+        <div class="col-sm-3 mb-3">
+            <h5 class="menu-subtitle">Sport</h5>
+            {# https://www.flaticon.com/packs/sport-equipment-33?word=wear #}
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/sports/045-whistle.svg')}}><p class="menu-item">... Tout les sports</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/sports/017-goal.svg')}}><p class="menu-item">Football</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/sports/035-rugby.svg')}}><p class="menu-item">Rugby</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/sports/042-tennis.svg')}}><p class="menu-item">Tennis</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/sports/001-basketball-ball.svg')}}><p class="menu-item">Basket-ball</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/sports/009-boxing-gloves.svg')}}><p class="menu-item">Boxe</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/sports/018-golf.svg')}}><p class="menu-item">Golf</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/sports/005-bicycle.svg')}}><p class="menu-item">Cyclisme</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/sports/041-swimming-pool.svg')}}><p class="menu-item">Natation</p></a>
+        </div>
+        <div class="col-sm-3 mb-3">
+            <h5 class="menu-subtitle">Marques</h5>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/shopping-cart.svg')}}><p>... Tout les marques</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/brand.svg')}}><p>Lorem Ipsum</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/brand.svg')}}><p>Lorem Ipsum</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/brand.svg')}}><p>Lorem Ipsum</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/brand.svg')}}><p>Lorem Ipsum</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/brand.svg')}}><p>Lorem Ipsum</p></a>
+            <a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/brand.svg')}}><p>Lorem Ipsum</p></a>
+        </div>
+        <div class="col-sm-2 mb-3">
+            <img class="menu-img" src="{{ asset('images/header/illustrations/children/image_children' ~ random(1) ~ '.png') }}">
+        </div>
+    </div>
+
+    {% endif %}
+
+    <script src="{{ asset('script/base/header-menu.js') }}"></script>
+
 </div>

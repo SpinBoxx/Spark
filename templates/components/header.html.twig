@@ -22,14 +22,32 @@
                 <span>|</span>
                 <a href=""><img src={{ asset('images/header/favorite_icon.svg') }}></a>
             </div>
-            <div class="header_profil">
+            <div class="header_profil" onclick="openCloseModal()">
                 <img src="https://i.pravatar.cc/150?u=fake@pravatar.com">
-                <div>
-                    <p>John Doe<i class="fas fa-chevron-down"></i></p>
+                <div class="header_profil_name">
+                    <p>John Doe</p>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div id="modal_header_profil">
+                    <div class="modal_header_profil_option">
+                        <div>
+                            <a href="{{ path('messages') }}"><img src={{ asset('images/header/profil.svg') }}><p>Mon profil</p></a>
+                        </div>
+                        <div>
+                            <a href="{{ path('messages') }}"><img src={{ asset('images/header/order.svg') }}><p>Mes commandes</p></a>
+                        </div>
+                        <div>
+                            <a href="{{ path('messages') }}"><img src={{ asset('images/header/settings.svg') }}><p>Mes préférences</p></a>
+                        </div>
+                        <div>
+                            <a href="{{ path('messages') }}"><img src={{ asset('images/header/deconnexion.svg') }}><p>Déconnexion</p></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
     <div class="sub_header">
         <div class="left_sub_header dropdown-header">
             <span>Catégories</span>
@@ -50,3 +68,16 @@
 
     </div>
 </div>
+
+<script>
+
+function openCloseModal() {
+  var modal_header_profil = document.getElementById('modal_header_profil');
+  if (modal_header_profil.clientHeight) {
+    modal_header_profil.style.height = "0px";
+  } else {
+    modal_header_profil.style.height = "175px";
+  }
+}
+
+</script>

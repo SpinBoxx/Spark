@@ -7,6 +7,7 @@ use App\Entity\Gender;
 use App\Entity\Product;
 use App\Entity\Quality;
 use App\Entity\State;
+use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -156,6 +157,24 @@ class ProductController extends AbstractController
             return $this->render('product/view_product.html.twig', [
                 'product' => $product,
             ]);
+        }
+        return $this->redirectToRoute('accueil');
+    }
+    /**
+     * @Route("/produit/{id}/delete", name="product_delete")
+     * @param $id
+     * @return Response
+     * @throws Exception
+     */
+    public function delete_and_redirect($id): Response
+    {
+        $product = $this->em->getRepository(Product::class)->find($id);
+        $user = $product->getUser();
+        $current_user = $this->security->getUser();
+        if($user->getId() === $current_user->getId()){
+            $this->em->remove($product);
+            $this->em->flush();
+            return $this->redirectToRoute('user_ads');
         }
         return $this->redirectToRoute('accueil');
     }

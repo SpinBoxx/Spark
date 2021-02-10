@@ -15,6 +15,11 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
+            remember_me:
+                secret: '%kernel.secret%'
+                lifetime: 3600 # 1 week in seconds
+                name: remember_me
+                path: /
             lazy: true
             provider: users_in_memory
             guard:

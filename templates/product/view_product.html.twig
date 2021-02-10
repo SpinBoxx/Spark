@@ -4,7 +4,9 @@
 
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('style/favoris/favorite_card.css')}}">
+
 {% endblock %}
+
 
 {% block body %}
     <div class="px-5 py-4 ">
@@ -41,7 +43,12 @@
                 <p class="font-weight-bold">Description</p>
                 <p>{{ product.description }}</p>
                 <hr>
-                <button href="#" class="btn py-2 mb-4" style="background: #ffffff; border-color:#000000; width:100%">Envoyer un message</button>
+                {% if sended is defined %}{{ sended }}{% endif %}
+                <div id="send-a-message">
+                    <button class="btn py-2 mb-4"  style="background: #ffffff; border-color:#000000; width:100%">Envoyer un message</button>
+                </div>
+                <button type="submit" class="send-message-sender btn btn-primary" hidden>Envoyer</button>
+                <div id="res"></div>
             </div>
         </div>
         <div class="row text-dark my-5">
@@ -58,8 +65,8 @@
                     <div class="row text-dark ml-1">
                         <div class="col-sm">
                             <div class="row text-dark ml-1 favorite_card_seller" >
-                                <img src="https://i.pravatar.cc/300" style="width: 35px;">
-                                <p class="">John Doe</p>
+{#                                <img src="https://i.pravatar.cc/300" style="width: 35px;">#}
+                                <p class="">{{ product.user.firstname }} {{ product.user.lastname }}</p>
                             </div>
                         </div>
                         <div class="col-sm mt-4">
@@ -84,7 +91,7 @@
                             </div>
                             <div class="favorite_card_top_line_description">
                                 <div class="favorite_card_seller">
-                                    <img src="https://i.pravatar.cc/300">
+{#                                    <img src="https://i.pravatar.cc/300">#}
                                     <div>
                                         <p>John Doe</p>
                                     </div>
@@ -117,6 +124,37 @@
         $('.second-img').on('click', function (){
             var main = document.querySelector('#main-img');
             main.src = this.src
+        })
+        var seller  = '<input type="hidden" name="seller" id="seller" value="{{ product.id }}"/>'
+        var csrf = '<input type="hidden" name="token" id="token" value="{{ csrf_token('send-message') }}"/>'
+        var input= '<div class="input-group mb-3">' + '<input name="input-message" id="input-message" type="text" class="form-control" placeholder="Votre message..." required>' + '</div>'
+        $('#send-a-message').click(function (){
+            $('.send-message-sender').removeAttr('hidden')
+            $('#send-a-message').html(input + csrf + seller )
+            this.id = ''
+        })
+
+        $('.send-message-sender').click(function (){
+            var token = $('#token').val()
+            var seller = $('#seller').val()
+            var message = $('#input-message').val()
+            if(message !== ""){
+                $.ajax({
+                    url: '{{ path('messages_send') }}',
+                    method: 'POST',
+                    data: {
+                        'token' : token,
+                        'seller' : seller,
+                        'message' : message
+                    },
+                    success: function (data){
+                        toastr.success('Votre message a bien été envoyé !')
+                    }
+                })
+            }else{
+                toastr.warning('Veuillez remplir votre message !')
+            }
+
         })
     </script>
 {% endblock %}

@@ -1,5 +1,20 @@
-.alert{
-    position: absolute;
-    width: 16%;
-    text-align: center;
+#toast-container > .toast-error {
+    background-color: #BD362F;
+    opacity: 65;
+}
+
+#toast-container > .toast-success {
+    background-color: #469d47;
+    opacity: 65;
+}
+
+#toast-container > .toast-warning {
+    background-color: #e58719;
+    opacity: 65;
+}
+
+#toast-container > .toast-info {
+    background-color: #2f96b4;
+    font-size: 17px;
+    opacity: 85;
 }

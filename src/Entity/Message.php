@@ -45,6 +45,22 @@ class Message
     private $creation_datetime;
 
     /**
+     * Message constructor.
+     * @param User $sender
+     * @param User $recipient
+     * @param string $object
+     * @param string $content
+     */
+    public function __construct(User $sender, User $recipient, string $object, string $content)
+    {
+        $this->sender = $sender;
+        $this->recipient = $recipient;
+        $this->object = $object;
+        $this->content = $content;
+        $this->setCreationDatetime(new \DateTime('now'));
+    }
+
+    /**
      * @return mixed
      */
     public function getId()

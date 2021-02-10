@@ -8,6 +8,7 @@ use App\Entity\Product;
 use App\Entity\Quality;
 use App\Entity\State;
 use Doctrine\ORM\EntityManagerInterface;
+use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -146,6 +147,7 @@ class ProductController extends AbstractController
      * @Route("/produit/{id}", name="product_show")
      * @param $id
      * @return Response
+     * @throws Exception
      */
     public function show_product($id): Response
     {

@@ -9,6 +9,7 @@
 }
 .trash {
   height: 50px;
+  cursor: pointer;
 }
 .linkDefault {
   color: black;
@@ -17,6 +18,13 @@
   height: 100vh;
   position: relative;
   overflow: hidden;
+}
+#message-sender-a{
+  text-decoration: none;
+}
+
+#message-object-a{
+  text-decoration: none;
 }
 .person {
   position: absolute;

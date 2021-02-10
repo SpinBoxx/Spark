@@ -2,6 +2,10 @@
 
 {% block title %}Mon compte{% endblock %}
 
+ {% block stylesheets %}
+     <link rel="stylesheet" href="{{ asset('style/user/user-update-profile.css') }}">
+ {% endblock %}
+
 {% block body %}
 <div class="container">
     <div class="row">
@@ -49,7 +53,7 @@
                     <input class="text-input-field form-control" name="department" value="{{ app.user.department }}" type="text"/>
                 </div>
                 <div class="form-group">
-                    <input class="text-input-field form-control bg-success" value="Mettre à jour" name="update_user" type="submit"/>
+                    <input class="form-control bg-success" value="Mettre à jour" name="update_user" type="submit"/>
                 </div>
             </form>
              {% endif %}

@@ -1,0 +1,17 @@
+.text-input-field{
+    outline: 0 !important;
+    border-width: 0 0 1px !important;
+    border-color: #404040 !important;
+    width: 100% !important;
+    border-radius: 0px !important;
+}
+.text-input-field:focus{
+    outline: 0 !important;
+    box-shadow: none !important;
+    border-color: green !important;
+    width: 100% !important;
+    border-width: 0 0 3px !important;
+}
+.form-group{
+    margin: 10px 0 10px 0 !important;
+}

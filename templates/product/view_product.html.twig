@@ -47,6 +47,9 @@
                 <div id="send-a-message">
                     <button class="btn py-2 mb-4"  style="background: #ffffff; border-color:#000000; width:100%">Envoyer un message</button>
                 </div>
+                <div id="buy">
+                    <a class="btn py-2 mb-4" href="{{ path('product_buy', {id : product.id}) }}" style="background: #ffffff; border-color:#000000; width:100%">Acheter</a>
+                </div>
                 <button type="submit" class="send-message-sender btn btn-primary" hidden>Envoyer</button>
                 <div id="res"></div>
             </div>

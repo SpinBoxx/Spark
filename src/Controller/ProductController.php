@@ -178,4 +178,16 @@ class ProductController extends AbstractController
         }
         return new Response(500);
     }
+
+    /**
+     * @Route("/produit/{id}/buy", name="product_buy")
+     * @param $id
+     * @return Response
+     * @throws Exception
+     */
+    public function buyProduct($id): Response
+    {
+        return $this->render('product/buy/buy.html.twig');
+    }
+
 }

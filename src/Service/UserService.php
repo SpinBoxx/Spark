@@ -25,7 +25,6 @@ class UserService
     {
         $product_repo = $this->em->getRepository(Product::class);
         /** @var User $user_id */
-        $user = $this->security->getUser();
         $user_id = $user->getId();
         //findby = cherche parmi les champs de products ici "user" qui ont la valeur de $user_id (id de l'utilisateur actuelle)
 

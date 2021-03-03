@@ -183,6 +183,81 @@ i{
     text-decoration: none;
 }
 
+/*======DEBUT========HOMME FEMME ENFANT HEADER=====================================================*/
+
+.background-header-gender{
+    position: absolute;
+    width: 100%;
+    border-top: 1px solid rgba(62, 62, 62, 0.1);
+    background-color: #FFFFFF!important;
+    z-index: 10;
+    margin-top: 44px !important;
+    padding: 15px;
+}
+
+
+.link {
+    display: flex !important;
+    width: max-content;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.75);
+}
+
+.menu-subtitle {
+    margin-bottom: 16px;
+}
+
+.menu-item {
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.menu-icon {
+    width: 2rem;
+    margin-bottom: 12px;
+    margin-right: 12px
+}
+
+.menu-img {
+    width: 350px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (max-width: 1450px){
+    .menu-img {
+        width: 275px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (max-width: 850px){
+    .menu-img {
+        width: 175px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (max-width: 575px){
+    #woman-window > div:nth-child(1) > h5, #man-window > div:nth-child(1) > h5, #children-window > div:nth-child(1) > h5  {
+        margin-top: 8rem;
+    }
+
+    .menu-img {
+        width: 300px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/*======FIN========HOMME FEMME ENFANT HEADER=====================================================*/
+
 .right_sub_header > a > h3 {
     font-family: "Poppins", sans-serif;
     font-weight: 600;

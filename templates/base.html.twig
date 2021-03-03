@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="{{ asset('style/base/base.css') }}">
         {% block stylesheets %}{% endblock %}
     </head>
-    <body>
+    <body style="overflow-x: hidden">
         {% if (app.user != null) %} 
             {% include 'components/header.html.twig' %}
         {% endif %}

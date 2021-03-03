@@ -111,10 +111,13 @@
             }
         }
         function moveSportRight(){
-            moveRight++
-            moveLeft--
-            for (let i = 1; i < 6; i++){
-                $('#' + parseInt(i)).attr("src", sports[i + moveRight -1])
+            console.log(moveRight, sports.length)
+            if(moveRight <= sports.length ) {
+                moveRight++
+                moveLeft--
+                for (let i = 1; i < 6; i++) {
+                    $('#' + parseInt(i)).attr("src", sports[i + moveRight - 1])
+                }
             }
         }
     </script>

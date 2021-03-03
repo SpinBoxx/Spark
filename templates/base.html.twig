@@ -13,9 +13,9 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
-    {% if app.user != null %}
-        {% include 'components/header.html.twig' %}
-    {% endif %}
+        {% if (app.user != null) %} 
+            {% include 'components/header.html.twig' %}
+        {% endif %}
         {% for label, messages in app.flashes(['success', 'warning']) %}
             {% for message in messages %}
                 <div class="alert alert-success alert-dismissible">
@@ -39,7 +39,7 @@
         {% block body %}{% endblock %}
         {% block javascript %}{% endblock %}
     </body>
-    {% if app.user != null %}
+    {% if (app.user != null) %}
         <div id="footer" class="overflow-hidden">
             {% include "./footer/footer.html.twig" %}
         </div>

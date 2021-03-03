@@ -22,7 +22,7 @@ body{
 
         position: relative;
         background-color: #e7e5e5;
-        width: 350px;
+        width: 400px;
         height: 200px;
         line-height: 50px;
         left: 20%;
@@ -34,21 +34,26 @@ body{
         
     }
 }
-@media (max-width: 400px) {
-    .inner-container{
 
-        position: relative;
-        background-color: #e7e5e5;
-        width: 375px;
+@media (max-width: 500px) {
+    .inner-container {
+        margin: auto;
+        left: initial;
+        width: 250px;
         height: 200px;
-        line-height: 50px;
-        left: 0%;
-        top: 34%;
-        border: 2px solid white;
-        border-bottom-left-radius: 40px;
-        border-top-right-radius: 40px;
-        opacity: 0.9;
+    }
 
+    .inner-container>h2 {
+        font-size: 1.3rem;
+    }
+
+    .btn-header-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .btn-header-container>a {
+        margin: auto;
     }
 }
 

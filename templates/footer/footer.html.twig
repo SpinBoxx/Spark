@@ -3,22 +3,24 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 {% endblock %}
 
-<div class="row bg-light text-dark py-3 px-5">
+<div class="row bg-light text-dark py-3 px-5" {% if app.user is null %} style="justify-content: space-between" {% endif %}>
+    {% if app.user is not null %}
     <div class="col-sm-3 mb-3">
-        <h5>Besoin d'aide ?</h5>
-        <a href="#" target="_blank" class="linkDefault">
-            <p>Suivre mon colis</p>
-        </a>
-        <a href="#" target="_blank" class="linkDefault">
-            <p>Guide des tailles</p>
-        </a>
-        <a href="#" target="_blank" class="linkDefault">
-            <p>Livraisons</p>
-        </a>
-        <a href="#" target="_blank" class="linkDefault">
-            <p>Retours</p>
-        </a>
+            <h5>Besoin d'aide ?</h5>
+            <a href="#" target="_blank" class="linkDefault">
+                <p>Suivre mon colis</p>
+            </a>
+            <a href="#" target="_blank" class="linkDefault">
+                <p>Guide des tailles</p>
+            </a>
+            <a href="#" target="_blank" class="linkDefault">
+                <p>Livraisons</p>
+            </a>
+            <a href="#" target="_blank" class="linkDefault">
+                <p>Retours</p>
+            </a>
     </div>
+    {% endif %}
     <div class="col-sm-3 mb-5">
         <h5>Suivez-nous</h5>
         <div class="row mt-3" style="display: inherit">

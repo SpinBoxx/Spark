@@ -17,6 +17,7 @@
     -o-transition: min-width 0.3s ease-out;
     -webkit-transition: min-width 0.3s ease-out;
     transition: min-width 0.3s ease-out;
+    background-color: white;
 }
 
 .tabs-left,
@@ -155,11 +156,9 @@
 
 .profil_content_display {
     display: flex;
-    margin-left: calc(-1rem + -25px);
-}
-
-.tab-content, .tab-content > div {
-    margin: auto;
+    padding: 1rem 1.2rem;
+    position: relative;
+    z-index: 1;
 }
 
 .profil_content_display,
@@ -168,13 +167,18 @@
     display: flex;
 }
 
+.tab-pane {
+    width: 100% !important;
+}
 
-@media screen and (max-width: 575px) {
+
+@media screen and (max-width: 640px) {
     .profil_content_navbar {
         width: 0;
         min-width: 0;
         position: relative;
         overflow: hidden;
+        z-index: 2;
     }
 
     .profil_content_navbar ul {
@@ -184,6 +188,12 @@
 
     .profil_content_navbar_option {
         margin: auto;
+    }
+
+    .profil_content_display {
+        top: calc(4rem + -25px);
+        position: absolute;
+        margin-top: 0;
     }
     
     .active_navbar {

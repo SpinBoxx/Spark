@@ -17,7 +17,9 @@
 		<a class="active_navbar" onclick="openCloseNavbar()"><img height="25px" src="{{ asset('images/header/bars-solid.svg') }}"></a>
 		<div class="profil_content_display">
 			<div class="tab-content">
-				<div class="tab-pane active" id="home">Home Tab.</div>
+				<div class="tab-pane active" id="home">
+                    {% include 'user/profil/profil.html.twig' %}
+                </div>
 				<div class="tab-pane" id="profile">Profile Tab.</div>
 				<div class="tab-pane" id="messages">Messages Tab.</div>
 				<div class="tab-pane" id="settings">Settings Tab.</div>
@@ -31,9 +33,9 @@
         var profil_content_navbar = document.querySelector('.profil_content_navbar');
 
         if (profil_content_navbar_content.clientWidth) {
-        profil_content_navbar.style.minWidth = "0px";
+            profil_content_navbar.style.minWidth = "0px";
         } else {
-        profil_content_navbar.style.minWidth = "200px";
+            profil_content_navbar.style.minWidth = "200px";
         }
     }
 </script>

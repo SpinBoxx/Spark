@@ -1,0 +1,33 @@
+{% block product_vignette %}
+    <div class="favorite_card_div">
+        <div>
+            <div class="favorite_card_align_heart">
+                <div class="favorite_card_heart">
+                    <i class="fas fa-heart"></i>
+                </div>
+            </div>
+            <div class="favorite_card_div_image">
+            </div>
+            <div class="favorite_card_top_line_description">
+                <div class="favorite_card_seller">
+                    <div>
+                        <p>{{ product.user.username }}</p>
+                    </div>
+                </div>
+                <div class="favorite_card_date">
+                    <p>{{ product.creationDatetime|date("m/d/Y") }}</p>
+                </div>
+            </div>
+            <div class="favorite_card_description">
+                <h4>{{ product.title }}</h4>
+                <p>
+                    {{ product.description }}
+                </p>
+            </div>
+            <div class="favorite_card_sub_line_description">
+                <p>{{ product.price }} €</p>
+                <p><a href="{{ path('product_show', {'id':  product.id })}}">Voir l'article ></a></p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

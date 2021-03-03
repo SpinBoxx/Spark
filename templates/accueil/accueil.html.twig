@@ -21,26 +21,11 @@
     <div class="sports-bar">
         <h2 class="sports-bar-title">Retrouver vos sports préférés</h2>
         <div class="image-sport-container text-center">
-            <i class="fas fa-chevron-circle-left fa-6x" id="chevron-left" style="-webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
-    -moz-user-select: none; /* Old versions of Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Non-prefixed version, currently"></i>
+            <i class="fas fa-chevron-circle-left fa-6x " id="chevron-left"></i>
             {% for i in 0..4 %}
-                <img src="{{ asset('images/accueil/sports/' ~ sports[i]) }}" alt="" id="{{ i + 1 }}" style="-webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
-    -moz-user-select: none; /* Old versions of Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Non-prefixed version, currently">
+                <img src="{{ asset('images/accueil/sports/' ~ sports[i]) }}" alt="" id="{{ i + 1 }}" width="150" height="144" >
             {% endfor %}
-            <i class="fas fa-chevron-circle-right fa-6x" id="chevron-right" style="-webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
-    -moz-user-select: none; /* Old versions of Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Non-prefixed version, currently"></i>
+            <i class="fas fa-chevron-circle-right fa-6x " id="chevron-right" ></i>
         </div>
     </div>
     <div class="show-articles mt-4">
@@ -74,8 +59,7 @@
             }
         }
         function moveSportRight(){
-            console.log(moveRight, sports.length)
-            if(moveRight <= sports.length -5 ) {
+            if(moveRight <= sports.length -6 ) {
                 moveRight++
                 moveLeft--
                 for (let i = 1; i < 6; i++) {
@@ -84,5 +68,4 @@
             }
         }
     </script>
-
 {% endblock %}

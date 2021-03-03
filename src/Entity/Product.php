@@ -108,10 +108,32 @@ class Product
 
     /**
      * Product constructor.
+     * @param User $user
+     * @param State $state
+     * @param Gender $gender
+     * @param Color $color_primary
+     * @param $title
+     * @param $description
+     * @param $size
+     * @param $brand
+     * @param $category
+     * @param $price
+     * @param Quality $quality
      */
-    public function __construct()
+    public function __construct(User $user, State $state, Gender $gender, Color $color_primary, $title, $description, $size, $brand, $category, $price, Quality $quality)
     {
         $this->setCreationDatetime(new \DateTime('now'));
+        $this->user = $user;
+        $this->state = $state;
+        $this->gender = $gender;
+        $this->color_primary = $color_primary;
+        $this->title = $title;
+        $this->description = $description;
+        $this->size = $size;
+        $this->brand = $brand;
+        $this->category = $category;
+        $this->price = $price;
+        $this->quality = $quality;
     }
 
     public function getId(): ?int

@@ -1,0 +1,90 @@
+.command_content {
+    margin: auto;
+    width: 100%;
+}
+
+.command_content > .command_item {
+    width: 80%;
+    margin: auto;
+}
+
+.command_item_top {
+    height: fit-content;
+    background-color: #ddd;
+    border-radius: .5rem .5rem 0 0;
+    -webkit-border-radius: .5rem .5rem 0 0;
+    -moz-border-radius: .5rem .5rem 0 0;
+    -ms-border-radius: .5rem .5rem 0 0;
+    -o-border-radius: .5rem .5rem 0 0;
+    padding: .5rem .8rem;
+}
+
+.command_item_top .top_line_card, .command_item_top .bottom_line_card {
+    display: flex;
+    justify-content: space-between;
+}
+
+.command_item_top i{
+    margin: 0 .2rem;
+    vertical-align: middle;
+    color: #212529;
+}
+
+.command_item_top .bottom_line_card p {
+    margin: 0;
+}
+
+.command_item_top .top_line_card div:not(:first-child){
+    display: flex;
+}
+
+.command_item_top .top_line_card > div:not(:first-child) > p:not(:first-child){
+    margin-left: 1rem;
+}
+
+#modal_header_profil3 {
+    transition: height 0.3s ease-out 0s;
+    height: 0px;
+    overflow: hidden;
+    background-color: rgb(246, 246, 246);
+    width: 205px;
+    position: absolute;
+    margin-top: calc(25.5px);
+    border-radius: .5rem;
+    margin-left: -53px !important;
+    -webkit-border-radius: .5rem;
+    -moz-border-radius: .5rem;
+    -ms-border-radius: .5rem;
+    -o-border-radius: .5rem;
+}
+
+.modal_header_profil_option2 {
+    margin: 1rem 1rem .5rem;
+    width: 100%;
+}
+
+.modal_header_profil_option2 > div {
+    height: 35px;
+}
+
+.modal_header_profil_option2 > div > a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.75);
+    font-weight: 600;
+    display: flex;
+    flex-direction: row-reverse;
+    margin: auto 0 auto auto;
+}
+
+.modal_header_profil_option2 img {
+    margin-left: .5rem;
+    height: 18px;
+    width: 25px;
+    margin-top: 0.2rem;
+}
+
+@media screen and (max-width: 640px) {
+    .command_item_top .top_line_card div p b  {
+        display: block;
+    }
+}

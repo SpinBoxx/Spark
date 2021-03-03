@@ -1,0 +1,43 @@
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('style/user/profil/command-option.css') }}">
+{% endblock %}
+
+<div>
+    <h3><b>Vos commandes 📦</b></h3>
+    <br>
+    <p>Ici vous retrouverez l'ensemble de vos commandes passées, et celles à venir !</p>
+    <div class="command_content">
+        <div class="command_item">
+            <div class="command_item_top">
+                <div class="top_line_card">
+                    <div>
+                        <p><b>Numéro de vente:</b> 1234567894512</p>
+                    </div>
+                    <div>
+                        <p class="link_hover_delivered_at" onclick="openModalInfo()"><b>Livré à:</b> John Doe<i class="fas fa-chevron-down"></i></p>
+                        <div id="modal_header_profil3">
+                            <div class="modal_header_profil_option2">
+                                <div>
+                                    <p><b>John Doe</b></p>
+                                    <p>1 rue du general, 44000</p>
+                                    <p>Nantes, France</p>
+                                    <p>Etage 41</p>
+                                    <p>06 01 01 01 01</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p><b>Total:</b> 12,21€</p>
+                    </div>
+                </div>
+                <div class="bottom_line_card">
+                    <div>
+                        <p><b>Date de la vente:</b> 11/01/2021</p>
+                    </div>
+                    <div>
+                        <p><b>Autres<i class="fas fa-chevron-down"></i></b></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

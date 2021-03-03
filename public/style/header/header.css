@@ -185,6 +185,72 @@ i{
     display: none;
 }
 
+#woman-window, #man-window, #children-window {
+    padding: 32px!important;
+    border-top: 1px solid rgba(62, 62, 62, 0.1);
+    background-color: #FFFFFF!important;
+}
+
+.link {
+    display: flex !important;
+    width: max-content;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.75);
+}
+
+.menu-subtitle {
+    margin-bottom: 16px;
+}
+
+.menu-item {
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.menu-icon {
+    width: 2rem;
+    margin-bottom: 12px;
+    margin-right: 12px
+}
+
+.menu-img {
+    width: 350px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (max-width: 1450px){
+    .menu-img {
+        width: 275px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (max-width: 850px){
+    .menu-img {
+        width: 175px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (max-width: 575px){
+    #woman-window > div:nth-child(1) > h5, #man-window > div:nth-child(1) > h5, #children-window > div:nth-child(1) > h5  {
+        margin-top: 8rem;
+    }
+
+    .menu-img {
+        width: 300px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
 @media screen and (max-width: 1024px){
     .header_profil {
         margin-right: 1rem;

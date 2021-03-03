@@ -44,6 +44,10 @@
             {% include "./footer/footer.html.twig" %}
         </div>
     {% endif %}
-    <script src="{{ asset('script/base/base.js') }}"></script>
+    <script src="{{ asset('script/base/base.js') }}" defer></script>
+    <script defer>
+        $('.profil_content').css('min-height', ($(window).height() - $('#footer').outerHeight(true) - $('.complete_header').outerHeight(true) + 'px'));
+        $('.profil_content_navbar').css('min-height', ($(window).height() - $('#footer').outerHeight(true) - $('.complete_header').outerHeight(true) + 'px'));
+    </script>
 </html>
 

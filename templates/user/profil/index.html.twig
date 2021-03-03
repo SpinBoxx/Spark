@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon compte
+{% endblock %}
+
+{% block stylesheets %}
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{{ asset('style/user/profil/navbar.css') }}">
+{% endblock %}
+
+{% block body %}
+
+	<div class="profil_content">
+		<div class="profil_content_navbar">
+			{% include 'user/profil/user_nav.html.twig' %}
+		</div>
+		<a class="active_navbar" onclick="openCloseNavbar()"><img height="25px" src="{{ asset('images/header/bars-solid.svg') }}"></a>
+		<div class="profil_content_display">
+			<div class="tab-content">
+				<div class="tab-pane active" id="home">Home Tab.</div>
+				<div class="tab-pane" id="profile">Profile Tab.</div>
+				<div class="tab-pane" id="messages">Messages Tab.</div>
+				<div class="tab-pane" id="settings">Settings Tab.</div>
+			</div>
+		</div>
+	</div>
+
+<script defer>
+	function openCloseNavbar() {
+        var profil_content_navbar_content = document.getElementById('profil_content_navbar_content');
+        var profil_content_navbar = document.querySelector('.profil_content_navbar');
+
+        if (profil_content_navbar_content.clientWidth) {
+        profil_content_navbar.style.minWidth = "0px";
+        } else {
+        profil_content_navbar.style.minWidth = "200px";
+        }
+    }
+</script>
+
+
+{% endblock %}

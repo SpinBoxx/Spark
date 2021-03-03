@@ -1,11 +1,31 @@
 const womanTitle = document.getElementById("woman-title")
 const womanWindow = document.getElementById("woman-window")
+const womanDiv = document.getElementById("woman-div")
 
 const manTitle = document.getElementById("man-title")
 const manWindow = document.getElementById("man-window")
+const manDiv = document.getElementById("woman-div")
 
 const childrenTitle = document.getElementById("children-title")
 const childrenWindow = document.getElementById("children-window")
+
+const mousleave1 = $('.sub_header')
+const mousleave2 = $('.right_sub_header')
+
+
+for (var i = 0; i < mousleave1.length; i++){
+  mousleave1.mouseleave(function(){
+    womanWindow.style.display = 'none'
+    manWindow.style.display = 'none'
+    childrenWindow.style.display = 'none'
+  })
+  mousleave2.mouseover(function(){
+    womanWindow.style.display = 'none'
+    manWindow.style.display = 'none'
+    childrenWindow.style.display = 'none'
+  })
+}
+
 
 womanWindow.style.display = 'none'
 manWindow.style.display = 'none'

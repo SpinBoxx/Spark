@@ -10,9 +10,11 @@ use App\Entity\State;
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Security;
 
@@ -20,20 +22,44 @@ class ProductController extends AbstractController
 {
     private $em;
     private $security;
+    private $kernel;
 
-    public function __construct(EntityManagerInterface $em, Security $security){
+    /**
+     * ProductController constructor.
+     * @param EntityManagerInterface $em
+     * @param Security $security
+     * @param KernelInterface $kernel
+     */
+    public function __construct(EntityManagerInterface $em, Security $security, KernelInterface $kernel){
         $this->em = $em;
         $this->security = $security;
+        $this->kernel = $kernel;
     }
 
     /**
      * @Route("/", name="accueil")
+     * @param Request $request
+     * @IsGranted("ROLE_USER")
      * @return Response
      */
-    public function index(): Response{
+    public function index(Request $request): Response{
+
+        $sports = scandir($this->kernel->getProjectDir().'/public/images/accueil/sports/');
+        unset($sports[0]);
+        unset($sports[1]);
+
+        foreach ($sports as $sport){
+            $tab[] = $sport;
+        }
+//        var_dump($tab);
+//        die();
+
         $products = $this->em->getRepository(Product::class)->findAll();
+        $pathnameSports = ["arc.png", "rugby.png"];
+
         return $this->render('accueil/accueil.html.twig', [
             'products' => $products,
+            'sports' => $tab,
         ]);
     }
 
@@ -174,8 +200,8 @@ class ProductController extends AbstractController
         if($user->getId() === $current_user->getId()){
             $this->em->remove($product);
             $this->em->flush();
-            return new Response(200);
+            return new Response('',Response::HTTP_OK);
         }
-        return new Response(500);
+        return new Response('',Response::HTTP_INTERNAL_SERVER_ERROR);
     }
 }

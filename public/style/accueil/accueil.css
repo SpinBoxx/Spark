@@ -9,7 +9,7 @@ body{
 }
 
 .banner-area{
-    background-image: url(../../images/accueil/sports/header-photo.png);
+    background-image: url(../../images/accueil/header-photo.png);
     height: 595px;
     background-repeat: no-repeat;
     background-position: center center;
@@ -111,6 +111,12 @@ body{
 }
 
 .sports-bar{
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
     margin-top: 30px;
     margin-left: 40px;
 }

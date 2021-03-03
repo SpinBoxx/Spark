@@ -9,11 +9,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Security;
 
 class UserController extends AbstractController
 {
     private $em;
+
     public function __construct(EntityManagerInterface $em)
     {
         $this->em = $em;
@@ -21,7 +21,6 @@ class UserController extends AbstractController
 
     /**
      * @Route("/user", name="user")
-     * @param Request $req
      * @return Response
      */
     public function index(): Response
@@ -64,10 +63,10 @@ class UserController extends AbstractController
             $current_user->setPostal_Address($request["postal_address"]);
         }
         $this->em->flush();
-        /** @var User $current_user */
         $user_firstname = $current_user->getFirstname();
         return $this->redirectToRoute("user");
     }
+
     /**
      * @Route("/user/mes-annonces", name="user_ads")
      * @return Response

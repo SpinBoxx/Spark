@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+ {% block stylesheets %}
+     <link rel="stylesheet" href="{{ asset('style/user/user-ad.css') }}">
+ {% endblock %}
+
+{% block title %}Mes annonces{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            {% include 'user/user_nav.html.twig' %}
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+        <h1>Mes annonces</h1>
+        {% if ads is defined %}
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">N°</th>
+                    <th scope="col">Titre</th>
+                    <th scope="col">Prix</th>
+                    <th scope="col">Taille</th>
+                    <th scope="col">Posté le</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                {% for ad in ads %}
+                    <tbody>
+                    <tr>
+                        <th scope="row">{{ loop.index }}</th>
+                        <td>{{ ad.title }}</td>
+                        <td>{{ ad.price }}</td>
+                        <td>{{ ad.size }}</td>
+                        <td>{{ ad.creationDatetime|date("d/m/Y") }}</td>
+                        <td>
+                            <a href="{{ path('product_show', {'id': ad.id }) }}">
+                                <i data-toggle="tooltip" data-placement="bottom" title="Voir l'annonce" class="far fa-eye fa-lg"></i>
+                            </a>
+                            <i data-url="{{ path('product_delete',{'id' : ad.id}) }}" id="delete-product" data-toggle="tooltip" data-placement="bottom" title="Supprimer l'annonce" class="fa fa-trash fa-lg"></i>
+                        </td>
+                    </tr>
+                    </tbody>
+                {% endfor %}
+            </table>
+        {% endif %}
+            </div>
+        </div>
+    </div>
+    <script src="{{ asset('script/product/delete_product.js') }}"  type="text/javascript"></script>
+
+{% endblock %}
+

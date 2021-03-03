@@ -9,7 +9,6 @@
 {% endblock %}
 
 {% block body %}
-
     <div class="banner-area">
         <div class="inner-container">
             <h2>Envie de vendre <br> tes affaires inutilisées ?</h2>
@@ -22,13 +21,26 @@
     <div class="sports-bar">
         <h2 class="sports-bar-title">Retrouver vos sports préférés</h2>
         <div class="image-sport-container text-center">
-            <i class="fas fa-chevron-circle-left fa-6x"></i>
-            <img src="{{ asset('images/accueil/foot.png') }}" alt="">
-            <img src="{{ asset('images/accueil/rubgy.png') }}" alt="">
-            <img src="{{ asset('images/accueil/tennis.png') }}" alt="">
-            <img src="{{ asset('images/accueil/basket.png') }}" alt="">
-            <img src="{{ asset('images/accueil/boxe.png') }}" alt="">
-            <i class="fas fa-chevron-circle-right fa-6x"></i>
+            <i class="fas fa-chevron-circle-left fa-6x" id="chevron-left" style="-webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently"></i>
+            {% for i in 0..4 %}
+                <img src="{{ asset('images/accueil/sports/' ~ sports[i]) }}" alt="" id="{{ i + 1 }}" style="-webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently">
+            {% endfor %}
+            <i class="fas fa-chevron-circle-right fa-6x" id="chevron-right" style="-webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently"></i>
         </div>
     </div>
     <div class="show-articles mt-4">
@@ -53,7 +65,7 @@
                     </div>
                     <div class="favorite_card_top_line_description">
                         <div class="favorite_card_seller">
-                            <img src="https://i.pravatar.cc/300">
+                            <img src="">
                             <div>
                                 <p>{{ product.user.firstname }} {{ product.user.lastname|upper }}</p>
                             </div>
@@ -76,8 +88,35 @@
         {% endfor %}
     </section>
 
-    {% block javascript %}
-
-    {% endblock %}
+    <script>
+        $('#chevron-left').click(function (){
+            moveSportLeft()
+        })
+        $('#chevron-right').click(function (){
+            moveSportRight()
+        })
+        let moveLeft = 0
+        let moveRight = 0
+        let sports = []
+        {% for sport in sports %}
+            sports.push("images/accueil/sports/" + "{{ sport }}")
+        {% endfor %}
+        function moveSportLeft(){
+            if(moveRight !== 0 ){
+                moveRight--
+                moveLeft++
+                for (let i = 1; i < 6; i++){
+                    $('#' + parseInt(i)).attr("src", sports[i - moveLeft -1])
+                }
+            }
+        }
+        function moveSportRight(){
+            moveRight++
+            moveLeft--
+            for (let i = 1; i < 6; i++){
+                $('#' + parseInt(i)).attr("src", sports[i + moveRight -1])
+            }
+        }
+    </script>
 
 {% endblock %}

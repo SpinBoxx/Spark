@@ -6,27 +6,27 @@
                     <i class="fas fa-heart"></i>
                 </div>
             </div>
+            <div class="favorite_card_price">
+                <p class="">{{ product.price }}</p>
+            </div>
             <div class="favorite_card_div_image">
             </div>
             <div class="favorite_card_top_line_description">
                 <div class="favorite_card_seller">
                     <div>
-                        <p>{{ product.user.username }}</p>
+                        <p class="favorite_card_seller_username">{{ product.user.username | capitalize }}</p>
                     </div>
                 </div>
                 <div class="favorite_card_date">
-                    <p>{{ product.creationDatetime|date("m/d/Y") }}</p>
+                    <p class="favorite_card_date_creationDateTime">{{ product.creationDatetime|date("m/d/Y") }}</p>
                 </div>
             </div>
             <div class="favorite_card_description">
-                <h4>{{ product.title }}</h4>
-                <p>
-                    {{ product.description }}
-                </p>
+                <h4 class="favorite_card_description_title">{{ product.title }}</h4>
+                <p class="favorite_card_description_description">{{ product.description }}</p>
             </div>
             <div class="favorite_card_sub_line_description">
-                <p>{{ product.price }} €</p>
-                <p><a href="{{ path('product_show', {'id':  product.id })}}">Voir l'article ></a></p>
+                <p><a href="{{ path('product_show', {'id':  product.id })}}" class="favorite_card_sub_line_see_article">Voir l'article ></a></p>
             </div>
         </div>
     </div>

@@ -11,8 +11,6 @@ use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
-use PhpParser\Node\Expr\Cast\Double;
-use PhpParser\Node\Expr\Cast\Int_;
 
 class ProduitFixtures extends Fixture implements DependentFixtureInterface
 {

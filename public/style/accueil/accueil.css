@@ -2,12 +2,8 @@
     margin: 0;
     padding: 0;
 }
-
-
 body{
-
 }
-
 .banner-area{
     background-image: url(../../images/accueil/header-photo.png);
     height: 595px;
@@ -34,7 +30,6 @@ body{
         
     }
 }
-
 @media (max-width: 500px) {
     .inner-container {
         margin: auto;
@@ -56,7 +51,6 @@ body{
         margin: auto;
     }
 }
-
 @media (min-width: 901px) {
     .inner-container{
         position: relative;
@@ -72,12 +66,10 @@ body{
         opacity: 0.87;
     }
 }
-
 .inner-container > h2{
     margin-top: 30px;
     margin-left: 13px;
 }
-
 .sell{
     margin-left: 13px;
     height: 40px;
@@ -91,14 +83,12 @@ body{
     background-color: #6fcf97;
 
 }
-
 .sell:hover{
     transition: 0.5s;
     color: white;
     background-color: #3b9d62;
     text-decoration: none;
 }
-
 .how-this-work {
     margin-left: 12px;
     height: 30px;
@@ -110,11 +100,9 @@ body{
     border-bottom: 1px solid black;
 
 }
-
 .how-this-work:hover{
     text-decoration: none;
 }
-
 .sports-bar{
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -128,35 +116,29 @@ body{
 .sports-bar > h2{
     color: black;
 }
-
 .fa-chevron-circle-left{
     position: relative;
     margin-right: 30px;
     top:30px;
 }
-
 .fa-chevron-circle-right{
     top: 30px;
     position: relative;
     margin-left: 30px;
 }
-
 .show-articles{
     margin-top: 30px;
     margin-left: 40px;
 }
-
 .show-article-title > h2{
     color: black;
 }
-
 #favorite_card_section{
     display: flex;
     flex-wrap: wrap;
     margin-left: 40px;
     margin-top: 30px;
 }
-
 .favorite_card_div{
     height: 29rem;
     width: 18rem;
@@ -165,14 +147,12 @@ body{
     border-radius: 9px;
     box-shadow: 0px 10px 23px -6px rgba(0, 0, 0, 0.25);
 }
-
 .favorite_card_div > div {
     display: flex;
     flex-direction: column;
     margin: 1rem;
     height: 100%;
 }
-
 #main-img{
     height: 100%;
     width: 100%;
@@ -183,130 +163,12 @@ body{
 .about-seller{
 
 }
-
-.favorite_card_top_line_description{
-    display: flex;
-    height: 4rem;
-    justify-content: space-between;
-}
-
-.favorite_card_seller{
-    display: flex;
-    margin-top: auto;
-    margin-bottom: auto;
-}
-
-.favorite_card_seller > img {
-    z-index: 1;
-    height: 35px;
-    border-radius: 50%;
-}
-
-.favorite_card_seller > div {
-    height: 35px;
-    display: flex;
-}
-
-.favorite_card_seller > div > p {
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-size: 0.8rem;
-    margin: auto;
-    color: rgba(0, 0, 0, 0.75);
-    padding-left: 8px;
-}
-
-
-.favorite_card_date{
-    display: flex;
-}
-
-.favorite_card_date > p {
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-size: 0.8rem;
-    margin: auto;
-    color: rgba(0, 0, 0, 0.75);
-}
-
-.favorite_card_description{
-    text-align: left;
-}
-
-.favorite_card_description > h4 {
-    font-family: "Poppins", sans-serif;
+h2{
+    /*font-family: "Poppins", sans-serif;*/
     font-weight: 700;
-    font-size: 0.8rem;
+    font-size: 2.5rem;
     color: rgba(0, 0, 0, 0.75);
-    margin: 0 0 0.5rem 0;
-}
-
-.favorite_card_description > p{
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-size: 0.8rem;
-    margin: auto;
-    color: rgba(0, 0, 0, 0.75);
-}
-
-.favorite_card_sub_line_description{
-    height: 0;
-    display: flex;
-    justify-content: space-between;
-    margin-top: inherit;
-}
-
-.favorite_card_sub_line_description p, .favorite_card_sub_line_description > p > a{
-    margin: 0;
-    font-family: "Poppins", sans-serif;
-    font-weight: 700;
-    font-size: 0.8rem;
-    color: rgba(0, 0, 0, 0.75);
-}
-
-.favorite_card_align_heart{
-    display: flex;
-    justify-content: flex-end;
-}
-
-.favorite_card_heart{
-    height: 47px;
-    width: 47px;
-    border-radius: 50%;
-    background-color: #FFFFFF;
-    position: absolute;
-    margin: 0.5rem;
-    display: flex;
-    justify-content: center;
-}
-
-.favorite_card_heart > i {
-    font-size: 25px;
-    color: #F26F6F;
-    margin-top: 13px;
-}
-
-.favorite_card_price{
-    position: absolute;
-    height: 30px;
-    width: auto;
     text-align: left;
-    background-color: #f6f6f6;
-    border-bottom-right-radius: 6px;
-}
-
-.favorite_card_price > p{
-    margin-left: 3px;
-    margin-top: 3px;
-    font-weight: bold;
-    font-size: 15px;
-}
-.favorite_card_price > p:after{
-    content: "€";
-    margin-right: 3px;
+    margin-bottom: 0;
+    margin-left: 6rem;
 }

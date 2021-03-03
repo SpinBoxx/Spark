@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Product;
 use App\Entity\User;
+use App\Service\UserService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -14,9 +15,12 @@ class UserController extends AbstractController
 {
     private $em;
 
-    public function __construct(EntityManagerInterface $em)
+    private $userService;
+
+    public function __construct(EntityManagerInterface $em, UserService $userService)
     {
         $this->em = $em;
+        $this->userService = $userService;
     }
 
     /**
@@ -73,12 +77,9 @@ class UserController extends AbstractController
      */
     public function user_ad(): Response
     {
-        $product_repo = $this->em->getRepository(Product::class);
-        /** @var User $user_id */
-        $user = $this->getUser();
-        $user_id = $user->getId();
-        //findby = cherche parmi les champs de products ici "user" qui ont la valeur de $user_id (id de l'utilisateur actuelle)
-        $user_ads = $product_repo->findBy(['user' => $user_id]);
+
+        $user_ads = $this->userService->get_user_ads($this->getUser());
+        $this->userService->get_user_ads($this->getUser());
         return $this->render('user/user_ad.html.twig', [
             'controller_name' => 'UserController','ads' => $user_ads]);
     }

@@ -11,6 +11,8 @@ use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
+use PhpParser\Node\Expr\Cast\Double;
+use PhpParser\Node\Expr\Cast\Int_;
 
 class ProduitFixtures extends Fixture implements DependentFixtureInterface
 {
@@ -23,20 +25,21 @@ class ProduitFixtures extends Fixture implements DependentFixtureInterface
         $quality = $manager->getRepository(Quality::class)->findOneBy(['code'=> 'neuf_avec_etiquette']);
 
         $products = [
-            [$admin, $state, $gender, $color, "article", "description", '12','Nike', 100, "chaussures", $quality],
-            [$admin, $state, $gender, $color, "article", "description", '12','Nike', 100, "chaussures", $quality],
-            [$admin, $state, $gender, $color, "article", "description", '12','Nike', 100, "chaussures", $quality],
+            [$admin, $state, $gender, $color, "article", "description", '12','Nike', "chaussures", 100, $quality],
+            [$admin, $state, $gender, $color, "article", "description", '12','Nike',  "chaussures", 100, $quality],
+            [$admin, $state, $gender, $color, "article", "description", '12','Nike',  "chaussures", 100, $quality],
         ];
         $i = 0;
         foreach ($products as $product){
             $_product = $manager->getRepository(Product::class)->findOneBy(['title' => $product[4] . $i]);
             if(!$_product instanceof Product){
-                $_product = new Product($product[0],$product[1], $product[2], $product[3], $product[4], $product[5], $product[6] , $product[7], $product[8], $product[9], $product[10]);
+                $_product = new Product($product[0],$product[1], $product[2], $product[3], $product[4] . $i, $product[5], $product[6] , $product[7], $product[8], $product[9], $product[10]);
                 $manager->persist($_product);
                 $manager->flush();
+                $i++;
             }
         }
-        echo "Loaded GenderFixtures with success ! ( $i )\n";
+        echo "Loaded ProductFixtures with success ! ( $i )\n";
     }
 
     public function getDependencies()

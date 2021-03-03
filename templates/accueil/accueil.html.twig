@@ -5,7 +5,6 @@
 {% block stylesheets %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('style/accueil/accueil.css') }}">
-    <link rel="stylesheet" href="{{ asset('') }}">
     <link rel="stylesheet" href="{{ asset('style/favoris/favorite_card.css')}}">
 {% endblock %}
 
@@ -76,7 +75,7 @@
         }
         function moveSportRight(){
             console.log(moveRight, sports.length)
-            if(moveRight <= sports.length ) {
+            if(moveRight <= sports.length -5 ) {
                 moveRight++
                 moveLeft--
                 for (let i = 1; i < 6; i++) {

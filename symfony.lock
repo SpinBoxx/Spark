@@ -138,6 +138,9 @@
     "ocramius/proxy-manager": {
         "version": "2.8.0"
     },
+    "paypal/rest-api-sdk-php": {
+        "version": "1.14.0"
+    },
     "php": {
         "version": "7.4"
     },

@@ -187,7 +187,7 @@ class ProductController extends AbstractController
      */
     public function buyProduct($id): Response
     {
-        return $this->render('product/buy/buy.html.twig');
+        return $this->render('product/pre-buy/pre-buy.html.twig');
     }
 
 }

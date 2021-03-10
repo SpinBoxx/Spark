@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Confimer vos informations{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('style/product/pre-buy/pre-buy.css')}}">
+{% endblock %}
+
+{% block body %}
+    <div class="pre-buy-container">
+        <div class="pre-buy-container-scene">
+            <div class="pre-buy-card pre-buy-card-order">
+                <div class="card__face card__face--front">
+                  <img src="https://i.loli.net/2019/10/18/uXF1Kx7lzELB6wf.jpg"/>
+                </div>
+                <div class="card__face card__face--back" >
+                    <div>
+                        <h2>12 euros</h2>
+                    </div>
+                    <div>
+                        <p>Quentin MImault</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pre-buy-container-scene">
+            <div class="pre-buy-card pre-buy-card-order">
+                <div class="card__face card__face--front">
+                    <img src="https://i.loli.net/2019/10/18/uXF1Kx7lzELB6wf.jpg" />
+                </div>
+                <div class="card__face card__face--back">
+                    <img src="https://i.loli.net/2019/11/03/RtVq2wxQYySDb8L.jpg" />
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

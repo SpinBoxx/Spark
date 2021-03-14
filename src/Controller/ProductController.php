@@ -180,14 +180,20 @@ class ProductController extends AbstractController
     }
 
     /**
-     * @Route("/produit/{id}/buy", name="product_buy")
+     * @Route("/produit/{id}/confirmation-des-informations", name="product_buy")
      * @param $id
      * @return Response
      * @throws Exception
      */
     public function buyProduct($id): Response
     {
-        return $this->render('product/pre-buy/pre-buy.html.twig');
+        $product = $this->em->getRepository(Product::class)->find($id);
+        if($product instanceof Product){
+            return $this->render('product/pre-buy/pre-buy.html.twig',[
+                'product' => $product,
+            ]);
+        }
+        return $this->redirectToRoute('accueil');
     }
 
 }

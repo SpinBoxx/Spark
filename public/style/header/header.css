@@ -50,7 +50,8 @@ body{
 
 .div_header_logo > a >  img {
     cursor: pointer;
-    height: 40px;
+    height: 60px;
+    margin-left: 30px;
 }
 
 .searchBar_header_div{

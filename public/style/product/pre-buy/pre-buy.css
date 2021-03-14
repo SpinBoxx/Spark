@@ -2,25 +2,91 @@
     position: relative;
     display: flex;
     height: 700px;
+    width: 100%;
+    padding-left: 100px;
+    padding-right: 100px;
 }
-
+@media screen and (max-width: 1100px) {
+    .pre-buy-container {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 100px;
+        padding-right: 100px;
+        flex-direction: column-reverse;
+    }
+}
+@media screen and (max-width: 700px) {
+    .pre-buy-container {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 0;
+        padding-right: 0;
+        flex-direction: column-reverse;
+    }
+}
+/*======LEFT CONTAINER==============================*/
+.pre-buy-container-left{
+    position: relative;
+    height: 86%;
+    width: 66%;
+    padding-left: 180px;
+    display: flex;
+    flex-wrap: wrap;
+}
+@media screen and (max-width: 1500px) {
+    .pre-buy-container-left {
+        position: relative;
+        height: 86%;
+        width: 66%;
+        padding-left: 60px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+@media screen and (max-width: 1100px) {
+    .pre-buy-container-left {
+        position: relative;
+        height: 86%;
+        width: 100%;
+        padding-left: 0;
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
 .pre-buy-container-scene {
     margin-top: 30px;
-    margin-left: 100px;
-    /*display: flex;*/
+    margin-left: 50px;
     position: relative;
     background-color: transparent;
-    width: 300px;
-    height: 200px;
-    /*border: 1px solid #f1f1f1;*/
+    width: 34%;
+    height: 300px;
     perspective: 1000px; /* Remove this if you don't want the 3D effect */
 }
+@media screen and (max-width: 1100px) {
+    .pre-buy-container-scene {
+        margin-top: 30px;
+        margin-left: 20px;
+        margin-right: 20px;
+        position: relative;
+        background-color: transparent;
+        width: 100%;
+        height: 250px;
+        perspective: 1000px; /* Remove this if you don't want the 3D effect */
+    }
+}
+
 .card__face img{
     width: 300px;
     height: 200px;
 }
 /* This container is needed to position the front and back side */
-.pre-buy-card {
+.pre-buy-card-turn {
     position: relative;
     width: 100%;
     height: 100%;
@@ -28,12 +94,32 @@
     transition: transform 0.8s;
     transform-style: preserve-3d;
 }
-
+.pre-buy-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.pre-buy-card-body-div-left{
+    padding : 16px;
+    font-family: cursive;
+    text-align: left !important;
+    display: flex;
+}
+.pre-buy-card-body-title-left{
+    font-weight: 700;
+    font-size: 18px;
+    height: 27px;
+    margin-bottom: 2px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 288px;
+    overflow: hidden;
+}
 /* Do an horizontal flip when you move the mouse over the flip box container */
-.pre-buy-container-scene:hover .pre-buy-card {
+.pre-buy-container-scene:hover .pre-buy-card-turn {
     transform: rotateY(180deg);
 }
-
 /* Position the front and back side */
 .card__face--front, .card__face--back {
     position: absolute;
@@ -42,16 +128,131 @@
     -webkit-backface-visibility: hidden; /* Safari */
     backface-visibility: hidden;
 }
-
 /* Style the front side (fallback if image is missing) */
 .card__face--front {
-    background-color: #bbb;
-    color: black;
+    color: #262660;
 }
-
+.pre-buy-card-order .card__face--front {
+    border-bottom-right-radius: 20px;
+}
 /* Style the back side */
 .card__face--back {
-    background-color: dodgerblue;
+    /*background-color: rgba(94,183,119,0.5);*/
     color: white;
+    border-radius: 20px;
     transform: rotateY(180deg);
+}
+.pre-buy-card-title-left{
+    font-size: 23px;
+    font-weight: 650;
+    font-family: cursive;
+    margin-bottom: 5px;
+}
+.pre-buy-card-title-left:after{
+    content: ""; /* This is necessary for the pseudo element to work. */
+    display: block; /* This will put the pseudo element on its own line. */
+    margin: 0 auto; /* This will center the border. */
+    width: 30%; /* Change this to whatever width you want. */
+    border-bottom: 1px solid black; /* This creates the border. Replace black with whatever color you want. */
+}
+.inner {
+    background-color: rgba(94,183,119,0.5);
+}
+@media screen and (min-width: 1100px) {
+    .outer {
+        overflow: hidden;
+    }
+    .inner i {
+        width: 40px;
+        height: 40px;
+        /*border: 1px solid #888;*/
+        border-radius: 40px;
+        background-color: #fff;
+    }
+    .inner .top {
+        margin-top: -20px;
+    }
+    .inner .bottom {
+        margin-top: 280px;
+        margin-bottom: -22px;
+    }
+    .inner .left {
+        float: left;
+        margin-left: -20px;
+    }
+    .inner .right {
+        float: right;
+        margin-right: -20px;
+    }
+}
+.pre-buy-card-body-div-left-container{
+    display: inline-block;
+}
+.pre-buy-card-body-div-left-container > div {
+    display: flex;
+}
+.pre-buy-card-body-div-left-left{
+    width: 50%;
+}
+.pre-buy-card-body-div-left-left img{
+    width: 100%;
+    max-height: 90%;
+    padding-bottom: 4px;
+    padding-top: 20px;
+}
+.pre-buy-card-body-div-left-right{
+    width: 50%;
+    padding-top: 20px;
+    padding-left: 14px;
+}
+
+/**/
+/*======RIGHT CONTAINER==============================*/
+.pre-buy-container-right{
+    height: 100%;
+    position: relative;
+    width: 34%;
+}
+/*@media screen and (max-width: 1100px) {*/
+/*    .pre-buy-container-right {*/
+/*        margin-top: 30px;*/
+/*        margin-left: 20px;*/
+/*        margin-right: 20px;*/
+/*        position: relative;*/
+/*        background-color: transparent;*/
+/*        width: auto;*/
+/*        height: 250px;*/
+/*        perspective: 1000px; !* Remove this if you don't want the 3D effect *!*/
+/*    }*/
+/*}*/
+@media screen and (max-width: 1100px) {
+    .pre-buy-container-right {
+        position: relative;
+        height: 86%;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .pre-buy-container-right .pre-buy-container-scene{
+        margin-top: 30px;
+        margin-left: 20px;
+        margin-right: 20px !important;
+        position: relative;
+        background-color: #EAE6E6;
+        width: 100%;
+        height: 250px;
+        perspective: 1000px; /* Remove this if you don't want the 3D effect */
+    }
+}
+@media screen and (min-width: 1100px) {
+    .pre-buy-container-right .pre-buy-container-scene{
+        width: 80%;
+        margin-left: 50px;
+        height: 530px;
+        background-color: #EAE6E6;
+    }
+}
+.pre-buy-card-title-right{
+    font-size: 20px;
+    text-align: left !important;
 }

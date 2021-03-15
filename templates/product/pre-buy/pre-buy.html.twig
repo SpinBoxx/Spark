@@ -7,95 +7,105 @@
 {% endblock %}
 
 {% block body %}
-    <div class="pre-buy-container">
-        <div class="pre-buy-container-left">
-
-            <div class="pre-buy-container-scene outer" style="border-top-left-radius: 20px">
-                <div class="pre-buy-card pre-buy-card-order inner">
-                    <div class="card__face card__face--front">
-                        <div class="pre-buy-card-title-div-left">
-                            <span class="pre-buy-card-title-left">Ma commande</span>
-                            <span class="pre-buy-card-title-span-left"></span>
-                        </div>
-                        <div class="pre-buy-card-body-div-left">
-                            <div class="pre-buy-card-body-div-left-container">
-                                <p class="pre-buy-card-body-title-left">{{ product.title }}</p>
-                                <div>
-                                    <div class="pre-buy-card-body-div-left-left">
-                                        <img src="{{ asset('images/favoris/raquette.png') }}" id="main-img" class="">
-                                    </div>
-                                    <div class="pre-buy-card-body-div-left-right">
-                                        <span class="pre-buy-card-body-size-left">Taille {{ product.size }} - </span>
-                                        <span class="pre-buy-card-body-quality-left">{{ product.quality.label }}</span>
-                                        <p class="pre-buy-card-body-brand-left">Marque : {{ product.brand }}</p>
-                                        <p class="pre-buy-card-body-price-left">{{ product.price }} €</p>
+    <div class="pre-buy-container-first">
+        <div class="progressbar-div">
+            <ul class="progressbar">
+                <li class="active"><img src="{{ asset('images/buy/pre-buy/progress-bar/shopping-cart-solid.png') }}" alt="" width="35px"> Valider mon produit</li>
+                <li class="active"><img src="{{ asset('images/buy/pre-buy/progress-bar/checkOK_45.png') }}" alt=""> Valider mes informations</li>
+                <li class="">add friends</li>
+                <li>View map</li>
+            </ul>
+        </div>
+        <div class="pre-buy-container">
+            <div class="pre-buy-container-left">
+                <div class="pre-buy-container-scene outer" style="border-top-left-radius: 20px">
+                    <div class="pre-buy-card pre-buy-card-order inner">
+                        <div class="card__face card__face--front">
+                            <div class="pre-buy-card-title-div-left">
+                                <span class="pre-buy-card-title-left">Ma commande</span>
+                                <span class="pre-buy-card-title-span-left"></span>
+                            </div>
+                            <div class="pre-buy-card-body-div-left">
+                                <div class="pre-buy-card-body-div-left-container">
+                                    <p class="pre-buy-card-body-title-left">{{ product.title }}</p>
+                                    <div>
+                                        <div class="pre-buy-card-body-div-left-left">
+                                            <img src="{{ asset('images/favoris/raquette.png') }}" id="main-img" class="">
+                                        </div>
+                                        <div class="pre-buy-card-body-div-left-right">
+                                            <span class="pre-buy-card-body-size-left">Taille {{ product.size }} - </span>
+                                            <span class="pre-buy-card-body-quality-left">{{ product.quality.label }}</span>
+                                            <p class="pre-buy-card-body-brand-left">Marque : {{ product.brand }}</p>
+                                            <p class="pre-buy-card-body-price-left">{{ product.price }} €</p>
+                                        </div>
                                     </div>
                                 </div>
+
                             </div>
+                        </div>
+                        <i class="bottom right"></i>
+                    </div>
+                </div>
 
+                <div class="pre-buy-container-scene outer" style="border-top-right-radius: 20px">
+                    <div class="pre-buy-card-turn pre-buy-card-address inner">
+                        <div class="card__face card__face--front">
+                            <div class="pre-buy-card-title-div-left">
+                                <span class="pre-buy-card-title-left">Mon adresse</span>
+                            </div>
+                        </div>
+                        <div class="card__face card__face--back" >
+                            <div>
+                                <button class="btn btn-success">Changer mon adresse</button>
+                            </div>
+                        </div>
+                        <i class="bottom left"></i>
+                    </div>
+                </div>
+                <div class="pre-buy-container-scene outer" style="border-bottom-left-radius: 20px">
+                    <div class="pre-buy-card pre-buy-card-paiement inner">
+                        <i class="top right"></i>
+                        <div class="card__face card__face--front">
+                            <div class="pre-buy-card-title-div-left">
+                                <span class="pre-buy-card-title-left">Mode de paiement</span>
+                            </div>
+                        </div>
+                        <div class="card__face card__face--back">
+                            <div>
+                                <h2>div PAie</h2>
+                            </div>
                         </div>
                     </div>
-                    <i class="bottom right"></i>
+                </div>
+                <div class="pre-buy-container-scene outer" style="border-bottom-right-radius: 20px">
+                    <div class="pre-buy-card pre-buy-card-send inner">
+                        <i class="top left"></i>
+                        <div class="card__face card__face--front">
+                            <div class="pre-buy-card-title-div-left">
+                                <span class="pre-buy-card-title-left">Mode d'envoi</span>
+                            </div>
+                        </div>
+                        <div class="card__face card__face--back">
+                            <img src="https://i.loli.net/2019/11/03/RtVq2wxQYySDb8L.jpg" />
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="pre-buy-container-scene outer" style="border-top-right-radius: 20px">
-                <div class="pre-buy-card-turn pre-buy-card-address inner">
-                    <div class="card__face card__face--front">
-                        <div class="pre-buy-card-title-div-left">
-                            <span class="pre-buy-card-title-left">Mon adresse</span>
-                        </div>
-                    </div>
-                    <div class="card__face card__face--back" >
-                        <div>
-                            <button class="btn btn-success">Changer mon adresse</button>
-                        </div>
-                    </div>
-                    <i class="bottom left"></i>
-                </div>
-            </div>
-            <div class="pre-buy-container-scene outer" style="border-bottom-left-radius: 20px">
-                <div class="pre-buy-card pre-buy-card-paiement inner">
-                    <i class="top right"></i>
-                    <div class="card__face card__face--front">
-                        <div class="pre-buy-card-title-div-left">
-                            <span class="pre-buy-card-title-left">Mode de paiement</span>
-                        </div>
-                    </div>
-                    <div class="card__face card__face--back">
-                        <div>
-                            <h2>div PAie</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="pre-buy-container-scene outer" style="border-bottom-right-radius: 20px">
-                <div class="pre-buy-card pre-buy-card-send inner">
-                    <i class="top left"></i>
-                    <div class="card__face card__face--front">
-                        <div class="pre-buy-card-title-div-left">
-                            <span class="pre-buy-card-title-left">Mode d'envoi</span>
-                        </div>
-                    </div>
-                    <div class="card__face card__face--back">
-                        <img src="https://i.loli.net/2019/11/03/RtVq2wxQYySDb8L.jpg" />
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="pre-buy-container-right">
-            <div class="pre-buy-container-scene">
-                <div class="pre-buy-card pre-buy-card-resum">
-                    <div class="card__face card__face--front">
-                        <div class="pre-buy-card-title-div-right">
-                            <span class="pre-buy-card-title-right">Résumé de ma commande</span>
+            <div class="pre-buy-container-right">
+                <div class="pre-buy-container-scene">
+                    <div class="pre-buy-card pre-buy-card-resum">
+                        <div class="card__face card__face--front">
+                            <div class="pre-buy-card-title-div-right">
+                                <span class="pre-buy-card-title-right">Résumé de ma commande</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <style>
         .transition{
             transition-duration: 1.6s;

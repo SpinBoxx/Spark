@@ -127,14 +127,13 @@
 .nav-tabs {
     border: none !important;
     width: 90%;
-    margin: auto !important;
+    margin: 2rem auto !important;
 }
 
 .nav-item {
     width: 100%;
     font-family: 'Poppins';
     font-size: 0.9rem;
-    min-width: 200px;
 }
 
 .nav-item > a {
@@ -152,10 +151,16 @@
     height: fit-content;
     margin: 0.4rem 0.6rem;
     cursor: pointer;
+    transition: left 0.3s ease-out;
+    -webkit-transition: left 0.3s ease-out;
+    -moz-transition: left 0.3s ease-out;
+    -ms-transition: left 0.3s ease-out;
+    -o-transition: left 0.3s ease-out;
 }
 
 .profil_content_display {
     display: flex;
+    margin-top: 2rem;
     padding: 1rem 1.2rem;
     position: relative;
     z-index: 1;
@@ -176,7 +181,7 @@
     .profil_content_navbar {
         width: 0;
         min-width: 0;
-        position: relative;
+        position: absolute;
         overflow: hidden;
         z-index: 2;
     }
@@ -191,13 +196,18 @@
     }
 
     .profil_content_display {
-        top: calc(4rem + -25px);
-        position: absolute;
-        margin-top: 0;
+        position: relative;
+        margin-top: 2rem;
     }
     
     .active_navbar {
         display: flex;
-    }
+        position: absolute;
+        transition: left 0.3s ease-out;
+        -webkit-transition: left 0.3s ease-out;
+        -moz-transition: left 0.3s ease-out;
+        -ms-transition: left 0.3s ease-out;
+        -o-transition: left 0.3s ease-out;
+}
 }
 

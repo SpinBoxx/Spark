@@ -7,6 +7,7 @@
     <br>
     <p>Ici vous retrouverez l'ensemble de vos commandes passées, et celles à venir !</p>
     <div class="command_content">
+
         <div class="command_item">
             <div class="command_item_top">
                 <div class="top_line_card">
@@ -14,8 +15,8 @@
                         <p><b>Numéro de vente:</b> 1234567894512</p>
                     </div>
                     <div>
-                        <p class="link_hover_delivered_at" onclick="openModalInfo()"><b>Livré à:</b> John Doe<i class="fas fa-chevron-down"></i></p>
-                        <div id="modal_header_profil3">
+                        <p class="link_hover_delivered_at" onclick="openModalInfo('modalSectionInfo2')"><b>Livré à:</b> John Doe<i class="fas fa-chevron-down"></i></p>
+                        <div id="modalSectionInfo2" class="modalSection">
                             <div class="modal_header_profil_option2">
                                 <div>
                                     <p><b>John Doe</b></p>
@@ -34,10 +35,94 @@
                         <p><b>Date de la vente:</b> 11/01/2021</p>
                     </div>
                     <div>
-                        <p><b>Autres<i class="fas fa-chevron-down"></i></b></p>
+                        <p class="link_hover_delivered_at" onclick="openModalOtherInfo('modalSectionOtherInfo2')"><b>Autres</b><i class="fas fa-chevron-down"></i></p>
+                        <div id="modalSectionOtherInfo2" class="modalSectionOther">
+                            <div class="modal_header_profil_option2">
+                                <div>
+                                    <p><a href="">Détails de la commande</a></p>
+                                    <p><a href="">Facture</a></p>
+                                    <p><a href="">Signaler</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="command_item_bottom">
+                <div class="command_state">
+                    <div class="command_state_content">Evaluer vendeur</div>
+                    <div class="command_state_content">Suivi colis</div>
+                    <div class="command_state_content">Demander retour</div>
+                </div>
+                <div class="command_desc">
+                    <p class="command_title"><b>iphone rtx 1080 ti</b></p>
+                    <div>
+                        <img src="https://img.leboncoin.fr/api/v1/tenants/9a6387a1-6259-4f2c-a887-7e67f23dd4cb/domains/20bda58f-d650-462e-a72a-a5a7ecf2bf88/buckets/24265337-e7cc-489d-80fc-0c564d62a63b/images/05/11/ba/0511bab2ceff868fbf32af6188d4aa7d333879c9.jpg?rule=ad-image" alt="iphone">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores delectus rerum possimus accusantium eos fugiat voluptatum nostrum, rem vitae optio ratione eum hic? Modi fugit ut, reprehenderit deserunt totam tempore?
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="command_item">
+            <div class="command_item_top">
+                <div class="top_line_card">
+                    <div>
+                        <p><b>Numéro de vente:</b> 1234567894512</p>
+                    </div>
+                    <div>
+                        <p class="link_hover_delivered_at" onclick="openModalInfo('modalSectionInfo1')"><b>Livré à:</b> John Doe<i class="fas fa-chevron-down"></i></p>
+                        <div id="modalSectionInfo1" class="modalSection">
+                            <div class="modal_header_profil_option2">
+                                <div>
+                                    <p><b>John Doe</b></p>
+                                    <p>1 rue du general, 44000</p>
+                                    <p>Nantes, France</p>
+                                    <p>Etage 41</p>
+                                    <p>06 01 01 01 01</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p><b>Total:</b> 12,21€</p>
+                    </div>
+                </div>
+                <div class="bottom_line_card">
+                    <div>
+                        <p><b>Date de la vente:</b> 11/01/2021</p>
+                    </div>
+                    <div>
+                        <p class="link_hover_delivered_at" onclick="openModalOtherInfo('modalSectionOtherInfo1')"><b>Autres</b><i class="fas fa-chevron-down"></i></p>
+                        <div id="modalSectionOtherInfo1" class="modalSectionOther">
+                            <div class="modal_header_profil_option2">
+                                <div>
+                                    <p><a href="">Détails de la commande</a></p>
+                                    <p><a href="">Facture</a></p>
+                                    <p><a href="">Signaler</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="command_item_bottom">
+                <div class="command_state">
+                    <div class="command_state_content">Evaluer vendeur</div>
+                    <div class="command_state_content delivred">Livré</div>
+                    <div class="command_state_content">Demander retour</div>
+                </div>
+                <div class="command_desc">
+                    <p class="command_title"><b>iphone rtx 1080 ti</b></p>
+                    <div>
+                        <img src="https://img.leboncoin.fr/api/v1/tenants/9a6387a1-6259-4f2c-a887-7e67f23dd4cb/domains/20bda58f-d650-462e-a72a-a5a7ecf2bf88/buckets/24265337-e7cc-489d-80fc-0c564d62a63b/images/05/11/ba/0511bab2ceff868fbf32af6188d4aa7d333879c9.jpg?rule=ad-image" alt="iphone">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores delectus rerum possimus accusantium eos fugiat voluptatum nostrum, rem vitae optio ratione eum hic? Modi fugit ut, reprehenderit deserunt totam tempore?
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>

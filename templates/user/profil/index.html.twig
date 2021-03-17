@@ -33,24 +33,40 @@
 	function openCloseNavbar() {
         var profil_content_navbar_content = document.getElementById('profil_content_navbar_content');
         var profil_content_navbar = document.querySelector('.profil_content_navbar');
+        var active_navbar = document.querySelector('.active_navbar');
 
         if (profil_content_navbar_content.clientWidth) {
             profil_content_navbar.style.minWidth = "0px";
+            active_navbar.style.left = "0px";
         } else {
             profil_content_navbar.style.minWidth = "200px";
+            active_navbar.style.left = "200px";
         }
     }
 
-    function openModalInfo() {
-        var modal_header_profil = document.getElementById('modal_header_profil3');
-        if (modal_header_profil.clientHeight) {
-            modal_header_profil.style.height = "0px";
+    function openModalInfo(id) {
+        let modalInfo = document.getElementById(id);
+        if (modalInfo.clientHeight) {
+            modalInfo.style.height = "0px";
         } else {
-            modal_header_profil.style.height = "215px";
+            modalInfo.style.height = "215px";
         }
 
-        modal_header_profil.addEventListener('mouseleave', () => {
-            modal_header_profil.style.height = "0px";
+        modalInfo.addEventListener('mouseleave', () => {
+            modalInfo.style.height = "0px";
+        })
+    }
+
+    function openModalOtherInfo(id) {
+        let modalOtherInfo = document.getElementById(id);
+        if (modalOtherInfo.clientHeight) {
+            modalOtherInfo.style.height = "0px";
+        } else {
+            modalOtherInfo.style.height = "125px";
+        }
+
+        modalOtherInfo.addEventListener('mouseleave', () => {
+            modalOtherInfo.style.height = "0px";
         })
     }
 

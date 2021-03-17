@@ -35,6 +35,17 @@ class RegistrationController extends AbstractController
     }
 
     /**
+     * @Route("/register/more-information", name="app_register_more_information")
+     */
+    public function moreInformation(): Response
+    {
+        if ($this->getUser()) {
+            return $this->redirectToRoute('accueil');
+        }
+        return $this->render('registration/register-moreInformation.html.twig');
+    }
+
+    /**
      * @Route("/register/validate", name="app_register_validate")
      * @param Request $request
      * @param UserPasswordEncoderInterface $encoder

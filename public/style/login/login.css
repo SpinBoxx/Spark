@@ -79,16 +79,17 @@ h2{
 .login_logo_lg {
     width: 56%;
     position: absolute;
-    top: 10px;
+    top: 20px;
+    left: 20px;
     display: flex;
-    height: 50px;
-    justify-content: flex-end;
+    height: 65px;
+    /* justify-content: flex-end; */
 }
 
 .login_logo_lg>img {
     position: absolute;
     top: 3%;
-    height: 40px;
+    height: 60px;
     width: auto;
 }
 
@@ -184,18 +185,18 @@ i{
         display: none;
     }
 
-    .logo_spark_md {
+    .logo_findygo_md {
         display: initial !important;
         position: absolute;
-        right: 1rem;
+        left: 2.2rem;
         top: 1.2rem;
-        height: 40px;
+        height: 55px;
     }
 }
 
 @media screen and (max-width: 425px) {
     h2 {
-        font-size: 2.5rem;
+        font-size: 1.8rem;
     }
 
     .right_login_div h2 {

@@ -30,6 +30,8 @@ class UserFixtures extends Fixture
             $newUser = new User($admin[0],$admin[1]);
             $hash = $this->encoder->encodePassword($newUser, $admin[2]);
             $newUser->setPassword($hash);
+            $newUser->setFirstname("Admin");
+            $newUser->setLastname("Admine");
             $newUser->setRoles(['ROLE_ADMIN']);
             $manager->persist($newUser);
             $manager->flush();

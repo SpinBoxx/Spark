@@ -1,40 +1,4 @@
-.pre-buy-container-first{
-    display: inline;
-}
-
-.pre-buy-container{
-    position: relative;
-    display: flex;
-    height: 800px;
-    width: 100%;
-    padding-left: 100px;
-    padding-top : 60px;
-    padding-right: 100px;
-}
-@media screen and (max-width: 1100px) {
-    .pre-buy-container {
-        position: relative;
-        height: 100%;
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        padding-left: 100px;
-        padding-right: 100px;
-        flex-direction: column-reverse;
-    }
-}
-@media screen and (max-width: 700px) {
-    .pre-buy-container {
-        position: relative;
-        height: 100%;
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        padding-left: 0;
-        padding-right: 0;
-        flex-direction: column-reverse;
-    }
-}
+/*===========START PROGRESS BAR===================*/
 .progressbar-div {
     margin-top: 60px;
 }
@@ -52,8 +16,8 @@
     color: #7d7d7d;
 }
 .progressbar li img{
-    margin-top: -20px;
 }
+
 .progressbar li:before {
     width: 30px;
     height: 30px;
@@ -93,8 +57,63 @@
 .progressbar li.active + li:after {
     background-color: #55b776;
 }
+/*===========END PROGRESS BAR=====================*/
+
+/*==============START CONTAINER===================*/
+.pre-buy-container-first{
+    display: inline;
+}
+.pre-buy-container{
+    position: relative;
+    display: flex;
+    height: 800px;
+    width: 100%;
+    padding-left: 120px;
+    padding-top : 60px;
+    padding-right: 120px;
+}
+@media screen and (max-width: 1400px) {
+    .pre-buy-container{
+        position: relative;
+        display: flex;
+        height: 800px;
+        width: 100%;
+        padding-left: 60px;
+        padding-top : 60px;
+        padding-right: 60px;
+    }
+}
+@media screen and (max-width: 1100px) {
+    .pre-buy-container {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 60px;
+        padding-right: 60px;
+        flex-direction: column-reverse;
+    }
+}
+@media screen and (max-width: 700px) {
+    .pre-buy-container {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 0;
+        padding-right: 0;
+        flex-direction: column-reverse;
+    }
+}
+/*===========END CONTAINER========================*/
+
+
 
 /*======LEFT CONTAINER==============================*/
+
+/*======START CARD CONTAINER==============================*/
 .pre-buy-container-left{
     position: relative;
     height: 86%;
@@ -103,12 +122,42 @@
     display: flex;
     flex-wrap: wrap;
 }
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 1600px) {
     .pre-buy-container-left {
         position: relative;
         height: 86%;
         width: 66%;
         padding-left: 60px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+@media screen and (max-width: 1600px) {
+    .pre-buy-container-left {
+        position: relative;
+        height: 86%;
+        wi: 66%;
+        padding-left: 60px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+@media screen and (max-width: 1300px) {
+    .pre-buy-container-left {
+        position: relative;
+        height: 86%;
+        width: 66%;
+        padding-left: 00px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+@media screen and (max-width: 1200px) {
+    .pre-buy-container-left {
+        position: relative;
+        height: 86%;
+        width: 66%;
+        padding-left: 0;
         display: flex;
         flex-wrap: wrap;
     }
@@ -123,14 +172,15 @@
         flex-wrap: wrap;
     }
 }
+/*======END CARD CONTAINER==============================*/
+/*======START CARD CONTAINER==============================*/
 .pre-buy-container-scene {
-    margin-top: 30px;
-    margin-left: 50px;
+    margin-top: 0;
+    margin-left: 40px;
     position: relative;
     background-color: transparent;
-    width: 34%;
+    width: 44%;
     height: 300px;
-    perspective: 1000px; /* Remove this if you don't want the 3D effect */
 }
 @media screen and (max-width: 1100px) {
     .pre-buy-container-scene {
@@ -144,20 +194,11 @@
         perspective: 1000px; /* Remove this if you don't want the 3D effect */
     }
 }
-
 .card__face img{
     width: 300px;
     height: 200px;
 }
-/* This container is needed to position the front and back side */
-.pre-buy-card-turn {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-}
+
 .pre-buy-card {
     position: relative;
     width: 100%;
@@ -166,10 +207,11 @@
 }
 .pre-buy-card-body-div-left{
     padding : 16px;
-    font-family: cursive;
+    font-family: "Poppins", sans-serif;
     text-align: left !important;
     display: flex;
 }
+
 .pre-buy-card-body-title-left{
     font-weight: 700;
     font-size: 18px;
@@ -177,15 +219,36 @@
     margin-bottom: 2px;
     text-overflow: ellipsis;
     white-space: nowrap;
-    width: 288px;
+    width: auto;
     overflow: hidden;
 }
-/* Do an horizontal flip when you move the mouse over the flip box container */
-.pre-buy-container-scene:hover .pre-buy-card-turn {
-    transform: rotateY(180deg);
+.pre-buy-card-title-div-left{
+    height: 45px;
+    text-align: center;
+    background-color: white;
+    border-right: solid 6px #262660;
+}
+.pre-buy-card-title-left{
+    font-size: 23px;
+    font-weight: 650;
+}
+.pre-buy-card-title-left:after{
+    content: ""; /* This is necessary for the pseudo element to work. */
+    display: block; /* This will put the pseudo element on its own line. */
+    margin: 0 auto; /* This will center the border. */
+    width: 30%; /* Change this to whatever width you want. */
+    border-bottom: 1px solid black; /* This creates the border. Replace black with whatever color you want. */
+}
+
+/*==============START CARD ADDRESS==========================*/
+/* This container is needed to position the front and back side */
+.pre-buy-card-turn {
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 /* Position the front and back side */
-.card__face--front, .card__face--back {
+.card__face--front{
     position: absolute;
     width: 100%;
     height: 100%;
@@ -199,58 +262,96 @@
 .pre-buy-card-order .card__face--front {
     border-bottom-right-radius: 20px;
 }
-/* Style the back side */
-.card__face--back {
-    /*background-color: rgba(94,183,119,0.5);*/
+.card__face--front .update-address{
+    background-color: white;
+    border-bottom: solid 1px #b8aaaa;
+    border-left : solid 1px #b8aaaa;
+    position: absolute;
+    right: 0;
+    padding: 6px;
+    border-bottom-left-radius: 14px;
+    cursor: pointer;
+    border-right: solid 6px #262660;
+    color: #262660;
+    font-size: 13px;
+    font-family: "Poppins", sans-serif;
+    background-image: -webkit-linear-gradient(30deg, #262660 50%, transparent 50%);
+    background-image: linear-gradient(30deg, #262660 50%, transparent 50%);
+    background-size: 500px;
+    background-repeat: no-repeat;
+    background-position: 100%;
+    -webkit-transition: background 300ms ease-in-out;
+    transition: background 300ms ease-in-out;
+}
+.card__face--front .update-address:hover i{
     color: white;
-    border-radius: 20px;
-    transform: rotateY(180deg);
 }
-.pre-buy-card-title-left{
-    font-size: 23px;
-    font-weight: 650;
-    font-family: cursive;
-    margin-bottom: 5px;
+.card__face--front .update-address:hover{
+    background-position: 0%;
+    color: white;
 }
-.pre-buy-card-title-left:after{
-    content: ""; /* This is necessary for the pseudo element to work. */
-    display: block; /* This will put the pseudo element on its own line. */
-    margin: 0 auto; /* This will center the border. */
-    width: 30%; /* Change this to whatever width you want. */
-    border-bottom: 1px solid black; /* This creates the border. Replace black with whatever color you want. */
+.pre-buy-card-address .pre-buy-card-address-body-div-left{
+    padding-top: 55px;
+    padding-left: 34px;
+    padding-right: 34px;
+    height: auto;
+    overflow: hidden;
+    color: #262660;
+    font-family: "Poppins", sans-serif;
 }
+.pre-buy-card-address .pre-buy-card-address-body-div-left p{
+    margin-bottom: 4px;
+}
+.pre-buy-card-address-body-postal-div{
+    margin-bottom: 13px;
+}
+/* Style the back side */
+.pre-buy-card-address-body-name-left{
+    text-align: left;
+}
+.pre-buy-card-address-body-div-left-back{
+    text-align: left;
+    color: #262660;
+    padding: 20px;
+    font-family: "Poppins", sans-serif;
+}
+.pre-buy-card-address-body-div-left-back button {
+    margin-top: 37%;
+    background-color: #5fb871;
+    border: none;
+    border-radius: 30px;
+    padding: 8px;
+    font-family: "Poppins", sans-serif;
+}
+.clicked{
+    background-color: #262660;
+    border-bottom: solid 1px #b8aaaa;
+    color: white;
+    border-left : solid 1px #b8aaaa;
+    position: absolute;
+    right: 0;
+    padding: 6px;
+    border-bottom-left-radius: 14px;
+    cursor: pointer;
+    border-right: solid 6px #262660;
+    font-size: 13px;
+    font-family: "Poppins", sans-serif;
+    background-size: 500px;
+    background-repeat: no-repeat;
+    background-position: 100%;
+    -webkit-transition: background 300ms ease-in-out;
+    transition: background 300ms ease-in-out;
+}
+/*==============END CARD ADDRESS============================*/
 .inner {
-    background-color: rgba(94,183,119,0.5);
-}
-@media screen and (min-width: 1100px) {
-    .outer {
-        overflow: hidden;
-    }
-    .inner i {
-        width: 40px;
-        height: 40px;
-        /*border: 1px solid #888;*/
-        border-radius: 40px;
-        background-color: #fff;
-    }
-    .inner .top {
-        margin-top: -20px;
-    }
-    .inner .bottom {
-        margin-top: 280px;
-        margin-bottom: -22px;
-    }
-    .inner .left {
-        float: left;
-        margin-left: -20px;
-    }
-    .inner .right {
-        float: right;
-        margin-right: -20px;
-    }
+    background-color: rgb(234 230 230);
+    border-right: solid 1px black;
+    border-bottom: solid 1px black;
 }
 .pre-buy-card-body-div-left-container{
+    overflow: hidden;
     display: inline-block;
+
 }
 .pre-buy-card-body-div-left-container > div {
     display: flex;
@@ -269,6 +370,19 @@
     padding-top: 20px;
     padding-left: 14px;
 }
+.first-card{
+    box-shadow: -7px -7px 22px rgba(95, 184, 113, 0.6);
+}
+.second-card{
+    box-shadow: 6px 0px 22px rgba(95, 184, 113, 0.6);
+}
+.three-card{
+    box-shadow: -7px 8px 22px rgba(95, 184, 113, 0.6);
+}
+.four-card{
+    box-shadow: 8px 8px 22px rgba(107, 171, 120, 0.6);
+}
+
 
 /**/
 /*======RIGHT CONTAINER==============================*/
@@ -299,12 +413,11 @@
 @media screen and (min-width: 1100px) {
     .pre-buy-container-right .pre-buy-container-scene{
         width: 80%;
-        margin-left: 50px;
-        height: 530px;
+        height: 615px;
         background-color: #EAE6E6;
     }
 }
 .pre-buy-card-title-right{
     font-size: 20px;
-    text-align: left !important;
+    /*text-align: left !important;*/
 }

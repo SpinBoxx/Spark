@@ -64,6 +64,7 @@
                                 <div class="pre-buy-card-address-body-postal-div">
                                     <span class="pre-buy-card-address-body-postal">{{ product.user.postal_Code }}</span>, <span class="pre-buy-card-address-body-city">{{ product.user.city }}</span>, <span class="pre-buy-card-address-body-country">{{ product.user.country }}</span>
                                 </div>
+{#                                TODO FAIRE UNE MODAL AU SURVOL#}
                                 <div class="pre-buy-card-address-body-additional-informations-div">
                                     <small><u>Informations complémentaires : </u></small>
                                     <p class="pre-buy-card-address-body-additional-informations">{{ product.user.additionalAddress }}</p>
@@ -79,11 +80,15 @@
                             <div class="pre-buy-card-title-div-left">
                                 <span class="pre-buy-card-title-left">Mode de paiement</span>
                             </div>
-                        </div>
-                        <div class="card__face card__face--back">
-                            <div>
-                                <h2>div PAie</h2>
+                            <div class="pre-buy-card-body-way-div-left">
+                                <button disabled>
+                                    <i><span class="pay">PAY</span><span class="pal">PAL</span></i>
+                                </button>
+                                <div class="custom-radio-paiement">
+                                    <input type="radio" checked>
+                                </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -92,6 +97,7 @@
                         <div class="card__face card__face--front">
                             <div class="pre-buy-card-title-div-left">
                                 <span class="pre-buy-card-title-left">Mode d'envoi</span>
+{#                                TODO FAIRE LES BUTTONS MODE ENVOI#}
                             </div>
                         </div>
                     </div>
@@ -101,31 +107,32 @@
             <div class="pre-buy-container-right">
                 <div class="pre-buy-container-scene">
                     <div class="pre-buy-card pre-buy-card-resum">
-{#                        <div class="card__face card__face--front">#}
+                        <div class="card__face card__face--front">
                             <div class="pre-buy-card-title-div-right">
                                 <span class="pre-buy-card-title-right">Résumé de ma commande</span>
                             </div>
-                            <div class="c-body">
-                                <div class="c-container">
-                                    <div class="left-side">
-                                        <div class="card">
-                                            <div class="card-line"></div>
-                                            <div class="buttons"></div>
-                                        </div>
-                                        <div class="post">
-                                            <div class="post-line"></div>
-                                            <div class="screen">
-                                                <div class="dollar">$</div>
-                                            </div>
-                                            <div class="numbers"></div>
-                                            <div class="numbers-line2"></div>
-                                        </div>
-                                    </div>
-                                    <div class="right-side">
-                                        <div class="new">Acheter</div>
-                                        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 451.846 451.847"><path d="M345.441 248.292L151.154 442.573c-12.359 12.365-32.397 12.365-44.75 0-12.354-12.354-12.354-32.391 0-44.744L278.318 225.92 106.409 54.017c-12.354-12.359-12.354-32.394 0-44.748 12.354-12.359 32.391-12.359 44.75 0l194.287 194.284c6.177 6.18 9.262 14.271 9.262 22.366 0 8.099-3.091 16.196-9.267 22.373z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#cfcfcf"/></svg>                                    </div>
-                                </div>
+                            <div class="pre-buy-card-body-div-right">
+                                <span class="pre-buy-card-title-right">Résumé de ma commande</span>
                             </div>
+                            <script src="https://www.paypal.com/sdk/js?client-id=AX0TPuIo7Dsjd4K9N69MgI-0oHnhB3rUFS33mMuAic47XeX05fUXedh5xSuU_8obyLxLq2PnROg7RpsQ&buyer-country=FR&currency=EUR"></script>
+                            <div id="paypal-button-container"></div>
+                            <script>paypal.Buttons({
+                                createOrder: function (data, actions){
+                                  return actions.order.create({
+                                    purchase_units:[{
+                                      amount:{
+                                        value: {{ product.price }}
+                                      }
+                                    }]
+                                  })
+                                },
+                                onApprove: function (data, actions){
+                                  return actions.order.capture().then(function (details){
+                                    alert('Achat terminé ' + details.payer.name.given_name)
+                                  })
+                                }
+                              }).render('#paypal-button-container');
+                            </script>
                         </div>
                     </div>
                 </div>
@@ -137,259 +144,30 @@
         .transition{
             transition-duration: 1.6s;
         }
-        .c-body {
-            margin-left: 0 !important;
-            margin-right: 0 !important;
-            padding-left: 0 !important;
-            padding-right: 0 !important;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            width: 100%;
-        }
-        .c-container {
-            background-color: #fff;
-            display: flex;
-            width: 360px;
-            height: 120px;
-            position: relative;
-            border-radius: 6px;
-            transition: 0.3s ease-in-out;
-        }
-        .c-container:before {
-            width: 200vw;
-            position: absolute;
-            top: 0;
-            left: -100vw;
-            height: 100%;
-            content: "";
-        }
-        .c-container:hover {
-            transform: scale(1.03);
-            width: 360px;
-        }
-        .c-container:hover .left-side {
-            width: 100%;
-        }
-        .left-side {
-            background-color: #5de2a3;
-            width: 130px;
-            height: 120px;
-            border-radius: 4px;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            transition: 0.3s;
-            flex-shrink: 0;
-            overflow: hidden;
-        }
-        .right-side {
-            width: calc(100% - 130px);
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-            cursor: pointer;
-            justify-content: space-between;
-            white-space: nowrap;
-            transition: 0.3s;
-        }
-        .right-side:hover {
-            background-color: #f9f7f9;
-        }
-        .arrow {
-            width: 20px;
-            height: 20px;
-            margin-right: 20px;
-        }
-        .new {
-            font-size: 23px;
-            font-family: "Lexend Deca", sans-serif;
-            margin-left: 20px;
-        }
-        .card {
-            width: 70px;
-            height: 46px;
-            background-color: #c7ffbc;
-            border-radius: 6px;
-            position: absolute;
-            display: flex;
-            z-index: 10;
-            flex-direction: column;
-            align-items: center;
-            -webkit-box-shadow: 9px 9px 9px -2px rgba(77, 200, 143, 0.72);
-            -moz-box-shadow: 9px 9px 9px -2px rgba(77, 200, 143, 0.72);
-            -webkit-box-shadow: 9px 9px 9px -2px rgba(77, 200, 143, 0.72);
-        }
-        .card-line {
-            width: 65px;
-            height: 13px;
-            background-color: #80ea69;
-            border-radius: 2px;
-            margin-top: 7px;
-        }
-        @media only screen and (max-width: 480px) {
-            .c-container {
-                transform: scale(0.7);
-            }
-            .c-container:hover {
-                transform: scale(0.74);
-            }
-            .new {
-                font-size: 18px;
-            }
-        }
-        .buttons {
-            width: 8px;
-            height: 8px;
-            background-color: #379e1f;
-            box-shadow: 0 -10px 0 0 #26850e, 0 10px 0 0 #56be3e;
-            border-radius: 50%;
-            margin-top: 5px;
-            transform: rotate(90deg);
-            margin: 10px 0 0 -30px;
-        }
-        .c-container:hover .card {
-            animation: slide-top 1.2s cubic-bezier(0.645, 0.045, 0.355, 1) both;
-        }
-        .c-container:hover .post {
-            animation: slide-post 1s cubic-bezier(0.165, 0.84, 0.44, 1) both;
-        }
-        @keyframes slide-top {
-            0% {
-                -webkit-transform: translateY(0);
-                transform: translateY(0);
-            }
-            50% {
-                -webkit-transform: translateY(-70px) rotate(90deg);
-                transform: translateY(-70px) rotate(90deg);
-            }
-            60% {
-                -webkit-transform: translateY(-70px) rotate(90deg);
-                transform: translateY(-70px) rotate(90deg);
-            }
-            100% {
-                -webkit-transform: translateY(-8px) rotate(90deg);
-                transform: translateY(-8px) rotate(90deg);
-            }
-        }
-        .post {
-            width: 63px;
-            height: 75px;
-            background-color: #dddde0;
-            position: absolute;
-            z-index: 11;
-            bottom: 10px;
-            top: 120px;
-            border-radius: 6px;
-            overflow: hidden;
-        }
-        .post-line {
-            width: 47px;
-            height: 9px;
-            background-color: #545354;
-            position: absolute;
-            border-radius: 0px 0px 3px 3px;
-            right: 8px;
-            top: 8px;
-        }
-        .post-line:before {
-            content: "";
-            position: absolute;
-            width: 47px;
-            height: 9px;
-            background-color: #757375;
-            top: -8px;
-        }
-        .screen {
-            width: 47px;
-            height: 23px;
-            background-color: #fff;
-            position: absolute;
-            top: 22px;
-            right: 8px;
-            border-radius: 3px;
-        }
-        .numbers {
-            width: 12px;
-            height: 12px;
-            background-color: #a83818;
-            box-shadow: 0 -18px 0 0 #838183, 0 18px 0 0 #838183;
-            border-radius: 2px;
-            position: absolute;
-            transform: rotate(90deg);
-            left: 25px;
-            top: 52px;
-        }
-        .numbers-line2 {
-            width: 12px;
-            height: 12px;
-            background-color: #aaa9ab;
-            box-shadow: 0 -18px 0 0 #aaa9ab, 0 18px 0 0 #aaa9ab;
-            border-radius: 2px;
-            position: absolute;
-            transform: rotate(90deg);
-            left: 25px;
-            top: 68px;
-        }
-        @keyframes slide-post {
-            50% {
-                -webkit-transform: translateY(0);
-                transform: translateY(0);
-            }
-            100% {
-                -webkit-transform: translateY(-70px);
-                transform: translateY(-70px);
-            }
-        }
-        .dollar {
-            position: absolute;
-            font-size: 16px;
-            font-family: "Lexend Deca", sans-serif;
-            width: 100%;
-            left: 0;
-            top: 0;
-            color: #4b953b;
-            text-align: center;
-        }
-        .c-container:hover .dollar {
-            animation: fade-in-fwd 0.3s 1s backwards;
-        }
-        @keyframes fade-in-fwd {
-            0% {
-                opacity: 0;
-                transform: translateY(-5px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+
     </style>
     <script>
         var tmpDiv;
-        $(document).ready(function (){
-            limitFunc();
-            $('.update-address').removeClass('clicked')
-            tmpDiv = $('.pre-buy-card-address-body-div-left').html()
+        $(function (){
+          limitFunc();
+          $('.update-address').removeClass('clicked')
+          tmpDiv = $('.pre-buy-card-address-body-div-left').html()
         })
 
         $('.update-address').mouseover(function (){
             $('.update-address').removeClass('clicked')
         })
         $('body').on('click','.update-address', function (){
+            $('#pre-buy-card-address-body-div-left').css('padding-right', '0px')
             $('.pre-buy-card-address-body-div-left').html(
-                '<div class="form-add" style="overflow-y: scroll;">' +
+                '<div class="form-add" style="overflow-y: scroll; overflow-x: hidden; height: 180px; padding-right: 10px">' +
                     '<div class="form-group">' +
                         '<label for="street">Numéro et nom de rue</label>' +
                         '<input type="text" id="street" name="street" placeholder="Numero et rue..." class="form-control">' +
                     '</div>' +
                     '<div class="form-group">' +
                         '<label for="postal_code">Code postal</label>' +
-                        '<input type="text" id="postal_code" name="postal_code" placeholder="Votre code postal..."  class="form-control">' +
+                        '<input type="number" id="postal_code" name="postal_code" placeholder="Votre code postal..."  class="form-control">' +
                     '</div>' +
                     '<div class="row">' +
                         '<div class="form-group col-6">' +
@@ -402,8 +180,8 @@
                         '</div>' +
                     '</div>' +
                     '<div class="form-group">' +
-                        '<label for="postal_code">Code postal</label>' +
-                        '<input type="text" id="postal_code" name="postal_code" placeholder="Votre code postal..."  class="form-control">' +
+                        '<label for="additional_info">Informations supplémentaires</label>' +
+                        '<input type="text" id="additional_info" name="additional_info" placeholder="Informations complémentaires..."  class="form-control">' +
                     '</div>' +
                 '</div>'
             )
@@ -418,36 +196,35 @@
             let city = $('#city').val()
             let country = $('#country').val()
             let postal = $('#postal_code').val()
-            console.log(postal)
+            let add_info = $('#additional_info').val()
+          $('#pre-buy-card-address-body-div-left').css('padding-right', '34px')
+            console.log(tmpDiv)
             $('.pre-buy-card-address-body-div-left').html(tmpDiv)
-            $('.pre-buy-card-address-body-country').text(country)
-            $('.pre-buy-card-address-body-city').html(city)
-            $('.pre-buy-card-address-body-postal').text(postal)
-            $('.pre-buy-card-address-body-address').html(tmpAdr)
-
+            if(country!== '' && city!== '' && postal!== '' && tmpAdr!== ''){
+              $('.pre-buy-card-address-body-country').text(country)
+              $('.pre-buy-card-address-body-city').html(city)
+              $('.pre-buy-card-address-body-postal').text(postal)
+              $('.pre-buy-card-address-body-address').html(tmpAdr)
+              $('.pre-buy-card-address-body-additional-informations').html(add_info)
+              tmpDiv = $('.pre-buy-card-address-body-div-left').html()
+            }
             $('.clicked')
                 .html('<i class="fa fa-pen" ></i>Modifier mon adresse')
                 .addClass('update-address')
                 .removeClass('clicked')
         })
-
-
         let beforeWidth;
         function cutSentence(div){
             let actualWidth = window.innerWidth;
             let tmpText = "{{ product.user.additionalAddress | raw}}";
             if(beforeWidth > actualWidth){
-                tmpText = tmpText.slice(0, (beforeWidth /19))
+                tmpText = tmpText.slice(0, (beforeWidth /24))
             }else{
-                tmpText = tmpText.slice(0, (actualWidth /19))
+                tmpText = tmpText.slice(0, (actualWidth /24))
             }
             div.html(tmpText + '...')
             beforeWidth = actualWidth;
         }
-        window.addEventListener("resize", function (){
-            cutSentence($('.pre-buy-card-address-body-additional-informations'))
-        });
-        cutSentence($('.pre-buy-card-address-body-additional-informations'))
 
         var limitFunc = function(){
             if (window.innerWidth<400){
@@ -463,9 +240,7 @@
             }
 
         };
-
         window.addEventListener("resize", limitFunc);
-
     </script>
 {% endblock %}
 

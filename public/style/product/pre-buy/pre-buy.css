@@ -173,7 +173,8 @@
     }
 }
 /*======END CARD CONTAINER==============================*/
-/*======START CARD CONTAINER==============================*/
+
+/*======START ORDER CONTAINER==============================*/
 .pre-buy-container-scene {
     margin-top: 0;
     margin-left: 40px;
@@ -191,7 +192,6 @@
         background-color: transparent;
         width: 100%;
         height: 250px;
-        perspective: 1000px; /* Remove this if you don't want the 3D effect */
     }
 }
 .card__face img{
@@ -239,172 +239,181 @@
     width: 30%; /* Change this to whatever width you want. */
     border-bottom: 1px solid black; /* This creates the border. Replace black with whatever color you want. */
 }
+/*==============END CARD ORDER==============================*/
 
 /*==============START CARD ADDRESS==========================*/
-/* This container is needed to position the front and back side */
-.pre-buy-card-turn {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-/* Position the front and back side */
-.card__face--front{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden; /* Safari */
-    backface-visibility: hidden;
-}
-/* Style the front side (fallback if image is missing) */
-.card__face--front {
-    color: #262660;
-}
-.pre-buy-card-order .card__face--front {
-    border-bottom-right-radius: 20px;
-}
-.card__face--front .update-address{
-    background-color: white;
-    border-bottom: solid 1px #b8aaaa;
-    border-left : solid 1px #b8aaaa;
-    position: absolute;
-    right: 0;
-    padding: 6px;
-    border-bottom-left-radius: 14px;
-    cursor: pointer;
-    border-right: solid 6px #262660;
-    color: #262660;
-    font-size: 13px;
-    font-family: "Poppins", sans-serif;
-    background-image: -webkit-linear-gradient(30deg, #262660 50%, transparent 50%);
-    background-image: linear-gradient(30deg, #262660 50%, transparent 50%);
-    background-size: 500px;
-    background-repeat: no-repeat;
-    background-position: 100%;
-    -webkit-transition: background 300ms ease-in-out;
-    transition: background 300ms ease-in-out;
-}
-.card__face--front .update-address:hover i{
-    color: white;
-}
-.card__face--front .update-address:hover{
-    background-position: 0%;
-    color: white;
-}
-.pre-buy-card-address .pre-buy-card-address-body-div-left{
-    padding-top: 55px;
-    padding-left: 34px;
-    padding-right: 34px;
-    height: auto;
-    overflow: hidden;
-    color: #262660;
-    font-family: "Poppins", sans-serif;
-}
-.pre-buy-card-address .pre-buy-card-address-body-div-left p{
-    margin-bottom: -2px;
-}
-.pre-buy-card-address-body-postal-div{
-    margin-bottom: 13px;
-}
-/* Style the back side */
-.pre-buy-card-address-body-name-left{
-    text-align: left;
-}
-.pre-buy-card-address-body-div-left-back{
-    text-align: left;
-    color: #262660;
-    padding: 20px;
-    font-family: "Poppins", sans-serif;
-}
-.pre-buy-card-address-body-div-left-back button {
-    margin-top: 37%;
-    background-color: #5fb871;
-    border: none;
-    border-radius: 30px;
-    padding: 8px;
-    font-family: "Poppins", sans-serif;
-}
-.pre-buy-card-address-body-additional-informations-div{
-    max-height: 97px;
-    height: auto;
-}
-.pre-buy-card-address-body-additional-informations-div .pre-buy-card-address-body-name-div{
-    max-height: 48px;
-    overflow: hidden;
-}
-.pre-buy-card-address-body-additional-informations{
-    max-height: 67px;
-}
-.clicked{
-    background-color: #262660;
-    border-bottom: solid 1px #b8aaaa;
-    color: white;
-    border-left : solid 1px #b8aaaa;
-    position: absolute;
-    right: 0;
-    padding: 6px;
-    border-bottom-left-radius: 14px;
-    cursor: pointer;
-    border-right: solid 6px #262660;
-    font-size: 13px;
-    font-family: "Poppins", sans-serif;
-    background-size: 500px;
-    background-repeat: no-repeat;
-    background-position: 100%;
-    -webkit-transition: background 300ms ease-in-out;
-    transition: background 300ms ease-in-out;
+
+/*POUR GERER LE MODE RESPONSIVE QUAND WIDTH > 1100px*/
+@media screen and (min-width: 1100px) {
+    .pre-buy-card-turn {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    /* Position the front and back side */
+    .card__face--front {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden; /* Safari */
+        backface-visibility: hidden;
+    }
+
+    /* Style the front side (fallback if image is missing) */
+    .card__face--front {
+        color: #262660;
+    }
+
+    .pre-buy-card-order .card__face--front {
+        border-bottom-right-radius: 20px;
+    }
+
+    .card__face--front .update-address {
+        background-color: white;
+        border-bottom: solid 1px #b8aaaa;
+        border-left: solid 1px #b8aaaa;
+        position: absolute;
+        right: 0;
+        padding: 6px;
+        border-bottom-left-radius: 14px;
+        cursor: pointer;
+        border-right: solid 6px #262660;
+        color: #262660;
+        font-size: 13px;
+        font-family: "Poppins", sans-serif;
+        background-image: -webkit-linear-gradient(30deg, #262660 50%, transparent 50%);
+        background-image: linear-gradient(30deg, #262660 50%, transparent 50%);
+        background-size: 500px;
+        background-repeat: no-repeat;
+        background-position: 100%;
+        -webkit-transition: background 300ms ease-in-out;
+        transition: background 300ms ease-in-out;
+    }
+
+    .card__face--front .update-address:hover i {
+        color: white;
+    }
+
+    .card__face--front .update-address:hover {
+        background-position: 0%;
+        color: white;
+    }
+
+    .pre-buy-card-address .pre-buy-card-address-body-div-left {
+        padding-top: 55px;
+        padding-left: 34px;
+        padding-right: 34px;
+        height: auto;
+        overflow: hidden;
+        color: #262660;
+        font-family: "Poppins", sans-serif;
+    }
+
+    .pre-buy-card-address .pre-buy-card-address-body-div-left p {
+        margin-bottom: -2px;
+    }
+
+    .pre-buy-card-address-body-postal-div {
+        margin-bottom: 13px;
+    }
+
+    /* Style the back side */
+    .pre-buy-card-address-body-name-left {
+        text-align: left;
+    }
+
+    .pre-buy-card-address-body-div-left-back {
+        text-align: left;
+        color: #262660;
+        padding: 20px;
+        font-family: "Poppins", sans-serif;
+    }
+
+    .pre-buy-card-address-body-div-left-back button {
+        margin-top: 37%;
+        background-color: #5fb871;
+        border: none;
+        border-radius: 30px;
+        padding: 8px;
+        font-family: "Poppins", sans-serif;
+    }
+
+    .pre-buy-card-address-body-additional-informations-div {
+        max-height: 97px;
+        height: auto;
+    }
+
+    .pre-buy-card-address-body-additional-informations-div .pre-buy-card-address-body-name-div {
+        max-height: 48px;
+        overflow: hidden;
+    }
+
+    .pre-buy-card-address-body-additional-informations {
+        max-height: 67px;
+    }
+
+    .clicked {
+        background-color: #262660;
+        border-bottom: solid 1px #b8aaaa;
+        color: white;
+        border-left: solid 1px #b8aaaa;
+        position: absolute;
+        right: 0;
+        padding: 6px;
+        border-bottom-left-radius: 14px;
+        cursor: pointer;
+        border-right: solid 6px #262660;
+        font-size: 13px;
+        font-family: "Poppins", sans-serif;
+        background-size: 500px;
+        background-repeat: no-repeat;
+        background-position: 100%;
+        -webkit-transition: background 300ms ease-in-out;
+        transition: background 300ms ease-in-out;
+    }
 }
 /*==============END CARD ADDRESS============================*/
 
 /*==============START CARD PAIEMENT============================*/
-
-.pre-buy-card-body-way-div-left{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-bottom: 55px;
-    height: 85%;
-}
-.pre-buy-card-body-way-div-left button{
-    padding: 10px;
-    background-color: #ffc439;
-    border: none;
-    outline: none;
-    text-decoration: none;
-    cursor: pointer;
-}
-.pre-buy-card-body-way-div-left button .pay{
-    color: #003087;
-    font-family: "Verdana", serif;
-    font-weight: bold;
-    font-size: 18px;
-}
-.pre-buy-card-body-way-div-left button .pal{
-    color: #009cde;
-    font-family: "Verdana", serif;
-    font-size: 18px;
-}
-.pre-buy-card-body-way-div-left .custom-radio-paiement{
-    background-color: #ffc439;
-    cursor: pointer;
-    padding-top: 12px;
-
-    padding-right: 4px;
-    padding-bottom: 11px;
-}
-.pre-buy-card-body-way-div-left .custom-radio-paiement input{
-    cursor: pointer;
-}
-
-/*==============END CARD PAIEMENT============================*/
-/*==============END CARD PAIEMENT============================*/
-
+/*POUR GERER LE MODE RESPONSIVE QUAND WIDTH > 1100px*/
 @media screen and (min-width: 1100px) {
-    #paypal-button-container{
+    .pre-buy-card-body-way-div-left{
         display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        padding-bottom: 30px;
-        height: 100%;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 55px;
+        height: 85%;
+    }
+    .pre-buy-card-body-way-div-left button{
+        padding: 10px;
+        background-color: #ffc439;
+        border: none;
+        outline: none;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .pre-buy-card-body-way-div-left button .pay{
+        color: #003087;
+        font-family: "Verdana", serif;
+        font-weight: bold;
+        font-size: 18px;
+    }
+    .pre-buy-card-body-way-div-left button .pal{
+        color: #009cde;
+        font-family: "Verdana", serif;
+        font-size: 18px;
+    }
+    .pre-buy-card-body-way-div-left .custom-radio-paiement{
+        background-color: #ffc439;
+        cursor: pointer;
+        padding-top: 12px;
+
+        padding-right: 4px;
+        padding-bottom: 11px;
+    }
+    .pre-buy-card-body-way-div-left .custom-radio-paiement input{
+        cursor: pointer;
     }
 }
 
@@ -458,7 +467,9 @@
     height: 100%;
     position: relative;
     width: 34%;
+    font-family: "Poppins", sans-serif;
 }
+/*POUR GERER LE MODE RESPONSIVE QUAND WIDTH < 1100px*/
 @media screen and (max-width: 1100px) {
     .pre-buy-container-right {
         position: relative;
@@ -478,14 +489,80 @@
         perspective: 1000px; /* Remove this if you don't want the 3D effect */
     }
 }
+/*POUR GERER LE MODE RESPONSIVE QUAND WIDTH > 1100px*/
 @media screen and (min-width: 1100px) {
-    .pre-buy-container-right .pre-buy-container-scene{
+    .pre-buy-container-right .pre-buy-container-scene {
         width: 80%;
-        height: 615px;
+        height: 440px;
         background-color: #EAE6E6;
     }
+
+    .pre-buy-card-title-div-right {
+        font-size: 15px;
+        padding: 10px;
+        text-align: left !important;
+
+    }
+
+    .pre-buy-card-title-right {
+        border-bottom: solid 1px #262660;
+    }
+
+    .pre-buy-card-body-div-right {
+        margin-top: 20px;
+        gap: 14px;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        padding-left: 55px;
+        padding-right: 55px;
+    }
+
+    .pre-buy-card-body-div-right-order {
+        display: flex;
+        flex-direction: row;
+
+    }
+
+    .pre-buy-card-body-div-right-tax {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .pre-buy-card-body-div-right-shipping {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .pre-buy-card-body-div-right-total {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .pre-buy-card-body-div-right-libelle {
+        width: 70%;
+    }
+
+    .pre-buy-card-body-div-right-price {
+        width: 30%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+    #paypal-button-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        margin-top: 20px;
+    }
 }
-.pre-buy-card-title-right{
-    font-size: 20px;
-    /*text-align: left !important;*/
+@media screen and (min-width: 1300px) {
+    #paypal-button-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        margin-top: 30px;
+        padding-left: 60px;
+        padding-right: 60px;
+    }
 }

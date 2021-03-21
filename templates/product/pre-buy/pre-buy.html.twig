@@ -117,7 +117,7 @@
                                         <span class="pre-buy-card-body-right-span">Commande</span>
                                     </div>
                                     <div class="pre-buy-card-body-div-right-price">
-                                        <span class="pre-buy-card-body-right-price">15€</span>
+                                        <span class="pre-buy-card-body-right-price">{{ product.price }}</span>
                                     </div>
                                 </div>
                                 <div class="pre-buy-card-body-div-right-tax">
@@ -125,7 +125,7 @@
                                         <span class="pre-buy-card-body-right-span">Protection des acheteurs</span>
                                     </div>
                                     <div class="pre-buy-card-body-div-right-price">
-                                        <span class="pre-buy-card-body-right-price">15€</span>
+                                        <span class="pre-buy-card-body-right-price">{{ product.price * 10 / 100 }}</span>
                                     </div>
                                 </div>
                                 <div class="pre-buy-card-body-div-right-shipping">
@@ -133,7 +133,7 @@
                                         <span class="pre-buy-card-body-right-span">Frais de port</span>
                                     </div>
                                     <div class="pre-buy-card-body-div-right-price">
-                                        <span class="pre-buy-card-body-right-price">15€</span>
+                                        <span class="pre-buy-card-body-right-price">3</span>
                                     </div>
                                 </div>
                                 <hr>
@@ -142,7 +142,7 @@
                                         <span class="pre-buy-card-body-right-span">Total</span>
                                     </div>
                                     <div class="pre-buy-card-body-div-right-price">
-                                        <span class="pre-buy-card-body-right-price">15€</span>
+                                        <span class="pre-buy-card-body-right-price">113</span>
                                     </div>
                                 </div>
                             </div>
@@ -150,11 +150,11 @@
                             <div id="paypal-button-container"></div>
                             <script>paypal.Buttons({
                                 createOrder: function (data, actions){
-                                  return actions.order.create({
-                                    purchase_units:[{
-                                      amount:{
-                                        value: {{ product.price }}
-                                      }
+                                    return actions.order.create({
+                                        purchase_units:[{
+                                        amount:{
+                                            value: {{ product.price }}
+                                        }
                                     }]
                                   })
                                 },
@@ -174,11 +174,11 @@
     <script>
         var tmpDiv;
         $(function (){
-          limitFunc();
-          $('.update-address').removeClass('clicked')
-          tmpDiv = $('.pre-buy-card-address-body-div-left').html()
+            limitFunc();
+            calculateTotalPrice();
+            $('.update-address').removeClass('clicked')
+            tmpDiv = $('.pre-buy-card-address-body-div-left').html()
         })
-
         $('.update-address').mouseover(function (){
             $('.update-address').removeClass('clicked')
         })

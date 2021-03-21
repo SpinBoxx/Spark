@@ -196,4 +196,15 @@ class ProductController extends AbstractController
         return $this->redirectToRoute('accueil');
     }
 
+    /**
+     * @Route("/commande/redirection-ok", name="commande_redirection")
+     * @return Response
+     * @throws Exception
+     */
+    public function pageRedirectionOrder(): Response
+    {
+        return $this->render('product/redirection/page-ok.html.twig',[
+        ]);
+    }
+
 }

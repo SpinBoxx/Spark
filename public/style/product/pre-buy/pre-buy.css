@@ -549,6 +549,9 @@
         flex-direction: row;
         justify-content: flex-end;
     }
+    .pre-buy-card-body-right-price:after {
+       content: ' €';
+    }
     #paypal-button-container{
         display: flex;
         flex-direction: column;

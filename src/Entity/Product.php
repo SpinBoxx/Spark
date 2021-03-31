@@ -120,20 +120,9 @@ class Product
      * @param $price
      * @param Quality $quality
      */
-    public function __construct(User $user, State $state, Gender $gender, Color $color_primary, $title, $description, $size, $brand, $category, $price, Quality $quality)
+    public function __construct()
     {
         $this->setCreationDatetime(new \DateTime('now'));
-        $this->user = $user;
-        $this->state = $state;
-        $this->gender = $gender;
-        $this->color_primary = $color_primary;
-        $this->title = $title;
-        $this->description = $description;
-        $this->size = $size;
-        $this->brand = $brand;
-        $this->category = $category;
-        $this->price = $price;
-        $this->quality = $quality;
     }
 
     public function getId(): ?int

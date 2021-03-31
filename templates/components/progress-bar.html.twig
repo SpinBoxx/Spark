@@ -1,0 +1,11 @@
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('style/components/progress-bar.css') }}">
+{% endblock %}
+<div class="progressbar-div">
+    <ul class="progressbar">
+        <li class="active valid-my-product">Valider mon produit {{ foo }}</li>
+        <li class="active valid-my-informations">Valider mes informations</li>
+        <li class=" buy-my-order">Commander</li>
+        <li class="wait-my-order">Attendez l'arrivée de votre article</li>
+    </ul>
+</div>

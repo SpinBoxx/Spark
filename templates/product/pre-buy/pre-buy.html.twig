@@ -11,14 +11,7 @@
 
 
     <div class="pre-buy-container-first">
-        <div class="progressbar-div">
-            <ul class="progressbar">
-                <li class="active valid-my-product">Valider mon produit</li>
-                <li class="active valid-my-informations">Valider mes informations</li>
-                <li class=" buy-my-order">Commander</li>
-                <li class="wait-my-order">Attendez l'arrivée de votre article</li>
-            </ul>
-        </div>
+        {% include 'components/progress-bar.html.twig' with {'foo': 'eeee'} %}
         <div class="pre-buy-container">
             <div class="pre-buy-container-left">
                 <div class="pre-buy-container-scene outer first-card" style="border-top-left-radius: 20px">
@@ -170,14 +163,14 @@
                 </div>
             </div>
         </div>
+{#        todo#}
     </div>
     <script>
         var tmpDiv;
         $(function (){
             limitFunc();
-            calculateTotalPrice();
-            $('.update-address').removeClass('clicked')
-            tmpDiv = $('.pre-buy-card-address-body-div-left').html()
+        //     $('.update-address').removeClass('clicked')
+        //     tmpDiv = $('.pre-buy-card-address-body-div-left').html()
         })
         $('.update-address').mouseover(function (){
             $('.update-address').removeClass('clicked')
@@ -215,7 +208,6 @@
                 .addClass('clicked')
                 .removeClass('update-address')
         })
-        console.log( $('.pre-buy-card-address-body-address-div'))
         $('body').on('click','.clicked', function (){
             let tmpAdr = $('#street').val()
             let city = $('#city').val()
@@ -223,7 +215,6 @@
             let postal = $('#postal_code').val()
             let add_info = $('#additional_info').val()
           $('#pre-buy-card-address-body-div-left').css('padding-right', '34px')
-            console.log(tmpDiv)
             $('.pre-buy-card-address-body-div-left').html(tmpDiv)
             if(country!== '' && city!== '' && postal!== '' && tmpAdr!== ''){
               $('.pre-buy-card-address-body-country').text(country)
@@ -253,15 +244,13 @@
 
         var limitFunc = function(){
             if (window.innerWidth<400){
+{#              TODO FAIRE LA PROGRESS BAR VERSION MOBILE #}
                 $('.valid-my-product').html('<img src="{{ asset('images/buy/pre-buy/progress-bar/shopping-cart-solid.png') }}" width="30px">')
                 $('.valid-my-informations').html('<img src="{{ asset('images/buy/pre-buy/progress-bar/checkOK.png') }}" width="30px">')
                 $('.buy-my-order').html('<img src="{{ asset('images/buy/pre-buy/progress-bar/credit-card-solid.svg') }}" width="30px">')
                 $('.wait-my-order').html('<img src="{{ asset('images/buy/pre-buy/progress-bar/shipping-fast-solid.svg') }}" width="30px">')
             }else{
-                $('.valid-my-product').html('Valider mon produit')
-                $('.valid-my-informations').html('Valider mes informations')
-                $('.buy-my-order').html('Commander')
-                $('.wait-my-order').html('Attendez l\'arrivée de votre article')
+                {% include 'components/progress-bar.html.twig' with {'foo': 'eeee'} %}
             }
 
         };

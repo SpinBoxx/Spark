@@ -65,8 +65,8 @@ h2{
     flex-direction: column;
 }
 
-.right_login_div h2 {
-    margin-bottom: 4rem;
+.right_register_div h2 {
+    margin-bottom: 2rem;
 }
 
 .right_login_div > section {

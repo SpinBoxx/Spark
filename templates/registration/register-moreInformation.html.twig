@@ -23,8 +23,16 @@
         </div>
         <div class="right_register_div">
             <section>
+                {% include 'components/register-progress-bar.html.twig'
+                with {
+                    'createUser': 'active',
+                    'moreInformation':'active',
+                    'login':''
+                } %}
                 <h2>Dernière étape !</h2>
                 <form class="register_input_form" action="{{ path('app_register_validate') }}" method="post">
+                    <h2>{{email}}</h2>
+                    <h2>{{password}}</h2>
                     <div class="label_input">
                         <label>
                             <i class="fas fa-users"></i>
@@ -56,7 +64,7 @@
                         </label>
                     </div>
                     
-                    <button class="register_submit_btn" type="submit">Valider</button>
+                    <button class="register_submit_btn" type="submit">Je fonce !</button>
                     {# <div class="text-center mb-2">
                         <div class="mb-3" style="color: white; font-weight: bold">Se connecter avec</div>
                         <a href="" class="btn btn-social btn-facebook">Facebook</a>

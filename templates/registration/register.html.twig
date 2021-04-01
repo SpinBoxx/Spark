@@ -23,8 +23,14 @@
         </div>
         <div class="right_register_div">
             <section>
+                {% include 'components/register-progress-bar.html.twig'
+                with {
+                    'createUser': 'active',
+                    'moreInformation':'',
+                    'login':''
+                } %}
                 <h2>Créer un compte</h2>
-                <form class="register_input_form" action="{{ path('app_register_validate') }}" method="post">
+                <form class="register_input_form" action="{{ path('app_register_more_information') }}" method="post">
                     <div class="label_input">
                         <label>
                             <i class="fas fa-user-circle"></i>
@@ -51,7 +57,9 @@
                             <span class="eye"><i class="fa fa-eye"></i></span>
                         </label>
                     </div>
-                    <button class="register_submit_btn" type="submit">Valider</button>
+                    
+                    <button class="register_submit_btn" type="submit">Étape suivante ></button>
+                    {# <a class="register_submit_a" href="{{ path('app_register_more_information') }}"><p style="margin-top:1rem">Étape suivante ></p></a> #}
                     {# <div class="text-center mb-2">
                         <div class="mb-3" style="color: white; font-weight: bold">Se connecter avec</div>
                         <a href="" class="btn btn-social btn-facebook">Facebook</a>
@@ -60,7 +68,7 @@
                     </div> #}
                 </form>
                 <div>
-                    <a class="main_link" href="{{ path('app_login') }}">Se connecter à son compte</a>
+                    <a class="main_link" href="{{ path('app_login') }}">< Se connecter à son compte</a>
                 </div>
                 <div></div>
             </section>

@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon compte
+{% endblock %}
+
+{% block stylesheets %}
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{{ asset('style/user/profil/navbar.css') }}">
+{% endblock %}
+
+{% block body %}
+
+	<div class="profil_content">
+		<div class="profil_content_navbar">
+			{% include 'user/profil/user_nav.html.twig' %}
+		</div>
+		<a class="active_navbar" onclick="openCloseNavbar()"><img height="25px" src="{{ asset('images/header/bars-solid.svg') }}"></a>
+		<div class="profil_content_display">
+			<div class="tab-content">
+				<div class="tab-pane active" id="profil">
+                    {% include 'user/profil/profil.html.twig' %}
+                </div>
+				<div class="tab-pane" id="command">
+                    {% include 'user/profil/command.html.twig' %}
+                </div>
+				<div class="tab-pane" id="messages">Messages Tab.</div>
+				<div class="tab-pane" id="settings">Settings Tab.</div>
+			</div>
+		</div>
+	</div>
+
+<script defer>
+	function openCloseNavbar() {
+        var profil_content_navbar_content = document.getElementById('profil_content_navbar_content');
+        var profil_content_navbar = document.querySelector('.profil_content_navbar');
+        var active_navbar = document.querySelector('.active_navbar');
+
+        if (profil_content_navbar_content.clientWidth) {
+            profil_content_navbar.style.minWidth = "0px";
+            active_navbar.style.left = "0px";
+        } else {
+            profil_content_navbar.style.minWidth = "200px";
+            active_navbar.style.left = "200px";
+        }
+    }
+
+    function openModalInfo(id) {
+        let modalInfo = document.getElementById(id);
+        if (modalInfo.clientHeight) {
+            modalInfo.style.height = "0px";
+        } else {
+            modalInfo.style.height = "215px";
+        }
+
+        modalInfo.addEventListener('mouseleave', () => {
+            modalInfo.style.height = "0px";
+        })
+    }
+
+    function openModalOtherInfo(id) {
+        let modalOtherInfo = document.getElementById(id);
+        if (modalOtherInfo.clientHeight) {
+            modalOtherInfo.style.height = "0px";
+        } else {
+            modalOtherInfo.style.height = "125px";
+        }
+
+        modalOtherInfo.addEventListener('mouseleave', () => {
+            modalOtherInfo.style.height = "0px";
+        })
+    }
+
+    
+     /* $('.link_hover_delivered_at').hover(function() {
+        var modal_header_profil = document.getElementById('modal_header_profil3');
+        if (modal_header_profil.clientHeight) {
+            modal_header_profil.style.height = "0px";
+        } else {
+            modal_header_profil.style.height = "175px";
+        }
+    }) */
+</script>
+
+
+{% endblock %}

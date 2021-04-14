@@ -5,11 +5,10 @@
 {% block stylesheets %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('style/accueil/accueil.css') }}">
-    <link rel="stylesheet" href="{{ asset('') }}">
+    <link rel="stylesheet" href="{{ asset('style/favoris/favorite_card.css')}}">
 {% endblock %}
 
 {% block body %}
-
     <div class="banner-area">
         <div class="inner-container">
             <h2>Envie de vendre <br> tes affaires inutilisées ?</h2>
@@ -22,13 +21,11 @@
     <div class="sports-bar">
         <h2 class="sports-bar-title">Retrouver vos sports préférés</h2>
         <div class="image-sport-container text-center">
-            <i class="fas fa-chevron-circle-left fa-6x"></i>
-            <img src="{{ asset('images/accueil/sports/baseball.png') }}" alt="">
-            <img src="{{ asset('images/accueil/sports/rubgy.png') }}" alt="">
-            <img src="{{ asset('images/accueil/sports/tennis.png') }}" alt="">
-            <img src="{{ asset('images/accueil/sports/basket.png') }}" alt="">
-            <img src="{{ asset('images/accueil/sports/boxe.png') }}" alt="">
-            <i class="fas fa-chevron-circle-right fa-6x"></i>
+            <i class="fas fa-chevron-circle-left fa-6x " id="chevron-left"></i>
+            {% for i in 0..4 %}
+                <img src="{{ asset('images/accueil/sports/' ~ sports[i]) }}" alt="" id="{{ i + 1 }}" width="150" height="144" >
+            {% endfor %}
+            <i class="fas fa-chevron-circle-right fa-6x " id="chevron-right" ></i>
         </div>
     </div>
     <div class="show-articles mt-4">
@@ -36,48 +33,39 @@
     </div>
     <section id="favorite_card_section">
         {% for product in products %}
-            <div class="favorite_card_div">
-                <div>
-                    <div class="favorite_card_align_heart">
-                        <div class="favorite_card_heart">
-                            <i class="fas fa-heart"></i>
-                        </div>
-                    </div>
-                    <div class="favorite_card_price">
-                        <p>{{ product.price }}</p>
-                    </div>
-                    <div class="favorite_card_div_image">
-                        <a href="{{ path('product_show', {'id' : product.id }) }}">
-                            <img src={{ asset('images/favoris/raquette.png') }} alt="" class=" main-img" id="main-img">
-                        </a>
-                    </div>
-                    <div class="favorite_card_top_line_description">
-                        <div class="favorite_card_seller">
-                            <img src="https://i.pravatar.cc/300">
-                            <div>
-                                <p>{{ product.user.firstname }} {{ product.user.lastname|upper }}</p>
-                            </div>
-                        </div>
-                        <div class="favorite_card_date">
-                            <p>{{ product.creationDatetime|date('d/m/Y') }}</p>
-                        </div>
-                    </div>
-                    <div class="favorite_card_description">
-                        <h4>{{ product.title }}</h4>
-                        <p>
-                           {{ product.description }}
-                        </p>
-                    </div>
-                    <div class="favorite_card_sub_line_description">
-                        <p><a href="{{ path('product_show', {'id' : product.id }) }}">Voir l'article></a></p>
-                    </div>
-                </div>
-            </div>
+            {{ block("product_vignette", "/product/vignette_view_product.html.twig") }}
         {% endfor %}
     </section>
-
-    {% block javascript %}
-
-    {% endblock %}
-
+    <script>
+        $('#chevron-left').click(function (){
+            moveSportLeft()
+        })
+        $('#chevron-right').click(function (){
+            moveSportRight()
+        })
+        let moveLeft = 0
+        let moveRight = 0
+        let sports = []
+        {% for sport in sports %}
+            sports.push("images/accueil/sports/" + "{{ sport }}")
+        {% endfor %}
+        function moveSportLeft(){
+            if(moveRight !== 0 ){
+                moveRight--
+                moveLeft++
+                for (let i = 1; i < 6; i++){
+                    $('#' + parseInt(i)).attr("src", sports[i - moveLeft -1])
+                }
+            }
+        }
+        function moveSportRight(){
+            if(moveRight <= sports.length -6 ) {
+                moveRight++
+                moveLeft--
+                for (let i = 1; i < 6; i++) {
+                    $('#' + parseInt(i)).attr("src", sports[i + moveRight - 1])
+                }
+            }
+        }
+    </script>
 {% endblock %}

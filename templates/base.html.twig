@@ -13,10 +13,10 @@
         <link rel="stylesheet" href="{{ asset('style/base/base.css') }}">
         {% block stylesheets %}{% endblock %}
     </head>
-    <body>
-
-        {% include 'components/header.html.twig' %}
-
+    <body style="overflow-x: hidden">
+        {% if (app.user != null) %} 
+            {% include 'components/header.html.twig' %}
+        {% endif %}
         {% for label, messages in app.flashes(['success', 'warning']) %}
             {% for message in messages %}
                 <div class="alert alert-success alert-dismissible">
@@ -38,10 +38,13 @@
             {% endfor %}
         {% endfor %}
         {% block body %}{% endblock %}
+        {% block javascript %}{% endblock %}
     </body>
-    <div id="footer" class="overflow-hidden">
-        {% include "./footer/footer.html.twig" %}
-    </div>
-    <script src="{{ asset('script/base/base.js') }}"></script>
+    {% if (app.user != null) %}
+        <div id="footer" class="overflow-hidden">
+            {% include "./footer/footer.html.twig" %}
+        </div>
+    {% endif %}
+    <script src="{{ asset('script/base/base.js') }}" defer></script>
 </html>
 

@@ -141,34 +141,72 @@
                             </div>
                             <script src="https://www.paypal.com/sdk/js?client-id=AX0TPuIo7Dsjd4K9N69MgI-0oHnhB3rUFS33mMuAic47XeX05fUXedh5xSuU_8obyLxLq2PnROg7RpsQ&buyer-country=FR&currency=EUR"></script>
                             <div id="paypal-button-container"></div>
-                            <script>paypal.Buttons({
-                                createOrder: function (data, actions){
-                                    return actions.order.create({
-                                        purchase_units:[{
-                                        amount:{
-                                            value: {{ product.price }}
+                            <script>
+                                if (window.paypal && window.paypal.Buttons) {
+                                    // render the buttons
+                                    paypal.Buttons({
+                                        createOrder: function (data, actions){
+                                            // throw new Error('force the createOrder callback to fail');
+                                            return actions.order.create({
+                                                purchase_units:[{
+                                                    amount:{
+                                                        value: 40
+                                                    },
+                                                }]
+                                            })
+                                        },
+                                        onShippingChange: function(data, actions) {
+                                            if (data.shipping_address.country_code !== 'FR') {
+                                                return actions.reject();
+                                            }
+                                            return actions.resolve();
+                                        },
+                                        onError: function (err) {
+                                            // For example, redirect to a specific error page
+                                            {# TODO  CREER PAGE REDIRECT ERREUR PAIEMENT #}
+                                            console.log(err)
+                                            // window.location.href = "/your-error-page-here";
+                                        },
+                                        onApprove: function (data, actions){
+                                            console.log(data)
+                                             return actions.order.capture().then(function(details) {
+                                                console.log(details)
+                                                // Get the authorization id
+                                                // var authorizationID = authorization.purchase_units[0].payments.authorizations[0].id
+                                                // console.log("auth = ", authorizationID)
+
+                                                // Call your server to validate and capture the transaction
+                                                 $.ajax({
+                                                     url: '{{ path('buy') }}',
+                                                     method: 'POST',
+                                                     data: {
+                                                         buyerName: details.payer.name.given_name,
+                                                         buyerSurnName: details.payer.name.surname,
+                                                     },
+                                                 })
+                                            });
+
+                                            // return actions.order.capture().then(function (details){
+                                            //     // window.location.href = '/commande/redirection-ok'
+                                            // })
                                         }
-                                    }]
-                                  })
-                                },
-                                onApprove: function (data, actions){
-                                  return actions.order.capture().then(function (details){
-                                    alert('Achat terminé ' + details.payer.name.given_name)
-                                  })
+                                    }).render('#paypal-button-container');
+                                } else {
+                                    // show a fallback experience
+                                    $('#paypal-button-container').html("Une erreur non attendue est arrivée ce qui vous empêche de procéder à la suite du paiement, veuillez conctater le support.")
                                 }
-                              }).render('#paypal-button-container');
                             </script>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-{#        todo#}
     </div>
     <script>
         var tmpDiv;
         $(function (){
             limitFunc();
+
         //     $('.update-address').removeClass('clicked')
         //     tmpDiv = $('.pre-buy-card-address-body-div-left').html()
         })
@@ -250,7 +288,7 @@
                 $('.buy-my-order').html('<img src="{{ asset('images/buy/pre-buy/progress-bar/credit-card-solid.svg') }}" width="30px">')
                 $('.wait-my-order').html('<img src="{{ asset('images/buy/pre-buy/progress-bar/shipping-fast-solid.svg') }}" width="30px">')
             }else{
-                {% include 'components/progress-bar.html.twig' with {'foo': 'eeee'} %}
+{#                {% include 'components/progress-bar.html.twig' with {'foo': 'eeee'} %}#}
             }
 
         };

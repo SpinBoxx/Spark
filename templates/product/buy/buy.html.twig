@@ -12,12 +12,22 @@
 
     <script>
         paypal.Buttons({
+            onShippingChange: function(data, actions) {
+                console.log(data)
+                onsole.log("cc")
+                if (data.shipping_address.country_code !== 'US') {
+                    console.log("cc")
+                    return actions.reject();
+                }
+
+                return actions.resolve();
+            },
             createOrder: function(data, actions) {
                 // This function sets up the details of the transaction, including the amount and line item details.
                 return actions.order.create({
                     purchase_units: [{
                         amount: {
-                            value: '1000'
+                            value: '100'
                         }
                     }]
                 });
@@ -26,7 +36,7 @@
                 // This function captures the funds from the transaction.
                 return actions.order.capture().then(function(details) {
                     // This function shows a transaction success message to your buyer.
-                    alert('Transaction completed by ' + details.payer.name.given_name);
+                    window.location.href = '/commande/redirection-ok'
                 });
             }
         }).render('#paypal-button-container');

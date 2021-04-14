@@ -25,6 +25,9 @@
                 </div>
 				<div class="tab-pane" id="messages">Messages Tab.</div>
 				<div class="tab-pane" id="settings">Settings Tab.</div>
+                <div class="tab-pane" id="adresses">
+                    {% include 'user/profil/address.html.twig' %}
+                </div>
 			</div>
 		</div>
 	</div>
@@ -70,7 +73,17 @@
         })
     }
 
-    
+    document.querySelector('button.new_address').addEventListener('click', () => {
+        let newAdressDiv = document.getElementById('new_address_div');
+        newAdressDiv.classList.toggle('show');
+    });
+
+    [...document.querySelectorAll('.edit_address')].map(elm => { 
+        elm.addEventListener('click', () => {
+            [...elm.parentNode.querySelectorAll('input')].map(e => e.disabled = e.disabled ? false : true);
+        })
+    });
+
      /* $('.link_hover_delivered_at').hover(function() {
         var modal_header_profil = document.getElementById('modal_header_profil3');
         if (modal_header_profil.clientHeight) {

@@ -1,0 +1,149 @@
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('style/user/profil/address-option.css') }}">
+{% endblock %}
+
+<div>
+    <h3><b>Vos adresses 📦</b></h3>
+    <br>
+    <p>Ajoutez vos adresses de livraison pour gagner du temps lors de votre commande !</p>
+    <div class="address_content">
+        <button class="new_address">Ajouter une adresse</button>
+
+        <div id="new_address_div">
+            <form action="">
+                <div class="form_snippet">
+                    <label class="req" for="">Propriétaire</label>
+                    <input type="text" required>
+                </div>
+                <div class="form_wrapper">
+                    <div class="form_snippet">
+                        <label class="req" for="">Numéro et rue</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form_snippet">
+                        <label class="req" for="">Ville</label>
+                        <input type="text" required>
+                    </div>
+                </div>
+                <div class="form_wrapper">
+                    <div class="form_snippet">
+                        <label class="req" for="">Région</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form_snippet">
+                        <label class="req" for="">Code postal</label>
+                        <input type="text" required>
+                    </div>
+                </div>
+                <div class="form_wrapper">
+                    <div class="form_snippet">
+                        <label class="req" for="">Pays</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form_snippet">
+                        <label for="">Téléphone</label>
+                        <input type="text">
+                    </div>
+                </div>
+                <input type="submit" value="Ajouter">
+            </form>
+        </div>
+
+        <div class="address_item">
+            <form action="">
+                <div class="form_snippet">
+                    <label class="req" for="">Propriétaire</label>
+                    <input type="text" value="Raoul Le Grand" disabled required>
+                </div>
+                <div class="form_wrapper">
+                    <div class="form_snippet">
+                        <label class="req" for="">Numéro et rue</label>
+                        <input type="text" value="17 rue de la paix" disabled required>
+                    </div>
+                    <div class="form_snippet">
+                        <label class="req" for="">Ville</label>
+                        <input type="text" value="Nantes" disabled required>
+                    </div>
+                </div>
+                <div class="form_wrapper">
+                    <div class="form_snippet">
+                        <label class="req" for="">Région</label>
+                        <input type="text" value="Pays de la Loire" disabled required>
+                    </div>
+                    <div class="form_snippet">
+                        <label class="req" for="">Code postal</label>
+                        <input type="text" value="44000" disabled required>
+                    </div>
+                </div>
+                <div class="form_wrapper">
+                    <div class="form_snippet">
+                        <label class="req" for="">Pays</label>
+                        <input type="text" value="France" disabled required>
+                    </div>
+                    <div class="form_snippet">
+                        <label for="">Téléphone</label>
+                        <input type="text" value="06 01 02 03 04" disabled>
+                    </div>
+                </div>
+                <div class="form_wrapper checkbox">
+                    <label for="">Ceci est votre adresse de livraison par défaut</label>
+                </div>
+                <div class="form_wrapper checkbox">
+                    <label for="">Ceci est votre adresse de facturation par défaut</label>
+                </div>
+                <input type="submit" value="Enregistrer" disabled>
+                <a class="edit_address"><i class="fas fa-pen"></i></a>
+                <a class="delete_address"><i class="fas fa-trash-alt"></i></a>
+            </form>
+        </div>
+
+        <div class="address_item">
+            <form action="">
+                <div class="form_snippet">
+                    <label class="req" for="">Propriétaire</label>
+                    <input type="text" value="Raoul Le Grand" disabled required>
+                </div>
+                <div class="form_wrapper">
+                    <div class="form_snippet">
+                        <label class="req" for="">Numéro et rue</label>
+                        <input type="text" value="17 rue de la paix" disabled required>
+                    </div>
+                    <div class="form_snippet">
+                        <label class="req" for="">Ville</label>
+                        <input type="text" value="Nantes" disabled required>
+                    </div>
+                </div>
+                <div class="form_wrapper">
+                    <div class="form_snippet">
+                        <label class="req" for="">Région</label>
+                        <input type="text" value="Pays de la Loire" disabled required>
+                    </div>
+                    <div class="form_snippet">
+                        <label class="req" for="">Code postal</label>
+                        <input type="text" value="44000" disabled required>
+                    </div>
+                </div>
+                <div class="form_wrapper">
+                    <div class="form_snippet">
+                        <label class="req" for="">Pays</label>
+                        <input type="text" value="France" disabled required>
+                    </div>
+                    <div class="form_snippet">
+                        <label for="">Téléphone</label>
+                        <input type="text" value="06 01 02 03 04" disabled>
+                    </div>
+                </div>
+                <div class="form_wrapper checkbox">
+                    <input type="checkbox" disabled><label for="">Adresse de livraison par défaut</label>
+                </div>
+                <div class="form_wrapper checkbox">
+                    <input type="checkbox" disabled><label for="">Adresse de facturation par défaut</label>
+                </div>
+                <input type="submit" value="Enregistrer" disabled>
+                <a class="edit_address"><i class="fas fa-pen"></i></a>
+                <a class="delete_address"><i class="fas fa-trash-alt"></i></a>
+            </form>
+        </div>
+
+    </div>
+</div>

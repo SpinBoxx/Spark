@@ -78,7 +78,7 @@
     .pre-buy-container-left {
         position: relative;
         height: 86%;
-        wi: 66%;
+        width: 66%;
         padding-left: 60px;
         display: flex;
         flex-wrap: wrap;

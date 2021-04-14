@@ -1,0 +1,147 @@
+.address_content {
+    margin: auto;
+    width: 100%;
+}
+
+.new_address {
+    height: 50px;
+    border-radius: 0.2rem;
+    border: 1px solid #ddd;
+    background: transparent;
+    padding: 0 1rem;
+}
+
+#new_address_div {
+    border-radius: 0.2rem;
+    border: 1px solid #ddd;
+    background: transparent;
+    padding: 0 1rem;
+    display: none;
+    margin: 1rem 0;
+    outline: none;
+}
+
+#new_address_div > form {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+}
+
+#new_address_div.show {
+    display: block;
+}
+
+form > .form_snippet:first-child > input {
+    display: flex;
+    flex-direction: column;
+    width: 40%;    
+}
+
+form label {
+    font-weight: 500;
+}
+
+.form_wrapper {
+    margin-top: .5rem;
+}
+
+form > input[type="submit"] {
+    margin-top: .5rem;
+    width: fit-content;
+    border: none;
+    background: transparent;
+    text-decoration: underline;
+    font-weight: 700;
+    color: rgb(84, 84, 84);
+}
+
+form>input[type="submit"]:disabled {
+    color: rgb(110, 110, 110);
+}
+
+form .form_wrapper input[type="checkbox"] {
+    align-items: center;
+    margin: auto 0.8rem auto 0;
+}
+
+form .form_wrapper.checkbox label {
+    font-weight: 400;
+}
+
+form>.form_wrapper:is(:not(first-child)) {
+    display: flex;
+}
+
+form>.form_wrapper:is(:not(first-child))>.form_snippet {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+
+form>.form_wrapper:is(:not(first-child))>.form_snippet>input {
+    width: 100%;
+}
+
+form>.form_wrapper>.form_snippet:is(:not(:first-child)) {
+    margin-left: 2rem;
+}
+
+
+label.req::after {
+    color: red;
+    content: " *";
+}
+
+.address_item {
+    border-radius: 0.2rem;
+    border: 1px solid #ddd;
+    background: transparent;
+    padding: 0 1rem;
+    margin: 1rem 0;
+    position: relative;
+}
+
+.address_item>form {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+}
+
+.edit_address {
+    position: absolute;
+    right: 1rem;
+    cursor: pointer;
+}
+
+.delete_address {
+    position: absolute;
+    right: 3rem;
+    cursor: pointer;
+}
+
+i {
+    transition: color .1s ease-in-out;
+}
+
+i:hover {
+    color: #212529;
+}
+
+@media screen and (max-width: 560px) {
+    form>.form_wrapper:is(:not(first-child)) {
+        display: flex;
+        flex-direction: column;
+    }
+
+    form>.form_wrapper>.form_snippet:is(:not(:first-child)) {
+        margin-left: 0;
+    }
+
+    form .form_snippet > input {
+        width: 100% !important;
+    }
+
+    form>.form_wrapper:is(:not(first-child))>.form_snippet {
+        width: 100% !important;
+    }
+}

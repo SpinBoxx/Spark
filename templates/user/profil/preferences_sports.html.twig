@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ asset('style/user/profil/preferences-sports.css') }}">
+{% endblock %}
+
+{% block title %}Préférences sports{% endblock %}
+
+{% block body %}
+
+    <h1 style="text-align: center; margin: 2rem">Mes préférences en sports</h1>
+
+    {% set arraySport = ['arc', 'badminton', 'baseball', 'basket', 'billard', 'bowling', 'boxe', 'corde_a_sauter', 'echec', 'escrime', 'flechette', 'foot', 'golf', 'gym', 'hockey', 'jet-ski', 'jugo', 'kayak', 'moto' , 'muscu', 'natation', 'nunchaku', 'parachute', 'patin_a_glace', 'ping_pong', 'plongee', 'rugby', 'skate', 'ski', 'surf', 'tennis', 'velo', 'voile', 'volley']  %}
+
+    <div class="list-sport-content">
+        <i class="fas fa-chevron-circle-left fa-6x" id="chevron-left"></i>
+
+        <div class="list-sport" id="1" style="display: block">
+
+            {% for i in 0..3 %}
+                <img src="{{ asset('images/accueil/sports/' ~ arraySport[i] ~ '.png') }}">
+                <img src="{{ asset('images/accueil/sports/' ~ arraySport[i+4] ~ '.png') }}">
+                <img src="{{ asset('images/accueil/sports/' ~ arraySport[i+8] ~ '.png') }}">
+                <img src="{{ asset('images/accueil/sports/' ~ arraySport[i+12] ~ '.png') }}">
+            {% endfor %}
+
+        </div>
+        <div class="list-sport" id="2" style="display: none">
+
+            {% for i in 0..3 %}
+                <img src="{{ asset('images/accueil/sports/' ~ arraySport[i+16] ~ '.png') }}">
+                <img src="{{ asset('images/accueil/sports/' ~ arraySport[i+20] ~ '.png') }}">
+                <img src="{{ asset('images/accueil/sports/' ~ arraySport[i+24] ~ '.png') }}">
+                <img src="{{ asset('images/accueil/sports/' ~ arraySport[i+28] ~ '.png') }}">
+            {% endfor %}
+
+        </div>
+        <div class="list-sport" id="3" style="display: none">
+
+            {% for i in 0..3 %}
+                <img src="{{ asset('images/accueil/sports/' ~ arraySport[i+30] ~ '.png') }}">
+            {% endfor %}
+
+        </div>
+
+        <i class="fas fa-chevron-circle-right fa-6x" id="chevron-right"></i>
+    </div>
+
+
+    <script>
+        $('#chevron-left').click(function (){
+            moveSportLeft()
+        })
+        $('#chevron-right').click(function (){
+            moveSportRight()
+        })
+
+        let id = 1
+
+        function moveSportRight() {
+            if (id === 3) {
+                document.getElementById(id).style.display = "block";
+            } else if (id < 3 ) {
+                id++
+                document.getElementById(id).style.display = "block";
+                document.getElementById(id - 1).style.display = "none";
+            }
+        }
+        function moveSportLeft() {
+            if(id === 1 ) {
+                document.getElementById(id).style.display = "block";
+            } else if (id > 1) {
+                id--
+                document.getElementById(id).style.display = "block";
+                document.getElementById(id + 1).style.display = "none";
+            }
+        }
+    </script>
+
+{% endblock %}

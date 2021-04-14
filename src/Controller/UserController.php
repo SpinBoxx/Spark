@@ -30,10 +30,31 @@ class UserController extends AbstractController
     }
 
     /**
+     * @Route("/user/preferences_sports", name="preferences_sports")
+     * @return Response
+     */
+    public function sportsPreferences(): Response
+    {
+        return $this->render('user/profil/preferences_sports.html.twig', [
+            'controller_name' => 'UserController']);
+    }
+
+    /**
+     * @Route("/user/profil", name="profil")
+     * @return Response
+     */
+    public function profile(): Response
+    {
+        return $this->render('user/profil/information_profil.html.twig', [
+            'controller_name' => 'UserController']);
+    }
+
+    /**
      * @Route("/user/update", name="user_update")
      * @param Request $req
      * @return Response
      */
+
     public function update(Request $req): Response
     {
         /** @var User $current_user */

@@ -1,0 +1,25 @@
+.list-sport-content {
+    display: flex;
+    margin: 2rem;
+    min-height: 40rem;
+}
+
+.list-sport {
+    display: flex;
+    flex-wrap: wrap;
+    width: 40rem;
+    justify-content: center;
+}
+
+.list-sport > img {
+    height: 150px;
+    width: 150px;
+}
+
+.fa-chevron-circle-left {
+    margin-left: auto;
+}
+
+.fa-chevron-circle-right {
+    margin-right: auto;
+}

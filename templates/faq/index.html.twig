@@ -1,0 +1,99 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FAQController!{% endblock %}
+
+ {% block stylesheets %}
+     <link rel="stylesheet" href="{{ asset('style/faq/FAQ.css') }}">
+ {% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="FAQ-title">Service Client</div>
+                <div class="form-group has-search">
+                    <span class="fa fa-search form-control-feedback"></span>
+                    <input type="text" class="form-control rounded-pill" placeholder="Une question ?">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="FAQ-title">Thèmes</div>
+
+            <div class="col-sm-4">
+                <div class="card bot-buffer">
+                    <div class="card-header">
+                        <span class="fa fa-cogs"></span> Questions techniques
+                    </div>
+                    <div class="card-body">
+                        {% for question in questions.questions_techniques %}
+                            <li>{{ question.question }}</li>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card bot-buffer">
+                    <div class="card-header">
+                        <span class="fa fa-search"></span> Produits
+                    </div>
+                    <div class="card-body">
+                        {% for question in questions.produits %}
+                            <li>{{ question.question }}</li>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card bot-buffer">
+                    <div class="card-header">
+                        <span class="fa fa-truck"></span> Infos et livraisons
+                    </div>
+                    <div class="card-body">
+                        {% for question in questions.info %}
+                            <li>{{ question.question }}</li>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card bot-buffer">
+                    <div class="card-header">
+                        <span class="fa fa-cubes"></span> Commandes
+                    </div>
+                    <div class="card-body">
+                        {% for question in questions.commandes %}
+                            <li>{{ question.question }}</li>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card bot-buffer">
+                    <div class="card-header">
+                        <span class="fa fa-credit-card"></span> Paiement
+                    </div>
+
+                    <div class="card-body">
+                        {% for question in questions.paiement %}
+                            <li>{{ question.question }}</li>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card bot-buffer">
+                    <div class="card-header">
+                        <span class="fa fa-clipboard"></span> Annonces
+                    </div>
+                    <div class="card-body">
+                        {% for question in questions.annonces %}
+                            <li>{{ question.question }}</li>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

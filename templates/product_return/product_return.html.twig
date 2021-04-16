@@ -1,0 +1,141 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProductReturnController!
+{% endblock %}
+
+{% block body %}
+	<div class="container my-5">
+		<h1 class="">Vos retours</h1>
+		<div class="col-sm mt-4">
+			<a href="#" class="ml-5 btn btn-primary">Voir le profil
+				<i class="fas fa-external-link-square-alt text-white"></i>
+			</a>
+		</div>
+		<div class="dropdown">
+			<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+				Filtrer
+			</button>
+			<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+				<li>
+					<a class="dropdown-item" href="#">Cette semaine</a>
+				</li>
+				<li>
+					<a class="dropdown-item" href="#">Ces 2 dernières semaine</a>
+				</li>
+				<li>
+					<a class="dropdown-item" href="#">Ce dernier mois</a>
+				</li>
+				<li>
+					<a class="dropdown-item" href="#">Ces 2 derniers mois</a>
+				</li>
+				<li>
+					<a class="dropdown-item" href="#">Ces 4 derniers mois</a>
+				</li>
+			</li>
+			<li>
+				<a class="dropdown-item" href="#">Ces 6 derniers mois</a>
+			</li>
+		</ul>
+	</div>
+	<div class="row py-2 px-5">
+		<div class="col-sm-1">
+			<p style="margin-bottom : 0">
+				<strong>Crée le</strong>
+			</p>
+			<p>00/00/0000</p>
+		</div>
+		<div class="col-sm-1">
+			<p style="margin-bottom : 0">
+				<strong>Nombre d'article</strong>
+			</p>
+			<p>3</p>
+		</div>
+		<div class="col-sm-1">
+			<p style="margin-bottom : 0">
+				<strong>Statut</strong>
+			</p>
+			<p>Retourné</p>
+		</div>
+		<div class="col-sm-9"></div>
+	</div>
+	<div class="row py-2 px-5">
+		<div class="col-sm-2">
+			<img src={{ asset('images/favoris/raquette.png') }} alt="" style="width: 150px" class="my-2">
+			<p style="margin-bottom : 0">
+				<strong>Titre : XXX</strong>
+			</p>
+			<p style="margin-bottom : 0">Marque : XXX</p>
+			<p style="margin-bottom : 0">Taille : 00</p>
+			<p style="margin-bottom : 0">Prix : 00€</p>
+		</div>
+		<div class="col-sm-2">
+			<img src={{ asset('images/favoris/raquette.png') }} alt="" style="width: 150px" class="my-2">
+			<p style="margin-bottom : 0">
+				<strong>Titre : XXX</strong>
+			</p>
+			<p style="margin-bottom : 0">Marque : XXX</p>
+			<p style="margin-bottom : 0">Taille : 00</p>
+			<p style="margin-bottom : 0">Prix : 00€</p>
+		</div>
+		<div class="col-sm-2">
+			<img src={{ asset('images/favoris/raquette.png') }} alt="" style="width: 150px" class="my-2">
+			<p style="margin-bottom : 0">
+				<strong>Titre : XXX</strong>
+			</p>
+			<p style="margin-bottom : 0">Marque : XXX</p>
+			<p style="margin-bottom : 0">Taille : 00</p>
+			<p style="margin-bottom : 0">Prix : 00€</p>
+		</div>
+	</div>
+	<hr>
+	<div class="row py-2 px-5">
+		<div class="col-sm-1">
+			<p style="margin-bottom : 0">
+				<strong>Crée le</strong>
+			</p>
+			<p>00/00/0000</p>
+		</div>
+		<div class="col-sm-1">
+			<p style="margin-bottom : 0">
+				<strong>Nombre d'article</strong>
+			</p>
+			<p>3</p>
+		</div>
+		<div class="col-sm-1">
+			<p style="margin-bottom : 0">
+				<strong>Statut</strong>
+			</p>
+			<p>Retourné</p>
+		</div>
+		<div class="col-sm-9"></div>
+	</div>
+	<div class="row py-2 px-5">
+		<div class="col-sm-2">
+			<img src={{ asset('images/favoris/raquette.png') }} alt="" style="width: 150px" class="my-2">
+			<p style="margin-bottom : 0">
+				<strong>Titre : XXX</strong>
+			</p>
+			<p style="margin-bottom : 0">Marque : XXX</p>
+			<p style="margin-bottom : 0">Taille : 00</p>
+			<p style="margin-bottom : 0">Prix : 00€</p>
+		</div>
+		<div class="col-sm-2">
+			<img src={{ asset('images/favoris/raquette.png') }} alt="" style="width: 150px" class="my-2">
+			<p style="margin-bottom : 0">
+				<strong>Titre : XXX</strong>
+			</p>
+			<p style="margin-bottom : 0">Marque : XXX</p>
+			<p style="margin-bottom : 0">Taille : 00</p>
+			<p style="margin-bottom : 0">Prix : 00€</p>
+		</div>
+		<div class="col-sm-2">
+			<img src={{ asset('images/favoris/raquette.png') }} alt="" style="width: 150px" class="my-2">
+			<p style="margin-bottom : 0">
+				<strong>Titre : XXX</strong>
+			</p>
+			<p style="margin-bottom : 0">Marque : XXX</p>
+			<p style="margin-bottom : 0">Taille : 00</p>
+			<p style="margin-bottom : 0">Prix : 00€</p>
+		</div>
+	</div>
+</div>{% endblock %}

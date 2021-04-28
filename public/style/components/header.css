@@ -196,6 +196,9 @@ i{
     padding: 15px;
 }
 
+#woman-window, #man-window, #children-window {
+    --bs-gutter-x: 2rem !important;
+}
 
 .link {
     display: flex !important;
@@ -245,9 +248,9 @@ i{
 }
 
 @media screen and (max-width: 575px){
-    #woman-window > div:nth-child(1) > h5, #man-window > div:nth-child(1) > h5, #children-window > div:nth-child(1) > h5  {
+    /* #woman-window > div:nth-child(1) > h5, #man-window > div:nth-child(1) > h5, #children-window > div:nth-child(1) > h5  {
         margin-top: 8rem;
-    }
+    } */
 
     .menu-img {
         width: 300px;
@@ -379,7 +382,7 @@ i{
 
     #search_expand_header input[type=search] {
         -webkit-appearance: textfield;
-        -webkit-box-sizing: content-box;
+        box-sizing: content-box;
         font-family: inherit;
         font-size: 100%;
     }

@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FAQQuestion{% endblock %}
+
+{% block body %}
+    <h1>Question</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ faq_question.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ faq_question.code }}</td>
+            </tr>
+            <tr>
+                <th>Question</th>
+                <td>{{ faq_question.question }}</td>
+            </tr>
+            <tr>
+                <th>Ordre</th>
+                <td>{{ faq_question.ordre }}</td>
+            </tr>
+            <tr>
+                <th>Active</th>
+                <td>{{ faq_question.active ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Reponse</th>
+                <td>{{ faq_question.reponse }}</td>
+            </tr>
+            <tr>
+                <th>Thème</th>
+                <td>{{ faq_question.FaqTheme }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="{{ path('faq_question_index') }}">back to list</a>
+
+    <a class="btn-primary btn" href="{{ path('faq_question_edit', {'id': faq_question.id}) }}">edit</a>
+
+    {{ include('faq_question/_delete_form.html.twig') }}
+{% endblock %}

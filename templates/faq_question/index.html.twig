@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FAQQuestion index{% endblock %}
+
+{% block body %}
+    <h1>Questions de la FAQ</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Question</th>
+                <th>Ordre</th>
+                <th>Active</th>
+                <th>Reponse</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for faq_question in faq_questions %}
+            <tr>
+                <td>{{ faq_question.id }}</td>
+                <td>{{ faq_question.code }}</td>
+                <td>{{ faq_question.question }}</td>
+                <td>{{ faq_question.ordre }}</td>
+                <td>{{ faq_question.active ? 'Yes' : 'No' }}</td>
+                <td>{{ faq_question.reponse }}</td>
+                <td>
+                    <a href="{{ path('faq_question_show', {'id': faq_question.id}) }}">Voir</a>
+                    <a href="{{ path('faq_question_edit', {'id': faq_question.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">Pas de question trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-success" href="{{ path('faq_question_new') }}">Ajouter une question</a>
+{% endblock %}

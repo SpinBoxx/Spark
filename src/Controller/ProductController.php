@@ -8,10 +8,13 @@ use App\Entity\Product;
 use App\Entity\Quality;
 use App\Entity\State;
 use App\Entity\User;
+use App\Service\FileUploader;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\FileBag;
+use Symfony\Component\HttpFoundation\ParameterBag;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\KernelInterface;
@@ -79,11 +82,11 @@ class ProductController extends AbstractController
     }
 
     /**
-     * @Route("/prodcuct-insert", name="product_insert")
+     * @Route("/product-insert", name="product_insert")
      * @param Request $request
      * @return Response
      */
-    public function insertProduct(Request $request): Response
+    public function insertProduct(Request $parent_request, FileUploader $fileUploader): Response
     {
         $product = new Product();
         $state = $this->em->getRepository(State::class)->findOneBy(['code'=>'in_sell']);
@@ -91,7 +94,8 @@ class ProductController extends AbstractController
         if ($this->isGranted('ROLE_USER') == false) {
             return  $this->redirectToRoute('app_login');
         }else{
-            $request = $request->request->all();
+            /** @var Request $request */
+            $request = $parent_request->request->all();
             if($request['title'] != null){
                 $product->setTitle($request['title']);
             }
@@ -159,13 +163,31 @@ class ProductController extends AbstractController
             if($request['description'] != null){
                 $product->setDescription($request['description']);
             }
-            if($request['picture_product'] != null) {
-                $product->setPictureProduct([$request['picture_product']]);
-            }
+
+
+
+               //$file->getClientOriginalName();
+                $file_array = [];
+
+
+
+                $files = $parent_request->files->get('picture_product');
+
+
+                if($files){
+                    foreach ($files as $file) {
+                        $fileName = $fileUploader->upload($file);
+                        $file_array[] = $fileName;
+                    }
+                    $product->setPictureProduct($file_array);
+                }
+
+
+
             $product->setUser($this->security->getUser());
             $this->em->persist($product);
             $this->em->flush();
-            return  $this->redirect("/");
+            return $this->redirect("/");
         }
 
     }

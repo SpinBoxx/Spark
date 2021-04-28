@@ -32,14 +32,16 @@ class FAQController extends AbstractController
         /** @var FAQTheme $theme */
         foreach ($_themes as $theme){
             $_questions = $this->em->getRepository(FAQQuestion::class)->findBy(['faq_theme' => $theme->getId()]);
+            /** @var FAQQuestion $question */
             foreach ($_questions as $question){
+                $question_id = $question->getId();
                 $all_questions[$theme->getCode()]['questions'] = $question;
-
+                $autocomplete_question[] = ["q" => $question->getQuestion(),"id"=>$question_id];
             }
 
         }
         return $this->render('faq/index.html.twig', [
-            'controller_name' => 'FAQController', 'questions' => $all_questions
+            'controller_name' => 'FAQController', 'questions' => $all_questions, "autocomplete_q" => $autocomplete_question,
         ]);
     }
 }

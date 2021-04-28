@@ -43,6 +43,11 @@ class FAQQuestion
      */
     private $faq_theme;
 
+    /**
+     * @ORM\Column(type="string", length=1020)
+     */
+    private $reponse;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -104,6 +109,18 @@ class FAQQuestion
     public function setFaqTheme(?FAQTheme $faq_theme): self
     {
         $this->faq_theme = $faq_theme;
+
+        return $this;
+    }
+
+    public function getReponse(): ?string
+    {
+        return $this->reponse;
+    }
+
+    public function setReponse(string $reponse): self
+    {
+        $this->reponse = $reponse;
 
         return $this;
     }

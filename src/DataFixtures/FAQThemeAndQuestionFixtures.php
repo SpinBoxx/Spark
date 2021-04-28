@@ -21,9 +21,9 @@ class FAQThemeAndQuestionFixtures extends Fixture
         ];
 
         $i = 0;
-        foreach ($themes as $key=>$theme){
+        foreach ($themes as $key => $theme) {
             $_theme = $manager->getRepository(FAQTheme::class)->findOneBy(['code' => $theme[0]]);
-            if(!$_theme instanceof FAQTheme){
+            if (!$_theme instanceof FAQTheme) {
                 $faq_theme = new FAQTheme();
                 $faq_theme->setLabel($theme);
                 $faq_theme->setActive(true);
@@ -38,41 +38,58 @@ class FAQThemeAndQuestionFixtures extends Fixture
 
         $questions = [
             "Infos et livraisons" => [
-                "Comment puis-je livrer mes articles",
+                [
+                    "q" => "Comment puis-je livrer mes articles",
+                    "r" => "La livraison peut être faite avec Chronopost, Colissimo ou Fedex"
+                ],
             ],
             "Commandes" => [
-                "Ma commande n'est pas arrivée",
+                [
+                    "q" => "Ma commande n'est pas arrivée",
+                    "r" => "Essayer de contacter le vendeur, si vous n'y arriver pas contactez nous"
+                ]
+
             ],
             "Questions techniques" => [
-                "Je ne peux pas poster d'annonce",
+                [
+                    "q" => "Je ne peux pas poster d'annonce",
+                    "r" => "Verifiez que votre profil est correctement completé"
+                ]
             ],
             "Produits" => [
-                "Quels types de produit puis-je vendre ?",
+                [
+                    "q" => "Quels types de produit puis-je vendre ?",
+                    "r" => "Vous pouvez mettre en vente tout type de produits sportif, pour femme, homme et enfant"
+                ]
             ],
             "Paiement" => [
-                "Quels types de paiement sont acceptés",
-
+                [
+                    "q" => "Quels types de paiement sont acceptés",
+                    "r" => "Paypal est le seul mode de paiement pris en charge"
+                ]
             ],
             "Annonces" => [
-                "Mon annonce n'apparait plus",
+                [
+                    "q" => "Mon annonce n'apparait plus",
+                    "r" => "Si votre annonce n'apparait plus, c'est peut-être qu'elle ne respectait pas notre code de conduite"
+                ]
             ],
-
-
         ];
         // pour chaque theme
-        foreach ($questions as $key_theme=>$theme) {
+        foreach ($questions as $key_theme => $theme) {
             //pour chaque question
             $_theme = $manager->getRepository(FAQTheme::class)->findOneBy(['label' => $key_theme]);
-            foreach ($theme as $key=>$question){
+            foreach ($theme as $key => $pair) {
                 /** @var FAQTheme $_theme */
-                if(!$_theme instanceof FAQQuestion){
-                    $faq_theme = new FAQQuestion();
-                    $faq_theme->setActive(true);
-                    $faq_theme->setOrdre($key);
-                    $faq_theme->setCode("code");
-                    $faq_theme->setQuestion($question);
-                    $faq_theme->setFaqTheme($_theme);
-                    $manager->persist($faq_theme);
+                if (!$_theme instanceof FAQQuestion) {
+                    $faq_question = new FAQQuestion();
+                    $faq_question->setActive(true);
+                    $faq_question->setOrdre($key);
+                    $faq_question->setCode("code");
+                    $faq_question->setQuestion($pair["q"]);
+                    $faq_question->setFaqTheme($_theme);
+                    $faq_question->setReponse($pair["r"]);
+                    $manager->persist($faq_question);
                 }
             }
         }

@@ -29,11 +29,11 @@
                 </div>
                 <div class="info-content">
                     <p style="font-weight: bold">Pseudo</p>
-                    <input type="text" class="form-control" id="id-pseudo" style="min-width: 6rem; width: 100%" placeholder="John Doe" disabled>
+                    <input type="text" class="form-control" id="idpseudo" style="min-width: 6rem; width: 100%;" placeholder="John Doe" disabled>
                 </div>
                 <div class="info-content">
                     <p style="font-weight: bold">Téléphone</p>
-                    <input type="text" class="form-control" id="id-tel" style="min-width: 8rem; width: 100%" placeholder="06 01 01 01 01" disabled>
+                    <input type="text" class="form-control" id="idtel" style="width: 8rem;" placeholder="06 01 01 01 01" disabled>
                 </div>
             </div>
             <div class="div-button">
@@ -47,7 +47,7 @@
             <div class="identity-user">
                 <div class="info-content">
                     <p style="font-weight: bold">Adresse mail</p>
-                    <input type="email" class="form-control" id="id-mail" style="min-width: 7rem; width: 100%" placeholder="johndoe@doe.fr" disabled>
+                    <input type="email" class="form-control" id="idmail" style="min-width: 7rem; width: 100%" placeholder="johndoe@doe.fr" disabled>
                 </div>
             </div>
             <div class="div-button">
@@ -61,7 +61,7 @@
             <div class="identity-user">
                 <div class="info-content">
                     <p style="font-weight: bold">Mot de passe</p>
-                    <input type="password" class="form-control" id="id-pwd" style="min-width: 7rem; width: 100%" placeholder="**********" disabled>
+                    <input type="password" class="form-control" id="idpwd" style="min-width: 7rem; width: 100%" placeholder="**********" disabled>
                 </div>
             </div>
             <div class="div-button">
@@ -84,38 +84,85 @@
                 <button onclick="window.location.href='preferences_sports'" class="edit-button"><img src={{ asset('images/profil/edittext.svg') }}> Modifier</button>
             </div>
         </div>
+
+        <div class="section-profil">
+            <img src={{ asset('images/profil/tshirt.svg') }}>
+            <div class="identity-user">
+                <div class="info-content">
+                    <p style="font-weight: bold">Taille</p>
+                    <select class="form-select" aria-label="Default select example" id="idsize" disabled>
+                        <option selected>Saisir votre taille</option>
+                        <option value="XS">XS</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                        <option value="XXL">XXL</option>
+                    </select>
+                </div>
+                <div class="info-content">
+                    <p style="font-weight: bold">Pointure</p>
+                    <select class="form-select" aria-label="Default select example" id="idpointure" disabled>
+                        <option selected>Saisir votre taille</option>
+                        <option value="1">36</option>
+                        <option value="2">37</option>
+                        <option value="3">38</option>
+                        <option value="4">39</option>
+                        <option value="5">40</option>
+                        <option value="6">41</option>
+                    </select>
+                </div>
+            </div>
+            <div class="div-button">
+                <button id="editsize" onclick="editSize()" class="edit-button"><img src={{ asset('images/profil/edit-button.svg') }}> Modifier</button>
+                <button id="checksize" onclick="validateSize()" class="btn btn-outline-success" style="display:none; text-align: center">Valider</button>
+            </div>
+        </div>
+
     </div>
 
     <script>
         function editUser() {
-            document.getElementById('id-pseudo').disabled = false;
-            document.getElementById('id-tel').disabled = false;
+            document.getElementById('idpseudo').disabled = false;
+            document.getElementById('idtel').disabled = false;
             document.getElementById('checkuser').style.display = "block";
             document.getElementById('edituser').style.display = "none";
         }
         function editMail() {
-            document.getElementById('id-mail').disabled = false;
+            document.getElementById('idmail').disabled = false;
             document.getElementById('checkmail').style.display = "block";
             document.getElementById('editmail').style.display = "none";
         }
         function editPwd() {
-            document.getElementById('id-pwd').disabled = false;
+            document.getElementById('idpwd').disabled = false;
             document.getElementById('checkpwd').style.display = "block";
             document.getElementById('editpwd').style.display = "none";
         }
+        function editSize() {
+            document.getElementById('idsize').disabled = false;
+            document.getElementById('idpointure').disabled = false;
+            document.getElementById('checksize').style.display = "block";
+            document.getElementById('editsize').style.display = "none";
+        }
+        function validateSize() {
+            document.getElementById('idsize').disabled = true;
+            document.getElementById('idpointure').disabled = true;
+            document.getElementById('checksize').style.display = "none";
+            document.getElementById('editsize').style.display = "block";
+        }
         function validateUser() {
-            document.getElementById('id-pseudo').disabled = true;
-            document.getElementById('id-tel').disabled = true;
+            document.getElementById('idpseudo').disabled = true;
+            document.getElementById('idtel').disabled = true;
             document.getElementById('checkuser').style.display = "none";
             document.getElementById('edituser').style.display = "block";
         }
         function validateMail() {
-            document.getElementById('id-mail').disabled = true;
+            document.getElementById('idmail').disabled = true;
             document.getElementById('checkmail').style.display = "none";
             document.getElementById('editmail').style.display = "block";
         }
         function validatePwd() {
-            document.getElementById('id-pwd').disabled = true;
+            document.getElementById('idpwd').disabled = true;
             document.getElementById('checkpwd').style.display = "none";
             document.getElementById('editpwd').style.display = "block";
         }

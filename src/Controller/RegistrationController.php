@@ -35,6 +35,21 @@ class RegistrationController extends AbstractController
     }
 
     /**
+     * @Route("/register/more-information", name="app_register_more_information")
+     * @param Request $request
+     */
+    public function moreInformation(Request $request): Response
+    {
+        $email = $request->query->get('email');
+        $password = $request->query->get('password');
+
+        if ($this->getUser()) {
+            return $this->redirectToRoute('accueil');
+        }
+        return $this->render('registration/register-moreInformation.html.twig');
+    }
+
+    /**
      * @Route("/register/validate", name="app_register_validate")
      * @param Request $request
      * @param UserPasswordEncoderInterface $encoder
@@ -54,7 +69,7 @@ class RegistrationController extends AbstractController
             $user->setRoles(['ROLE_USER']);
             $this->em->persist($user);
             $this->em->flush();
-            return $this->render('login/login.html.twig');
+            return $this->render('registration/register-moreInformation.html.twig');
         }
 
 

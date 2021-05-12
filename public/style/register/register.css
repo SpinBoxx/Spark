@@ -1,134 +1,4 @@
-.image-container{
-    background: url("https://i.ibb.co/pPZ2TPb/image-3.png") center no-repeat;
-    background-size: 80%;
-    height: 100vh;
-}
-
-.form-container{
-    background-color: #f8f9fa;
-    display: flex;
-    justify-content: center;
-}
-
-.form-box{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 100vh;
-}
-
-.form-box h4{
-    font-weight: bold;
-    color: #28ca7f;
-}
-
-.form-box .form-input{
-    position: relative;
-}
-
-.form-box .form-input input{
-    width: 100%;
-    height: 40px;
-    margin-bottom: 20px;
-    border: none;
-    border-radius: 5px;
-    outline: none;
-    background: white;
-    padding-left: 45px;
-}
-
-.form-box .form-input span{
-    position: absolute;
-    top: 8px;
-    padding-left: 0px;
-    color: #777;
-}
-
-.form-box .form-input .eye {
-    position: absolute;
-    top: 9px;
-    padding-left: 300px;
-    color: #777;
-}
-
-.form-box .form-input input::placeholder{
-    padding-left: 0px;
-}
-
-.form-box .form-input input:focus{
-
-}
-
-.form-box .form-input input:valid{
-    border-bottom: 2px solid #48403d;
-}
-
-.form-box input[type="checkbox"]:not(:checked) + label:before{
-    background: transparent;
-    border: 3px solid black;
-    width: 15px;
-    height: 15px;
-}
-
-.form-box .custom-checkbox .custom-control-input:checked ~ .
-    custom-control-label::before{
-    background-color: #48403d;
-    border: 0px;
-}
-
-.forget-password{
-    color: black;
-    font-weight: bold;
-}
-
-.havent-account{
-    color: black;
-    font-weight: bold;
-}
-
-.havent-account:hover{
-    color: #290808;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-.forget-password:hover{
-    color: #290808;
-    text-decoration: none;
-}
-
-.custom-control-label{
-    color: black;
-    font-weight: bold;
-}
-
-.form-box button[type="submit"]{
-    border: none;
-    cursor: pointer;
-    width: 150px;
-    height: 40px;
-    border-right: 5px;
-    background-color: #fff;
-    color: #000;
-    font-weight: bold;
-    transition: 0.5s;
-}
-
-.form-box button[type="submit"]:hover{
-    box-shadow: 0px 9px 10px -2px #222121;
-}
-
-.form-box .btn-social{
-    color: #FFFFFF;
-    border: 0px;
-    display: inline-block;
-    margin: 0px;
-    margin-right: 10px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.form-box .btn-facebook{
+/* .form-box .btn-facebook{
     background: #0574e7;
 }
 
@@ -138,6 +8,248 @@
 
 .form-box .btn-google{
     background: #e94235;
+} */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+*{
+    box-sizing: border-box;
 }
 
+*:focus{
+    outline: none;
+}
 
+body{
+    font-family: "Poppins", sans-serif !important;
+    color: rgba(0, 0, 0, 0.75);
+    margin: 0;
+    min-height: 100vh;
+    height: 100vh;
+}
+
+label{
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.75);
+}
+ 
+input{
+    font-weight: 400;
+    font-size: 0.9rem;
+}
+
+h2{
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 3rem;
+    color: rgba(0, 0, 0, 0.75);
+}
+
+.register_section{
+    width: 100%;
+    height: 100%;
+    display: inline-flex;
+}
+
+.left_register_div{
+    width: 130%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.left_register_div > img{
+    width: 60%;
+    height: auto;
+}
+
+.right_register_div{
+    width: inherit;
+    height: 100%;
+    background-color: rgba(211, 211, 211, 0.4);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.right_register_div h2 {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+.right_register_div > section {
+    text-align: left;
+    margin: 0 12% 0 12%;
+    display: flex;
+    flex-direction: column;
+}
+
+.register_logo_lg {
+    width: 56%;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    height: 65px;
+    /* justify-content: flex-end; */
+}
+
+.register_logo_lg>img {
+    position: absolute;
+    top: 3%;
+    height: 60px;
+    width: auto;
+}
+
+.register_input_form{
+    display: flex;
+    flex-direction: column;
+}
+
+.register_input_form > input:nth-child(2), .register_input_form > div {
+    margin-top: 2rem;
+}
+
+.register_submit_btn{
+    margin-top: 3rem;
+    width: 175px;
+    height: 50px;
+    background-color: #6FCF97;
+    border-radius: 6px;
+    color: whitesmoke;
+    border: none;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.register_submit_a {
+    margin-top: 3rem;
+    width: 175px;
+    height: 50px;
+    background-color: #6FCF97;
+    border-radius: 6px;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
+    color: whitesmoke;
+    border: none;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.register_submit_a:hover{
+    color: whitesmoke;
+}
+
+.main_link{
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: rgba(0,0,0,0.75);
+}
+
+.right_register_div > section > div {
+    margin-top: 0.5rem;
+}
+
+input[type="checkbox"]{
+    margin-left: 0;
+    margin-bottom: 0;
+    vertical-align: text-top;
+}
+
+.label_input{
+    border-bottom: #CCCCCC solid 1px !important;
+    outline: none;
+    height: 30px;
+    max-width: 400px;
+}
+
+.label_input > label {
+    width: 100%;
+}
+
+.text_input{
+    background-color: transparent;
+    border: none;
+    margin-left: 10px;
+    height: 30px;
+    width: 80%;
+}
+
+.text_input::-webkit-input-placeholder{
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 0.9rem;
+}
+
+.fa-eye {
+    color: #777 !important
+}
+
+section div:last-child{
+    margin-top: 3rem !important;
+    text-align: end !important;
+}
+
+i{
+    color: rgba(0, 0, 0, 0.75) !important;
+    height: 25px !important;
+    vertical-align: inherit !important;
+    margin: 0 0 5px 0 !important;
+}
+
+.main_link{
+    margin: 0 !important;
+}
+
+.secondary_link{
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 0.75rem;
+    color: rgba(0,0,0,0.75);
+}
+
+@media screen and (max-width: 768px) {
+    .left_register_div {
+        display: none;
+    }
+
+    .logo_findygo_md {
+        display: initial !important;
+        position: absolute;
+        left: 2.2rem;
+        top: 1.2rem;
+        height: 55px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .right_register_div h2 {
+        margin-bottom: 0;
+    }
+
+    .login_submit_btn, .right_login_div > section > div:not(:last-child) {
+        align-self: center;
+    }
+
+    section div:last-child {
+        align-self: end;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .register_section {
+        zoom: 0.9;
+    }
+}

@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Créer un compte{% endblock %}
+{% block title %}Informations supplémentaires{% endblock %}
 
 {% block body %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block stylesheets %}
-        <link rel="stylesheet" href="{{ asset('style/register/register.css') }}">
+        <link rel="stylesheet" href="{{ asset('style/register/register-moreInformation.css') }}">
     {% endblock %}
 
     {% for flashError in app.flashes('verify_email_error') %}
@@ -26,40 +26,45 @@
                 {% include 'components/register-progress-bar.html.twig'
                 with {
                     'createUser': 'active',
-                    'moreInformation':'',
+                    'moreInformation':'active',
                     'login':''
                 } %}
-                <h2>Créer un compte</h2>
-                <form class="register_input_form" action="{{ path('app_register_more_information') }}" method="post">
+                <h2>Dernière étape !</h2>
+                <form class="register_input_form" action="{{ path('app_register_validate') }}" method="post">
+                    {# <h2>{{email}}</h2> #}
+                    {# <h2>{{password}}</h2> #}
                     <div class="label_input">
                         <label>
-                            <i class="fas fa-user-circle"></i>
-                            <input class="text_input" type="text" name="pseudo" placeholder="Pseudo*" required>
+                            <i class="fas fa-users"></i>
+                            <input class="text_input" type="text" name="nom" placeholder="Nom*" required>
                         </label>
                     </div>
                     <div class="label_input">
                         <label>
-                        <i class="far fa-envelope"></i>
-                        <input class="text_input" type="email" name="email" placeholder="Email*" required>
+                        <i class="fas fa-user-alt"></i>
+                        <input class="text_input" type="text" name="prenom" placeholder="Prénom*" required>
                         </label>
                     </div>
                     <div class="label_input">
                         <label>
-                            <i class="fa fa-lock"></i>
-                            <input class="text_input" type="password" name="password" placeholder="Mot de passe*" required>
-                            <span class="eye"><i class="fa fa-eye"></i></span>
+                            <i class="fas fa-globe"></i>
+                            <input class="text_input" type="text" name="pays" placeholder="Pays">
                         </label>
                     </div>
                     <div class="label_input">
                         <label>
-                            <i class="fa fa-lock"></i>
-                            <input class="text_input" type="password" name="password" placeholder="Confirmer le mot de passe*" required>
-                            <span class="eye"><i class="fa fa-eye"></i></span>
+                        <i class="fas fa-home"></i>
+                        <input class="text_input" type="text" name="ville" placeholder="Ville">
+                        </label>
+                    </div>
+                    <div class="label_input">
+                        <label>
+                            <i class="fas fa-phone-alt"></i>
+                            <input class="text_input" type="text" name="telephone" placeholder="Téléphone*" required>
                         </label>
                     </div>
                     
-                    <button class="register_submit_btn" type="submit">Étape suivante ></button>
-                    {# <a class="register_submit_a" href="{{ path('app_register_more_information') }}"><p style="margin-top:1rem">Étape suivante ></p></a> #}
+                    <button class="register_submit_btn" type="submit">Je fonce !</button>
                     {# <div class="text-center mb-2">
                         <div class="mb-3" style="color: white; font-weight: bold">Se connecter avec</div>
                         <a href="" class="btn btn-social btn-facebook">Facebook</a>
@@ -68,9 +73,11 @@
                     </div> #}
                 </form>
                 <div>
-                    <a class="main_link" href="{{ path('app_login') }}">< Se connecter à son compte</a>
+                    <a class="main_link" href="{{ path('app_login') }}">Se connecter à son compte</a>
                 </div>
-                <div></div>
+                <div>
+                    <a class="secondary_link" href="{{ path('app_login') }}">< Retour à l'inscription</a>
+                </div>
             </section>
         </div>
     </div>

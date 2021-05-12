@@ -1,0 +1,10 @@
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('style/components/progress-bar.css') }}">
+{% endblock %}
+<div class="progressbar-div">
+    <ul class="progressbar">
+        <li class="{{createUser}}">Informations de connexion</li>
+        <li class="{{moreInformation}}">Compléter son profil</li>
+        <li class="{{login}}">Se connecter</li>
+    </ul>
+</div>

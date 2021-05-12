@@ -12,8 +12,8 @@ class StateFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $states = [
-            ['in_sell', 'En vente'],
-            ['bought', 'Acheté']
+            ['en_vente', 'En vente'],
+            ['achete', 'Acheté']
         ];
         foreach ($states as $state){
             $_state = $manager->getRepository(State::class)->findOneBy(['code' => $state[0]]);

@@ -1,50 +1,64 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    <script src="https://kit.fontawesome.com/13dc29a021.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('style/login/login.css') }}">
     {% endblock %}
 
-
-
-
-    <div class="login_section">
+    <img src={{ asset('images/header/logo.png') }} class="logo_spark_md" alt="logo_spark" style="display: none">
+    <div class="login_section" style="overflow-y: hidden;">
         <div class="left_login_div">
             <img src="{{ asset('images/login/image_login' ~ random(5) ~ '.png') }}">
+            <div class="login_logo_lg">
+                <img src={{ asset('images/header/logo.png') }} alt="logo_spark">
+            </div>
         </div>
-        <div class="right_login_div">
-            <section>
-                <h2 class="connex">Connexion</h2>
-                <form class="login_input_form" method="post">
-                    <div class="label_input">
-                        <label>
-                            <i class="fas fa-user"></i>
-                            <input class="text_input" name="email" type="text" placeholder="Email">
-                        </label>
-                    </div>
-                    <div class="label_input">
-                        <label>
-                            <i class="fas fa-unlock"></i>
-                            <input class="text_input" name="password" type="password" placeholder="Mot de passe">
-                        </label>
-                    </div>
+        <div class="container-right-div-login">
+            <div class="right_login_div">
+                <section>
+                    <h2 class="connex">Connexion</h2>
+                    <form class="login_input_form" method="post">
+                        <div class="label_input">
+                            <label>
+                                <i class="fas fa-user"></i>
+                                <input class="text_input" name="email" type="text" placeholder="Email" value="{{ last_username }}">
+                            </label>
+                        </div>
+                        <div class="label_input">
+                            <label>
+                                <i class="fas fa-unlock"></i>
+                                <input class="text_input" name="password" type="password" placeholder="Mot de passe">
+                            </label>
+                        </div>
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                        <button class="login_submit_btn" type="submit">Se connecter</button>
+                    </form>
                     <div>
-                        <label>
-                            <input name="_remember_me" id="remember_me" type="checkbox">
-                            Se souvenir de moi
-                        </label>
+                        <a class="main_link" href="{{ path('app_register') }}">Créer un compte</a>
                     </div>
-                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-                    <button class="login_submit_btn" type="submit">Se connecter</button>
-                </form>
-                <div>
-                    <a class="main_link" href="{{ path('app_register') }}">Créer un compte</a>
-                </div>
-                <div>
-                    <a class="secondary_link" href="">Mot de passe oublié ?</a>
-                </div>
-            </section>
+                    <div class="secondary_link-div">
+                        <button class="secondary_link">Mot de passe oublié ?</button>
+                    </div>
+                </section>
+            </div>
+            <div class="password-forget-div">
+                <section>
+                    <h2 class="connex">Récuperer son mot de passe</h2>
+{#                    <form class="login_input_form" method="post">#}
+                        <div class="label_input">
+                            <label>
+                                <i class="fas fa-user"></i>
+                                <input class="text_input" name="email" type="text" placeholder="Email" value="{{ last_username }}">
+                            </label>
+                        </div>
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                        <button class="login_submit_btn send-mail-password-forgot" type="submit">Envoyer le mail</button>
+{#                    </form>#}
+                    <div>
+                        <button class="main_link">Se connecter</button>
+                    </div>
+                </section>
+            </div>
         </div>
     </div>
 
@@ -54,6 +68,19 @@
                 url: '{{ path('error') }}',
                 method: 'get'
             })
+        })
+
+        $('.secondary_link').click(function(){
+            $('.container-right-div-login').css('height', '100%');
+            $('.password-forget-div').addClass('password-forget-div-open');
+        })
+        $('.send-mail-password-forgot').click(function(){
+            $('.password-forget-div').addClass('password-forget-div-close');
+            $('.password-forget-div').removeClass('password-forget-div-open');
+            setTimeout(function (){
+                $('.password-forget-div').removeClass('password-forget-div-close');
+                $('.container-right-div-login').css('height', '200%');
+            },1000)
         })
     </script>
 

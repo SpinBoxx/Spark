@@ -1,0 +1,9 @@
+.profil_option_state {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.profil_option_state > * {
+    margin: auto;
+}

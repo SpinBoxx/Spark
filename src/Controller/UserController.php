@@ -4,29 +4,32 @@ namespace App\Controller;
 
 use App\Entity\Product;
 use App\Entity\User;
+use App\Service\UserService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Security;
 
 class UserController extends AbstractController
 {
     private $em;
-    public function __construct(EntityManagerInterface $em)
+
+    private $userService;
+
+    public function __construct(EntityManagerInterface $em, UserService $userService)
     {
         $this->em = $em;
+        $this->userService = $userService;
     }
 
     /**
      * @Route("/user", name="user")
-     * @param Request $req
      * @return Response
      */
     public function index(): Response
     {
-        return $this->render('user/index.html.twig', [
+        return $this->render('user/profil/index.html.twig', [
             'controller_name' => 'UserController']);
     }
 
@@ -64,22 +67,19 @@ class UserController extends AbstractController
             $current_user->setPostal_Address($request["postal_address"]);
         }
         $this->em->flush();
-        /** @var User $current_user */
         $user_firstname = $current_user->getFirstname();
         return $this->redirectToRoute("user");
     }
+
     /**
      * @Route("/user/mes-annonces", name="user_ads")
      * @return Response
      */
     public function user_ad(): Response
     {
-        $product_repo = $this->em->getRepository(Product::class);
-        /** @var User $user_id */
-        $user = $this->getUser();
-        $user_id = $user->getId();
-        //findby = cherche parmi les champs de products ici "user" qui ont la valeur de $user_id (id de l'utilisateur actuelle)
-        $user_ads = $product_repo->findBy(['user' => $user_id]);
+
+        $user_ads = $this->userService->get_user_ads($this->getUser());
+        $this->userService->get_user_ads($this->getUser());
         return $this->render('user/user_ad.html.twig', [
             'controller_name' => 'UserController','ads' => $user_ads]);
     }

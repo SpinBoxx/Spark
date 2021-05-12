@@ -12,10 +12,10 @@ class QualityFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $qualites = [
-            ['neuf_avec_etiquettes', 'Neuf avec étiquettes'],
-            ['neuf_sans_etiquettes', 'Neuf sans étiquettes'],
+            ['neuf_avec_etiquette', 'Neuf avec étiquette'],
+            ['neuf_sans_etiquette', 'Neuf sans étiquette'],
             ['tres_bon_etat', 'Très bon état'],
-            ['bon_etat', 'bon état'],
+            ['bon_etat', 'Bon état'],
             ['satisfaisant', 'Satisfaisant'],
             ['usage', 'Usagé'],
 

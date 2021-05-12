@@ -17,9 +17,10 @@ security:
         main:
             remember_me:
                 secret: '%kernel.secret%'
-                lifetime: 3600 # 1 week in seconds
-                name: remember_me
+                lifetime: 86400 # 1 week in seconds
+                name: REMEMBERME
                 path: /
+                token_provider: 'Symfony\Bridge\Doctrine\Security\RememberMe\DoctrineTokenProvider'
             lazy: true
             provider: users_in_memory
             guard:

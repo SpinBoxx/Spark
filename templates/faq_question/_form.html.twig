@@ -1,0 +1,30 @@
+{{ form_start(form) }}
+<div class="mb-3">
+
+    {{ form_label(form.code,'Code', {'attr': {'class': 'form-label'}}) }}
+    {{ form_widget(form.code, {'attr': {'class': 'form-control'}}) }}
+</div>
+<div class="mb-3">
+
+    {{ form_label(form.question,'Question', {'attr': {'class': 'form-label'}}) }}
+    {{ form_widget(form.question, {'attr': {'class': 'form-control'}}) }}
+</div>
+<div class="mb-3">
+
+    {{ form_label(form.ordre,'Ordre', {'attr': {'class': 'form-label'}}) }}
+    {{ form_widget(form.ordre, {'attr': {'class': 'form-control'}}) }}
+</div>
+<div class="mb-3">
+    {{ form_label(form.reponse,'Reponse', {'attr': {'class': 'form-label'}}) }}
+    {{ form_widget(form.reponse, {'attr': {'class': 'form-control'}}) }}
+</div>
+<div class="mb-3">
+    {{ form_label(form.faq_theme,'Theme', {'attr': {'class': 'form-label'}}) }}
+    {{ form_widget(form.faq_theme, {'attr': {'class': 'form-control'}}) }}
+</div>
+<div class="mb-3">
+    {{ form_label(form.active,'Active', {'attr': {'class': 'form-label'}}) }}
+    {{ form_widget(form.active) }}
+</div>
+<button type="submit" class="btn btn-primary">Mettre à jour</button>
+{{ form_end(form) }}

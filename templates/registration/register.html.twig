@@ -11,7 +11,6 @@
     {% for flashError in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
-
     <img src={{ asset('images/header/logo.png') }} class="logo_findygo_md" alt="logo_findygo" style="display: none">
 
     <div class="register_section">
@@ -30,7 +29,7 @@
                     'login':''
                 } %}
                 <h2>Créer un compte</h2>
-                <form class="register_input_form" action="{{ path('app_register_more_information') }}" method="post">
+                <form class="register_input_form" action="{{ path('findygo_register_1') }}" method="post">
                     <div class="label_input">
                         <label>
                             <i class="fas fa-user-circle"></i>
@@ -50,32 +49,52 @@
                             <span class="eye"><i class="fa fa-eye"></i></span>
                         </label>
                     </div>
-                    <div class="label_input">
+                    <div class="is-password-correct" style="margin-top: 10px">
+{#                        TODO icon dinamique en js quand critere ok#}
+                        <ul class="fa-ul">
+                            <li><span class="fa-li"><i class="fa fa-close"></i></span>8 caractères</li>
+                            <li><span class="fa-li"><i class="fa fa-close"></i></span>1 caractère spécial</li>
+                            <li><span class="fa-li"><i class="fa fa-close"></i></span>1 chiffre</li>
+                        </ul>
+                    </div>
+                    <div class="label_input" style="margin-top: 0">
                         <label>
                             <i class="fa fa-lock"></i>
-                            <input class="text_input" type="password" name="password" placeholder="Confirmer le mot de passe*" required>
+                            <input class="text_input" type="password" name="password_confirm" placeholder="Confirmer le mot de passe*" required>
                             <span class="eye"><i class="fa fa-eye"></i></span>
                         </label>
                     </div>
                     
-                    <button class="register_submit_btn" type="submit">Étape suivante ></button>
-                    {# <a class="register_submit_a" href="{{ path('app_register_more_information') }}"><p style="margin-top:1rem">Étape suivante ></p></a> #}
-                    {# <div class="text-center mb-2">
-                        <div class="mb-3" style="color: white; font-weight: bold">Se connecter avec</div>
-                        <a href="" class="btn btn-social btn-facebook">Facebook</a>
-                        <a href="" class="btn btn-social btn-google">Google</a>
-                        <a href="" class="btn btn-social btn-twitter">Twitter</a>
-                    </div> #}
+                    <button class="register_submit_btn" type="submit">Étape suivante</button>
                 </form>
                 <div>
-                    <a class="main_link" href="{{ path('app_login') }}">< Se connecter à son compte</a>
+                    <a class="main_link" href="{{ path('app_login') }}">Retour à la connexion</a>
                 </div>
                 <div></div>
             </section>
         </div>
     </div>
 
+
     <script>
+        // toastr.success("rere", "tshirt", {
+        //     "closeButton": false,
+        //     "debug": false,
+        //     "newestOnTop": false,
+        //     "progressBar": true,
+        //     "positionClass": "toast-top-right",
+        //     "preventDuplicates": false,
+        //     "onclick": null,
+        //     "showDuration": "300",
+        //     "hideDuration": "1000",
+        //     "timeOut": "10000",
+        //     "extendedTimeOut": "10000",
+        //     "showEasing": "swing",
+        //     "hideEasing": "linear",
+        //     "showMethod": "fadeIn",
+        //     "hideMethod": "fadeOut"
+        // })
+
         $(document).ready(function() {
             $(".show-password, .hide-password").on('click', function() {
                 var passwordId = $(this).parents('li:first').find('input').attr('id');

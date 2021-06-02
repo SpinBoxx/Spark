@@ -5,6 +5,7 @@ namespace App\Service;
 
 use App\Interfaces\SecurityFormInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 
 class SecurityCheckService extends AbstractController implements SecurityFormInterface
 {
@@ -22,26 +23,17 @@ class SecurityCheckService extends AbstractController implements SecurityFormInt
     }
 
     /**
-     * @param $request
-     * @param $namesRequest
-     * @return false
+     * @param Request $params
+     * @param array $namesRequest
+     * @return bool
      */
-    public function checkIssetNameRequest($request, array $namesRequest): bool
+    public function checkIssetNameRequest($params, array $namesRequest): bool
     {
-        $bool = false;
-        if(isset($request)){
-            foreach ($namesRequest as $nameRequest){
-                $var = $request->request->get(htmlentities($nameRequest));
-                if(isset($var)){
-                    $bool = true;
-                }else{
-                    $bool = false;
-                }
-                if(!$bool){
-                    return false;
-                }
+        foreach ($namesRequest as $name){
+            if(!isset($params[$name])) {
+                return false;
             }
         }
-        return $bool;
+        return true;
     }
 }

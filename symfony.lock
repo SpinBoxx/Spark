@@ -102,6 +102,15 @@
     "friendsofphp/proxy-manager-lts": {
         "version": "v1.0.3"
     },
+    "guzzlehttp/guzzle": {
+        "version": "7.3.0"
+    },
+    "guzzlehttp/promises": {
+        "version": "1.4.1"
+    },
+    "guzzlehttp/psr7": {
+        "version": "1.8.2"
+    },
     "illuminate/collections": {
         "version": "v8.26.1"
     },
@@ -144,6 +153,9 @@
     "laminas/laminas-zendframework-bridge": {
         "version": "1.1.1"
     },
+    "mailjet/mailjet-apiv3-php": {
+        "version": "v1.5.1"
+    },
     "monolog/monolog": {
         "version": "2.1.1"
     },
@@ -158,6 +170,18 @@
     },
     "php": {
         "version": "7.4"
+    },
+    "php-flasher/flasher": {
+        "version": "v0.4.7"
+    },
+    "php-flasher/flasher-symfony": {
+        "version": "v0.4.7"
+    },
+    "php-flasher/flasher-toastr": {
+        "version": "v0.4.7"
+    },
+    "php-flasher/flasher-toastr-symfony": {
+        "version": "v0.4.7"
     },
     "phpdocumentor/reflection-common": {
         "version": "2.2.0"
@@ -180,6 +204,12 @@
     "psr/event-dispatcher": {
         "version": "1.0.0"
     },
+    "psr/http-client": {
+        "version": "1.0.1"
+    },
+    "psr/http-message": {
+        "version": "1.0.1"
+    },
     "psr/link": {
         "version": "1.0.0"
     },
@@ -188,6 +218,9 @@
     },
     "psr/simple-cache": {
         "version": "1.0.1"
+    },
+    "ralouphie/getallheaders": {
+        "version": "3.0.3"
     },
     "sensio/framework-extra-bundle": {
         "version": "5.2",

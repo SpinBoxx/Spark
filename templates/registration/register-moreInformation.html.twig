@@ -29,10 +29,8 @@
                     'moreInformation':'active',
                     'login':''
                 } %}
-                <h2>Dernière étape !</h2>
-                <form class="register_input_form" action="{{ path('app_register_validate') }}" method="post">
-                    {# <h2>{{email}}</h2> #}
-                    {# <h2>{{password}}</h2> #}
+                <h2>Dernière étape {{ user.username }}!</h2>
+                <form class="register_input_form" action="{{ path('findygo_register_2') }}" method="post">
                     <div class="label_input">
                         <label>
                             <i class="fas fa-users"></i>
@@ -63,20 +61,10 @@
                             <input class="text_input" type="text" name="telephone" placeholder="Téléphone*" required>
                         </label>
                     </div>
-                    
                     <button class="register_submit_btn" type="submit">Je fonce !</button>
-                    {# <div class="text-center mb-2">
-                        <div class="mb-3" style="color: white; font-weight: bold">Se connecter avec</div>
-                        <a href="" class="btn btn-social btn-facebook">Facebook</a>
-                        <a href="" class="btn btn-social btn-google">Google</a>
-                        <a href="" class="btn btn-social btn-twitter">Twitter</a>
-                    </div> #}
                 </form>
                 <div>
-                    <a class="main_link" href="{{ path('app_login') }}">Se connecter à son compte</a>
-                </div>
-                <div>
-                    <a class="secondary_link" href="{{ path('app_login') }}">< Retour à l'inscription</a>
+                    <a class="main_link" href="{{ path('app_login') }}">Rentrer ses informations plus tard</a>
                 </div>
             </section>
         </div>

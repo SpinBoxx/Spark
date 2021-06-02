@@ -216,6 +216,11 @@ i{
     color: rgba(0,0,0,0.75);
 }
 
+.is-password-correct{
+    margin-top: 26px;
+    /*margin-bottom: 7px;*/
+}
+
 @media screen and (max-width: 768px) {
     .left_register_div {
         display: none;

@@ -4,9 +4,11 @@
 
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('style/favoris/favorite_card.css')}}">
-
 {% endblock %}
 
+{% block javascript %}
+    <script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/toastr.min.js" />
+{% endblock %}
 
 {% block body %}
     <div class="px-5 py-4 ">

@@ -1,0 +1,23 @@
+flasher:
+    default: toastr
+
+flasher_toastr:
+    scripts:
+        - 'https://cdn.jsdelivr.net/npm/@flasher/flasher-toastr@0.1.3/dist/flasher-toastr.min.js'
+    options:
+          progressBar: true
+          timeOut: 14000
+          closeButton: true
+          debug: false
+          newestOnTop: false
+          positionClass: 'toast-top-right'
+          preventDuplicates: false
+          onclick: null
+          showDuration: 300
+          hideDuration: 1000
+          extendedTimeOut: 14000
+          showEasing: 'swing'
+          hideEasing: 'linear'
+          showMethod: 'fadeIn'
+          hideMethod: 'fadeOut'
+          espaceHTML: true

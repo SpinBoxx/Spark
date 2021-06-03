@@ -23,7 +23,6 @@ class MessagingController extends AbstractController
      * MessagingController constructor.
      * @param EntityManagerInterface $em
      * @param SecurityCheckService $check
-     * @param Toastr $toast
      */
     public function __construct(EntityManagerInterface $em, SecurityCheckService $check){
         $this->em = $em;

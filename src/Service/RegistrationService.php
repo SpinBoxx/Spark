@@ -6,26 +6,25 @@ namespace App\Service;
 
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
-use Flasher\Toastr\Prime\ToastrFactory;
+use Flasher\Prime\FlasherInterface;
 use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
 use Symfony\Component\Security\Core\Security;
 
-class RegistrationService extends ToastrService
+class RegistrationService
 {
     private $em;
-    private $toastr;
+    private $flasher;
 
 
     /**
      * RegistrationService constructor.
      * @param EntityManagerInterface $em
-     * @param ToastrFactory $toastr
+     * @param FlasherInterface $flasher
      */
-    public function __construct(EntityManagerInterface $em, ToastrFactory $toastr)
+    public function __construct(EntityManagerInterface $em, FlasherInterface $flasher)
     {
-        parent::__construct($toastr);
         $this->em = $em;
-        $this->toastr = $toastr;
+        $this->flasher = $flasher;
     }
 
     /**
@@ -38,7 +37,7 @@ class RegistrationService extends ToastrService
     {
         $user = $this->em->getRepository(User::class)->findOneBy(['email' => $email]);
         if($user instanceof User){
-            $this->toastrError('Cet email est déjà utilisé. Veuillez en chosir un autre.');
+            $this->flasher->addError('Cet email est déjà utilisé. Veuillez en chosir un autre.');
             return false;
         }else{
             return $this->checkPassword($password, $passwordConfirm);
@@ -55,11 +54,11 @@ class RegistrationService extends ToastrService
             if(strcmp($password, $passwordConfirm)){
                 return true;
             }else{
-                $this->toastrError('Les mots de passes ne correspondent pas.');
+                $this->flasher->addError('Les mots de passes ne correspondent pas.');
                 return false;
             }
         }else{
-            $this->toastrError('Votre mot de passe n&#39;est pas valide.');
+            $this->flasher->addError('Votre mot de passe n&#39;est pas valide.');
             return false;
         }
     }

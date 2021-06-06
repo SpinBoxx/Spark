@@ -6,8 +6,8 @@ use App\Entity\User;
 use App\Security\EmailVerifier;
 use App\Service\RegistrationService;
 use App\Service\SecurityCheckService;
-use App\Service\ToastrService;
 use Doctrine\ORM\EntityManagerInterface;
+use Flasher\Prime\FlasherInterface;
 use Mailjet\Client;
 use Mailjet\Resources;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -24,7 +24,7 @@ class RegistrationController extends AbstractController
     private $registrationService;
     private $encoder;
     private $checkService;
-    private $toastr;
+    private $flasher;
 
     /**
      * RegistrationController constructor.
@@ -32,18 +32,20 @@ class RegistrationController extends AbstractController
      * @param RegistrationService $registrationService
      * @param UserPasswordEncoderInterface $encoder
      * @param SecurityCheckService $checkService
-     * @param ToastrService $toastr
+     * @param FlasherInterface $flasher
      */
     public function __construct(
-        EntityManagerInterface $em, RegistrationService $registrationService, UserPasswordEncoderInterface $encoder,
-        SecurityCheckService $checkService, ToastrService $toastr
-    )
-    {
+        EntityManagerInterface $em,
+        RegistrationService $registrationService,
+        UserPasswordEncoderInterface $encoder,
+        SecurityCheckService $checkService,
+        FlasherInterface $flasher
+    ) {
         $this->em = $em;
         $this->registrationService = $registrationService;
         $this->encoder = $encoder;
         $this->checkService = $checkService;
-        $this->toastr = $toastr;
+        $this->flasher = $flasher;
     }
 
     /**
@@ -93,7 +95,7 @@ class RegistrationController extends AbstractController
      * @Route("/creer-un-compte/sauvegarder-informations-supplementaires", name="findygo_register_2")
      * @param Request $request
      */
-    public function register2(Request $request, ToastrFactory $toastr, SessionInterface $session): Response
+    public function register2(Request $request, SessionInterface $session, ToastrFactory $toastrFactory): Response
     {
         if ($this->getUser()) {
             return $this->redirectToRoute('accueil');
@@ -113,11 +115,20 @@ class RegistrationController extends AbstractController
                     $this->em->flush();
                     return $this->redirectToRoute('app_login');
                 }else{
-                    $this->toastr->toastrError404(40426164);
+                    $toastrFactory
+                        ->closeHtml('<button><i class="fa fa-close text-white fa-lg"></i></button>')
+                        ->progressBar(false)
+                        ->timeOut(0)
+                        ->tapToDismiss(false)
+                        ->addError(40426164);
                 }
             }else{
-                $this->toastr->toastrError404(71978874);
-
+                $toastrFactory
+                    ->closeHtml('<button><i class="fa fa-close text-white fa-lg"></i></button>')
+                    ->progressBar(false)
+                    ->timeOut(0)
+                    ->tapToDismiss(false)
+                    ->addError(71978874);
             }
             return $this->render('registration/register-moreInformation.html.twig', [
                 'user' => $user,
@@ -152,7 +163,7 @@ class RegistrationController extends AbstractController
             ]
         ];
         $response = $mj->post(Resources::$Email, ['body' => $body]);
-        $this->toastr->toastrSuccess('Mail de récupération de votre mot de passe a bien été envoyé.');
+        $this->flasher->addSuccess('Mail de récupération de votre mot de passe a bien été envoyé.');
         return $this->redirectToRoute('app_login');
     }
 }

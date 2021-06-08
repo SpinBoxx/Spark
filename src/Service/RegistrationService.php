@@ -51,7 +51,7 @@ class RegistrationService
     public function checkPassword($password, $passwordConfirm): bool
     {
         if(preg_match("^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$^", $password) === 1){
-            if(strcmp($password, $passwordConfirm)){
+            if($password === $passwordConfirm){
                 return true;
             }else{
                 $this->flasher->addError('Les mots de passes ne correspondent pas.');

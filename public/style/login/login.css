@@ -55,9 +55,14 @@ h2{
     width: 60%;
     height: auto;
 }
-
+.container-right-div-login{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    height: 200%;
+}
 .right_login_div{
-    width: inherit;
+    width: 100%;
     height: 100%;
     background-color: rgba(211, 211, 211, 0.4);
     display: flex;
@@ -216,5 +221,59 @@ i{
 @media screen and (max-width: 320px) {
     .login_section {
         zoom: 0.9;
+    }
+}
+
+.password-forget-div{
+    height: 100%;
+    position: relative;
+    width: auto;
+    background-color: rgba(211, 211, 211, 1);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.password-forget-div-open{
+    height: 100%;
+    position: absolute;
+    width: 44%;
+    background-color: rgba(211, 211, 211, 1);
+    display: flex;
+    justify-content: center;
+    animation: Slide_up 1.9s ease;
+    flex-direction: column;
+}
+.password-forget-div-close{
+    height: 100%;
+    position: absolute;
+    width: 44%;
+    background-color: rgba(211, 211, 211, 1);
+    display: flex;
+    justify-content: center;
+    animation: Slide_down 1.9s ease;
+    flex-direction: column;
+}
+.password-forget-div > section {
+    text-align: left;
+    padding: 90px;
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes Slide_up {
+    0%{
+        transform: translateY(1776px);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+@keyframes Slide_down {
+    0%{
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(1776px);
     }
 }

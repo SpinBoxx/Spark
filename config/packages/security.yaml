@@ -41,6 +41,7 @@ security:
     access_control:
         - { path: /creer-un-compte, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: /mot-de-passe-oublie, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: /error404, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: '/login', roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/, roles: ROLE_USER }
         - { path: ^/admin, roles: ROLE_ADMIN }

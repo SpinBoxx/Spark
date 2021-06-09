@@ -142,7 +142,6 @@ class RegistrationController extends AbstractController
      * @Route("/mot-de-passe-oublie", name="findygo_password_forget")
      */
     public function passwordForget(Request $request){
-        $regex = "^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$";
         $regex = "^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$^";
         if(preg_match($regex, $request->request->get('email'), $matches)){
             $mj = new Client('aab026f86b414066c7c611daf00b222a','526e725c9a32bea53c0e16178b850491',true,['version' => 'v3.1']);
@@ -161,7 +160,7 @@ class RegistrationController extends AbstractController
                         ],
                         'Subject' => "Récupération du mot de passe",
                         'TextPart' => "My first Mailjet email",
-                        'HTMLPart' => "<h3>Salut jeune sportif, voici le lien pour retrouver ton mot de passe : <a href='http://spark.fr/'>Spark.fr</a>!</h3>",
+                        'HTMLPart' => "<h3>Salut jeune sportif, voici le lien pour retrouver ton mot de passe : <a href='localhost/SymfTest/public/index.php'>Spark.fr</a>!</h3>",
                     ]
                 ]
             ];

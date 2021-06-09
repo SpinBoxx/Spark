@@ -1,0 +1,66 @@
+.content-title {
+    text-align: center;
+    margin: 2rem;
+}
+
+.information-profil {
+    margin-bottom: 5rem;
+}
+
+.section-profil {
+    display: flex;
+    justify-content: center;
+    height: auto;
+    margin: 2rem;
+}
+
+.section-profil > img {
+    height: 6.5rem;
+    margin-right: 2rem;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.identity-user {
+    display: flex;
+    flex-wrap: wrap;
+    width: 65rem;
+}
+
+.info-content {
+    margin: 1rem;
+}
+
+.div-button {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.div-button > button > img {
+    height: 23px;
+}
+
+.div-button > button {
+    font-weight: bold;
+    border-radius: 10px;
+    height: 40px;
+    text-align: start;
+}
+
+.edit-button {
+    background-color: #C4C4C4;
+    border: none;
+}
+
+.check-button {
+    background-color: #6FCF97;
+}
+
+@media (max-width: 773px) {
+    .section-profil > img {
+        display: none;
+    }
+}
+.mr-7{
+    margin-right: 7px;
+}

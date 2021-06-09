@@ -8,6 +8,10 @@
 	<link rel="stylesheet" href="{{ asset('style/user/profil/navbar.css') }}">
 {% endblock %}
 
+{% block javascript %}
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+{% endblock %}
+
 {% block body %}
 
 	<div class="profil_content">
@@ -17,13 +21,13 @@
 		<a class="active_navbar" onclick="openCloseNavbar()"><img height="25px" src="{{ asset('images/header/bars-solid.svg') }}"></a>
 		<div class="profil_content_display">
 			<div class="tab-content">
-				<div class="tab-pane active" id="profil">
+				<div class="tab-pane {% if page == 'profil' %}active{% endif %}" id="profil">
                     {% include 'user/profil/profil.html.twig' %}
                 </div>
                 <div class="tab-pane" id="informations">
                     {% include 'user/profil/mes_informations.html.twig' %}
                 </div>
-				<div class="tab-pane" id="command">
+				<div class="tab-pane {% if page == 'mes-commandes' %}active{% endif %}" id="command">
                     {% include 'user/profil/command.html.twig' %}
                 </div>
 				<div class="tab-pane" id="messages">Messages Tab.</div>

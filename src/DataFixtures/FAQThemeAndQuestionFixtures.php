@@ -80,7 +80,6 @@ class FAQThemeAndQuestionFixtures extends Fixture
             //pour chaque question
             $_theme = $manager->getRepository(FAQTheme::class)->findOneBy(['label' => $key_theme]);
             foreach ($theme as $key => $pair) {
-                /** @var FAQTheme $_theme */
                 if (!$_theme instanceof FAQQuestion) {
                     $faq_question = new FAQQuestion();
                     $faq_question->setActive(true);

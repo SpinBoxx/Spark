@@ -14,19 +14,19 @@
 		<div class="identity-user">
 			<div class="info-content">
 				<p style="font-weight: bold">Nom</p>
-				<input type="text" class="form-control" style="min-width: 5rem; width: 100%" placeholder="Doe" disabled>
+				<input type="text" class="form-control" style="min-width: 5rem; width: 100%" value="{{ app.user.lastname }}" placeholder="Nom..." disabled>
 			</div>
 			<div class="info-content">
 				<p style="font-weight: bold">Prénom</p>
-				<input type="text" class="form-control" style="min-width: 5rem; width: 100%" placeholder="John" disabled>
+				<input type="text" class="form-control" style="min-width: 5rem; width: 100%" value="{{ app.user.firstname }}" placeholder="Prénom..." disabled>
 			</div>
 			<div class="info-content">
 				<p style="font-weight: bold">Pseudo</p>
-				<input type="text" class="form-control" id="idpseudo" style="min-width: 6rem; width: 100%;" placeholder="John Doe" disabled>
+				<input type="text" class="form-control" id="idpseudo" style="min-width: 6rem; width: 100%;" value="{{ app.user.username }}" placeholder="Pseudo..." disabled>
 			</div>
 			<div class="info-content">
 				<p style="font-weight: bold">Téléphone</p>
-				<input type="text" class="form-control" id="idtel" style="width: 8rem;" placeholder="06 01 01 01 01" disabled>
+				<input type="text" class="form-control" id="idtel" style="width: 8rem;" value="{{ app.user.phone }}" placeholder="Télephone..." disabled>
 			</div>
 		</div>
 		<div class="div-button">
@@ -40,7 +40,7 @@
 		<div class="identity-user">
 			<div class="info-content">
 				<p style="font-weight: bold">Adresse mail</p>
-				<input type="email" class="form-control" id="idmail" style="min-width: 7rem; width: 100%" placeholder="johndoe@doe.fr" disabled>
+				<input type="email" class="form-control" id="idmail" style="min-width: 7rem; width: 100%" value="{{ app.user.email }}" placeholder="Email..." disabled>
 			</div>
 		</div>
 		<div class="div-button">
@@ -50,6 +50,7 @@
 	</div>
 
 	<div class="section-profil">
+		<img src={{ asset('images/profil/passwordicon.svg') }}>
 		<div class="identity-user">
 			<div class="info-content">
 				<p style="font-weight: bold">Mot de passe</p>

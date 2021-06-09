@@ -25,16 +25,16 @@
             <div class="header_profil" onclick="openCloseModal()">
                 <img src="https://i.pravatar.cc/150?u=fake@pravatar.com">
                 <div class="header_profil_name">
-                    <p>John Doe</p>
+                    <p>{{ app.user.username }}</p>
                     <i class="fas fa-chevron-down"></i>
                 </div>
                 <div id="modal_header_profil">
                     <div class="modal_header_profil_option">
                         <div>
-                            <a href="{{ path('user') }}"><img src={{ asset('images/header/profil.svg') }}><p>Mon profil</p></a>
+                            <a href="{{ path('user', {page: 'profil'}) }}"><img src={{ asset('images/header/profil.svg') }}><p>Mon profil</p></a>
                         </div>
                         <div>
-                            <a href="{{ path('messages') }}"><img src={{ asset('images/header/order.svg') }}><p>Mes commandes</p></a>
+                            <a href="{{ path('user', {page: 'mes-commandes'}) }}"><img src={{ asset('images/header/order.svg') }}><p>Mes commandes</p></a>
                         </div>
                         <div>
                             <a href="{{ path('messages') }}"><img src={{ asset('images/header/settings.svg') }}><p>Mes préférences</p></a>
@@ -58,7 +58,7 @@
             </div>
         </div>
         <div class="right_sub_header">
-            <a href=""><h3 style="width: auto">F.A.Q</h3></a>
+            <a href="{{ path('faq') }}"><h3 style="width: auto">F.A.Q</h3></a>
             <div style="margin-right: 40px"></div>
             <a href=""><h3 style="width: auto;">A propos</h3></a>
             <form id="search_expand_header">

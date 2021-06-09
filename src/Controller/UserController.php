@@ -24,13 +24,14 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/user", name="user")
+     * @Route("/profil/{page}", name="user")
      * @return Response
      */
-    public function index(): Response
+    public function index($page): Response
     {
         return $this->render('user/profil/index.html.twig', [
-            'controller_name' => 'UserController']);
+            'page' => $page,
+        ]);
     }
 
     /**

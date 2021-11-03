@@ -2,16 +2,24 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 use App\Repository\ProductRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints\Date;
 
 /**
+ * @ApiResource(
+ *  
+ *     collectionOperations={"get", "post"},
+ *     itemOperations={"get"}
+ * )
  * @ORM\Entity(repositoryClass=ProductRepository::class)
  */
 class Product
 {
     /**
+     * @Groups("read")
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
@@ -19,33 +27,39 @@ class Product
     private $id;
 
     /**
+     * @Groups("read")
      * @ORM\ManyToOne(targetEntity=User::class)
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
 
     /**
+     * @Groups("write","read")
      * @ORM\ManyToOne(targetEntity=State::class)
      * @ORM\JoinColumn(nullable=true)
      */
     private $state;
 
     /**
+     * @Groups("write","read")
      * @ORM\Column(type="string", length=255)
      */
     private $title;
 
     /**
+     * @Groups("write","read")
      * @ORM\Column(type="text")
      */
     private $description;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Groups("write","read")
      */
     private $image_path;
 
     /**
+     * @Groups("write","read")
      * @ORM\ManyToOne(targetEntity=Gender::class)
      * @ORM\JoinColumn(nullable=false)
      */
@@ -53,28 +67,34 @@ class Product
 
     /**
      * @ORM\ManyToOne(targetEntity=Size::class)
+     * @Groups("write","read")
+     * @ORM\Column(type="string", length=255)
      * @ORM\JoinColumn(nullable=false)
      */
     private $size;
 
     /**
+     * @Groups("write","read")
      * @ORM\ManyToOne(targetEntity=Color::class)
      * @ORM\JoinColumn(nullable=false)
      */
     private $color_primary;
 
     /**
+     * @Groups("write","read")
      * @ORM\ManyToOne(targetEntity=Color::class)
      */
     private $color_secondary;
 
     /**
+     * @Groups("write","read")
      * @ORM\Column(type="string", length=255)
      * @ORM\JoinColumn(nullable=false)
      */
     private $brand;
 
     /**
+     * @Groups("write","read")
      * @ORM\ManyToOne(targetEntity=Quality::class)
      * @ORM\JoinColumn(nullable=false)
      */
@@ -82,26 +102,32 @@ class Product
 
     /**
      * @ORM\ManyToOne(targetEntity=Category::class)
+     * @Groups("write","read")
+     * @ORM\Column(type="string", length=255)
      * @ORM\JoinColumn(nullable=false)
      */
     private $category;
 
     /**
+     * @Groups("write","read")
      * @ORM\Column(type="float")
      */
     private $price;
 
     /**
+     * @Groups("write","read")
      * @ORM\Column(type="text", nullable=true)
      */
     private $link;
 
     /**
+     * @Groups("read")
      * @ORM\Column(type="datetime")
      */
     private $creation_datetime;
 
     /**
+     * @Groups("read")
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $update_datetime;

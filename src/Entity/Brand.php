@@ -4,7 +4,7 @@ namespace App\Entity;
 
 use App\Repository\BrandRepository;
 use Doctrine\ORM\Mapping as ORM;
-
+use ApiPlatform\Core\Annotation\ApiResource;
 /**
  * @ORM\Entity(repositoryClass=BrandRepository::class)
  */

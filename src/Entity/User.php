@@ -8,14 +8,26 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use ApiPlatform\Core\Annotation\ApiResource;
+use DateTimeInterface;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
+ * @ApiResource(
+ * attributes={
+ *     "normalization_context"={"groups"={"read"}},
+ *     "denormalization_context"={"groups"={"write"}}
+ * },
+ *     collectionOperations={"post"},
+ *     itemOperations={}
+ * )
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
  */
 class User implements UserInterface
 {
     /**
+     * @Groups("read")
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
@@ -23,82 +35,98 @@ class User implements UserInterface
     private $id;
 
     /**
+     * @Groups("write","read")
      * @ORM\Column(type="string", length=30)
      */
     private $username;
 
     /**
+     * @Groups("write","read")
      * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $firstname;
 
     /**
+     * @Groups("write","read")
      * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $lastname;
 
     /**
+     * @Groups("write","read")
      * @ORM\Column(type="string", length=255, nullable=false, unique=true)
      */
     private $email;
 
     /**
+     * @Groups("write")
      * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $password;
 
     /**
+     * 
      * @ORM\Column(type="json")
      */
     private $roles = [];
 
     /**
+     * @Groups("write","read")
      * @ORM\Column(type="string", length=10, nullable=true)
      */
     private $phone;
 
     /**
+     * @Groups("write","read")
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $postal_address;
 
     /**
+     * @Groups("write","read")
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $additional_address;
 
     /**
+     * @Groups("write","read")
      * @ORM\Column(type="string", length=5, nullable=true)
      */
     private $postal_code;
 
     /**
+     * @Groups("write","read")
      * @ORM\Column(type="string", length=40, nullable=true)
      */
     private $city;
 
     /**
+     * @Groups("write","read")
      * @ORM\Column(type="string", length=40, nullable=true)
      */
     private $department;
 
     /**
+     * @Groups("write","read")
      * @ORM\Column(type="string", length=40, nullable=true)
      */
     private $country;
 
     /**
+     * @Groups("write","read")
      * @ORM\Column(type="text", nullable=true)
      */
     private $picture_profil;
 
     /**
-     * @ORM\Column(type="string")
+     * @Groups("read")
+     * @ORM\Column(type="datetime")
      */
     private $creation_datetime;
 
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @Groups("read")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $update_datetime;
 
@@ -111,7 +139,7 @@ class User implements UserInterface
     {
         $this->username = $username;
         $this->email = $email;
-        $this->creation_datetime = DateTime::createFromFormat('Y-m-d H:i:s',date('Y-m-d H:i:s'))->format("d-m-Y H:i:s");
+        $this->creation_datetime = DateTime::createFromFormat('Y-m-d H:i:s', date('d-m-Y H:i:s'));
     }
 
     public function getId(): ?int
@@ -319,44 +347,15 @@ class User implements UserInterface
     }
 
     /**
-     * @return Collection|Product[]
-     */
-    public function getStateId(): Collection
-    {
-        return $this->state_id;
-    }
-
-    public function addStateId(Product $stateId): self
-    {
-        if (!$this->state_id->contains($stateId)) {
-            $this->state_id[] = $stateId;
-            $stateId->setUserId($this);
-        }
-
-        return $this;
-    }
-
-    public function removeStateId(Product $stateId): self
-    {
-        if ($this->state_id->contains($stateId)) {
-            $this->state_id->removeElement($stateId);
-            // set the owning side to null (unless already changed)
-            if ($stateId->getUserId() === $this) {
-                $stateId->setUserId(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
      * Returns the salt that was originally used to encode the password.
      *
      * This can return null if the password was not encoded using a salt.
      *
      * @return string|null The salt
      */
-    public function getSalt(){}
+    public function getSalt()
+    {
+    }
 
     /**
      * Removes sensitive data from the user.
@@ -364,7 +363,9 @@ class User implements UserInterface
      * This is important if, at any given point, sensitive information like
      * the plain-text password is stored on this object.
      */
-    public function eraseCredentials(){}
+    public function eraseCredentials()
+    {
+    }
 
 
     public function isVerified(): bool

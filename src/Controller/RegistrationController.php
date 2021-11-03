@@ -142,32 +142,33 @@ class RegistrationController extends AbstractController
      * @Route("/mot-de-passe-oublie", name="findygo_password_forget")
      */
     public function passwordForget(Request $request){
-        $regex = "^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$^";
-        if(preg_match($regex, $request->request->get('email'), $matches)){
-            $mj = new Client('aab026f86b414066c7c611daf00b222a','526e725c9a32bea53c0e16178b850491',true,['version' => 'v3.1']);
-            $body = [
-                'Messages' => [
-                    [
-                        'From' => [
-                            'Email' => "quentin.mimault@orange.fr",
-                            'Name' => "FindyGo"
-                        ],
-                        'To' => [
-                            [
-                                'Email' => $request->request->get('email'),
-                                'Name' => "quentin"
-                            ]
-                        ],
-                        'Subject' => "Récupération du mot de passe",
-                        'TextPart' => "My first Mailjet email",
-                        'HTMLPart' => "<h3>Salut jeune sportif, voici le lien pour retrouver ton mot de passe : <a href='localhost/SymfTest/public/index.php'>Spark.fr</a>!</h3>",
-                    ]
-                ]
-            ];
-            $response = $mj->post(Resources::$Email, ['body' => $body]);
-            $this->flasher->addSuccess('Mail de récupération de votre mot de passe a bien été envoyé.');
+      $mail = $request->request->get('email');
+      $regex = "^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$^";
+      if(preg_match($regex, $mail, $matches)){
+          $mj = new Client('aab026f86b414066c7c611daf00b222a','526e725c9a32bea53c0e16178b850491',true,['version' => 'v3.1']);
+          $body = [
+              'Messages' => [
+                  [
+                      'From' => [
+                          'Email' => "quentin.mimault@orange.fr",
+                          'Name' => "FindyGo"
+                      ],
+                      'To' => [
+                          [
+                              'Email' => $mail,
+                              'Name' => "quentin"
+                          ]
+                      ],
+                      'Subject' => "Récupération du mot de passe",
+                      'TextPart' => "My first Mailjet email",
+                      'HTMLPart' => "<h3>Salut jeune sportif, voici le lien pour retrouver ton mot de passe : <a href='localhost/SymfTest/public/index.php'>Spark.fr</a>!</h3>",
+                  ]
+              ]
+          ];
+          $response = $mj->post(Resources::$Email, ['body' => $body]);
+          $this->flasher->addSuccess('Mail de récupération de votre mot de passe a bien été envoyé.');
         } else {
-            $this->flasher->addError('Veuillez entrer une adresse email valide.');
+          $this->flasher->addError('Veuillez entrer une adresse email valide.');
         }
         return $this->redirectToRoute('app_login');
     }

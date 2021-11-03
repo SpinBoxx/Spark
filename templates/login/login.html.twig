@@ -5,7 +5,7 @@
         <link rel="stylesheet" href="{{ asset('style/login/login.css') }}">
     {% endblock %}
 
-    <img src={{ asset('images/header/logo.png') }} class="logo_spark_md" alt="logo_spark" style="display: none">
+    <img src={{ asset('images/header/logo.png') }} class="logo_findygo_md" alt="logo_findygo" style="display: none">
     <div class="login_section" style="overflow-y: hidden;">
         <div class="left_login_div">
             <img src="{{ asset('images/login/image_login' ~ random(5) ~ '.png') }}">
@@ -37,7 +37,7 @@
                         <a class="main_link" href="{{ path('findygo_register') }}">Créer un compte</a>
                     </div>
                     <div class="secondary_link-div">
-                        <button class="secondary_link">Mot de passe oublié ?</button>
+                        <button class="secondary_link btn btn-primary text-white">Mot de passe oublié ?</button>
                     </div>
                 </section>
             </div>
@@ -47,15 +47,15 @@
                     <form class="login_input_form" method="post" action="{{ path('findygo_password_forget') }}">
                         <div class="label_input">
                             <label>
-                                <i class="fas fa-user"></i>
-                                <input class="text_input" name="email" type="text" placeholder="Email" value="{{ last_username }}">
+                                <i class="fas fa-envelope"></i>
+                                <input class="text_input" name="email" type="text" placeholder="Email de récupération...">
                             </label>
                         </div>
                         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
                         <button class="login_submit_btn send-mail-password-forgot" type="submit">Envoyer le mail</button>
                     </form>
                     <div>
-                        <button class="main_link">Se connecter</button>
+                        <button class="main_link btn btn-primary text-white" id="go-back-connection">Se connecter</button>
                     </div>
                 </section>
             </div>
@@ -74,7 +74,7 @@
             $('.container-right-div-login').css('height', '100%');
             $('.password-forget-div').addClass('password-forget-div-open');
         })
-        $('.send-mail-password-forgot').click(function(){
+        $('.send-mail-password-forgot, #go-back-connection').click(function(){
             $('.password-forget-div').addClass('password-forget-div-close');
             $('.password-forget-div').removeClass('password-forget-div-open');
             setTimeout(function (){

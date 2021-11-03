@@ -23,7 +23,7 @@ class SecurityCheckService extends AbstractController implements SecurityFormInt
     }
 
     /**
-     * @param Request $params
+     * @param $params
      * @param array $namesRequest
      * @return bool
      */

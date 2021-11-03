@@ -33,11 +33,12 @@
      margin: 1em 0 1em 0;
 }
 .text-input-field{
-     outline: 0;
-     border-width: 0 0 1px;
-     border-color: #404040;
-     width: 100%;
-     border-radius: 0px;
+     outline: 0 ;
+     border-width: 0 0 1px ;
+     border-color: #404040 ;
+     width: 100% ;
+     border-radius: 0px ;
+     padding:1px;
 }
 .text-input-field:focus {
      box-shadow: none;
@@ -49,6 +50,7 @@
      border-width: 0 0 1px;
      border-color: #404040;
      width: 100%;
+     padding:1px;
 }
 .select-input-field:focus{
      box-shadow: none;
@@ -100,4 +102,11 @@ input[type=color] {
      border-bottom: 3px solid #30d48d;
      background-color: #30d48d;
 }
+.form-group{
 
+     margin: 10px;
+}
+
+.image-preview{
+     margin: 5px;
+}

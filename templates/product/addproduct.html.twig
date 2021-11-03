@@ -2,13 +2,18 @@
 
  {% block stylesheets %}
      <link rel="stylesheet" href="{{ asset('style/add_product/newproduct.css') }}">
+     <!-- add to document <head> -->
+     <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+     <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
+
  {% endblock %}
 
 {% block title %}Ajouter un produit{% endblock %}
 
-{% block body %}
+{% block body %}<script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+    <script src="https://unpkg.com/filepond/dist/filepond.js"></script> <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
     <div class="container">
-        <form action="{{ path('product_insert') }}" method="post">
+        <form action="{{ path('product_insert') }}"  method="post" enctype="multipart/form-data" id="product_form">
             <div class="row align-items-center">
                 <div class="col-md-8">
                     <div class="row">
@@ -19,28 +24,28 @@
                     <div class="row justify-content-center ">
                         <div class="col-md-6 justify-content-start">
                             <div class="form-group">
-                                <input type="text" id="product_title" name="title" required class="text-input-field form-control"
+                                <input type="text" id="product_title" name="title" required class="text-input-field "
                                        placeholder="Nom du produit">
                             </div>
                             <div class="form-group">
-                                <select id="product_category" name="category" class="select-input-field form-control">
+                                <select id="product_category" required name="category" class="select-input-field ">
                                     <option value="" disabled selected>Categorie</option>
                                     <option value="vetements">Vêtements</option>
                                     <option value="raquette">Raquette</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <input type="number" step="0.01" min="0" id="product_price" name="price" required class="text-input-field form-control"
+                                <input type="number" step="0.01" min="0" id="product_price" name="price" required class="text-input-field "
                                        placeholder="9.99 €">
                             </div>
                             <div class="form-group color-input-field">
                                 <label for="product_color_primary">Couleur primaire
-                                    <input type="color" id="product_color_primary" name="color_primary" class="form-control"
+                                    <input type="color" id="product_color_primary" name="color_primary" class=""
                                            placeholder="Couleur primaire">
                                 </label>
                             </div>
                             <div class="form-group">
-                                <select id="product_size" name="size" class="select-input-field form-control">
+                                <select id="product_size" name="size" class="select-input-field ">
                                     <option value="" disabled selected>Taille</option>
                                     <optgroup label="Chaussure">
                                         <option value="20">20</option>
@@ -58,14 +63,14 @@
                         </div>
                         <div class="col-md-6 justify-content-end">
                             <div class="form-group">
-                                <select id="product_brand" name="brand" class="select-input-field form-control">
+                                <select id="product_brand" name="brand" class="select-input-field ">
                                     <option value="" disabled selected>Marque du produit</option>
                                     <option value="Aucune">Aucune marque</option>
                                     <option value="adidas">Adidas</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <select id="product_quality" name="quality" class="select-input-field form-control">
+                                <select id="product_quality" name="quality" class="select-input-field ">
                                     <option value="" disabled selected>Qualité du produit</option>
                                     {% for quality in qualitys %}
                                         <option value="{{ quality.id }}" >{{ quality.label }}</option>
@@ -73,7 +78,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <input type="text" id="product_link" name="link" class="form-control text-input-field"
+                                <input type="text" id="product_link" name="link" class=" text-input-field"
                                        placeholder="Lien officiel du produit">
                             </div>
                             <div class="form-group color-input-field">
@@ -81,13 +86,13 @@
                                     <input type="color"
                                            id="product_color_secondary"
                                            name="color_secondary"
-                                           class="form-control"
+                                           class=""
                                            placeholder="Couleur secondaire"
                                     >
                                 </label>
                             </div>
                             <div class="form-group">
-                                <select id="product_gender" name="gender" class="select-input-field form-control">
+                                <select id="product_gender" name="gender" class="select-input-field ">
                                     <option value="" disabled selected>Genre</option>
                                     {% for gender in genders %}
                                         <option value="{{ gender.id }}">{{ gender.label }}</option>
@@ -97,22 +102,33 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <textarea id="product_description" name="description" required class="text-input-field form-control" placeholder="Description"></textarea>
+                        <textarea id="product_description" name="description" required class="text-input-field " placeholder="Description"></textarea>
                     </div>
                 </div>
-                <div class="col-md-4 col-lg-3">
-                    <label for="product_picture_product" class="upload-btn-wrapper justify-content-center required">
-                        <figure>
-                            <img src="{{ asset('images/icon/addfile.png') }}" alt="No image">
-                            <figcaption><b>Ajoutez une photo à votre produit</b></figcaption>
-                            <figcaption>Choissisez une photo nette et de bonne qualité.</figcaption>
-                        </figure>
-                    </label>
+                <div class="col-md-4">
+
                     <span><b>Format photo</b></span>
                     <p>Uniquements les fichiers du type .jpg .jpeg .png sont acceptés.</p>
-                    <input hidden type="file" id="product_picture_product" name="picture_product" required
-                           accept="image/*" multiple="multiple" class="form-control">
+                    <ul class="list-group" id="image-button-list">
+                        <li class="d-flex justify-content-around list-group-item" id="image-0">
+
+                            <label id="label-input-file" for="product_picture_product-0" class="is-invalid upload-btn-wrapper justify-content-center required">
+                                <figure>
+                                    <figcaption><b>Ajoutez une photo à votre produit</b></figcaption>
+                                    <figcaption>Choissisez une photo nette et de bonne qualité.</figcaption>
+                                </figure>
+                            </label>
+
+                            <input  hidden type="file" id="product_picture_product-0" name="picture_product[]" required
+                                    accept="image/*" >
+                            <div class="preview"></div>
+                            <button hidden id="erase_image" type="button" class="btn erase_image"><i class="fas fa-trash"></i></button>
+                        </li>
+                    </ul>
+                    <button id="add_img"  type="button" class="btn"> <i class="fas fa-plus"></i></button>
+
                 </div>
+
                 <div class="col-md-3 offset-md-5">
                     <div class="form-group">
                         <div>
@@ -124,4 +140,7 @@
             </div>
         </form>
     </div>
+
+    <script src="{{ asset('script/product/add-product-image-preview.js') }}"></script>
+
 {% endblock %}

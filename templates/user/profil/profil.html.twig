@@ -1,0 +1,18 @@
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('style/user/profil/profil-option.css') }}">
+{% endblock %}
+
+<div>
+    <h3><b>Salut {{ app.user.firstname }} {{ app.user.lastname }} 👋</b></h3>
+    <br>
+    <p>Dans cet espace, vous trouverez toutes vos préférences relatives à votre compte.</p>
+    <div class="profil_option_state">
+        <img src="{{ asset('images/user/checkOK 1.png') }}" alt="user-info-ok" height="250">
+        <p>Tous les voyants sont verts pour vous !</p>
+
+        {#
+        <img src="{{ asset('images/user/checkNotOK 1.png') }}" alt="user-info-not-ok" height="250">
+        <p>Il vous manque des informations à renseigner pour une utilisation optimal du site !</p>
+         #}
+    </div>
+</div>

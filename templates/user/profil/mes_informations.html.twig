@@ -1,0 +1,162 @@
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('style/user/profil/mes_informations.css') }}">
+{% endblock %}
+
+<div class="content-title">
+	<h1>Mes informations</h1>
+	<p>Ici vous pouvez modifier votre mail, mot de passe ou pseudo</p>
+</div>
+
+<div class="information-profil">
+
+	<div class="section-profil">
+		<img src={{ asset('images/profil/edituser.svg') }}>
+		<div class="identity-user">
+			<div class="info-content">
+				<p style="font-weight: bold">Nom</p>
+				<input type="text" class="form-control" style="min-width: 5rem; width: 100%" value="{{ app.user.lastname }}" placeholder="Nom..." disabled>
+			</div>
+			<div class="info-content">
+				<p style="font-weight: bold">Prénom</p>
+				<input type="text" class="form-control" style="min-width: 5rem; width: 100%" value="{{ app.user.firstname }}" placeholder="Prénom..." disabled>
+			</div>
+			<div class="info-content">
+				<p style="font-weight: bold">Pseudo</p>
+				<input type="text" class="form-control" id="idpseudo" style="min-width: 6rem; width: 100%;" value="{{ app.user.username }}" placeholder="Pseudo..." disabled>
+			</div>
+			<div class="info-content">
+				<p style="font-weight: bold">Téléphone</p>
+				<input type="text" class="form-control" id="idtel" style="width: 8rem;" value="{{ app.user.phone }}" placeholder="Télephone..." disabled>
+			</div>
+		</div>
+		<div class="div-button">
+			<button id="edituser" onclick="editUser()" class="edit-button"><i class="fa fa-pen text-dark"></i><span class="mr-7">Modifier</span></button>
+			<button id="checkuser" onclick="validateUser()" class="btn btn-outline-success" style="display:none; text-align: center">Valider</button>
+		</div>
+	</div>
+
+	<div class="section-profil">
+		<img src={{ asset('images/profil/mailicon.svg') }}>
+		<div class="identity-user">
+			<div class="info-content">
+				<p style="font-weight: bold">Adresse mail</p>
+				<input type="email" class="form-control" id="idmail" style="min-width: 7rem; width: 100%" value="{{ app.user.email }}" placeholder="Email..." disabled>
+			</div>
+		</div>
+		<div class="div-button">
+			<button id="editmail" onclick="editMail()" class="edit-button"><i class="fa fa-pen text-dark"></i><span class="mr-7">Modifier</span></button>
+			<button id="checkmail" onclick="validateMail()" class="btn btn-outline-success" style="display:none; text-align: center">Valider</button>
+		</div>
+	</div>
+
+	<div class="section-profil">
+		<img src={{ asset('images/profil/passwordicon.svg') }}>
+		<div class="identity-user">
+			<div class="info-content">
+				<p style="font-weight: bold">Mot de passe</p>
+				<input type="password" class="form-control" id="idpwd" style="min-width: 7rem; width: 100%" placeholder="**********" disabled>
+			</div>
+		</div>
+		<div class="div-button">
+			<button id="editpwd" onclick="editPwd()" class="edit-button"><i class="fa fa-pen text-dark"></i><span class="mr-7">Modifier</span></button>
+			<button id="checkpwd" onclick="validatePwd()" class="btn btn-outline-success" style="display:none; text-align: center">Valider</button>
+		</div>
+	</div>
+
+	<div class="section-profil">
+		<img src={{ asset('images/profil/menuicone.svg') }}>
+		<div class="identity-user">
+			<div class="info-content">
+				<p style="font-weight: bold">Mes préférences de sports</p>
+				<img style="height: 30px;" src="{{ asset('images/accueil/sports/boxe.png') }}">
+				<img style="height: 30px;" src="{{ asset('images/accueil/sports/foot.png') }}">
+				<img style="height: 30px;" src="{{ asset('images/accueil/sports/bowling.png') }}">
+			</div>
+		</div>
+		<div class="div-button">
+			<button onclick="window.location.href='preferences_sports'" class="edit-button"><i class="fa fa-pen text-dark"></i><span class="mr-7">Modifier</span></button>
+		</div>
+	</div>
+
+	<div class="section-profil">
+		<img src={{ asset('images/profil/tshirt.svg') }}>
+		<div class="identity-user">
+			<div class="info-content">
+				<p style="font-weight: bold">Taille</p>
+				<select class="form-select" aria-label="Default select example" id="idsize" disabled>
+					<option selected>Saisir votre taille</option>
+					<option value="XS">XS</option>
+					<option value="S">S</option>
+					<option value="M">M</option>
+					<option value="L">L</option>
+					<option value="XL">XL</option>
+					<option value="XXL">XXL</option>
+				</select>
+			</div>
+			<div class="info-content">
+				<p style="font-weight: bold">Pointure</p>
+				<select class="form-select" aria-label="Default select example" id="idpointure" disabled>
+					<option selected>Saisir votre taille</option>
+					<option value="1">36</option>
+					<option value="2">37</option>
+					<option value="3">38</option>
+					<option value="4">39</option>
+					<option value="5">40</option>
+					<option value="6">41</option>
+				</select>
+			</div>
+		</div>
+		<div class="div-button">
+			<button id="editsize" onclick="editSize()" class="edit-button"><i class="fa fa-pen text-dark"></i><span class="mr-7">Modifier</span></button>
+			<button id="checksize" onclick="validateSize()" class="btn btn-outline-success" style="display:none; text-align: center">Valider</button>
+		</div>
+	</div>
+
+</div>
+
+<script>
+	function editUser() {
+		document.getElementById('idpseudo').disabled = false;
+		document.getElementById('idtel').disabled = false;
+		document.getElementById('checkuser').style.display = "block";
+		document.getElementById('edituser').style.display = "none";
+	}
+	function editMail() {
+		document.getElementById('idmail').disabled = false;
+		document.getElementById('checkmail').style.display = "block";
+		document.getElementById('editmail').style.display = "none";
+	}
+	function editPwd() {
+		document.getElementById('idpwd').disabled = false;
+		document.getElementById('checkpwd').style.display = "block";
+		document.getElementById('editpwd').style.display = "none";
+	}
+	function editSize() {
+		document.getElementById('idsize').disabled = false;
+		document.getElementById('idpointure').disabled = false;
+		document.getElementById('checksize').style.display = "block";
+		document.getElementById('editsize').style.display = "none";
+	}
+	function validateSize() {
+		document.getElementById('idsize').disabled = true;
+		document.getElementById('idpointure').disabled = true;
+		document.getElementById('checksize').style.display = "none";
+		document.getElementById('editsize').style.display = "block";
+	}
+	function validateUser() {
+		document.getElementById('idpseudo').disabled = true;
+		document.getElementById('idtel').disabled = true;
+		document.getElementById('checkuser').style.display = "none";
+		document.getElementById('edituser').style.display = "block";
+	}
+	function validateMail() {
+		document.getElementById('idmail').disabled = true;
+		document.getElementById('checkmail').style.display = "none";
+		document.getElementById('editmail').style.display = "block";
+	}
+	function validatePwd() {
+		document.getElementById('idpwd').disabled = true;
+		document.getElementById('checkpwd').style.display = "none";
+		document.getElementById('editpwd').style.display = "block";
+	}
+</script>

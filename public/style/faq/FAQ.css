@@ -1,0 +1,16 @@
+.FAQ-title {
+    font-family: Poppins, serif;
+    font-size: large;
+    padding: 60px 30px 60px 30px;
+    text-align: center;
+}
+.has-search{
+    text-align: center;
+}
+
+.bot-buffer { margin-bottom:20px; }
+
+.card-size{
+    width: 33%;
+    display: inline;
+}

@@ -31,7 +31,18 @@ class ProduitFixtures extends Fixture implements DependentFixtureInterface
         foreach ($products as $product){
             $_product = $manager->getRepository(Product::class)->findOneBy(['title' => $product[4] . $i]);
             if(!$_product instanceof Product){
-                $_product = new Product($product[0],$product[1], $product[2], $product[3], $product[4] . $i, $product[5], $product[6] , $product[7], $product[8], $product[9], $product[10]);
+                $_product = new Product();
+                $_product->setUser($product[0]);
+                $_product->setState($product[1]);
+                $_product->setGender($product[2]);
+                $_product->setColorPrimary($product[3]);
+                $_product->setTitle($product[4]);
+                $_product->setDescription($product[5]);
+                $_product->setSize($product[6]);
+                $_product->setBrand($product[7]);
+                $_product->setCategory($product[8]);
+                $_product->setPrice($product[9]);
+                $_product->setQuality($product[10]);
                 $manager->persist($_product);
                 $manager->flush();
                 $i++;

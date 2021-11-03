@@ -23,7 +23,6 @@ class MessagingController extends AbstractController
      * MessagingController constructor.
      * @param EntityManagerInterface $em
      * @param SecurityCheckService $check
-     * @param Toastr $toast
      */
     public function __construct(EntityManagerInterface $em, SecurityCheckService $check){
         $this->em = $em;
@@ -53,8 +52,9 @@ class MessagingController extends AbstractController
     public function sendMessage( Request $request): Response
     {
         $submittedToken = htmlentities($request->request->get('token'));
+        $params = $request->request->all();
         if($this->check->checkCSRF('send-message', $submittedToken) &&
-            $this->check->checkIssetNameRequest($request, ['message', 'seller'])
+            $this->check->checkIssetNameRequest($params, ['message', 'seller'])
         ){
             $user = $this->getUser();
             if($user instanceof User){

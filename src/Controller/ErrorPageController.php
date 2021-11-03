@@ -13,8 +13,6 @@ class ErrorPageController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('error/error404.twig', [
-
-        ]);
+        return $this->render('bundles/TwigBundle/Exception/error404.html.twig');
     }
 }

@@ -14,6 +14,7 @@ body{
     margin: 0;
     min-height: 100vh;
     height: 100vh;
+    overflow-y: hidden;
 }
 
 label{
@@ -39,6 +40,7 @@ h2{
     width: 100%;
     height: 100%;
     display: inline-flex;
+
 }
 
 .left_login_div{
@@ -56,8 +58,15 @@ h2{
     height: auto;
 }
 
+.container-right-div-login{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    height: 200%;
+}
+
 .right_login_div{
-    width: inherit;
+    width: 100%;
     height: 100%;
     background-color: rgba(211, 211, 211, 0.4);
     display: flex;
@@ -65,8 +74,62 @@ h2{
     flex-direction: column;
 }
 
-.right_register_div h2 {
-    margin-bottom: 2rem;
+.password-forget-div{
+    height: 100%;
+    position: relative;
+    width: auto;
+    background-color: rgba(211, 211, 211, 1);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.password-forget-div-open{
+    height: 100%;
+    position: absolute;
+    width: 44%;
+    background-color: rgba(211, 211, 211, 1);
+    display: flex;
+    justify-content: center;
+    animation: Slide_up 1.9s ease;
+    flex-direction: column;
+}
+.password-forget-div-close{
+    height: 100%;
+    position: absolute;
+    width: 44%;
+    background-color: rgba(211, 211, 211, 1);
+    display: flex;
+    justify-content: center;
+    animation: Slide_down 1.9s ease;
+    flex-direction: column;
+}
+.password-forget-div > section {
+    text-align: left;
+    padding: 90px;
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes Slide_up {
+    0%{
+        transform: translateY(1776px);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+@keyframes Slide_down {
+    0%{
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(1776px);
+    }
+}
+
+.right_login_div h2 {
+    margin-bottom: 4rem;
 }
 
 .right_login_div > section {
@@ -79,17 +142,16 @@ h2{
 .login_logo_lg {
     width: 56%;
     position: absolute;
-    top: 20px;
-    left: 20px;
+    top: 10px;
     display: flex;
-    height: 65px;
-    /* justify-content: flex-end; */
+    height: 50px;
+    justify-content: flex-end;
 }
 
 .login_logo_lg>img {
     position: absolute;
     top: 3%;
-    height: 60px;
+    height: 40px;
     width: auto;
 }
 
@@ -121,11 +183,16 @@ h2{
     font-size: 0.8rem;
     color: rgba(0,0,0,0.75);
 }
-
+.secondary_link-div{
+    width: 100%;
+}
 .secondary_link{
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-size: 0.75rem;
+    background-color: rgba(211, 211, 211, 0.4);
+    border: none;
+    border-bottom: solid 1px #6FCF97;
     color: rgba(0,0,0,0.75);
 }
 
@@ -185,18 +252,53 @@ i{
         display: none;
     }
 
-    .logo_findygo_md {
+    .logo_spark_md {
         display: initial !important;
         position: absolute;
-        left: 2.2rem;
+        right: 1rem;
         top: 1.2rem;
-        height: 55px;
+        height: 40px;
+    }
+    .password-forget-div{
+        height: 100%;
+        position: relative;
+        width: auto;
+        background-color: rgba(211, 211, 211, 1);
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .password-forget-div-open{
+        height: 100%;
+        position: absolute;
+        width: 100%;
+        background-color: rgba(211, 211, 211, 1);
+        display: flex;
+        justify-content: center;
+        animation: Slide_up 1.9s ease;
+        flex-direction: column;
+    }
+    .password-forget-div-close{
+        height: 100%;
+        position: absolute;
+        width: 100%;
+        background-color: rgba(211, 211, 211, 1);
+        display: flex;
+        justify-content: center;
+        animation: Slide_down 1.9s ease;
+        flex-direction: column;
+    }
+    .password-forget-div > section {
+        text-align: left;
+        padding: 90px;
+        display: flex;
+        flex-direction: column;
     }
 }
 
 @media screen and (max-width: 425px) {
     h2 {
-        font-size: 1.8rem;
+        font-size: 2.5rem;
     }
 
     .right_login_div h2 {

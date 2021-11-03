@@ -130,7 +130,8 @@ class RegistrationController extends AbstractController
     /**
      * @Route("/mot-de-passe-oublie", name="findygo_password_forget")
      */
-    public function passwordForget(){
+    public function passwordForget(Request $request){
+      $mail = $request->request->get('email');
         $mj = new Client('aab026f86b414066c7c611daf00b222a','526e725c9a32bea53c0e16178b850491',true,['version' => 'v3.1']);
         $body = [
             'Messages' => [
@@ -141,7 +142,7 @@ class RegistrationController extends AbstractController
                     ],
                     'To' => [
                         [
-                            'Email' => "quentin.mimo@gmail.com",
+                            'Email' => $mail,
                             'Name' => "quentin"
                         ]
                     ],

@@ -1,10 +1,11 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
-body{
-}
-.banner-area{
+
+body {}
+
+.banner-area {
     background-image: url(../../images/accueil/header-photo.png);
     height: 595px;
     background-repeat: no-repeat;
@@ -13,9 +14,24 @@ body{
     position: relative;
     width: 100%;
 }
-@media (max-width: 900px) {
-    .inner-container{
 
+.sports-bar >h2, .show-articles >h2{
+    color: rgba(0, 0, 0, 0.75) !important;
+}
+
+@media (max-width: 1100px) {
+    .image-sport-container img {
+        width: auto !important;
+        height: 100px !important;
+    }
+
+    #chevron-left, #chevron-right {
+        font-size: 75px !important;
+    }
+}
+
+@media (max-width: 900px) {
+    .inner-container {
         position: relative;
         background-color: #e7e5e5;
         width: 400px;
@@ -27,9 +43,33 @@ body{
         border-bottom-left-radius: 40px;
         border-top-right-radius: 40px;
         opacity: 0.9;
-        
+    }
+
+    .sports-bar, .show-articles{
+        margin-left: 0 !important;
     }
 }
+
+@media (max-width: 800px) {
+    .image-sport-container{
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    .image-sport-container img {
+        width: min-content !important;
+        height: min-content !important;
+    }
+
+    #chevron-left, #chevron-right {
+        margin: 0 !important;
+        margin-bottom: 3.5rem !important;
+        transform: rotate(90deg);
+    }
+}
+
+
 @media (max-width: 500px) {
     .inner-container {
         margin: auto;
@@ -50,9 +90,14 @@ body{
     .btn-header-container>a {
         margin: auto;
     }
+
+    h2 {
+        margin-left: 2rem !important;
+    }
 }
+
 @media (min-width: 901px) {
-    .inner-container{
+    .inner-container {
         position: relative;
         background-color: #e7e5e5;
         width: 360px;
@@ -66,80 +111,99 @@ body{
         opacity: 0.87;
     }
 }
-.inner-container > h2{
+
+.inner-container>h2 {
     margin-top: 30px;
     margin-left: 13px;
 }
-.sell{
+
+.sell {
     margin-left: 13px;
     height: 40px;
     width: 140px;
-    line-height:40px;
+    line-height: 40px;
     vertical-align: middle;
-    display:inline-block;
+    display: inline-block;
     text-align: center;
     border-radius: 18px;
     color: white;
     background-color: #6fcf97;
 
 }
-.sell:hover{
+
+.sell:hover {
     transition: 0.5s;
     color: white;
     background-color: #3b9d62;
     text-decoration: none;
 }
+
 .how-this-work {
     margin-left: 12px;
     height: 30px;
     width: 158px;
-    line-height:30px;
+    line-height: 30px;
     vertical-align: middle;
-    display:inline-block;
+    display: inline-block;
     color: black;
     border-bottom: 1px solid black;
 
 }
-.how-this-work:hover{
+
+.how-this-work:hover {
     text-decoration: none;
 }
-.sports-bar{
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
-    -moz-user-select: none; /* Old versions of Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Non-prefixed version, currently */
+
+.sports-bar {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently */
     margin-top: 30px;
     margin-left: 40px;
 }
-.sports-bar > h2{
+
+.sports-bar>h2 {
     color: black;
 }
-.fa-chevron-circle-left{
+
+.fa-chevron-circle-left {
     position: relative;
     margin-right: 30px;
-    top:30px;
+    top: 30px;
 }
-.fa-chevron-circle-right{
+
+.fa-chevron-circle-right {
     top: 30px;
     position: relative;
     margin-left: 30px;
 }
-.show-articles{
+
+.show-articles {
     margin-top: 30px;
     margin-left: 40px;
 }
-.show-article-title > h2{
+
+.show-article-title>h2 {
     color: black;
 }
-#favorite_card_section{
+
+#favorite_card_section {
     display: flex;
     flex-wrap: wrap;
     margin-left: 40px;
     margin-top: 30px;
 }
-.favorite_card_div{
+
+.favorite_card_div {
     height: 29rem;
     width: 18rem;
     background-color: #FFFFFF;
@@ -147,19 +211,22 @@ body{
     border-radius: 9px;
     box-shadow: 0px 10px 23px -6px rgba(0, 0, 0, 0.25);
 }
-.favorite_card_div > div {
+
+.favorite_card_div>div {
     display: flex;
     flex-direction: column;
     margin: 1rem;
     height: 100%;
 }
-#main-img{
+
+#main-img {
     height: 100%;
     width: 100%;
-    background-size:cover;
+    background-size: cover;
     border-radius: 9px;
 }
-h2{
+
+h2 {
     /*font-family: "Poppins", sans-serif;*/
     font-weight: 700;
     font-size: 2.5rem;

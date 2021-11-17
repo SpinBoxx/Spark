@@ -152,14 +152,41 @@
     "laminas/laminas-code": {
         "version": "3.4.1"
     },
+    "laminas/laminas-eventmanager": {
+        "version": "3.3.1"
+    },
+    "laminas/laminas-zendframework-bridge": {
+        "version": "1.2.0"
+    },
+    "lcobucci/clock": {
+        "version": "2.0.0"
+    },
+    "lcobucci/jwt": {
+        "version": "4.1.5"
+    },
+    "lexik/jwt-authentication-bundle": {
+        "version": "2.5",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "2.5",
+            "ref": "5b2157bcd5778166a5696e42f552ad36529a07a6"
+        },
+        "files": [
+            "config/packages/lexik_jwt_authentication.yaml"
+        ]
+    },
     "mailjet/mailjet-apiv3-php": {
         "version": "v1.5.1"
     },
     "mockery/mockery": {
-        "version": "1.5.0"
+        "version": "1.4.4"
     },
     "monolog/monolog": {
         "version": "2.1.1"
+    },
+    "namshi/jose": {
+        "version": "7.2.3"
     },
     "nelmio/cors-bundle": {
         "version": "1.5",
@@ -448,6 +475,12 @@
     "symfony/options-resolver": {
         "version": "v5.1.7"
     },
+    "symfony/orm-pack": {
+        "version": "v2.0.0"
+    },
+    "symfony/password-hasher": {
+        "version": "v5.3.8"
+    },
     "symfony/phpunit-bridge": {
         "version": "4.3",
         "recipe": {
@@ -485,7 +518,7 @@
         "version": "v1.18.1"
     },
     "symfony/polyfill-php81": {
-        "version": "v1.24.0"
+        "version": "v1.23.0"
     },
     "symfony/process": {
         "version": "v5.1.7"

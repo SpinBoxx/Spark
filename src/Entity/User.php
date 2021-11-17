@@ -13,6 +13,7 @@ use DateTimeInterface;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
+ * @ORM\HasLifecycleCallbacks
  * @ApiResource(
  * attributes={
  *     "normalization_context"={"groups"={"read"}},
@@ -27,7 +28,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 class User implements UserInterface
 {
     /**
-     * @Groups("read")
+     * @Groups({"read"})
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
@@ -35,31 +36,31 @@ class User implements UserInterface
     private $id;
 
     /**
-     * @Groups("write","read")
-     * @ORM\Column(type="string", length=30)
+     * @Groups({"write","read"})
+     * @ORM\Column(type="string", length=30, nullable=true)
      */
     private $username;
 
     /**
-     * @Groups("write","read")
+     * @Groups({"write","read"})
      * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $firstname;
 
     /**
-     * @Groups("write","read")
+     * @Groups({"write","read"})
      * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $lastname;
 
     /**
-     * @Groups("write","read")
+     * @Groups({"write","read"})
      * @ORM\Column(type="string", length=255, nullable=false, unique=true)
      */
     private $email;
 
     /**
-     * @Groups("write")
+     * @Groups({"write"})
      * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $password;
@@ -71,61 +72,61 @@ class User implements UserInterface
     private $roles = [];
 
     /**
-     * @Groups("write","read")
+     * @Groups({"write","read"})
      * @ORM\Column(type="string", length=10, nullable=true)
      */
     private $phone;
 
     /**
-     * @Groups("write","read")
+     * @Groups({"write","read"})
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $postal_address;
 
     /**
-     * @Groups("write","read")
+     * @Groups({"write","read"})
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $additional_address;
 
     /**
-     * @Groups("write","read")
+     * @Groups({"write","read"})
      * @ORM\Column(type="string", length=5, nullable=true)
      */
     private $postal_code;
 
     /**
-     * @Groups("write","read")
+     * @Groups({"write","read"})
      * @ORM\Column(type="string", length=40, nullable=true)
      */
     private $city;
 
     /**
-     * @Groups("write","read")
+     * @Groups({"write","read"})
      * @ORM\Column(type="string", length=40, nullable=true)
      */
     private $department;
 
     /**
-     * @Groups("write","read")
+     * @Groups({"write","read"})
      * @ORM\Column(type="string", length=40, nullable=true)
      */
     private $country;
 
     /**
-     * @Groups("write","read")
+     * @Groups({"write","read"})
      * @ORM\Column(type="text", nullable=true)
      */
     private $picture_profil;
 
     /**
-     * @Groups("read")
-     * @ORM\Column(type="datetime")
+     * @Groups({"read"})
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $creation_datetime;
 
     /**
-     * @Groups("read")
+     * @Groups({"read"})
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $update_datetime;
@@ -139,7 +140,7 @@ class User implements UserInterface
     {
         $this->username = $username;
         $this->email = $email;
-        $this->creation_datetime = DateTime::createFromFormat('Y-m-d H:i:s', date('d-m-Y H:i:s'));
+        // $this->creation_datetime = DateTime::createFromFormat('Y-m-d H:i:s', date('d-m-Y H:i:s'));
     }
 
     public function getId(): ?int
@@ -378,5 +379,18 @@ class User implements UserInterface
         $this->isVerified = $isVerified;
 
         return $this;
+    }
+
+
+    /**
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function updatedTimestamps(): void
+    {
+        $this->setUpdateDatetime(new \DateTime('now'));
+        if ($this->getCreationDatetime() === null) {
+            $this->setCreationDatetime(new \DateTime('now'));
+        }
     }
 }

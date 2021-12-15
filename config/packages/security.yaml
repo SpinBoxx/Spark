@@ -57,8 +57,8 @@ security:
     # Note: Only the *first* access control that matches will be used
 
   access_control:
+    - { path: /api/users, roles: IS_AUTHENTICATED_ANONYMOUSLY, methods: [POST] }
     - { path: /creer-un-compte, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-    - { path: /api/users, roles: IS_AUTHENTICATED_ANONYMOUSLY }
     - { path: /mot-de-passe-oublie, roles: IS_AUTHENTICATED_ANONYMOUSLY }
     - { path: /error404, roles: IS_AUTHENTICATED_ANONYMOUSLY }
     - { path: "/login", roles: IS_AUTHENTICATED_ANONYMOUSLY }

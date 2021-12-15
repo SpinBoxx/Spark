@@ -34,27 +34,25 @@ class Favorite
         return $this->id;
     }
 
-    public function getProductId(): ?Product
+    public function getProduct(): ?Product
     {
         return $this->product;
     }
 
-    public function setProductId(?Product $product): self
+    public function setProduct(?Product $product): self
     {
         $this->product = $product;
-
         return $this;
     }
 
-    public function getUserId(): ?User
+    public function getUser(): ?User
     {
         return $this->user;
     }
 
-    public function setUserId(?User $user): self
+    public function setUser(?User $user): self
     {
         $this->user = $user;
-
         return $this;
     }
 }

@@ -73,5 +73,27 @@
                 }
             }
         }
+        $('.favorite_card_heart')
+            .click(function(){
+                var productId = $(this).data('product-id');
+                if($('.favorite_card_heart-'+ productId  + ' i').hasClass('fas')){
+                    $('.favorite_card_heart-'+ productId  + ' i').removeClass('fas').addClass('far')
+                } else {
+                    $('.favorite_card_heart-'+ productId  + ' i').removeClass('far').addClass('fas')
+                }
+                    $.ajax({
+                    url : "{{ path('product_add_or_delete_favorite') }}",
+                    method : "POST",
+                    data : {
+                    'productId' : productId
+                },
+                    success : function(data){
+                    console.log(data)
+                },
+                    error : function(data){
+                    console.log(data);
+                }
+            })
+        });
     </script>
 {% endblock %}

@@ -8,42 +8,34 @@
 
 <h2>Mes favoris</h2>
     <section id="favorite_card_section">
-        {% for i in 0..10 %}
-            <div class="favorite_card_div">
-                <div>
-                    <div class="favorite_card_align_heart">
-                        <div class="favorite_card_heart">
-                            <i class="fas fa-heart"></i>
-                        </div>
-                    </div>
-                    <div class="favorite_card_div_image">
-                    </div>
-                    <div class="favorite_card_top_line_description">
-                        <div class="favorite_card_seller">
-                            <img src="https://i.pravatar.cc/300">
-                            <div>
-                                <p>John Doe</p>
-                            </div>
-                        </div>
-                        <div class="favorite_card_date">
-                            <p>09/12/2020</p>
-                        </div>
-                    </div>
-                    <div class="favorite_card_description">
-                        <h4>My Babolat 1</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </p>
-                    </div>
-                    <div class="favorite_card_sub_line_description">
-                        <p>159.99€</p>
-                        <p><a href="">Voir l'article ></a></p>
-                    </div>
-                </div>
-            </div>
+        {% for favorite in productsFavorite %}
+            {% set product = favorite.product %}
+            {{ block("product_vignette", "/product/vignette_view_product.html.twig") }}
         {% endfor %}
     </section>
+
+    <script>
+        $('.favorite_card_heart')
+          .click(function(){
+              var productId = $(this).data('product-id');
+              if($('.favorite_card_heart-'+ productId  + ' i').hasClass('fas')){
+                  $('.favorite_card_heart-'+ productId  + ' i').removeClass('fas').addClass('far')
+              } else {
+                  $('.favorite_card_heart-'+ productId  + ' i').removeClass('far').addClass('fas')
+              }
+              $.ajax({
+                  url : "{{ path('product_add_or_delete_favorite') }}",
+                  method : "POST",
+                  data : {
+                      'productId' : productId
+                  },
+                  success : function(data){
+                      // TODO ADD FLASH NOTIFIACTION
+                  },
+                  error : function(data){
+                      // TODO ADD FLASH NOTIFIACTION
+                  }
+              })
+          });
+    </script>
 {% endblock %}

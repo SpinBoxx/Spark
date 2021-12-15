@@ -2,8 +2,8 @@
     <div class="favorite_card_div">
         <div>
             <div class="favorite_card_align_heart">
-                <div class="favorite_card_heart">
-                    <i class="fas fa-heart"></i>
+                <div class="favorite_card_heart favorite_card_heart-{{ product.id }} pointer" data-product-id="{{ product.id }}">
+                    <i class="{% if isFavoris(product.id) %}fas{% else %}far{% endif%} fa-heart"></i>
                 </div>
             </div>
             <div class="favorite_card_price">

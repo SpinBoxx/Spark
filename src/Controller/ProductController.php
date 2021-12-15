@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Color;
+use App\Entity\Favorite;
 use App\Entity\Gender;
 use App\Entity\Product;
 use App\Entity\Quality;
@@ -246,6 +247,35 @@ class ProductController extends AbstractController
         ]);
       } else {
         return $this->redirectToRoute('accueil');
+      }
+    }
+
+  /**
+   * @Route("/ajouter-un-favoris", name="product_add_or_delete_favorite", methods={"POST"})
+   */
+    public function addOrDeleteFavorite(Request $request){
+      $params = $request->request->all();
+      if(isset($params['productId'])){
+        if(ctype_digit($params['productId'])){
+          $product = $this->em->getRepository(Product::class)->find($params['productId']);
+          $isFavoris = $this->em->getRepository(Favorite::class)->findOneBy(['user'=> $this->getUser(), 'product' => $product]);
+          if ($isFavoris instanceof Favorite){
+            $this->em->remove($isFavoris);
+            $this->em->flush();
+            return $this->json(['message' => 'Supprimé de vos favoris'], Response::HTTP_OK);
+          } else {
+            $favorite = new Favorite();
+            $favorite->setProduct($product);
+            $favorite->setUser($this->getUser());
+            $this->em->persist($favorite);
+            $this->em->flush();
+            return $this->json(['message' => 'Ajouté dans vos favoris'], Response::HTTP_OK);
+          }
+        } else {
+          return $this->json(['message' => 'Le product-id doit etre un nombre'], Response::HTTP_FORBIDDEN);
+        }
+      } else {
+        return $this->json(['message' => 'Erreur'], Response::HTTP_FORBIDDEN);
       }
     }
 

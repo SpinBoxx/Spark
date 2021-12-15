@@ -10,10 +10,16 @@
                 <img src={{ asset('images/header/logo.png') }}>
             </a>
         </div>
-        <div class="searchBar_header_div">
-            <i class="fas fa-search"></i>
-            <input type="text" placeholder="Rechercher des articles">
-        </div>
+
+            <div class="searchBar_header_div">
+                <form action="{{ path('product_search') }}" method="get">
+                    <button type="submit">
+                        <i class="fas fa-search pointer" id="fa-search-product"></i>
+                    </button>
+                    <input type="text" placeholder="Rechercher des articles" name="product_parameter_string" autocomplete="off">
+                </form>
+            </div>
+
         <div class="header_user_option">
             <div class="top_header_icons">
                 <a href="{{ path('product_add') }}"><img src={{ asset('images/header/send_icon.svg') }}></a>

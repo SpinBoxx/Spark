@@ -54,8 +54,6 @@ class ProductController extends AbstractController
         foreach ($sports as $sport){
             $tab[] = $sport;
         }
-//        var_dump($tab);
-//        die();
 
         $products = $this->em->getRepository(Product::class)->findAll();
         $pathnameSports = ["arc.png", "rugby.png"];
@@ -226,4 +224,29 @@ class ProductController extends AbstractController
         }
         return new Response('',Response::HTTP_INTERNAL_SERVER_ERROR);
     }
+
+  /**
+   * @Route("/rechercher-un-product", name="product_search", methods={"GET"})
+   */
+    public function searchProduct(Request $request){
+      $params = $request->query->all();
+      if(isset($params['product_parameter_string'])){
+        $products = $this->em->getRepository(Product::class)->findProductsByFilter($params['product_parameter_string']);
+        $sports = scandir($this->kernel->getProjectDir().'/public/images/accueil/sports/');
+        unset($sports[0]);
+        unset($sports[1]);
+
+        foreach ($sports as $sport){
+          $tab[] = $sport;
+        }
+        return $this->render('accueil/accueil.html.twig', [
+          'products' => $products,
+          'sports' => $tab,
+          'product_not_found' => 'Il y a 0 produit pour la recherche : ' . $params['product_parameter_string'],
+        ]);
+      } else {
+        return $this->redirectToRoute('accueil');
+      }
+    }
+
 }

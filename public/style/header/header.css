@@ -74,11 +74,24 @@ i{
     font-size: 14px;
     margin: auto 0.8rem;
 }
-
-.searchBar_header_div > input {
+.searchBar_header_div  form {
+    padding: 6px;
+    width: 100%;
+}
+.searchBar_header_div  button {
+    padding: 0;
+    background-color: inherit;
+    border: none;
+    text-transform: none;
+    outline: none;
+}
+.searchBar_header_div  button:focus {
+    outline: none;
+}
+.searchBar_header_div  input {
     background-color: transparent;
     border: none;
-    width: 100%;
+    width: calc(100% - 50px);
 }
 
 .header_user_option{
@@ -287,7 +300,9 @@ i{
     margin-top: calc(25px / 2);
     border-radius: 1rem;
 }
-
+.pointer{
+    cursor: pointer;
+}
 .modal_header_profil_option {
     margin: 2rem 1rem .5rem;
     width: 100%;

@@ -32,10 +32,16 @@
         <h2>Mis en ligne récemment</h2>
     </div>
     <section id="favorite_card_section">
-        {% for product in products %}
-            {{ block("product_vignette", "/product/vignette_view_product.html.twig") }}
-        {% endfor %}
+        {% if products is empty %}
+            <h1>{{ product_not_found }}</h1>
+        {% else %}
+            {% for product in products %}
+                {{ block("product_vignette", "/product/vignette_view_product.html.twig") }}
+            {% endfor %}
+        {% endif %}
+
     </section>
+
     <script>
         $('#chevron-left').click(function (){
             moveSportLeft()

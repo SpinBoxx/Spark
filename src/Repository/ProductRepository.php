@@ -36,15 +36,14 @@ class ProductRepository extends ServiceEntityRepository
     }
     */
 
-    /*
-    public function findOneBySomeField($value): ?Product
+
+    public function findProductsByFilter($filter)
     {
         return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
+            ->andWhere('p.title LIKE :filter')
+            ->setParameter('filter', '%' . $filter . '%')
             ->getQuery()
-            ->getOneOrNullResult()
+            ->getResult();
         ;
     }
-    */
 }

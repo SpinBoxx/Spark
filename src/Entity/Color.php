@@ -4,8 +4,18 @@ namespace App\Entity;
 
 use App\Repository\ColorRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
+use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
+ * 
+ * @ApiResource(
+ * itemOperations={"get"},
+ *      collectionOperations={
+ *         "get",
+ *         "post"={"security"="is_granted('ROLE_ADMIN')"}
+ *     },
+ * )
  * @ORM\Entity(repositoryClass=ColorRepository::class)
  */
 class Color
@@ -18,11 +28,13 @@ class Color
     private $id;
 
     /**
+     * @Groups({"product:read"})
      * @ORM\Column(type="string", length=255)
      */
     private $code;
 
     /**
+     * @Groups({"product:read"})
      * @ORM\Column(type="string", length=255)
      */
     private $label;

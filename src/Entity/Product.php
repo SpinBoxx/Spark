@@ -13,21 +13,26 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\RangeFilter;
 
 
 /**
+ *
  * @ApiResource(
- *  
- *     collectionOperations={"get", "post"},
- *     itemOperations={"get"},
- *     attributes={"normalization_context"={"groups"={"read"},
- *                  "denormalization_context"={"groups"={"write"}}}}
+ *      itemOperations={"get"},
+ *      collectionOperations={
+ *         "get",
+ *         "post"={"security"="is_granted('ROLE_USER')"}
+ *     },
+ *  normalizationContext={"groups"={"product:read"}},
+ *  denormalizationContext={"groups"={"product:write"}}
+ *     
  * )
  * @ApiFilter(RangeFilter::class, properties={"price"})
  * @ApiFilter(SearchFilter::class, properties={"title": "partial"})
  * @ORM\Entity(repositoryClass=ProductRepository::class)
+ * 
  */
 class Product
 {
     /**
-     * @Groups({"read"})
+     * @Groups({"product:read"})
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
@@ -43,119 +48,111 @@ class Product
     private $user;
 
     /**
-     * @Groups({"write","read"})
+     * 
      * @ORM\ManyToOne(targetEntity=State::class)
      * @ORM\JoinColumn(nullable=true)
      */
     private $state;
 
     /**
-     * @Groups({"write","read"})
+     * @Groups({"product:write","product:read"})
      * @ORM\Column(type="string", length=255)
      */
     private $title;
 
     /**
-     * @Groups({"write","read"})
+     * @Groups({"product:write","product:read"})
      * @ORM\Column(type="text")
      */
     private $description;
 
     /**
      * @ORM\Column(type="text", nullable=true)
-     * @Groups({"write","read"})
+     * @Groups({"product:read"})
      */
     private $image_path;
 
     /**
-     * @Groups({"write","read"})
+     * @Groups({"product:read"})
      * @ORM\ManyToOne(targetEntity=Gender::class)
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $gender;
 
     /**
      * @ORM\ManyToOne(targetEntity=Size::class)
-     * @Groups({"write","read"})
-     * @ORM\JoinColumn(nullable=false)
+     * @Groups({"product:write","product:read"})
+     * @ORM\JoinColumn(nullable=true)
      */
     private $size;
 
     /**
-     * @Groups({"write","read"})
+     * @Groups({"product:read"})
      * @ORM\ManyToOne(targetEntity=Color::class)
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $color_primary;
 
     /**
-     * @Groups({"write","read"})
+     * @Groups({"product:read"})
      * @ORM\ManyToOne(targetEntity=Color::class)
      */
     private $color_secondary;
 
     /**
-     * @Groups({"write","read"})
-     * @ORM\Column(type="string", length=255)
-     * @ORM\JoinColumn(nullable=false)
+     * @Groups({"product:read","product:write"})
+     * @ORM\ManyToOne(targetEntity=Brand::class)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $brand;
 
     /**
-     * @Groups({"write","read"})
+     * @Groups({"product:read"})
      * @ORM\ManyToOne(targetEntity=Quality::class)
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $quality;
 
     /**
      * @ORM\ManyToOne(targetEntity=Category::class)
-     * @Groups({"write","read"})
-     * @ORM\JoinColumn(nullable=false)
+     * @Groups({"product:read"})
+     * @ORM\JoinColumn(nullable=true)
      */
     private $category;
 
     /**
-     * @Groups({"write","read"})
+     * @Groups({"product:write","product:read"})
      * @ORM\Column(type="float")
      */
     private $price;
 
     /**
-     * @Groups({"write","read"})
+     * @Groups({"product:read"})
      * @ORM\Column(type="text", nullable=true)
      */
     private $link;
 
     /**
-     * @Groups({"read"})
+     * @Groups({"product:read"})
      * @ORM\Column(type="datetime")
      */
     private $creation_datetime;
 
     /**
-     * @Groups({"read"})
+     * @Groups({"product:read"})
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $update_datetime;
 
-    /**
-     * Product constructor.
-     * @param User $user
-     * @param State $state
-     * @param Gender $gender
-     * @param Color $color_primary
-     * @param $title
-     * @param $description
-     * @param $size
-     * @param $brand
-     * @param $category
-     * @param $price
-     * @param Quality $quality
-     */
+
     public function __construct()
     {
-        $this->setCreationDatetime(new \DateTime('now'));
+        $this->setCreationDatetime(new \DateTime("now"));
+    }
+
+    public function setId(int $id)
+    {
+        $this->$id = $id;
     }
 
     public function getId(): ?int
@@ -303,7 +300,7 @@ class Product
     /**
      * @param mixed $quality
      */
-    public function setQuality($quality): void
+    public function setQuality(Quality $quality): void
     {
         $this->quality = $quality;
     }

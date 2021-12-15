@@ -5,7 +5,16 @@ namespace App\Entity;
 use App\Repository\BrandRepository;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
+
 /**
+ * @ApiResource(
+ * itemOperations={"get"},
+ *      collectionOperations={
+ *         "get",
+ *         "post"={"security"="is_granted('ROLE_ADMIN')"}
+ *     },
+ * )
  * @ORM\Entity(repositoryClass=BrandRepository::class)
  */
 class Brand
@@ -18,11 +27,13 @@ class Brand
     private $id;
 
     /**
+     * @Groups({"product:read"})
      * @ORM\Column(type="string", length=255)
      */
     private $code;
 
     /**
+     * @Groups({"product:read"})
      * @ORM\Column(type="string", length=255)
      */
     private $label;

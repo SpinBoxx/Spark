@@ -16,11 +16,12 @@ use Symfony\Component\Serializer\Annotation\Groups;
  * @ORM\HasLifecycleCallbacks
  * @ApiResource(
  * attributes={
- *     "normalization_context"={"groups"={"read"}},
- *     "denormalization_context"={"groups"={"write"}}
+ *     "normalization_context"={"groups"={"user:read"}},
+ *     "denormalization_context"={"groups"={"user:write"}}
  * },
- *     collectionOperations={"post"},
- *     itemOperations={}
+ *     itemOperations={"get"},
+ *     collectionOperations={"post"= {"security"="is_granted('IS_AUTHENTICATED_ANONYMOUSLY')"}},
+ *     
  * )
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
@@ -28,7 +29,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 class User implements UserInterface
 {
     /**
-     * @Groups({"read"})
+     * @Groups({"user:read"})
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
@@ -36,31 +37,31 @@ class User implements UserInterface
     private $id;
 
     /**
-     * @Groups({"write","read"})
+     * @Groups({"user:write","user:read"})
      * @ORM\Column(type="string", length=30, nullable=true)
      */
     private $username;
 
     /**
-     * @Groups({"write","read"})
+     * @Groups({"user:write","user:read"})
      * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $firstname;
 
     /**
-     * @Groups({"write","read"})
+     * @Groups({"user:write","user:read"})
      * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $lastname;
 
     /**
-     * @Groups({"write","read"})
+     * @Groups({"user:write","user:read"})
      * @ORM\Column(type="string", length=255, nullable=false, unique=true)
      */
     private $email;
 
     /**
-     * @Groups({"write"})
+     * @Groups({"user:write"})
      * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $password;
@@ -72,61 +73,61 @@ class User implements UserInterface
     private $roles = [];
 
     /**
-     * @Groups({"write","read"})
+     * @Groups({"user:write","user:read"})
      * @ORM\Column(type="string", length=10, nullable=true)
      */
     private $phone;
 
     /**
-     * @Groups({"write","read"})
+     * @Groups({"user:write","user:read"})
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $postal_address;
 
     /**
-     * @Groups({"write","read"})
+     * @Groups({"user:write","user:read"})
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $additional_address;
 
     /**
-     * @Groups({"write","read"})
+     * @Groups({"user:write","user:read"})
      * @ORM\Column(type="string", length=5, nullable=true)
      */
     private $postal_code;
 
     /**
-     * @Groups({"write","read"})
+     * @Groups({"user:write","user:read"})
      * @ORM\Column(type="string", length=40, nullable=true)
      */
     private $city;
 
     /**
-     * @Groups({"write","read"})
+     * @Groups({"user:write","user:read"})
      * @ORM\Column(type="string", length=40, nullable=true)
      */
     private $department;
 
     /**
-     * @Groups({"write","read"})
+     * @Groups({"user:write","user:read"})
      * @ORM\Column(type="string", length=40, nullable=true)
      */
     private $country;
 
     /**
-     * @Groups({"write","read"})
+     * @Groups({"user:write","user:read"})
      * @ORM\Column(type="text", nullable=true)
      */
     private $picture_profil;
 
     /**
-     * @Groups({"read"})
+     * @Groups({"user:read"})
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $creation_datetime;
 
     /**
-     * @Groups({"read"})
+     * @Groups({"user:read"})
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $update_datetime;
@@ -144,6 +145,11 @@ class User implements UserInterface
     }
 
     public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getUserIdentifier(): ?int
     {
         return $this->id;
     }

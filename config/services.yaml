@@ -48,3 +48,6 @@ services:
                   event: lexik_jwt_authentication.on_authentication_success,
                   method: onAuthenticationSuccessResponse,
               }
+    App\Swagger\SwaggerDecorator:
+        decorates: "api_platform.openapi.factory"
+        arguments: ["@.inner"]

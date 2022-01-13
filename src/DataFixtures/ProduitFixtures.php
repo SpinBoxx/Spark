@@ -2,10 +2,12 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Category;
 use App\Entity\Color;
 use App\Entity\Gender;
 use App\Entity\Product;
 use App\Entity\Quality;
+use App\Entity\Size;
 use App\Entity\State;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -19,13 +21,16 @@ class ProduitFixtures extends Fixture implements DependentFixtureInterface
         $admin = $manager->getRepository(User::class)->findOneBy(['username' => 'admin']);
         $state = $manager->getRepository(State::class)->findOneBy(['code'=>'en_vente']);
         $gender = $manager->getRepository(Gender::class)->findOneBy(['code'=> 'homme']);
-        $color = $manager->getRepository(Color::class)->findOneBy(['code'=> 'red']);
+        $color = $manager->getRepository(Color::class)->findOneBy(['code'=> 'rouge']);
         $quality = $manager->getRepository(Quality::class)->findOneBy(['code'=> 'neuf_avec_etiquette']);
+        $category = $manager->getRepository(Category::class)->findOneBy(['code' => "short"]);
+        $size = $manager->getRepository(Size::class)->findOneBy(['code' => 'l']);
+
 
         $products = [
-            [$admin, $state, $gender, $color, "article", "description", '12','Nike', "chaussures", 100, $quality],
-            [$admin, $state, $gender, $color, "article", "description", '12','Nike',  "chaussures", 100, $quality],
-            [$admin, $state, $gender, $color, "article", "description", '12','Nike',  "chaussures", 100, $quality],
+            [$admin, $state, $gender, $color, "article", "description", $size,'Nike', $category, 100, $quality],
+            [$admin, $state, $gender, $color, "article", "description", $size,'Nike',  $category, 100, $quality],
+            [$admin, $state, $gender, $color, "article", "description", $size,'Nike',  $category, 100, $quality],
         ];
         $i = 0;
         foreach ($products as $product){
@@ -56,6 +61,8 @@ class ProduitFixtures extends Fixture implements DependentFixtureInterface
         return [
             UserFixtures::class,
             StateFixtures::class,
+            CategoryFixtures::class,
+            SizeFixtures::class,
             QualityFixtures::class,
         ];
     }

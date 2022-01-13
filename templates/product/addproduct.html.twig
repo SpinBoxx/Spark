@@ -1,146 +1,117 @@
 {% extends 'base.html.twig' %}
 
+
  {% block stylesheets %}
      <link rel="stylesheet" href="{{ asset('style/add_product/newproduct.css') }}">
      <!-- add to document <head> -->
-     <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
-     <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
-
+     <link href="{{ asset('dist/image-uploader.min.css') }}" rel="stylesheet">
  {% endblock %}
 
 {% block title %}Ajouter un produit{% endblock %}
 
 {% block body %}<script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
-    <script src="https://unpkg.com/filepond/dist/filepond.js"></script> <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
-    <div class="container">
-        <form action="{{ path('product_insert') }}"  method="post" enctype="multipart/form-data" id="product_form">
-            <div class="row align-items-center">
-                <div class="col-md-8">
-                    <div class="row">
-                        <div class="col-md-12 h2-title">
-                            <h2 class="new-product-title md-5">Vous aussi vendez vos affaires</h2>
-                        </div>
+    <section>
+        <form action="{{ path('product_insert') }}" method="post" enctype="multipart/form-data">
+            <div class="container">
+                <div class="left-container">
+                    <div class="left-container-title">
+                        <h5>Un geste technique pour ton portefeuille et pour ta planète :</h5>
+                        <h3 style="font-family: Poppins; font-size: 32px; font-weight: bold"><span style="color: #5EB777">Vends tes affaires</span> que tu n'utilises plus !</h3>
                     </div>
-                    <div class="row justify-content-center ">
-                        <div class="col-md-6 justify-content-start">
-                            <div class="form-group">
-                                <input type="text" id="product_title" name="title" required class="text-input-field "
-                                       placeholder="Nom du produit">
-                            </div>
-                            <div class="form-group">
-                                <select id="product_category" required name="category" class="select-input-field ">
-                                    <option value="" disabled selected>Categorie</option>
-                                    <option value="vetements">Vêtements</option>
-                                    <option value="raquette">Raquette</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <input type="number" step="0.01" min="0" id="product_price" name="price" required class="text-input-field "
-                                       placeholder="9.99 €">
-                            </div>
-                            <div class="form-group color-input-field">
-                                <label for="product_color_primary">Couleur primaire
-                                    <input type="color" id="product_color_primary" name="color_primary" class=""
-                                           placeholder="Couleur primaire">
-                                </label>
-                            </div>
-                            <div class="form-group">
-                                <select id="product_size" name="size" class="select-input-field ">
-                                    <option value="" disabled selected>Taille</option>
-                                    <optgroup label="Chaussure">
-                                        <option value="20">20</option>
-                                        <option value="21">21</option>
-                                    </optgroup>
-                                    <optgroup label="Vêtement">
-                                        <option value="xs">XS</option>
-                                        <option value="s">S</option>
-                                        <option value="m">M</option>
-                                        <option value="l">L</option>
-                                        <option value="xl">XL</option>
-                                    </optgroup>
-                                </select>
-                            </div>
+                    <div class="custom-form-group mt-5">
+                        <div class="d-flex">
+                            <input required type="text" name="name" placeholder="Nom du produit *" class="custom-form-input">
+                            <input required type="text" name="brand" placeholder="Marque du produit *" class="custom-form-input">
                         </div>
-                        <div class="col-md-6 justify-content-end">
-                            <div class="form-group">
-                                <select id="product_brand" name="brand" class="select-input-field ">
-                                    <option value="" disabled selected>Marque du produit</option>
-                                    <option value="Aucune">Aucune marque</option>
-                                    <option value="adidas">Adidas</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <select id="product_quality" name="quality" class="select-input-field ">
-                                    <option value="" disabled selected>Qualité du produit</option>
-                                    {% for quality in qualitys %}
-                                        <option value="{{ quality.id }}" >{{ quality.label }}</option>
-                                    {% endfor %}
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" id="product_link" name="link" class=" text-input-field"
-                                       placeholder="Lien officiel du produit">
-                            </div>
-                            <div class="form-group color-input-field">
-                                <label for="product_color_secondary">Couleur secondaire
-                                    <input type="color"
-                                           id="product_color_secondary"
-                                           name="color_secondary"
-                                           class=""
-                                           placeholder="Couleur secondaire"
-                                    >
-                                </label>
-                            </div>
-                            <div class="form-group">
-                                <select id="product_gender" name="gender" class="select-input-field ">
-                                    <option value="" disabled selected>Genre</option>
-                                    {% for gender in genders %}
-                                        <option value="{{ gender.id }}">{{ gender.label }}</option>
-                                    {% endfor %}
-                                </select>
-                            </div>
+                        <div class="d-flex">
+                            <select required name="category" id="category" class="custom-form-select">
+                                <option value="" selected disabled hidden>Catégorie du produit*</option>
+                                {% for category in categories %}
+                                    <option value="{{ category.id }}">{{ category.label }}</option>
+                                {% endfor %}
+                            </select>
+                            <select required name="state" id="product_state" class="custom-form-select">
+                                <option value="" selected disabled hidden>Etat du produit*</option>
+                                {% for quality in qualitys %}
+                                    <option value="{{ quality.id }}">{{ quality.label }}</option>
+                                {% endfor %}
+                            </select>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="product_description" name="description" required class="text-input-field " placeholder="Description"></textarea>
+                        <div class="d-flex">
+                            <input required type="text" name="price" placeholder="Prix de vente du produit *" class="custom-form-input">
+                            <input type="text" name="link" placeholder="Lien originel du produit" class="custom-form-input">
+                        </div>
+                        <div class="d-flex">
+                            <select required name="main_color" id="main_color" class="custom-form-select">
+                                <option value="" selected disabled hidden>Couleur principale*</option>
+                                {% for color in colors %}
+                                    <option value="{{ color.id }}">{{ color.label }}</option>
+                                {% endfor %}
+                            </select>
+                            <select name="secondary_color" id="secondary_color" class="custom-form-select">
+                                <option value="" selected disabled hidden>Couleur secondaire</option>
+                                {% for color in colors %}
+                                    <option value="{{ color.id }}">{{ color.label }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="d-flex">
+                            <select required name="size" id="size" class="custom-form-select">
+                                <option value="" selected disabled hidden>Taille *</option>
+                                {% for size in sizes %}
+                                    <option value="{{ size.id }}">{{ size.label }}</option>
+                                {% endfor %}
+                            </select>
+                            <select required name="gender" id="gender" class="custom-form-select">
+                                <option value="" selected disabled hidden>Genre*</option>
+                                {% for gender in genders %}
+                                    <option value="{{ gender.id }}">{{ gender.label }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="" style="font-family: Poppins;font-size: 14px; color: rgb(0,0,0);">
+                            <span>Description de ton produit.</span>
+                            <br>
+                            <span>Donnes le plus d’information possible aux potentiels acheteurs. Pas de secret entre nous ;)</span>
+                        </div>
+                        <div class="d-flex">
+                            <textarea required name="description" id="" cols="30" rows="3" placeholder="ex : taille grand, utilisé pour 1 seule compétition, raquette légère..." class="custom-form-input"></textarea>
+                        </div>
+                        <div class="d-flex div-submit">
+                            <button type="submit">Déposer mon annonce</button>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-4">
 
-                    <span><b>Format photo</b></span>
-                    <p>Uniquements les fichiers du type .jpg .jpeg .png sont acceptés.</p>
-                    <ul class="list-group" id="image-button-list">
-                        <li class="d-flex justify-content-around list-group-item" id="image-0">
-
-                            <label id="label-input-file" for="product_picture_product-0" class="is-invalid upload-btn-wrapper justify-content-center required">
-                                <figure>
-                                    <figcaption><b>Ajoutez une photo à votre produit</b></figcaption>
-                                    <figcaption>Choissisez une photo nette et de bonne qualité.</figcaption>
-                                </figure>
-                            </label>
-
-                            <input  hidden type="file" id="product_picture_product-0" name="picture_product[]" required
-                                    accept="image/*" >
-                            <div class="preview"></div>
-                            <button hidden id="erase_image" type="button" class="btn erase_image"><i class="fas fa-trash"></i></button>
-                        </li>
-                    </ul>
-                    <button id="add_img"  type="button" class="btn"> <i class="fas fa-plus"></i></button>
-
-                </div>
-
-                <div class="col-md-3 offset-md-5">
-                    <div class="form-group">
-                        <div>
-                            <button type="submit" id="product_save" name="save">Déposer mon annonce
-                            </button>
-                        </div>
+                <div class="right-container">
+                    <h5>Ajoute des photos à ton produit</h5>
+                    <div class="">
+                        <h6>Format photo</h6>
+                        <span>Uniquement les fichiers du type .jpg .jpeg .png sont acceptés.</span>
                     </div>
+                    <div class="input-images"></div>
                 </div>
             </div>
         </form>
-    </div>
 
-    <script src="{{ asset('script/product/add-product-image-preview.js') }}"></script>
+    </section>
+{% endblock %}
+{% block javascript %}
+<script src="{{ asset('dist/image-uploader.min.js') }}"></script>
+<script>
+    $(function(){
+        $('.input-images').imageUploader({
+            extensions: ['.jpg', '.jpeg', '.png', '.gif', '.svg'],
+            mimes: ['image/jpeg', 'image/png', 'image/gif', 'image/svg+xml'],
+            maxSize: undefined,
+            maxFiles: 4,
+            minFiles: 1,
+            label:'Glisse et dépose les images ici',
+            imagesInputName:'images',
+        });
+    });
+
+
+</script>
 
 {% endblock %}

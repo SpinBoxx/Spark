@@ -41,9 +41,9 @@ class Product
     private $description;
 
     /**
-     * @ORM\Column(type="array")
+     * @ORM\Column(type="text", nullable=true)
      */
-    private $picture_product = [];
+    private $image_path;
 
     /**
      * @ORM\ManyToOne(targetEntity=Gender::class)
@@ -52,7 +52,7 @@ class Product
     private $gender;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\ManyToOne(targetEntity=Size::class)
      * @ORM\JoinColumn(nullable=false)
      */
     private $size;
@@ -81,7 +81,7 @@ class Product
     private $quality;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\ManyToOne(targetEntity=Category::class)
      * @ORM\JoinColumn(nullable=false)
      */
     private $category;
@@ -340,15 +340,13 @@ class Product
         return $this;
     }
 
-    public function getPictureProduct(): ?array
+    public function getImagePath(): string
     {
-        return $this->picture_product;
+        return $this->image_path;
     }
 
-    public function setPictureProduct(array $picture_product): self
+    public function setImagePath(string $picture_product)
     {
-        $this->picture_product = $picture_product;
-
-        return $this;
+        $this->image_path = $picture_product;
     }
 }

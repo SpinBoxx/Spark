@@ -12,7 +12,8 @@ class GenderFixtures extends Fixture
     {
         $genders = [
             ['homme', 'Homme'],
-            ['femme', 'Femme']
+            ['femme', 'Femme'],
+            ['unisexe', 'Unisexe']
         ];
         $i = 0;
         foreach ($genders as $gender){

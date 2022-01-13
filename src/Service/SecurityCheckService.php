@@ -23,11 +23,11 @@ class SecurityCheckService extends AbstractController implements SecurityFormInt
     }
 
     /**
-     * @param $params
+     * @param array $params
      * @param array $namesRequest
      * @return bool
      */
-    public function checkIssetNameRequest($params, array $namesRequest): bool
+    public function checkIssetNameRequest(array $params, array $namesRequest): bool
     {
         foreach ($namesRequest as $name){
             if(!isset($params[$name])) {
@@ -36,4 +36,19 @@ class SecurityCheckService extends AbstractController implements SecurityFormInt
         }
         return true;
     }
+
+  /**
+   * @param array $params
+   * @param array $namesRequest
+   * @return bool
+   */
+  public function checkNotEmptyNameRequest(array $params, array $namesRequest): bool
+  {
+    foreach ($namesRequest as $name){
+      if(trim(empty($params[$name]))) {
+        return false;
+      }
+    }
+    return true;
+  }
 }

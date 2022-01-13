@@ -14,8 +14,22 @@ class ColorFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $array = [
-            ['red','Red','#FF0000'],
-            ['blue','Blue','#0000FF'],
+          ['blanc','Blanc','#FFFFFF'],
+          ['noir','Noir','#000000'],
+          ['rouge','Rouge','#FF0000'],
+          ['bleu','Bleu','#0000FF'],
+          ['bleu_fonce','Bleu foncé','#000080'],
+          ['vert','Vert','#00FF00'],
+          ['vert_epinard','Vert épinard','#175732'],
+          ['jaune','Jaune','#FFFF00'],
+          ['orange','Orange','#FFA500'],
+          ['violet','Violet','#EE82EE'],
+          ['mauve','Mauve','#D473D4'],
+          ['lilas','Lilas','#B666D2'],
+          ['gris','Gris','#808080'],
+          ['argent','Argent','#C0C0C0'],
+          ['rose','Rose','#FD6C9E'],
+          ['marron','Marron','#582900'],
         ];
         $i = 0;
         foreach ($array as $val){

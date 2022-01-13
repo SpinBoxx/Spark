@@ -17,6 +17,7 @@ class FileUploader
         $this->slugger = $slugger;
     }
 
+
     public function upload(UploadedFile $file)
     {
         $originalFilename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
@@ -35,5 +36,10 @@ class FileUploader
     public function getTargetDirectory()
     {
         return $this->targetDirectory;
+    }
+
+    public function setTargetDirectory($target)
+    {
+      $this->targetDirectory = $target;
     }
 }

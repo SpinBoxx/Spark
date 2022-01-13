@@ -18,12 +18,6 @@ class Size
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Type::class)
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $type;
-
-    /**
      * @ORM\Column(type="string", length=255)
      */
     private $code;
@@ -33,7 +27,17 @@ class Size
      */
     private $label;
 
-    public function getId(): ?int
+  /**
+   * @param $code
+   * @param $label
+   */
+  public function __construct($code, $label)
+    {
+      $this->code = $code;
+      $this->label = $label;
+    }
+
+  public function getId(): ?int
     {
         return $this->id;
     }
@@ -46,18 +50,6 @@ class Size
     public function setCode(string $code): self
     {
         $this->code = $code;
-
-        return $this;
-    }
-
-    public function getTypeId(): ?Type
-    {
-        return $this->type_id;
-    }
-
-    public function setTypeId(?Type $type_id): self
-    {
-        $this->type_id = $type_id;
 
         return $this;
     }

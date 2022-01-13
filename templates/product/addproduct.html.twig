@@ -101,11 +101,10 @@
 <script>
     $(function(){
         $('.input-images').imageUploader({
-            extensions: ['.jpg', '.jpeg', '.png', '.gif', '.svg'],
-            mimes: ['image/jpeg', 'image/png', 'image/gif', 'image/svg+xml'],
+            extensions: ['.jpg', '.jpeg', '.png'],
+            mimes: ['image/jpeg', 'image/png'],
             maxSize: undefined,
-            maxFiles: 4,
-            minFiles: 1,
+            maxFiles: 5,
             label:'Glisse et dépose les images ici',
             imagesInputName:'images',
         });

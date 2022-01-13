@@ -38,7 +38,7 @@
             <div class="col-5 bg-light p-4 ">
                 <h4 class="mb-4">{{ product.title }}</h4>
                 <p class="text-secondary">Marque : {{ product.brand }}</p>
-                <p class="text-secondary">Taille : {{ product.size }}</p>
+                <p class="text-secondary">Taille : {{ product.size.label }}</p>
                 <p class="text-secondary">Qualité : {{ product.quality.label }}</p>
                 <p class="text-secondary">Couleur principale : {{ product.colorPrimary.label }}</p>
                 <p class="text-secondary">Posté il y a : {{ product.creationDatetime|date("d/m/Y") }}</p>

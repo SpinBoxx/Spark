@@ -138,7 +138,7 @@ class ProductController extends AbstractController
           foreach ($images as $image){
             if($image instanceof UploadedFile){
               if($image->getError() === 0){
-                if($image->getMimeType() === "image/jpeg" || $image->getMimeType() === "image/png"){
+                if($image->getMimeType() === "image/jpeg" || $image->getMimeType() === "image/png" || $image->getMimeType() === "image/jpg"){
                   $fileUploader->upload($image);
                 }
               }

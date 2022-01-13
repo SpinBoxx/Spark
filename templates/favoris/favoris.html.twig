@@ -19,7 +19,7 @@
           .click(function(){
               var productId = $(this).data('product-id');
               if($('.favorite_card_heart-'+ productId  + ' i').hasClass('fas')){
-                  $('.favorite_card_heart-'+ productId  + ' i').removeClass('fas').addClass('far')
+                  $('.favorite_card_heart-'+ productId  + ' i').parent('div').parent('div').parent('div').parent('div').remove()
               } else {
                   $('.favorite_card_heart-'+ productId  + ' i').removeClass('far').addClass('fas')
               }

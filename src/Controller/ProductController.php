@@ -10,16 +10,14 @@ use App\Entity\Product;
 use App\Entity\Quality;
 use App\Entity\Size;
 use App\Entity\State;
-use App\Entity\User;
 use App\Service\FileUploader;
 use App\Service\SecurityCheckService;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use Mollie\Api\MollieApiClient;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Symfony\Component\HttpFoundation\FileBag;
-use Symfony\Component\HttpFoundation\ParameterBag;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\KernelInterface;
@@ -175,6 +173,19 @@ class ProductController extends AbstractController
     }
     return $this->redirectToRoute('accueil');
   }
+
+  /**
+   * @Route("/produit/{id}/buy", name="product_buy")
+   * @return Response
+   * @throws Exception
+   */
+  public function buy($mollie_apy_key_test){
+    $mollie = new MollieApiClient();
+//    var_dump($mollie_apy_key_test);
+//    die();
+//    $mollie->setApiKey("test_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");
+  }
+
   /**
    * @Route("/produit/{id}/delete", name="product_delete")
    * @param $id

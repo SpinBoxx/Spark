@@ -6,6 +6,7 @@
 parameters:
     app.nonce: '%env(APP_NONCE)%'
     upload_directory: '%kernel.project_dir%/public/upload'
+    mollie_apy_key_test: ''
 
 services:
     # default configuration for services in *this* file

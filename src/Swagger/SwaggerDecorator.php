@@ -54,6 +54,8 @@ final class SwaggerDecorator implements OpenApiFactoryInterface
             'JWT Token',
             "Récuperation du token",
             "description",
+            null,
+            null,
             new Model\Operation(
                 'postCredentialsItem',
                 ["User"],

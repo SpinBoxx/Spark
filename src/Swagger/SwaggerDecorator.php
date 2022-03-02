@@ -34,8 +34,37 @@ final class SwaggerDecorator implements OpenApiFactoryInterface
                     'type' => 'string',
                     'readOnly' => true,
                 ],
+                'email' => [
+                    'type' => 'string',
+                    'example' => 'johndoe@example.com',
+                ],
+                'lastname' => [
+                    'type' => 'string',
+                    'example' => 'apassword',
+                ],
+                'firstname' => [
+                    'type' => 'string',
+                    'example' => 'johndoe@example.com',
+                ],
+                'username' => [
+                    'type' => 'string',
+                    'example' => 'apassword',
+                ],
+                'phone' => [
+                    'type' => 'string',
+                    'example' => 'johndoe@example.com',
+                ],
+                'city' => [
+                    'type' => 'string',
+                    'example' => 'apassword',
+                ],
+                'country' => [
+                    'type' => 'string',
+                    'example' => 'johndoe@example.com',
+                ],
             ],
         ]);
+
         $schemas['Credentials'] = new \ArrayObject([
             'type' => 'object',
             'properties' => [
@@ -86,11 +115,8 @@ final class SwaggerDecorator implements OpenApiFactoryInterface
                                 ],
                             ],
                         ],
-                    ])
+                    ]),
                 )
-
-
-
             )
         );
         $openApi->getPaths()->addPath('/api/login', $pathItem);

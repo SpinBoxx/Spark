@@ -21,7 +21,7 @@
         </div>
         <div class="row">
             <div class="FAQ-title">Thèmes</div>
-
+            {% if questions.questions_techniques is defined %}
             <div class="col-sm-4">
                 <div class="card bot-buffer">
                     <div class="card-header">
@@ -45,6 +45,8 @@
                     </div>
                 </div>
             </div>
+            {% endif %}
+            {% if questions.produits is defined %}
             <div class="col-sm-4">
                 <div class="card bot-buffer">
                     <div class="card-header">
@@ -68,6 +70,8 @@
                     </div>
                 </div>
             </div>
+            {% endif %}
+            {% if questions.info is defined %}
             <div class="col-sm-4">
                 <div class="card bot-buffer">
                     <div class="card-header">
@@ -75,7 +79,7 @@
                     </div>
                     <div class="card-body">
                         <div class="accordion accordion-flush" id="accordionFlushInfo">
-                            {% for question in questions.info %}
+                        {% for question in questions.info %}
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="flush-heading{{ question.id }}">
                                         <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#flush-{{ question.id }}" aria-expanded="false" aria-controls="flush-{{ question.id }}">
@@ -86,11 +90,13 @@
                                         <div class="accordion-body">{{ question.reponse }}</div>
                                     </div>
                                 </div>
-                            {% endfor %}
+                            {% endfor %}                          
                         </div>
                     </div>
                 </div>
             </div>
+            {% endif %}
+            {% if questions.commandes is defined %}
             <div class="col-sm-4">
                 <div class="card bot-buffer">
                     <div class="card-header">
@@ -114,6 +120,8 @@
                     </div>
                 </div>
             </div>
+            {% endif %}
+            {% if questions.paiement is defined %}
             <div class="col-sm-4">
                 <div class="card bot-buffer">
                     <div class="card-header">
@@ -138,6 +146,8 @@
                     </div>
                 </div>
             </div>
+            {% endif %}
+            {% if questions.annonces is defined %}
             <div class="col-sm-4">
                 <div class="card bot-buffer">
                     <div class="card-header">
@@ -161,7 +171,7 @@
                     </div>
                 </div>
             </div>
-
+            {% endif %}
         </div>
     </div>
     <div class="js-src-questions" data-questions="{{ autocomplete_q|json_encode|e('html_attr') }}">

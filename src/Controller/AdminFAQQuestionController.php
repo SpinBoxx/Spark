@@ -15,7 +15,12 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class AdminFAQQuestionController extends AbstractController
 {
-    /**
+
+  public function __construct()
+  {
+  }
+
+  /**
      * @Route("/", name="faq_question_index", methods={"GET"})
      */
     public function index(FAQQuestionRepository $fAQQuestionRepository): Response

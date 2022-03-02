@@ -11,10 +11,12 @@ use App\Entity\Quality;
 use App\Entity\Size;
 use App\Entity\State;
 use App\Service\FileUploader;
+use App\Service\MollieService;
 use App\Service\SecurityCheckService;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Mollie\Api\MollieApiClient;
+use phpDocumentor\Reflection\Types\This;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -179,11 +181,12 @@ class ProductController extends AbstractController
    * @return Response
    * @throws Exception
    */
-  public function buy($mollie_apy_key_test){
-    $mollie = new MollieApiClient();
-//    var_dump($mollie_apy_key_test);
-//    die();
-//    $mollie->setApiKey("test_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");
+  public function buy($id, $site_url){
+    $this->mollieService->init();
+    $redirectUrl = $this->redirectToRoute('product_show', ['id' => $id])->getTargetUrl();
+    $mollie = $this->mollieService->createPayement("22.02",$site_url . $redirectUrl, "");
+
+    return $this->redirect($mollie->getCheckoutUrl());
   }
 
   /**

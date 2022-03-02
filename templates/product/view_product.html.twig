@@ -51,7 +51,7 @@
                 </div>
                 <button type="submit" class="send-message-sender btn btn-primary" hidden>Envoyer</button>
                 <div id="buy-div">
-                    <a href="{{ path('product_buy', product.id) }}"  class="btn py-2 mb-4"  style="background: #ffffff; border-color:#000000; width:100%">Acheter</a>
+                    <a href="{{ path('product_buy', {id : product.id}) }}"  class="btn py-2 mb-4"  style="background: #ffffff; border-color:#000000; width:100%">Acheter</a>
                 </div>
                 <div id="res"></div>
             </div>

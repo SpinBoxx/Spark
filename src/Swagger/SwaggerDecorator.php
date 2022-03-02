@@ -100,22 +100,20 @@ final class SwaggerDecorator implements OpenApiFactoryInterface
                         ],
                     ]
                 ],
-                '',
-                '',
+                'Retrieve token',
+                'Retrieve token using credentials',
                 null,
                 [],
                 new Model\RequestBody(
-                    'descrp',
+                    'Credientials object',
                     new \ArrayObject([
-                        'description' => 'Create new JWT Token',
-                        'content' => [
-                            'application/json' => [
-                                'schema' => [
-                                    '$ref' => '#/components/schemas/Credentials',
-                                ],
+                        'application/json' => [
+                            'schema' => [
+                                '$ref' => '#/components/schemas/Credentials',
                             ],
                         ],
-                    ]),
+
+                    ])
                 )
             )
         );

@@ -24,6 +24,11 @@ class AuthenticationSuccessListener
         $data['lastname'] = $user->getLastname();
         $data['firstname'] = $user->getFirstName();
         $data['email'] = $user->getEmail();
+        $data['username'] = $user->getUsername();
+        $data['phone'] = $user->getPhone();
+        $data['city'] = $user->getCity();
+        $data['country'] = $user->getCountry();
+
         $event->setData($data);
     }
 }

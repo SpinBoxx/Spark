@@ -188,7 +188,7 @@ body {}
 }
 
 .show-articles {
-    margin-top: 30px;
+    margin-top: 55px;
     margin-left: 40px;
 }
 
@@ -233,5 +233,4 @@ h2 {
     color: rgba(0, 0, 0, 0.75);
     text-align: left;
     margin-bottom: 0;
-    margin-left: 6rem;
 }

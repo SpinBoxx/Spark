@@ -18,9 +18,9 @@
             </div>
         </div>
     </div>
-    <div class="sports-bar">
-        <h2 class="sports-bar-title">Retrouver vos sports préférés</h2>
-        <div class="image-sport-container text-center">
+    <div class="container mx-auto mt-10">
+        <h2 class="sports-bar-title">Retrouves tes sports préférés</h2>
+        <div class="image-sport-container flex justify-center mt-10">
             <i class="fas fa-chevron-circle-left fa-6x " id="chevron-left"></i>
             {% for i in 0..4 %}
                 <img src="{{ asset('images/accueil/sports/' ~ sports[i]) }}" alt="" id="{{ i + 1 }}" width="150" height="144" >
@@ -28,10 +28,11 @@
             <i class="fas fa-chevron-circle-right fa-6x " id="chevron-right" ></i>
         </div>
     </div>
-    <div class="show-articles mt-4">
-        <h2>Mis en ligne récemment</h2>
+    <div class="container mx-auto flex flex-column mt-10">
+        <h2>Vêtements et articles de sport d’occasion</h2>
+        <h4 style="" class="ml-4 text-gray-500">Récemment mis en ligne</h4>
     </div>
-    <section id="favorite_card_section">
+    <section class="container flex justify-center overflow-x-scroll">
         {% if products is empty %}
             <h1>{{ product_not_found }}</h1>
         {% else %}
@@ -39,8 +40,90 @@
                 {{ block("product_vignette", "/product/vignette_view_product.html.twig") }}
             {% endfor %}
         {% endif %}
-
     </section>
+
+    <div class="container mx-auto md:width-1/2 flex flex-column mt-10 h-70">
+        <div id="left" class="relative">
+            <h3 class="mt-10 bg-black text-white px-3 rounded-md py-2 text-2xl ">Notre sélection de marques de vetements d'occasion</h3>
+            <div class="flex justify-center gap-5 relative mt-3 flex-wrap">
+                {% set brands = ['Nike', 'Adidas', 'Puma','Reebook', 'New Balance', 'Asics'] %}
+                {% for brand in brands %}
+                    <div class="px-6 w-36 mt-3 py-1 bg-white shadow-xl rounded-xl hover:scale-110 flex flex-col items-center cursor-pointer">
+                        <img class="w-28 h-20" src="{{ asset('images/Logo/' ~ brand ~'_logo.png') }}" alt="">
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>x
+    <div class="container mt-20">
+        <h3 class="font-bold">Sois sur de rester à l’actu sur le mercato</h3>
+        <div class="mx-auto flex flex-row gap-20 mt-4 px-10">
+            <div class="flex flex-col mx-auto">
+                <span class="font-bold mx-auto mb-3 text-gray-500">Dernière nouvelle qui va te chambouler</span>
+                <img class="rounded-md cursor-pointer" src="https://referentiel.nouvelobs.com/wsfile/2611343299685.jpg" alt="">
+            </div>
+            <div class="flex flex-col mx-auto">
+                <span class="font-bold mx-auto mb-3 text-gray-500">Dernière nouvelle qui va te chambouler</span>
+                <img class="rounded-md cursor-pointer" src="https://referentiel.nouvelobs.com/wsfile/2611343299685.jpg" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-20">
+        <h3 class="font-bold text-green-600">FindyGo, ta plateforme pour vendre ou acheter des vêtements et matériels de sport d’occassion</h3>
+        <h4 class="font-bold mt-8 ml-4">Notre but : la seconde main à bout de bras</h4>
+        <div class="px-8">
+            <span class="ml-2 text-green-600 font-bold">FinydGo</span> c’est LA plateforme 100% sport qui vous permet de vendre ou même d’acheter des vêtements et matériels de sport. Nous permettons à tout sportif d’avoir
+            l’opportunité de s’équiper à moindre coût et de façon responsable. Grâce à nous, finis les vêtements qui s’entassent dans les étagères et qui y restent.
+            Ce sont pas moins de .. disciplines et .. catégories qui sont présentes sur notre site. Vous trouverez forcément le sport qui vous convient.
+            Idéal pour toutes celles et ceux qui veulent se faire un dressing sportif à pas cher.
+        </div>
+        <h4 class="font-bold mt-6 ml-4">Une démarche éco-responsable</h4>
+        <div class="px-8">
+            <span class="ml-2 text-green-600 font-bold">On</span> le sait, l’industrie du textile est l’une des plus polluantes au monde. Allons tous ensemble, dans la même équipe vers une consommation plus reponsable.
+            Redonons du sens à la mode sportive, en donnant une seconde vie à ces articles encore utilisables pour de nombreuses séances de sport.
+            Faites un geste pour l’environnement et non seulement pour votre porte-monnaie. Le sport de seconde main est à ta portée !
+        </div>
+
+        <div>
+            <h4 class="font-bold mt-6 ml-4">Comment ça marche ?</h4>
+            <div class="flex lg:px-12 flex-row justify-evenly">
+                <div class="hidden lg:block h-96 w-1/2">
+                    <img class="h-full w-full rounded-md " src="https://referentiel.nouvelobs.com/wsfile/2611343299685.jpg" alt="">
+                </div>
+                <div class="ml-10 w-full lg:w-1/2">
+                    <h3 class="text-green-600">Vend en toute simplicité</h3>
+                    <div>
+                        <p>Ne laisse plus traîner ces affaires inutilisées qui s’entassent et prennent de la place, sors-les et direction FindyGo !</p>
+                        <p>1 - Poste ton annonce : Prend de jolies photos pour mettre en valeur ton article, ajoute une description et c’est parti ! Ton article est
+                            en ligne en moins d’1 min.
+                        </p>
+                        <p>2 - Ton article a trouvé un remplaçant, le transfert est en cours.
+                            Assure-toi du bon déroulé du transfert en envoyant l’article dans un emballage sécurisé ou en le remettant directement en main propre à l’acheteur.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex lg:px-12 flex-row-reverse justify-evenly mt-14">
+                <div class="hidden lg:block h-96 w-1/2">
+                    <img class="h-full w-full rounded-md " src="https://referentiel.nouvelobs.com/wsfile/2611343299685.jpg" alt="">
+                </div>
+                <div class="ml-10 lg:ml-0 mr-10 w-full lg:w-1/2">
+                    <h3 class="text-green-600">Achète en toute simplicité</h3>
+                    <div>
+                        <p>Equipez-vous grâce à la communauté FindyGo qui propose des milliers d’articles neufs et d’occassions à petits prix.</p>
+                        <p>1 - Dès que tu as repéré ton produit coup de coeur, ne le laisse pas filer et achète-le. Tu as la possibilité d’utiliser ta carte bancaire mais
+                            aussi Paypal ou encore ton portefeuille virtuel grâce aux ventes que tu auras fait. Toute transaction est sécurisée et protégée.
+                        </p>
+                        <p>2 - Choisis le mode de livraison qui t’arranges le mieux que ce soit en point relais ou à domicile, à toi de choisir ! Nos frais de
+                            livraisons n’excèdent pas les 4,99€ pour une livraison en point relais et 7,99€ pour une livraison à domicile.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <script>
         $('#chevron-left').click(function (){

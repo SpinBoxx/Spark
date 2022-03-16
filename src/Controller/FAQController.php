@@ -19,7 +19,8 @@ class FAQController extends AbstractController
      * ProductController constructor.
      * @param EntityManagerInterface $em
      */
-    public function __construct(EntityManagerInterface $em){
+    public function __construct(EntityManagerInterface $em)
+    {
         $this->em = $em;
     }
     /**
@@ -30,15 +31,16 @@ class FAQController extends AbstractController
         $_themes = $this->em->getRepository(FAQTheme::class)->findAll();
         $all_questions = [];
         /** @var FAQTheme $theme */
-        foreach ($_themes as $theme){
+        foreach ($_themes as $theme) {
             $_questions = $this->em->getRepository(FAQQuestion::class)->findBy(['faq_theme' => $theme->getId()]);
             /** @var FAQQuestion $question */
-            foreach ($_questions as $question){
-                $question_id = $question->getId();
-                $all_questions[$theme->getCode()]['questions'] = $question;
-                $autocomplete_question[] = ["q" => $question->getQuestion(),"id"=>$question_id];
+            foreach ($_questions as $question) {
+                if ($question->getActive()) {
+                    $question_id = $question->getId();
+                    $all_questions[$theme->getCode()]['questions'] = $question;
+                    $autocomplete_question[] = ["q" => $question->getQuestion(), "id" => $question_id];
+                }
             }
-
         }
         return $this->render('faq/index.html.twig', [
             'controller_name' => 'FAQController', 'questions' => $all_questions, "autocomplete_q" => $autocomplete_question,

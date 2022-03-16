@@ -4,10 +4,11 @@ namespace App\Entity;
 
 use App\Repository\CivilityRepository;
 use Doctrine\ORM\Mapping as ORM;
-
+use ApiPlatform\Core\Annotation\ApiResource;
 /**
  * @ORM\Entity(repositoryClass=CivilityRepository::class)
  */
+#[ApiResource]
 class Civility
 {
     /**

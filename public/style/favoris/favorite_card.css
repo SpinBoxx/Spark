@@ -1,157 +1,157 @@
-#favorite_card_section{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 46px;
+#favorite_card_section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-.container-view-product{
-    margin-top: 130px;
+.container-view-product {
+  margin-top: 130px;
 }
-.favorite_card_div{
-    height: 29rem;
-    width: 18rem;
-    background-color: #FFFFFF;
-    margin: 1.5rem;
-    border-radius: 9px;
-    box-shadow: 0px 10px 23px -6px rgba(0, 0, 0, 0.25);
+.favorite_card_div {
+  height: 29rem;
+  width: 18rem;
+  background-color: #ffffff;
+  margin: 1.5rem;
+  border-radius: 9px;
+  box-shadow: 0px 10px 23px -6px rgba(0, 0, 0, 0.25);
 }
 .favorite_card_div > div {
-    display: flex;
-    flex-direction: column;
-    margin: 1rem;
-    height: 90%;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  height: 90%;
 }
-.favorite_card_div_image{
-    height: 60%;
-    width: 100%;
-    background: no-repeat center/50% url(../../images/favoris/raquette.png);
-    background-size:cover;
-    border-radius: 9px;
-    margin-bottom: 5px;
+.favorite_card_div_image {
+  height: 60%;
+  width: 100%;
+  background: no-repeat center/50% url(../../images/favoris/raquette.png);
+  background-size: cover;
+  border-radius: 9px;
+  margin-bottom: 5px;
 }
-.favorite_card_top_line_description{
-    display: flex;
-    height: 4rem;
-    justify-content: space-between;
+.favorite_card_top_line_description {
+  display: flex;
+  height: 4rem;
+  justify-content: space-between;
 }
-.favorite_card_seller{
-    display: flex;
-    margin-top: auto;
-    margin-bottom: auto;
+.favorite_card_seller {
+  display: flex;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 .favorite_card_seller > img {
-    z-index: 1;
-    height: 35px;
-    border-radius: 50%;
+  z-index: 1;
+  height: 35px;
+  border-radius: 50%;
 }
 .favorite_card_seller > div {
-    height: 35px;
-    display: flex;
+  height: 35px;
+  display: flex;
 }
 .favorite_card_seller > div > p {
-    font-family: "Gill Sans", sans-serif;
-    font-weight: 400;
-    font-size: 1rem;
-    margin: auto;
-    color: rgba(0, 0, 0, 0.75);
-    padding-left: 8px;
+  font-family: "Gill Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  margin: auto;
+  color: rgba(0, 0, 0, 0.75);
+  padding-left: 8px;
 }
-.favorite_card_date{
-    display: flex;
+.favorite_card_date {
+  display: flex;
 }
 .favorite_card_date > p {
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-size: 0.9rem;
-    margin: auto;
-    color: rgba(0, 0, 0, 0.75);
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 0.9rem;
+  margin: auto;
+  color: rgba(0, 0, 0, 0.75);
 }
-.favorite_card_description{
-    text-align: left;
-    height: auto;
+.favorite_card_description {
+  text-align: left;
+  height: auto;
 }
 .favorite_card_description > h4 {
-    font-family: "Poppins", sans-serif;
-    font-weight: 700;
-    font-size: 1rem;
-    color: rgba(0, 0, 0, 0.75);
-    margin: 0 0 0.5rem 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.75);
+  margin: 0 0 0.5rem 0;
 }
-.favorite_card_description > p{
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    margin: auto;
-    margin-left: 6px;
-    word-break: break-word;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    font-family: "Georgia", sans-serif;
-    font-weight: 400;
-    font-size: 0.8rem;
-    color: rgba(0, 0, 0, 0.75);
+.favorite_card_description > p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  margin: auto;
+  margin-left: 6px;
+  word-break: break-word;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  font-family: "Georgia", sans-serif;
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: rgba(0, 0, 0, 0.75);
 }
-.favorite_card_sub_line_description{
-    height: 0;
-    display: flex;
-    justify-content: space-between;
-    margin-top: inherit;
+.favorite_card_sub_line_description {
+  height: 0;
+  display: flex;
+  justify-content: space-between;
+  margin-top: inherit;
 }
-.favorite_card_sub_line_description p, .favorite_card_sub_line_description > p > a{
-    margin: 0;
-    font-family: "Poppins", sans-serif;
-    font-weight: 700;
-    font-size: 0.8rem;
-    color: rgba(0, 0, 0, 0.75);
+.favorite_card_sub_line_description p,
+.favorite_card_sub_line_description > p > a {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: rgba(0, 0, 0, 0.75);
 }
-.favorite_card_align_heart{
-    display: flex;
-    justify-content: flex-end;
+.favorite_card_align_heart {
+  display: flex;
+  justify-content: flex-end;
 }
-.favorite_card_heart{
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    background-color: #FFFFFF;
-    position: absolute;
-    margin: 0.5rem;
-    display: flex;
-    justify-content: center;
+.favorite_card_heart {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  position: absolute;
+  margin: 0.5rem;
+  display: flex;
+  justify-content: center;
 }
 .favorite_card_heart > i {
-    font-size: 25px;
-    color: #F26F6F;
-    margin: auto 0;
+  font-size: 25px;
+  color: #f26f6f;
+  margin: auto 0;
 }
-.favorite_card_price{
-    position: absolute;
-    height: 30px;
-    width: auto;
-    text-align: left;
-    background-color: #f6f6f6;
-    border-bottom-right-radius: 6px;
+.favorite_card_price {
+  position: absolute;
+  height: 30px;
+  width: auto;
+  text-align: left;
+  background-color: #f6f6f6;
+  border-bottom-right-radius: 6px;
 }
 
-.favorite_card_price > p{
-    margin-left: 3px;
-    margin-top: 3px;
-    font-weight: bold;
-    font-size: 15px;
+.favorite_card_price > p {
+  margin-left: 3px;
+  margin-top: 3px;
+  font-weight: bold;
+  font-size: 15px;
 }
-.favorite_card_price > p:after{
-    content: "€";
-    margin-right: 3px;
-}
-@media screen and (max-width: 800px) {
-    .favorite_card_div {
-        zoom: 0.9;
-    }
-}
-#favorite_page_complete{
-    margin: 0 4rem;
+.favorite_card_price > p:after {
+  content: "€";
+  margin-right: 3px;
 }
 @media screen and (max-width: 800px) {
-    #favorite_page_complete {
-        margin: 0;
-    }
+  .favorite_card_div {
+    zoom: 0.9;
+  }
+}
+#favorite_page_complete {
+  margin: 0 4rem;
+}
+@media screen and (max-width: 800px) {
+  #favorite_page_complete {
+    margin: 0;
+  }
 }

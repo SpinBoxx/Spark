@@ -21,7 +21,7 @@ class ProductType extends AbstractType
     {
         $builder
             ->add('title', TextType::class, ['required' => true])
-            ->add('description',TextareaType::class, ['required' => true])
+            ->add('description', TextareaType::class, ['required' => true])
             ->add('gender', ChoiceType::class, [
                 'placeholder' => 'Genre',
                 'choices' => [
@@ -30,8 +30,10 @@ class ProductType extends AbstractType
                     'Enfant' => "enfant",
                     'NA' => "na",
                 ],
-                'required' => true])
-            ->add('size', ChoiceType::class, ['placeholder' => 'Taille',
+                'required' => true
+            ])
+            ->add('size', ChoiceType::class, [
+                'placeholder' => 'Taille',
                 'choices' => [
                     'Chaussure' => [
                         '20' => '20',
@@ -45,7 +47,8 @@ class ProductType extends AbstractType
                         'XL' => 'xl',
                     ],
                 ],
-                'required' => true])
+                'required' => true
+            ])
             ->add('brand', ChoiceType::class, ['placeholder' => 'Marque du produit'])
             ->add('quality', ChoiceType::class, ['required' => true, 'placeholder' => 'Qualité du produit'])
             ->add('category', ChoiceType::class, ['required' => true, 'placeholder' => 'Catégorie'])
@@ -53,7 +56,7 @@ class ProductType extends AbstractType
             ->add('color_primary', ColorType::class, ['required' => true])
             ->add('color_secondary', ColorType::class)
             ->add('link', TextType::class)
-            ->add('picture_product', FileType::class, [
+            ->add('image_path', FileType::class, [
                 'label' => 'Uniquements les fichiers du type .jpg .jpeg .png sont acceptés.',
                 'multiple' => true,
                 'attr'     => [
@@ -61,8 +64,7 @@ class ProductType extends AbstractType
                     'multiple' => 'multiple'
                 ]
             ])
-            ->add('save', SubmitType::class, ['label' => 'Déposer mon annonce'])
-        ;
+            ->add('save', SubmitType::class, ['label' => 'Déposer mon annonce']);
     }
 
     public function configureOptions(OptionsResolver $resolver)

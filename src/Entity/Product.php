@@ -2,127 +2,157 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiFilter;
+use Symfony\Component\Serializer\Annotation\Groups;
 use App\Repository\ProductRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints\Date;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\RangeFilter;
+
 
 /**
+ *
+ * @ApiResource(
+ *      itemOperations={"get"},
+ *      collectionOperations={
+ *         "get",
+ *         "post"={"security"="is_granted('ROLE_USER')"}
+ *     },
+ *  normalizationContext={"groups"={"product:read"}},
+ *  denormalizationContext={"groups"={"product:write"}}
+ *     
+ * )
+ * @ApiFilter(RangeFilter::class, properties={"price"})
+ * @ApiFilter(SearchFilter::class, properties={"title": "partial"})
  * @ORM\Entity(repositoryClass=ProductRepository::class)
+ * 
  */
 class Product
 {
     /**
+     * @Groups({"product:read"})
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * 
      */
     private $id;
 
     /**
+     * 
      * @ORM\ManyToOne(targetEntity=User::class)
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
 
     /**
+     * 
      * @ORM\ManyToOne(targetEntity=State::class)
      * @ORM\JoinColumn(nullable=true)
      */
     private $state;
 
     /**
+     * @Groups({"product:write","product:read"})
      * @ORM\Column(type="string", length=255)
      */
     private $title;
 
     /**
+     * @Groups({"product:write","product:read"})
      * @ORM\Column(type="text")
      */
     private $description;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Groups({"product:read"})
      */
     private $image_path;
 
     /**
+     * @Groups({"product:read"})
      * @ORM\ManyToOne(targetEntity=Gender::class)
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $gender;
 
     /**
      * @ORM\ManyToOne(targetEntity=Size::class)
-     * @ORM\JoinColumn(nullable=false)
+     * @Groups({"product:write","product:read"})
+     * @ORM\JoinColumn(nullable=true)
      */
     private $size;
 
     /**
+     * @Groups({"product:read"})
      * @ORM\ManyToOne(targetEntity=Color::class)
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $color_primary;
 
     /**
+     * @Groups({"product:read"})
      * @ORM\ManyToOne(targetEntity=Color::class)
      */
     private $color_secondary;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     * @ORM\JoinColumn(nullable=false)
+     * @Groups({"product:read","product:write"})
+     * @ORM\ManyToOne(targetEntity=Brand::class)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $brand;
 
     /**
+     * @Groups({"product:read"})
      * @ORM\ManyToOne(targetEntity=Quality::class)
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $quality;
 
     /**
      * @ORM\ManyToOne(targetEntity=Category::class)
-     * @ORM\JoinColumn(nullable=false)
+     * @Groups({"product:read"})
+     * @ORM\JoinColumn(nullable=true)
      */
     private $category;
 
     /**
+     * @Groups({"product:write","product:read"})
      * @ORM\Column(type="float")
      */
     private $price;
 
     /**
+     * @Groups({"product:read"})
      * @ORM\Column(type="text", nullable=true)
      */
     private $link;
 
     /**
+     * @Groups({"product:read"})
      * @ORM\Column(type="datetime")
      */
     private $creation_datetime;
 
     /**
+     * @Groups({"product:read"})
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $update_datetime;
 
-    /**
-     * Product constructor.
-     * @param User $user
-     * @param State $state
-     * @param Gender $gender
-     * @param Color $color_primary
-     * @param $title
-     * @param $description
-     * @param $size
-     * @param $brand
-     * @param $category
-     * @param $price
-     * @param Quality $quality
-     */
+
     public function __construct()
     {
-        $this->setCreationDatetime(new \DateTime('now'));
+        $this->setCreationDatetime(new \DateTime("now"));
+    }
+
+    public function setId(int $id)
+    {
+        $this->$id = $id;
     }
 
     public function getId(): ?int
@@ -270,7 +300,7 @@ class Product
     /**
      * @param mixed $quality
      */
-    public function setQuality($quality): void
+    public function setQuality(Quality $quality): void
     {
         $this->quality = $quality;
     }

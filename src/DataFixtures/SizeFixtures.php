@@ -22,9 +22,9 @@ class SizeFixtures extends Fixture
             ['xxxs', 'XXXS']
         ];
         $i = 0;
-        foreach ($sizes as $size){
+        foreach ($sizes as $size) {
             $_size = $manager->getRepository(Size::class)->findOneBy(['code' => $size[0]]);
-            if(!($_size instanceof Size)){
+            if (!($_size instanceof Size)) {
                 $manager->persist(new Size($size[0], $size[1]));
                 $manager->flush();
                 $i++;

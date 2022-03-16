@@ -3,9 +3,18 @@
 namespace App\Entity;
 
 use App\Repository\SizeRepository;
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
+ * @ApiResource(
+ * itemOperations={"get"},
+ *      collectionOperations={
+ *         "get",
+ *         "post"={"security"="is_granted('ROLE_ADMIN')"}
+ *     },
+ * )
  * @ORM\Entity(repositoryClass=SizeRepository::class)
  */
 class Size
@@ -18,26 +27,28 @@ class Size
     private $id;
 
     /**
+     * @Groups({"product:read"})
      * @ORM\Column(type="string", length=255)
      */
     private $code;
 
     /**
+     * @Groups({"product:read"})
      * @ORM\Column(type="string", length=255)
      */
     private $label;
 
-  /**
-   * @param $code
-   * @param $label
-   */
-  public function __construct($code, $label)
+    /**
+     * @param $code
+     * @param $label
+     */
+    public function __construct($code, $label)
     {
-      $this->code = $code;
-      $this->label = $label;
+        $this->code = $code;
+        $this->label = $label;
     }
 
-  public function getId(): ?int
+    public function getId(): ?int
     {
         return $this->id;
     }

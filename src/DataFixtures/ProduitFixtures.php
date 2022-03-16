@@ -7,9 +7,10 @@ use App\Entity\Color;
 use App\Entity\Gender;
 use App\Entity\Product;
 use App\Entity\Quality;
-use App\Entity\Size;
 use App\Entity\State;
 use App\Entity\User;
+use App\Entity\Brand;
+use App\Entity\Size;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
@@ -19,23 +20,24 @@ class ProduitFixtures extends Fixture implements DependentFixtureInterface
     public function load(ObjectManager $manager)
     {
         $admin = $manager->getRepository(User::class)->findOneBy(['username' => 'admin']);
-        $state = $manager->getRepository(State::class)->findOneBy(['code'=>'en_vente']);
-        $gender = $manager->getRepository(Gender::class)->findOneBy(['code'=> 'homme']);
-        $color = $manager->getRepository(Color::class)->findOneBy(['code'=> 'rouge']);
-        $quality = $manager->getRepository(Quality::class)->findOneBy(['code'=> 'neuf_avec_etiquette']);
+        $state = $manager->getRepository(State::class)->findOneBy(['code' => 'en_vente']);
+        $gender = $manager->getRepository(Gender::class)->findOneBy(['code' => 'homme']);
+        $color = $manager->getRepository(Color::class)->findOneBy(['code' => 'red']);
+        $quality = $manager->getRepository(Quality::class)->findOneBy(['code' => 'neuf_avec_etiquette']);
+        $brand = $manager->getRepository(Brand::class)->findOneBy(['code' => 'ADI']);
+        $size = $manager->getRepository(Size::class)->findOneBy(['code' => 'M']);
         $category = $manager->getRepository(Category::class)->findOneBy(['code' => "short"]);
-        $size = $manager->getRepository(Size::class)->findOneBy(['code' => 'l']);
 
 
         $products = [
-            [$admin, $state, $gender, $color, "article", "description", $size,'Nike', $category, 100, $quality],
-            [$admin, $state, $gender, $color, "article", "description", $size,'Nike',  $category, 100, $quality],
-            [$admin, $state, $gender, $color, "article", "description", $size,'Nike',  $category, 100, $quality],
+            [$admin, $state, $gender, $color, "article", "description", $size, $brand, $category, 100, $quality],
+            [$admin, $state, $gender, $color, "article", "description", $size, $brand,  $category, 100, $quality],
+            [$admin, $state, $gender, $color, "article", "description", $size, $brand,  $category, 100, $quality],
         ];
         $i = 0;
-        foreach ($products as $product){
+        foreach ($products as $product) {
             $_product = $manager->getRepository(Product::class)->findOneBy(['title' => $product[4] . $i]);
-            if(!$_product instanceof Product){
+            if (!$_product instanceof Product) {
                 $_product = new Product();
                 $_product->setUser($product[0]);
                 $_product->setState($product[1]);

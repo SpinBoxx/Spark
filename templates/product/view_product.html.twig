@@ -4,13 +4,13 @@
 {% endblock %} {% block javascript %}
 <script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/toastr.min.js"></script>
 {% endblock %} {% block body %}
-<div class="px-5 py-4">
-  <div class="row text-dark container-view-product">
+<div class="sm:p-2 md:px-5 md:py-4">
+  <div class="w-full text-dark">
     <h4 class="mb-4">{{ product.title }}</h4>
     <div
-      class="rounded-xl overflow-hidden border-neutral-400 col-12 border p-0 m-0"
+      class="rounded-t-xl pb-2 overflow-hidden border-neutral-400 col-12 border p-0 m-0"
     >
-      <div class="col-12 d-flex align-items-center justify-between bg-main p-4">
+      <div class="w-full flex items-center justify-between bg-main p-4">
         <div>
           <div>
             <span class="font-bold">Categorie : </span>
@@ -26,53 +26,45 @@
           <div>EUROS</div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-5">
+      <div class="w-full p-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div>
           <div class="text-center">
             <img src={{ asset("images/favoris/raquette.png") }} alt=""
-            style="width: 540px" class="my-5" id="main-img" class="main-img">
+            style="width: 540px" class="mb-2" id="main-img" class="main-img">
           </div>
           <div class="row text-dark">
-            <div class="col-sm">
+            <div class="">
               <img src={{ asset("images/favoris/ballon.jpg") }} alt=""
               style="width: 125px" id="2-img" class="second-img">
             </div>
-            <div class="col-sm">
+            <div class="">
               <img src={{ asset("images/favoris/raquette.png") }} alt=""
               style="width: 125px" id="3-img" class="second-img">
             </div>
-            <div class="col-sm">
+            <div>
               <img src={{ asset("images/favoris/raquette.png") }} alt=""
               style="width: 125px" id="4-img" class="second-img">
             </div>
-            <div class="col-sm">
-              <img src={{ asset("images/favoris/raquette.png") }} alt=""
-              style="width: 125px" id="5-img" class="second-img">
-            </div>
-            <div class="col-sm">
-              <img src={{ asset("images/favoris/raquette.png") }} alt=""
-              style="width: 125px" id="6-img" class="second-img">
-            </div>
           </div>
         </div>
-        <div class="col-7 p-4">
-          <div class="d-flex align-items-center justify-between">
+        <div>
+          <div class="flex-col sm:flex-row mb-2 flex items-center justify-between">
             <div
+            class="flex items-center"
               style="
                 font-style: normal;
                 font-weight: 600;
                 font-size: 36px;
                 line-height: 54px;
               "
-            >
+            > <span class="h-10 w-10 mr-2 inline-block rounded-full bg-main  border-1"></span>
               {{ product.user.username }}
             </div>
             <button
               type="submit"
-              class="btn"
+              class="btn shadow-md"
               style="
                 font-size: 14px;
-                filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
                 background: white;
                 color: #6fcf97;
                 border-radius: 6px;
@@ -86,69 +78,58 @@
           <p>{{ product.description }}</p>
 
           <p>
-            <span class="font-bold">Marque : </span>{{ product.brand.label }}
+            <span class="font-bold">Marque :  {{ product.brand.label }} </span>
           </p>
           <p>
-            <span class="font-bold">Taille : </span>{{ product.size.label }}
+            <span class="font-bold">Taille : {{ product.size.label }} </span>
           </p>
           <p>
-            <span class="font-bold">Qualité : </span>{{ product.quality.label }}
+            <span class="font-bold">Qualité : {{ product.quality.label }}</span>
           </p>
-          <p>
-            <span class="font-bold">Couleur principale : </span>
-            <span
-              style="height: 15px;
-          width: 15px;
-          border: 1px solid black; 
-          background-color: {{ product.colorPrimary.hexColor }};
-          border-radius: 50%;
-          display: inline-block;"
-            ></span>
-
-            {{ product.colorPrimary.label }}
-          </p>
-          {% if product.colorSecondary %}
-          <span class="font-bold">Couleur secondaire : </span>
-          <span
-            style="height: 15px;
-        width: 15px;
-        border: 1px solid black; 
-        background-color: {{ product.colorSecondary.hexColor }};
-        border-radius: 50%;
-        display: inline-block;"
-          ></span>
-
-          {{ product.colorSecondary.label }}
-        </p>
+          <p class="flex items-center">
+            <span class="font-bold">Couleurs :    <span
+              class="mx-2 inline-block rounded-full w-5 h-5 shadow-md"
+                style="
+            background-color: {{ product.colorPrimary.hexColor }};"            >
+            </span>
+            {% if product.colorSecondary %}
+              <span
+              class="mx-2 inline-block rounded-full w-5 h-5 shadow-md"
+                style="
+            background-color: {{ product.colorSecondary.hexColor }};">
+            </span></span>
+         
         {% endif %}
-          <hr />
-          <div class="row">
-            <div class="col-6">
+        {% if product.user.city %}
+        <p>
+          <span class="font-bold">Emplacement : </span>{{product.user.city }}
+        </p>
+    {% endif %}
+          </p>
+            <div>
               <button
                 type="submit"
-                class="btn text-white border-0"
+                class="mb-8 btn shadow-md rounded p-2 text-white border-0"
                 style="
                   font-size: 14px;
-                  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
                   background: #262a5c;
-                  border-radius: 6px;
-                  width: 100%;
                 "
               >
                 Demander une offre
               </button>
-            </div>
           </div>
 
           {% if sended is defined %}{{ sended }}{% endif %}
+
+          <a href="#" class="underline font-bold pointer">Voir les autres articles de ce vendeur</a>
         </div>
       </div>
     </div>
   </div>
 
-  <div>
+  <div class="mt-5">
     <h3>Article similaires</h3>
-    <section class="py-4" id="favorite_card_section">
+    <section class="py-2" id="favorite_card_section">
       {% for product in related_products %}
       {{
         include("/product/vignette_view_product.html.twig", {

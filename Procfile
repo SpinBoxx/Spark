@@ -1,1 +1,1 @@
-vendor/bin/spark public/
+web: heroku-php-apache2 public/

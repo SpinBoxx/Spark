@@ -2,7 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-
 body {
-    background-color: lightgray;
+  background-color: lightgray;
+}
+
+.bg-main {
+  background-color: #6fcf97;
 }

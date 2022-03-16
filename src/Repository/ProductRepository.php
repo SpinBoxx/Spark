@@ -44,6 +44,14 @@ class ProductRepository extends ServiceEntityRepository
             ->setParameter('filter', '%' . $filter . '%')
             ->getQuery()
             ->getResult();
-        ;
+    }
+
+    public function findByCategory($categoryId)
+    {
+        return $this->createQueryBuilder('product')
+            ->andWhere('product.category = :catId')
+            ->setParameter('catId', $categoryId)
+            ->getQuery()
+            ->getResult();
     }
 }

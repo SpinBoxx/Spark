@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+	{{ title }}
+{% endblock %}
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('style/favoris/favorite_card.css')}}">
+{% endblock %}
+{% block body %}
+	{% if products is empty %}
+		<h1>Aucun produits</h1>
+	{% else %}
+		<div class="flex flex-wrap justify-center">
+			{% for product in products %}
+				{{ block("product_vignette", "/product/vignette_view_product.html.twig") }}
+			{% endfor %}
+		</div>
+	{% endif %}
+
+{% endblock %}

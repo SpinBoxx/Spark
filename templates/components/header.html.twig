@@ -93,49 +93,32 @@
 			<div class="row bg-light text-dark background-header-gender" id="{{ genderEn[i] }}-window" style="margin-left: -1rem">
 				<div class="col-sm-3 mb-3" id="{{ genderEn[i] }}-div">
 					<h5 class="menu-subtitle">{{ gender[i] }}</h5>
-					{# https://www.flaticon.com/packs/men-fashion?word=wear #}
-					<a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/clothing/034-Sportswear.svg')}}><p class="menu-item">... Tous les produits</p>
-					</a>
-					<a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/clothing/new.svg')}}><p class="menu-item">Nouveauté</p>
-					</a>
-					<a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/clothing/041-tshirt.svg')}}><p class="menu-item">T-shirt</p>
-					</a>
-					<a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/clothing/029-shirt.svg')}}><p class="menu-item">Polo</p>
-					</a>
-					<a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/clothing/019-trousers.svg')}}><p class="menu-item">Pantalon</p>
-					</a>
-					<a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/clothing/030-pants.svg')}}><p class="menu-item">Short</p>
-					</a>
-					<a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/clothing/032-sneaker.svg')}}><p class="menu-item">Chaussures</p>
-					</a>
+					{% for category in getAllCategories() %}
+						{% if loop.index < 5 %}
+							<a href="{{ path('product_category', {category: category.label}) }}" class="link">
+								<p>{{category.label | capitalize}}</p>
+							</a>
+						{% endif %}
+					{% endfor %}
 				</div>
 				<div class="col-sm-3 mb-3">
 					<h5 class="menu-subtitle">{{ other[0] }}</h5>
-					{# https://www.flaticon.com/packs/sport-equipment-33?word=wear #}
 					<a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/sports/045-whistle.svg')}}><p class="menu-item">... Tous les sports</p>
 					</a>
-					<a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/sports/017-goal.svg')}}><p class="menu-item">Football</p>
-					</a>
-					<a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/sports/035-rugby.svg')}}><p class="menu-item">Rugby</p>
-					</a>
-					<a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/sports/042-tennis.svg')}}><p class="menu-item">Tennis</p>
-					</a>
-					<a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/sports/001-basketball-ball.svg')}}><p class="menu-item">Basket-ball</p>
-					</a>
-					<a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/sports/009-boxing-gloves.svg')}}><p class="menu-item">Boxe</p>
-					</a>
-					<a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/sports/018-golf.svg')}}><p class="menu-item">Golf</p>
-					</a>
-					<a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/sports/005-bicycle.svg')}}><p class="menu-item">Cyclisme</p>
-					</a>
-					<a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/sports/041-swimming-pool.svg')}}><p class="menu-item">Natation</p>
-					</a>
+					{% for sport in getAllSports() %}
+						{% if loop.index < 5 %}
+							<a href="#" target="_blank" class="link">
+								<p>{{sport.name | capitalize}}</p>
+							</a>
+						{% endif %}
+					{% endfor %}
 				</div>
 				<div class="col-sm-3 mb-3">
 					<h5 class="menu-subtitle">{{ other[1] }}</h5>
 					{% for brand in getAllBrands() %}
 						{% if loop.index < 5 %}
-							<a href="#" target="_blank" class="link"><img class="menu-icon" src={{ asset('images/header/shopping-cart.svg')}}><p>{{brand.label}}</p>
+							<a href="{{ path('product_brand', {brand: brand.label}) }}" class="link">
+								<p>{{brand.label}}</p>
 							</a>
 						{% endif %}
 					{% endfor %}

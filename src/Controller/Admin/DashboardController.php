@@ -42,7 +42,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Qualité', 'fas fa-medal', Quality::class);
         yield MenuItem::linkToCrud('Categorie', 'fas fa-box', Category::class);
         yield MenuItem::linkToCrud('Taille', 'fas fa-tshirt', Size::class);
-        yield MenuItem::linkToCrud('Sport', 'fas fa-sport', Sport::class);
+        yield MenuItem::linkToCrud('Sport', 'fas fa-futbol', Sport::class);
     }
 
     public function configureAssets(): Assets

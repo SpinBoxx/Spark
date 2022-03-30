@@ -2,12 +2,12 @@
 
 namespace App\Twig;
 
-use App\Entity\Sport;
+use App\Entity\Category;
 use Doctrine\ORM\EntityManagerInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
-class SportTwig extends AbstractExtension
+class CategoryTwig extends AbstractExtension
 {
     private EntityManagerInterface $em;
 
@@ -22,14 +22,14 @@ class SportTwig extends AbstractExtension
     public function getFunctions()
     {
         return [
-            new TwigFunction('getAllSports', [$this, 'getAllSports']),
+            new TwigFunction('getAllCategories', [$this, 'getAllCategories']),
         ];
     }
 
-    public function getAllSports()
+    public function getAllCategories()
     {
-        $sports = $this->em->getRepository(Sport::class)->findAll();
+        $category = $this->em->getRepository(Category::class)->findAll();
 
-        return $sports;
+        return $category;
     }
 }

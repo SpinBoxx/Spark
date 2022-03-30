@@ -1,0 +1,36 @@
+{% extends "@EasyAdmin/page/content.html.twig" %}
+{% block content %}
+	<div>
+		<h1>Bienvenue sur le tableau d'administration</h1>
+		<p>Ici, vous pouvez gérer plusieurs entités utilisées sur le site. Plusieurs actions sont possible,
+			<strong>la création</strong>,
+			<strong>la modification</strong>
+			ou
+			<strong>la supression</strong>
+		</p>
+		<p>
+			<ul class="list p-0">
+				<li>
+					<h1>Catégorie</h1>
+					<p>Les catégories sont liés aux produits, par exemple chaussures, short...</p>
+				</li>
+				<li>
+					<h1>FAQ Question</h1>
+					<p>Les FAQ Questions sont utilisées sur la page FAQ, une FAQ question est obligatoirement lié à un FAQ theme</p>
+				</li>
+				<li>
+					<h1>FAQ Theme</h1>
+					<p>Les FAQ Theme sont utilisées sur la page FAQ</p>
+				</li>
+				<li>
+					<h1>Qualité</h1>
+					<p>Les qualités sont utilisées pour définir l'état d'un produit</p>
+				</li>
+				<li>
+					<h1>Marque</h1>
+					<p>L'onglet marque permet de définir des marques qui seront présentes dans le formulaire d'ajout d'une annonce</p>
+				</li>
+			</ul>
+		</p>
+	</div>
+{% endblock %}

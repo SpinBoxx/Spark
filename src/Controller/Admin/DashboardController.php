@@ -13,6 +13,7 @@ use App\Entity\FAQQuestion;
 use App\Entity\FAQTheme;
 use App\Entity\Quality;
 use App\Entity\Size;
+use App\Entity\Sport;
 
 class DashboardController extends AbstractDashboardController
 {
@@ -40,5 +41,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Qualité', 'fas fa-medal', Quality::class);
         yield MenuItem::linkToCrud('Categorie', 'fas fa-box', Category::class);
         yield MenuItem::linkToCrud('Taille', 'fas fa-tshirt', Size::class);
+        yield MenuItem::linkToCrud('Sport', 'fas fa-sport', Sport::class);
     }
 }

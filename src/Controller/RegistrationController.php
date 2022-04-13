@@ -144,6 +144,15 @@ class RegistrationController extends AbstractController
     public function passwordForget(Request $request){
       $mail = $request->request->get('email');
       $regex = "^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$^";
+
+      $client = new \GuzzleHttp\Client();
+      $response = $client->request('GET', 'https://api.sendinblue.com/v3/emailCampaigns/6', [
+        'headers' => [
+          'Accept' => 'application/json',
+          'api-key' => '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',
+        ],
+      ]);
+
       if(preg_match($regex, $mail, $matches)){
           $mj = new Client('aab026f86b414066c7c611daf00b222a','526e725c9a32bea53c0e16178b850491',true,['version' => 'v3.1']);
           $body = [
@@ -156,12 +165,12 @@ class RegistrationController extends AbstractController
                       'To' => [
                           [
                               'Email' => $mail,
-                              'Name' => "quentin"
+                              'Name' => ""
                           ]
                       ],
                       'Subject' => "Récupération du mot de passe",
                       'TextPart' => "My first Mailjet email",
-                      'HTMLPart' => "<h3>Salut jeune sportif, voici le lien pour retrouver ton mot de passe : <a href='localhost/SymfTest/public/index.php'>Spark.fr</a>!</h3>",
+                      'HTMLPart' => str_replace('{{contact.EMAIL}}', $mail,json_decode($response->getBody())->htmlContent),
                   ]
               ]
           ];

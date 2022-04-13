@@ -1,7 +1,4 @@
 {
-    "api-platform/api-pack": {
-        "version": "v1.3.0"
-    },
     "api-platform/core": {
         "version": "2.5",
         "recipe": {
@@ -161,12 +158,6 @@
     "laminas/laminas-code": {
         "version": "3.4.1"
     },
-    "laminas/laminas-eventmanager": {
-        "version": "3.3.1"
-    },
-    "laminas/laminas-zendframework-bridge": {
-        "version": "1.2.0"
-    },
     "lcobucci/clock": {
         "version": "2.0.0"
     },
@@ -211,12 +202,6 @@
     },
     "nikic/php-parser": {
         "version": "v4.10.2"
-    },
-    "ocramius/proxy-manager": {
-        "version": "2.8.0"
-    },
-    "php": {
-        "version": "7.4"
     },
     "php-flasher/flasher": {
         "version": "v0.4.7"
@@ -484,9 +469,6 @@
     "symfony/options-resolver": {
         "version": "v5.1.7"
     },
-    "symfony/orm-pack": {
-        "version": "v2.0.0"
-    },
     "symfony/password-hasher": {
         "version": "v5.3.8"
     },
@@ -626,9 +608,6 @@
             "./config/packages/twig.yaml",
             "./templates/base.html.twig"
         ]
-    },
-    "symfony/twig-pack": {
-        "version": "v1.0.0"
     },
     "symfony/uid": {
         "version": "v5.3.14"

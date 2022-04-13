@@ -27,10 +27,8 @@ class Quality
      */
     private $label;
 
-    public function __construct($code, $label)
+    public function __construct()
     {
-        $this->code = $code;
-        $this->label = $label;
     }
 
     public function getId(): ?int

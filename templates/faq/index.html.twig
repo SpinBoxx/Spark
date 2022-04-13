@@ -1,183 +1,189 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello FAQController!{% endblock %}
+{% block title %}Hello FAQController!
+{% endblock %}
 
- {% block stylesheets %}
-     <link rel="stylesheet" href="{{ asset('style/faq/autocomplete_field.css') }}"/>
-     <link rel="stylesheet" href="{{ asset('style/faq/FAQ.css') }}"/>
- {% endblock %}
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('style/faq/autocomplete_field.css') }}"/>
+	<link rel="stylesheet" href="{{ asset('style/faq/FAQ.css') }}"/>
+{% endblock %}
 
 {% block body %}
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <div class="FAQ-title">Service Client</div>
-                <div class="form-group has-search">
-                    <div class="autoComplete_wrapper" >
-                    <input type="search"  id="autoComplete"  class="form-control rounded-pill" placeholder="Une question ?">
-                </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="FAQ-title">Thèmes</div>
-            {% if questions.questions_techniques is defined %}
-            <div class="col-sm-4">
-                <div class="card bot-buffer">
-                    <div class="card-header">
-                        <span class="fa fa-cogs"></span> Questions techniques
-                    </div>
-                    <div class="card-body">
-                        <div class="accordion accordion-flush" id="accordionFlushTech">
-                            {% for question in questions.questions_techniques %}
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-heading{{ question.id }}">
-                                        <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#flush-{{ question.id }}" aria-expanded="false" aria-controls="flush-{{ question.id }}">
-                                            {{ question.question }}
-                                        </button>
-                                    </h2>
-                                    <div id="flush-{{ question.id }}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{ question.id }}" data-parent="#accordionFlushTech">
-                                        <div class="accordion-body">{{ question.reponse }}</div>
-                                    </div>
-                                </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endif %}
-            {% if questions.produits is defined %}
-            <div class="col-sm-4">
-                <div class="card bot-buffer">
-                    <div class="card-header">
-                        <span class="fa fa-search"></span> Produits
-                    </div>
-                    <div class="card-body">
-                        <div class="accordion accordion-flush" id="accordionFlushProduits">
-                            {% for question in questions.produits %}
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-heading{{ question.id }}">
-                                        <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#flush-{{ question.id }}" aria-expanded="false" aria-controls="flush-{{ question.id }}">
-                                            {{ question.question }}
-                                        </button>
-                                    </h2>
-                                    <div id="flush-{{ question.id }}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{ question.id }}" data-parent="#accordionFlushProduits">
-                                        <div class="accordion-body">{{ question.reponse }}</div>
-                                    </div>
-                                </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endif %}
-            {% if questions.info is defined %}
-            <div class="col-sm-4">
-                <div class="card bot-buffer">
-                    <div class="card-header">
-                        <span class="fa fa-truck"></span> Infos et livraisons
-                    </div>
-                    <div class="card-body">
-                        <div class="accordion accordion-flush" id="accordionFlushInfo">
-                        {% for question in questions.info %}
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-heading{{ question.id }}">
-                                        <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#flush-{{ question.id }}" aria-expanded="false" aria-controls="flush-{{ question.id }}">
-                                            {{ question.question }}
-                                        </button>
-                                    </h2>
-                                    <div id="flush-{{ question.id }}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{ question.id }}" data-parent="#accordionFlushInfo">
-                                        <div class="accordion-body">{{ question.reponse }}</div>
-                                    </div>
-                                </div>
-                            {% endfor %}                          
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endif %}
-            {% if questions.commandes is defined %}
-            <div class="col-sm-4">
-                <div class="card bot-buffer">
-                    <div class="card-header">
-                        <span class="fa fa-cubes"></span> Commandes
-                    </div>
-                    <div class="card-body">
-                        <div class="accordion accordion-flush" id="accordionFlushCommandes">
-                            {% for question in questions.commandes %}
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-heading{{ question.id }}">
-                                        <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#flush-{{ question.id }}" aria-expanded="false" aria-controls="flush-{{ question.id }}">
-                                            {{ question.question }}
-                                        </button>
-                                    </h2>
-                                    <div id="flush-{{ question.id }}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{ question.id }}" data-parent="#accordionFlushCommandes">
-                                        <div class="accordion-body">{{ question.reponse }}</div>
-                                    </div>
-                                </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endif %}
-            {% if questions.paiement is defined %}
-            <div class="col-sm-4">
-                <div class="card bot-buffer">
-                    <div class="card-header">
-                        <span class="fa fa-credit-card"></span> Paiement
-                    </div>
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<div class="FAQ-title">Service Client</div>
+				<div class="form-group has-search">
+					<div class="autoComplete_wrapper">
+						<input type="search" id="autoComplete" class="form-control rounded-pill" placeholder="Une question ?">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="FAQ-title">Thèmes</div>
+			{% if questions.questions_techniques is defined %}
+				<div class="col-sm-4">
+					<div class="card bot-buffer">
+						<div class="card-header">
+							<span class="fa fa-cogs"></span>
+							Questions techniques
+						</div>
+						<div class="card-body">
+							<div class="accordion accordion-flush" id="accordionFlushTech">
+								{% for question in questions.questions_techniques %}
+									<div class="accordion-item">
+										<h2 class="accordion-header" id="flush-heading{{ question.id }}">
+											<button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#flush-{{ question.id }}" aria-expanded="false" aria-controls="flush-{{ question.id }}">
+												{{ question.question }}
+											</button>
+										</h2>
+										<div id="flush-{{ question.id }}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{ question.id }}" data-parent="#accordionFlushTech">
+											<div class="accordion-body">{{ question.reponse }}</div>
+										</div>
+									</div>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+				</div>
+			{% endif %}
+			{% if questions.produits is defined %}
+				<div class="col-sm-4">
+					<div class="card bot-buffer">
+						<div class="card-header">
+							<span class="fa fa-search"></span>
+							Produits
+						</div>
+						<div class="card-body">
+							<div class="accordion accordion-flush" id="accordionFlushProduits">
+								{% for question in questions.produits %}
+									<div class="accordion-item">
+										<h2 class="accordion-header" id="flush-heading{{ question.id }}">
+											<button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#flush-{{ question.id }}" aria-expanded="false" aria-controls="flush-{{ question.id }}">
+												{{ question.question }}
+											</button>
+										</h2>
+										<div id="flush-{{ question.id }}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{ question.id }}" data-parent="#accordionFlushProduits">
+											<div class="accordion-body">{{ question.reponse }}</div>
+										</div>
+									</div>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+				</div>
+			{% endif %}
+			{% if questions.info is defined %}
+				<div class="col-sm-4">
+					<div class="card bot-buffer">
+						<div class="card-header">
+							<span class="fa fa-truck"></span>
+							Infos et livraisons
+						</div>
+						<div class="card-body">
+							<div class="accordion accordion-flush" id="accordionFlushInfo">
+								{% for question in questions.info %}
+									<div class="accordion-item">
+										<h2 class="accordion-header" id="flush-heading{{ question.id }}">
+											<button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#flush-{{ question.id }}" aria-expanded="false" aria-controls="flush-{{ question.id }}">
+												{{ question.question }}
+											</button>
+										</h2>
+										<div id="flush-{{ question.id }}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{ question.id }}" data-parent="#accordionFlushInfo">
+											<div class="accordion-body">{{ question.reponse }}</div>
+										</div>
+									</div>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+				</div>
+			{% endif %}
+			{% if questions.commandes is defined %}
+				<div class="col-sm-4">
+					<div class="card bot-buffer">
+						<div class="card-header">
+							<span class="fa fa-cubes"></span>
+							Commandes
+						</div>
+						<div class="card-body">
+							<div class="accordion accordion-flush" id="accordionFlushCommandes">
+								{% for question in questions.commandes %}
+									<div class="accordion-item">
+										<h2 class="accordion-header" id="flush-heading{{ question.id }}">
+											<button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#flush-{{ question.id }}" aria-expanded="false" aria-controls="flush-{{ question.id }}">
+												{{ question.question }}
+											</button>
+										</h2>
+										<div id="flush-{{ question.id }}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{ question.id }}" data-parent="#accordionFlushCommandes">
+											<div class="accordion-body">{{ question.reponse }}</div>
+										</div>
+									</div>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+				</div>
+			{% endif %}
+			{% if questions.paiement is defined %}
+				<div class="col-sm-4">
+					<div class="card bot-buffer">
+						<div class="card-header">
+							<span class="fa fa-credit-card"></span>
+							Paiement
+						</div>
 
-                    <div class="card-body">
-                        <div class="accordion accordion-flush" id="accordionFlushPaiement">
-                            {% for question in questions.paiement %}
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-heading{{ question.id }}">
-                                        <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#flush-{{ question.id }}" aria-expanded="false" aria-controls="flush-{{ question.id }}">
-                                            {{ question.question }}
-                                        </button>
-                                    </h2>
-                                    <div id="flush-{{ question.id }}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{ question.id }}" data-parent="#accordionFlushPaiement">
-                                        <div class="accordion-body">{{ question.reponse }}</div>
-                                    </div>
-                                </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endif %}
-            {% if questions.annonces is defined %}
-            <div class="col-sm-4">
-                <div class="card bot-buffer">
-                    <div class="card-header">
-                        <span class="fa fa-clipboard"></span> Annonces
-                    </div>
-                    <div class="card-body">
-                        <div class="accordion accordion-flush" id="accordionFlushAnnonces">
-                        {% for question in questions.annonces %}
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-heading{{ question.id }}">
-                                    <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#flush-{{ question.id }}" aria-expanded="false" aria-controls="flush-{{ question.id }}">
-                                        {{ question.question }}
-                                    </button>
-                                </h2>
-                                <div id="flush-{{ question.id }}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{ question.id }}" data-parent="#accordionFlushAnnonces">
-                                    <div class="accordion-body">{{ question.reponse }}</div>
-                                </div>
-                            </div>
-                        {% endfor %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endif %}
-        </div>
-    </div>
-    <div class="js-src-questions" data-questions="{{ autocomplete_q|json_encode|e('html_attr') }}">
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@9.0.5/dist/js/autoComplete.min.js"></script>
-    <script src="{{ asset('script/faq/autocomplete_config.js') }}"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+						<div class="card-body">
+							<div class="accordion accordion-flush" id="accordionFlushPaiement">
+								{% for question in questions.paiement %}
+									<div class="accordion-item">
+										<h2 class="accordion-header" id="flush-heading{{ question.id }}">
+											<button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#flush-{{ question.id }}" aria-expanded="false" aria-controls="flush-{{ question.id }}">
+												{{ question.question }}
+											</button>
+										</h2>
+										<div id="flush-{{ question.id }}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{ question.id }}" data-parent="#accordionFlushPaiement">
+											<div class="accordion-body">{{ question.reponse }}</div>
+										</div>
+									</div>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+				</div>
+			{% endif %}
+			{% if questions.annonces is defined %}
+				<div class="col-sm-4">
+					<div class="card bot-buffer">
+						<div class="card-header">
+							<span class="fa fa-clipboard"></span>
+							Annonces
+						</div>
+						<div class="card-body">
+							<div class="accordion accordion-flush" id="accordionFlushAnnonces">
+								{% for question in questions.annonces %}
+									<div class="accordion-item">
+										<h2 class="accordion-header" id="flush-heading{{ question.id }}">
+											<button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#flush-{{ question.id }}" aria-expanded="false" aria-controls="flush-{{ question.id }}">
+												{{ question.question }}
+											</button>
+										</h2>
+										<div id="flush-{{ question.id }}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{ question.id }}" data-parent="#accordionFlushAnnonces">
+											<div class="accordion-body">{{ question.reponse }}</div>
+										</div>
+									</div>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+				</div>
+			{% endif %}
+		</div>
+	</div>
+	<div class="js-src-questions" data-questions="{{ autocomplete_q|json_encode|e('html_attr') }}"></div>
+	<script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@9.0.5/dist/js/autoComplete.min.js"></script>
+	<script src="{{ asset('script/faq/autocomplete_config.js') }}"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 {% endblock %}

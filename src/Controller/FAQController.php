@@ -37,7 +37,7 @@ class FAQController extends AbstractController
             foreach ($_questions as $question) {
                 if ($question->getActive()) {
                     $question_id = $question->getId();
-                    $all_questions[$theme->getCode()]['questions'] = $question;
+                    $all_questions[$theme->getCode()][] = $question;
                     $autocomplete_question[] = ["q" => $question->getQuestion(), "id" => $question_id];
                 }
             }

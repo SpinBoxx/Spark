@@ -93,7 +93,7 @@
 .favorite_card_sub_line_description {
   height: 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   margin-top: inherit;
 }
 .favorite_card_sub_line_description p,

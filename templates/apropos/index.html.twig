@@ -1,0 +1,105 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AproposController!{% endblock %}
+
+{% block body %}
+    <div class="container mt-10">
+        <div id="notre_histoire">
+            <h1 class="font-bold">Notre <span class="text-green-600">Histoire</span></h1>
+            <h5 class="font-bold">
+                Findygo ça part d’un projet étudiant au sein de l’école Nantes Ynov Campus.
+                On est en 2020 quand un certain Quentin Mimault propose une idée de projet déjà bien réflechie.
+            </h5>
+            <p class="mt-6">
+                “J'ai eu l'idée de faire ce projet car je fais du tennis de table depuis mes 11 ans et au fil du temps, des joueurs et moi-même se débarrassaient
+                de leur raquette (encore en bon état) parce qu'elle ne leur convenait plus.  Je savais qu'il existait des forums de tennis de table où les gens
+                mettaient en vente leur raquette entre particuliers mais sans sécurité entre l'acheteur et le vendeur.
+                Je me suis dit qu’il était intéressant de proposer une plateforme dédiée à la vente et à l’achat de raquettes. Après avoir creusé l’idée, je
+                me suis rendu compte que le besoin était présent dans d’autres sports, c'est donc là qu'apparaît le projet FindyGo : une plateforme dédiée à l’achat et
+                la vente d’équipements de sport entre particuliers”
+            </p>
+            <img class="" src="{{ asset('images/apropos/moi.png') }}" alt="">
+        </div>
+        <div id="notre_equipe" class="mt-10">
+            <h1 class="font-bold">Notre <span class="text-blue-800">Équipe</span></h1>
+            <h5 class="font-bold">
+                Une équipe de 8 personnes, partageant les même valeurs sportives et éco-responsables s’est par la suite fondée pour faire naître la pépite FindyGo.
+            </h5>
+            <div class="flex flex-wrap justify-center gap-10 mt-10">
+                {% set profiles = [
+                    {name : 'Quentin MIMAULT', status : 'Fondateur', cursus : 'Développeur web'},
+                    {name : 'Alexis COINET', status : '', cursus : 'Développeur web'},
+                    {name : 'Nicolas BACA', status : '', cursus : 'Développeur web'},
+                    {name : 'Aurelien VAILLANT', status : '', cursus : 'Développeur mobile et iot'},
+                    {name : 'Laurie PETITPAS', status : '', cursus : 'Chargée webmarketing & Big data'},
+                    {name : 'Enzo PONTOIZEAU', status : '', cursus : 'Chargé Communication & Marketing'},
+                    {name : 'Hugo SEGARRA', status : '', cursus : 'Graphiste'},
+                    {name : 'Félix GRIMAUD', status : '', cursus : 'Chargé Communication & Marketing'},
+                ] %}
+                {% for profile in profiles %}
+                    <div class="flex gap-4">
+                        <div class="border-1 border-black rounded-full p-3">
+                            <img class="" src="{{ asset('images/apropos/quicourt.png') }}" alt="">
+                        </div>
+                        <div class="flex flex-col justify-center">
+                            <div>
+                                {{ profile.name }}
+                            </div>
+                            <div>
+                                {% if profile.status == 'Fondateur'%} <span class="font-bold">{{ profile.status }} -</span> {% endif%}  {{ profile.cursus }}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div id="nos_valeurs" class="mt-10">
+            <h1 class="font-bold">Nos <span class="text-green-600">Valeurs</span></h1>
+            <div class="flex flex-col gap-10 mt-4">
+                <div id="image_matos" class="flex gap-4">
+                    <div class="hidden lg:block w-52">
+                        <img class="w-full" src="{{ asset('images/apropos/matos.png') }}" alt="">
+                    </div>
+                    <div class="ml-3 lg:ml-0 ml-10">
+                        <h5 class="font-bold">Promouvoir la seconde main</h5>
+                        <span>
+                            FindyGo te permet de vendre tes vêtements et équipements de sports que tu n’utilises plus.
+                            Et d’en acheter de “nouveaux”, correspondants à tes attentes, à prix réduits.
+                            Un geste technique pour ton portefeuille et pour ta planète.
+                        </span>
+                    </div>
+                </div>
+                <div id="image_letsgo" class="flex gap-4">
+                    <div class="hidden lg:block w-36">
+                        <img class="w-full" src="{{ asset('images/apropos/letsgo.png') }}" alt="">
+                    </div>
+                    <div class="ml-3 lg:ml-0">
+                        <h5 class="font-bold">Rendre accessible le sport à tous</h5>
+                        <span>
+                            Certains sports nécessitent des équipements assez couteux. FindyGo te permet de te procurer ces équipements (digne de ton niveau) et ça sans te ruiner.
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="findygo_en_3_mots" class="mt-10">
+            <div class="hidden lg:block">
+                <h1 class="font-bold">Findygo <span class="text-blue-800">en 3 mots</span></h1>
+                <div class="flex justify-center gap-40 font-bold mt-5">
+                    <h2 class="text-green-600 uppercase">Sport</h2>
+                    <h2 class="text-black uppercase">éco-responsable</h2>
+                    <h2 class="text-blue-600">PARTAGE</h2>
+                </div>
+            </div>
+            <div class="block lg:hidden">
+                <h1 class="font-bold">Findygo <span class="text-blue-800">en 3 mots</span></h1>
+                <Ul class="list-disc font-bold mt-5">
+                    <li><h2 class="text-green-600 uppercase">Sport</h2></li>
+                    <li> <h2 class="text-black uppercase">éco-responsable</h2></li>
+                    <li><h2 class="text-blue-600">PARTAGE</h2></li>
+                </Ul>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

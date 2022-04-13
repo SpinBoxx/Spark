@@ -68,7 +68,6 @@ h2{
 .right_login_div{
     width: 100%;
     height: 100%;
-    background-color: rgba(211, 211, 211, 0.4);
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -142,10 +141,11 @@ h2{
 .login_logo_lg {
     width: 56%;
     position: absolute;
-    top: 10px;
+    top: 20px;
+    left: 20px;
     display: flex;
-    height: 50px;
-    justify-content: flex-end;
+    height: 70px;
+    justify-content: flex-start;
 }
 
 .login_logo_lg>img {
@@ -165,12 +165,10 @@ h2{
 }
 
 .login_submit_btn{
-    margin-top: 3rem;
+    margin-top: 1.4rem;
     width: 175px;
     height: 50px;
-    background-color: #6FCF97;
     border-radius: 6px;
-    color: whitesmoke;
     border: none;
     font-family: "Poppins", sans-serif;
     font-weight: 600;
@@ -181,7 +179,6 @@ h2{
     font-family: "Poppins", sans-serif;
     font-weight: 600;
     font-size: 0.8rem;
-    color: rgba(0,0,0,0.75);
 }
 .secondary_link-div{
     width: 100%;
@@ -190,9 +187,7 @@ h2{
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-size: 0.75rem;
-    background-color: rgba(211, 211, 211, 0.4);
     border: none;
-    border-bottom: solid 1px #6FCF97;
     color: rgba(0,0,0,0.75);
 }
 
@@ -243,9 +238,6 @@ i{
     margin: 0 0 5px 0 !important;
 }
 
-.main_link{
-    margin: 0 !important;
-}
 
 @media screen and (max-width: 768px) {
     .left_login_div {

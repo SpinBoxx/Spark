@@ -10,13 +10,13 @@
         <div class="left_login_div">
             <img src="{{ asset('images/login/image_login' ~ random(5) ~ '.png') }}">
             <div class="login_logo_lg">
-                <img src={{ asset('images/header/logo.png') }} alt="logo_spark">
+                <img src={{ asset('images/findygo_logo.png') }} alt="logo_findygo">
             </div>
         </div>
         <div class="container-right-div-login">
-            <div class="right_login_div">
+            <div class="right_login_div bg-gray-100">
                 <section>
-                    <h2 class="connex text-green-800 md:text-red-700">Connexion</h2>
+                    <h2 class="connex text-black">Connexion</h2>
                     <form class="login_input_form" method="post">
                         <div class="label_input">
                             <label>
@@ -31,13 +31,14 @@
                             </label>
                         </div>
                         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-                        <button class="login_submit_btn" type="submit">Se connecter</button>
+
+                        <button class="login_submit_btn text-white bg-fonce hover:bg-clair duration-300" type="submit">Se connecter</button>
                     </form>
                     <div>
-                        <a class="main_link" href="{{ path('findygo_register') }}">Créer un compte</a>
+                        <a class="main_link text-fonce underline underline-offset-2 ml-1 hover:decoration-clair" href="{{ path('findygo_register') }}">Pas de compte encore ?</a>
                     </div>
                     <div class="secondary_link-div">
-                        <button class="secondary_link btn btn-primary text-white">Mot de passe oublié ?</button>
+                        <button class="secondary_link text-fonce underline underline-offset-2">Mot de passe oublié ?</button>
                     </div>
                 </section>
             </div>

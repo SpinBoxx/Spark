@@ -35,7 +35,7 @@ body{
 }
 
 .btn-buy{
-    background-color: #6fcf97;
+    background-color: #4C5059;
     display:inline-block;
     color: white;
     height: 40px;
@@ -51,7 +51,7 @@ body{
 }
 
 .btn-buy:hover{
-    background-color: #3b9d62;
+    background-color: #A4B5BF;
     color: white;
 }
 

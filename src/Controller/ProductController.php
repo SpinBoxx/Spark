@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Brand;
 use App\Entity\Category;
 use App\Entity\Color;
 use App\Entity\Favorite;
@@ -86,9 +87,11 @@ class ProductController extends AbstractController
     $categories = $this->em->getRepository(Category::class)->findAll();
     $colors = $this->em->getRepository(Color::class)->findAll();
     $sizes = $this->em->getRepository(Size::class)->findAll();
+    $brands = $this->em->getRepository(Brand::class)->findAll();
     return $this->render('product/addproduct.html.twig', [
       'genders' => $genders,
       'qualitys' => $qualitys,
+      'brands' => $brands,
       'categories' => $categories,
       'colors' => $colors,
       'sizes' => $sizes
@@ -118,6 +121,7 @@ class ProductController extends AbstractController
           $gender = $this->em->getRepository(Gender::class)->find($params['gender']);
           $category = $this->em->getRepository(Category::class)->find($params['category']);
           $quality = $this->em->getRepository(Quality::class)->find($params['state']);
+          $brand = $this->em->getRepository(Brand::class)->find($params['brand']);
 
           $product->setState($state);
           $product->setColorPrimary($mainColor);
@@ -128,7 +132,7 @@ class ProductController extends AbstractController
           $product->setCategory($category);
           $product->setQuality($quality);
           $product->setTitle($params['name']);
-          $product->setBrand($params['brand']);
+          $product->setBrand($brand);
           $product->setPrice($params['price']);
           $product->setLink($params['link']);
           $product->setUser($this->getUser());

@@ -7,7 +7,7 @@
     <div class="top_header">
         <div class="div_header_logo">
             <a href="{{ path('accueil') }}" {% if app.user == null %}style="margin-left: 50%;"{% endif %}>
-                <img src={{ asset('images/header/logo.png') }}>
+                <img src={{ asset('images/header/findygo_logo.png') }}>
             </a>
         </div>
 
@@ -16,7 +16,7 @@
                     <button type="submit">
                         <i class="fas fa-search pointer" id="fa-search-product"></i>
                     </button>
-                    <input type="text" placeholder="Rechercher des articles" name="product_parameter_string" autocomplete="off">
+                    <input type="text" class="text-black" placeholder="Rechercher des articles" name="product_parameter_string" autocomplete="off">
                 </form>
             </div>
 
@@ -66,7 +66,7 @@
         <div class="right_sub_header">
             <a href="{{ path('faq') }}"><h3 style="width: auto">F.A.Q</h3></a>
             <div style="margin-right: 40px"></div>
-            <a href=""><h3 style="width: auto;">A propos</h3></a>
+            <a href="{{ path('app_apropos') }}"><h3 style="width: auto;">A propos</h3></a>
             <form id="search_expand_header">
                 <input type="search" placeholder="Search" spellcheck="false">
             </form>

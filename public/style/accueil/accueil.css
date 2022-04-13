@@ -121,20 +121,20 @@ body {}
     margin-left: 13px;
     height: 40px;
     width: 140px;
-    line-height: 40px;
+    line-height: 38px;
     vertical-align: middle;
     display: inline-block;
     text-align: center;
     border-radius: 18px;
     color: white;
-    background-color: #6fcf97;
+    background-color: #4C5059;
 
 }
 
 .sell:hover {
     transition: 0.5s;
-    color: white;
-    background-color: #3b9d62;
+    color: black;
+    background-color: #A4B5BF;
     text-decoration: none;
 }
 

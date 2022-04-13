@@ -20,10 +20,13 @@ class QualityFixtures extends Fixture
             ['usage', 'Usagé'],
 
         ];
-        foreach ($qualites as $qualite){
+        foreach ($qualites as $qualite) {
             $_qualite = $manager->getRepository(Quality::class)->findOneBy(['code' => $qualite[0]]);
-            if(!$_qualite instanceof Quality){
-                $manager->persist(new Quality($qualite[0], $qualite[1]));
+            if (!$_qualite instanceof Quality) {
+                $new_quality = new Quality();
+                $new_quality->setCode($qualite[0]);
+                $new_quality->setLabel($qualite[1]);
+                $manager->persist($new_quality);
                 $manager->flush();
             }
         }

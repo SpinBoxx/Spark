@@ -27,13 +27,11 @@ class Category
      */
     private $label;
 
-    public function __construct($code, $label)
+    public function __construct()
     {
-      $this->code = $code;
-      $this->label = $label;
     }
 
-  public function getId(): ?int
+    public function getId(): ?int
     {
         return $this->id;
     }

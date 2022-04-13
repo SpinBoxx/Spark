@@ -27,6 +27,11 @@ class Sport
      */
     private $path;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $name;
+
 
     /**
      * Sport constructor.
@@ -67,5 +72,17 @@ class Sport
     public function setPath(string $path): void
     {
         $this->path = $path;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
     }
 }

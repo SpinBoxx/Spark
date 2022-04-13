@@ -11,7 +11,7 @@ use App\Entity\Product;
 use App\Entity\Quality;
 use App\Entity\Size;
 use App\Entity\State;
-use App\Entity\User;
+use App\Entity\Brand;
 use App\Service\FileUploader;
 use App\Service\SecurityCheckService;
 use Doctrine\ORM\EntityManagerInterface;
@@ -258,5 +258,51 @@ class ProductController extends AbstractController
     } else {
       return $this->json(['message' => 'Erreur'], Response::HTTP_FORBIDDEN);
     }
+  }
+
+  /**
+   * @Route("/produits/marque/{brand}", name="product_brand")
+   * @param Request $request
+   * @return Response
+   */
+  public function getProductbyBrand($brand): Response
+  {
+    $brand = $this->em->getRepository(Brand::class)->findOneBy(['label' => $brand]);
+    if ($brand) {
+      $products = $this->em->getRepository(Product::class)->findBy(
+        ["brand" => $brand->getId()]
+      );
+    } else {
+      $products = null;
+    }
+
+    return $this->render('product/products_list.html.twig', [
+      'products' => $products,
+      'title' => $brand->getLabel()
+
+    ]);
+  }
+
+  /**
+   * @Route("/produits/category/{category}", name="product_category")
+   * @param Request $request
+   * @return Response
+   */
+  public function getProductbyCategory($category): Response
+  {
+    $category = $this->em->getRepository(Category::class)->findOneBy(['label' => $category]);
+    if ($category) {
+      $products = $this->em->getRepository(Product::class)->findBy(
+        ["category" => $category->getId()]
+      );
+    } else {
+      $products = null;
+    }
+
+    return $this->render('product/products_list.html.twig', [
+      'products' => $products,
+      'title' => $category->getLabel()
+
+    ]);
   }
 }

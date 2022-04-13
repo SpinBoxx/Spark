@@ -16,10 +16,13 @@ class CategoryFixtures extends Fixture
             ['chaussure', 'Chaussure'],
         ];
         $i = 0;
-        foreach ($categories as $category){
+        foreach ($categories as $category) {
             $_category = $manager->getRepository(Category::class)->findOneBy(['code' => $category[0]]);
-            if(!($_category instanceof Category)){
-                $manager->persist(new Category($category[0], $category[1]));
+            if (!($_category instanceof Category)) {
+                $new_category = new Category();
+                $new_category->setCode($category[0]);
+                $new_category->setLabel($category[1]);
+                $manager->persist($new_category);
                 $manager->flush();
                 $i++;
             }

@@ -1,180 +1,167 @@
-{% extends 'base.html.twig' %} {% block title %}{{ product.title }}{% endblock
-%} {% block stylesheets %}
-<link rel="stylesheet" href="{{ asset('style/favoris/favorite_card.css') }}" />
-{% endblock %} {% block javascript %}
-<script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/toastr.min.js"></script>
-{% endblock %} {% block body %}
-<div class="sm:p-2 md:px-5 md:py-4">
-  <div class="w-full text-dark">
-    <h4 class="mb-4">{{ product.title }}</h4>
-    <div
-      class="rounded-t-xl pb-2 overflow-hidden border-neutral-400 col-12 border p-0 m-0"
-    >
-      <div class="w-full flex items-center justify-between bg-main p-4">
-        <div>
-          <div>
-            <span class="font-bold">Categorie : </span>
-            {{ product.category.label }}
-          </div>
-          <div>
-            <span class="font-bold">Date de mise en ligne : </span>
-            {{product.creationDatetime|date("d/m/Y")}}
-          </div>
-        </div>
-        <div class="flex font-bold flex-col">
-          <div class="text-3xl">{{ product.price }}</div>
-          <div>EUROS</div>
-        </div>
-      </div>
-      <div class="w-full p-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
-        <div>
-          <div class="text-center">
-            <img src={{ asset("images/favoris/raquette.png") }} alt=""
-            style="width: 540px" class="mb-2" id="main-img" class="main-img">
-          </div>
-          <div class="row text-dark">
-            <div class="">
-              <img src={{ asset("images/favoris/ballon.jpg") }} alt=""
-              style="width: 125px" id="2-img" class="second-img">
-            </div>
-            <div class="">
-              <img src={{ asset("images/favoris/raquette.png") }} alt=""
-              style="width: 125px" id="3-img" class="second-img">
-            </div>
-            <div>
-              <img src={{ asset("images/favoris/raquette.png") }} alt=""
-              style="width: 125px" id="4-img" class="second-img">
-            </div>
-          </div>
-        </div>
-        <div>
-          <div class="flex-col sm:flex-row mb-2 flex items-center justify-between">
-            <div
-            class="flex items-center"
-              style="
-                font-style: normal;
-                font-weight: 600;
-                font-size: 36px;
-                line-height: 54px;
-              "
-            > <span class="h-10 w-10 mr-2 inline-block rounded-full bg-main  border-1"></span>
-              {{ product.user.username }}
-            </div>
-            <button
-              type="submit"
-              class="btn shadow-md"
-              style="
-                font-size: 14px;
-                background: white;
-                color: #6fcf97;
-                border-radius: 6px;
-                border-color: #6fcf97;
-                height: fit-content;
-              "
-            >
-              Ajouter au favoris
-            </button>
-          </div>
-          <p>{{ product.description }}</p>
+{% extends 'base.html.twig' %}
+{% block title %}
+	{{ product.title }}
+{% endblock
+%}
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('style/favoris/favorite_card.css') }}"/>
+{% endblock %}
+{% block javascript %}
+	<script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/toastr.min.js"></script>
+{% endblock %}
+{% block body %}
+	<div class="sm:p-2 md:px-5 md:py-4">
+		<div class="w-full text-dark">
+			<h4 class="mb-4">{{ product.title }}</h4>
+			<div class="rounded-t-xl pb-2 overflow-hidden border-neutral-400 col-12 border p-0 m-0">
+				<div class="w-full flex items-center justify-between bg-main p-4">
+					<div>
+						{% if not product.category is empty %}
+							<div>
+								<span class="font-bold">Categorie :
+								</span>
+								{{ product.category.label }}
+							</div>
+						{% endif %}
+						<div>
+							<span class="font-bold">Date de mise en ligne :
+							</span>
+							{{product.creationDatetime|date("d/m/Y")}}
+						</div>
+					</div>
+					<div class="flex font-bold flex-col">
+						<div class="text-3xl">{{ product.price }}</div>
+						<div>EUROS</div>
+					</div>
+				</div>
+				<div class="w-full p-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+					<div>
+						<div class="text-center">
+							<img src={{ asset("images/favoris/raquette.png") }} alt="" style="width: 540px" class="mb-2" id="main-img" class="main-img">
+						</div>
+						<div class="row text-dark">
+							<div class="">
+								<img src={{ asset("images/favoris/ballon.jpg") }} alt="" style="width: 125px" id="2-img" class="second-img">
+							</div>
+							<div class="">
+								<img src={{ asset("images/favoris/raquette.png") }} alt="" style="width: 125px" id="3-img" class="second-img">
+							</div>
+							<div>
+								<img src={{ asset("images/favoris/raquette.png") }} alt="" style="width: 125px" id="4-img" class="second-img">
+							</div>
+						</div>
+					</div>
+					<div>
+						<div class="flex-col sm:flex-row mb-2 flex items-center justify-between">
+							<div class="flex items-center" style="font-style: normal;font-weight: 600;font-size: 36px;line-height: 54px;">
+								<span class="h-10 w-10 mr-2 inline-block rounded-full bg-main  border-1"></span>
+								{{ product.user.username }}
+							</div>
+							<button type="submit" class="btn shadow-md" style="font-size: 14px;background: white;color: #6fcf97;border-radius: 6px;border-color: #6fcf97;height: fit-content;">
+								Ajouter au favoris
+							</button>
+						</div>
+						<p>{{ product.description }}</p>
 
-          <p>
-            <span class="font-bold">Marque :  {{ product.brand.label }} </span>
-          </p>
-          <p>
-            <span class="font-bold">Taille : {{ product.size.label }} </span>
-          </p>
-          <p>
-            <span class="font-bold">Qualité : {{ product.quality.label }}</span>
-          </p>
-          <p class="flex items-center">
-            <span class="font-bold">Couleurs :    <span
-              class="mx-2 inline-block rounded-full w-5 h-5 shadow-md"
-                style="
-            background-color: {{ product.colorPrimary.hexColor }};"            >
-            </span>
-            {% if product.colorSecondary %}
-              <span
-              class="mx-2 inline-block rounded-full w-5 h-5 shadow-md"
-                style="
-            background-color: {{ product.colorSecondary.hexColor }};">
-            </span></span>
-         
-        {% endif %}
-        {% if product.user.city %}
-        <p>
-          <span class="font-bold">Emplacement : </span>{{product.user.city }}
-        </p>
-    {% endif %}
-          </p>
-            <div>
-              <button
-                type="submit"
-                class="mb-8 btn shadow-md rounded p-2 text-white border-0"
-                style="
-                  font-size: 14px;
-                  background: #262a5c;
-                "
-              >
-                Demander une offre
-              </button>
-          </div>
+						<p>
+							<span class="font-bold">Marque :
+								{{ product.brand.label }}
+							</span>
+						</p>
+						<p>
+							<span class="font-bold">Taille :
+								{{ product.size.label }}
+							</span>
+						</p>
+						{% if not product.quality is empty %}
+							<p>
+								<span class="font-bold">Qualité :
+									{{ product.quality.label }}</span>
+							</p>
+						{% endif %}
 
-          {% if sended is defined %}{{ sended }}{% endif %}
+						<p class="flex items-center">
+							<span class="font-bold">Couleurs :
+								{% if product.colorSecondary %}
+									<span class="mx-2 inline-block rounded-full w-5 h-5 shadow-md" style="background-color: {{ product.colorPrimary.hexColor }};"></span>
+								{% endif %}
+								{% if product.colorSecondary %}
+									<span class="mx-2 inline-block rounded-full w-5 h-5 shadow-md" style="background-color: {{ product.colorSecondary.hexColor }};"></span>
+								</span>
 
-          <a href="#" class="underline font-bold pointer">Voir les autres articles de ce vendeur</a>
-        </div>
-      </div>
-    </div>
-  </div>
+							{% endif %}
+							{% if product.user.city %}
+								<p>
+									<span class="font-bold">Emplacement :
+									</span>
+									{{product.user.city }}
+								</p>
+							{% endif %}
+						</p>
+						<div>
+							<button type="submit" class="mb-8 btn shadow-md rounded p-2 text-white border-0" style="font-size: 14px;background: #262a5c;">
+								Demander une offre
+							</button>
+						</div>
 
-  <div class="mt-5">
-    <h3>Article similaires</h3>
-    <section class="py-2" id="favorite_card_section">
-      {% for product in related_products %}
-      {{
+						{% if sended is defined %}
+							{{ sended }}
+						{% endif %}
+
+						<a href="#" class="underline font-bold pointer">Voir les autres articles de ce vendeur</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="mt-5">
+			<h3>Article similaires</h3>
+			<section class="py-2" id="favorite_card_section">
+				{% for product in related_products %}
+					{{
         include("/product/vignette_view_product.html.twig", {
           product: product
         })
       }}
-      {% endfor %}
-    </section>
-  </div>
-</div>
+				{% endfor %}
+			</section>
+		</div>
+	</div>
 
-<script>
-  $('.second-img').on('click', function (){
-      var main = document.querySelector('#main-img');
-      main.src = this.src
-  })
-  var seller  = '<input type="hidden" name="seller" id="seller" value="{{ product.id }}"/>'
-  var csrf = '<input type="hidden" name="token" id="token" value="{{ csrf_token('send-message') }}"/>'
-  var input= '<div class="input-group mb-3">' + '<input name="input-message" id="input-message" type="text" class="form-control" placeholder="Votre message..." required>' + '</div>'
-  $('#send-a-message').click(function (){
-      $('.send-message-sender').removeAttr('hidden')
-      $('#send-a-message').html(input + csrf + seller )
-      this.id = ''
-  })
+	<script>
+		$('.second-img').on('click', function () {
+var main = document.querySelector('#main-img');
+main.src = this.src
+})
+var seller = '<input type="hidden" name="seller" id="seller" value="    {{ product.id }}"/>'
+var csrf = '<input type="hidden" name="token" id="token" value="     {{ csrf_token('send-message') }}"/>'
+var input = '<div class="input-group mb-3">' + '<input name="input-message" id="input-message" type="text" class="form-control" placeholder="Votre message..." required>' + '</div>'
+$('#send-a-message').click(function () {
+$('.send-message-sender').removeAttr('hidden')
+$('#send-a-message').html(input + csrf + seller)
+this.id = ''
+})
 
-  $('.send-message-sender').click(function (){
-      var token = $('#token').val()
-      var seller = $('#seller').val()
-      var message = $('#input-message').val()
-      if(message !== ""){
-          $.ajax({
-              url: '{{ path('messages_send') }}',
-              method: 'POST',
-              data: {
-                  'token' : token,
-                  'seller' : seller,
-                  'message' : message
-              },
-              success: function (data){
-                  toastr.success('Votre message a bien été envoyé !')
-              }
-          })
-      }else{
-          toastr.warning('Veuillez remplir votre message !')
-      }
-  })
-</script>
+$('.send-message-sender').click(function () {
+var token = $('#token').val()
+var seller = $('#seller').val()
+var message = $('#input-message').val()
+if (message !== "") {
+$.ajax({
+url: '{{ path('messages_send') }}',
+method: 'POST',
+data: {
+'token': token,
+'seller': seller,
+'message': message
+},
+success: function (data) {
+toastr.success('Votre message a bien été envoyé !')
+}
+})
+} else {
+toastr.warning('Veuillez remplir votre message !')
+}
+})
+	</script>
 {% endblock %}

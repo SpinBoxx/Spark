@@ -4,12 +4,10 @@
 
 
 <div class="complete_header bg-blue-500">
-
 	<div class="top_header">
 		<div class="mx-2 grow-0  div_header_logo">
 			<a href="{{ path('accueil') }}" {% if app.user == null %} style="margin-left: 50%;" {% endif %}>
-				<img class="hidden md:block" src={{ asset('images/header/findygo_logo.png') }}>
-				<img class="md:hidden" src={{ asset('images/header/findygo_logo_minimal.png') }}>
+				<img src="{{ asset('images/logoprinc.png') }}" alt="">
 			</a>
 		</div>
 		<div class="searchBar_header_div">

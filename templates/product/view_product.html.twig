@@ -10,158 +10,130 @@
 	<script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/toastr.min.js"></script>
 {% endblock %}
 {% block body %}
-	<div class="sm:p-2 md:px-5 md:py-4">
-		<div class="w-full text-dark">
-			<h4 class="mb-4">{{ product.title }}</h4>
-			<div class="rounded-t-xl pb-2 overflow-hidden border-neutral-400 col-12 border p-0 m-0">
-				<div class="w-full flex items-center justify-between bg-clair p-4">
-					<div>
-						{% if not product.category is empty %}
-							<div>
-								<span class="font-bold">Categorie :
-								</span>
-								{{ product.category.label }}
-							</div>
-						{% endif %}
-						<div>
-							<span class="font-bold">Date de mise en ligne :
-							</span>
-							{{product.creationDatetime|date("d/m/Y")}}
-						</div>
+	<!--
+  This component uses @tailwindcss/forms and @tailwindcss/aspect-ratio
+
+  yarn add @tailwindcss/forms @tailwindcss/aspect-ratio
+  npm install @tailwindcss/forms @tailwindcss/aspect-ratio
+
+  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/aspect-ratio')]
+-->
+
+	<style>
+		.no-spinners {
+			-moz-appearance: textfield;
+		}
+
+		.no-spinners::-webkit-outer-spin-button,
+		.no-spinners::-webkit-inner-spin-button {
+			margin: 0;
+			-webkit-appearance: none;
+		}
+	</style>
+
+	<section>
+		<div class="relative max-w-screen-xl px-4 py-8 mx-auto">
+			<div class="grid items-start grid-cols-1 gap-8 md:grid-cols-2">
+				<div class="grid grid-cols-2 gap-4 md:grid-cols-1">
+					<div class="aspect-w-1 aspect-h-1">
+						<img
+							alt="Mobile Phone Stand"
+							class="object-cover rounded-xl h-full"
+							src="https://images1.vinted.net/t/03_0095d_AUrozU5qYFvWZSPmSNg2cBCo/f800/1626272425.jpeg?s=3a043e76e47850446d3731edd2a5269e5d4b36fa"
+						/>
 					</div>
-					<div class="flex font-bold flex-col">
-						<div class="text-3xl">{{ product.price }}</div>
-						<div>EUROS</div>
+
+					<div class="grid grid-cols-2 gap-4 lg:mt-4">
+						<div class="aspect-w-1 aspect-h-1">
+							<img
+								alt="Mobile Phone Stand"
+								class="object-cover rounded-xl h-full"
+								src="https://images1.vinted.net/t/03_003bc_VLWDV4P6ZuKFTY9ndt2c1CGX/310x430/1649553812.jpeg?s=d5a860fdf1d279833faa5b583f27c6d929f3d1a1"
+							/>
+						</div>
+
+						<div class="aspect-w-1 aspect-h-1">
+							<img
+								alt="Mobile Phone Stand"
+								class="object-cover rounded-xl h-full"
+								src="https://images1.vinted.net/t/01_01f44_tcETGckYgpKSfgtDpMLFiuPN/f800/1630248601.jpeg?s=985195efb0f24bee6bd7d7f089374ff0d5298357"
+							/>
+						</div>
+
+						<div class="aspect-w-1 aspect-h-1">
+							<img
+								alt="Mobile Phone Stand"
+								class="object-cover rounded-xl"
+								src="https://images1.vinted.net/t/01_009be_KXksFSWpnddKLDAAZRB6iKCY/f800/1601621902.jpeg?s=fc9b0c89c23f46b4e561c0a8aea9211218f77aae"
+							/>
+						</div>
 					</div>
 				</div>
-				<div class="w-full p-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
-					<div>
-						<div class="text-center">
-							<img src={{ asset("images/favoris/raquette.png") }} alt="" style="width: 540px" class="mb-2" id="main-img" class="main-img">
+
+				<div class="sticky top-5">
+					<strong class="border border-blue-600 rounded-full tracking-wide px-3 font-medium py-0.5 text-xs bg-gray-100 text-blue-600">{{ product.category.label }}</strong>
+
+					<div class="flex justify-between mt-8">
+						<div class="max-w-[40ch]">
+							<h1 class="text-2xl font-bold">{{ product.title }}</h1>
+							<hr>
+							<p class="mt-0.5 text-sm">Qualité : <span class="text-fonce font-bold">{{ product.quality.label }}</span></p>
+							<p class="mt-0.5 text-sm">Marque : <span class="text-fonce font-bold">{{ product.brand.label }}</span></p>
+							<p class="mt-0.5 text-sm">Taille : <span class="text-fonce font-bold">{{ product.size.label }}</span></p>
 						</div>
-						<div class="row text-dark">
-							<div class="">
-								<img src={{ asset("images/favoris/ballon.jpg") }} alt="" style="width: 125px" id="2-img" class="second-img">
-							</div>
-							<div class="">
-								<img src={{ asset("images/favoris/raquette.png") }} alt="" style="width: 125px" id="3-img" class="second-img">
-							</div>
-							<div>
-								<img src={{ asset("images/favoris/raquette.png") }} alt="" style="width: 125px" id="4-img" class="second-img">
-							</div>
-						</div>
+
+						<p class="text-lg font-bold">
+							{{ product.price }} €
+						</p>
 					</div>
-					<div>
-						<div class="flex-col sm:flex-row mb-2 flex items-center justify-between">
-							<div class="flex items-center" style="font-style: normal;font-weight: 600;font-size: 36px;line-height: 54px;">
-								<span class="h-10 w-10 mr-2 inline-block rounded-full bg-clair  border-1"></span>
-								{{ product.user.username }}
-							</div>
-							<button type="submit" class="shadow-md rounded p-2 text-clair border border-clair" style="font-size: 14px;background: white;border-radius: 6px;height: fit-content;">
-								Ajouter au favoris
-							</button>
-						</div>
-						<p>{{ product.description }}</p>
 
-						<p>
-							<span class="font-bold">Marque :
-								{{ product.brand.label }}
-							</span>
-						</p>
-						<p>
-							<span class="font-bold">Taille :
-								{{ product.size.label }}
-							</span>
-						</p>
-						{% if not product.quality is empty %}
-							<p>
-								<span class="font-bold">Qualité :
-									{{ product.quality.label }}</span>
-							</p>
-						{% endif %}
-
-						<p class="flex items-center">
-							<span class="font-bold">Couleurs :
-								{% if product.colorSecondary %}
-									<span class="mx-2 inline-block rounded-full w-5 h-5 shadow-md" style="background-color: {{ product.colorPrimary.hexColor }};"></span>
-								{% endif %}
-								{% if product.colorSecondary %}
-									<span class="mx-2 inline-block rounded-full w-5 h-5 shadow-md" style="background-color: {{ product.colorSecondary.hexColor }};"></span>
-								</span>
-
-							{% endif %}
-							{% if product.user.city %}
+					<details class="relative mt-4 group">
+						<summary class="block">
+							<div class="prose max-w-none group-open:hidden">
 								<p>
-									<span class="font-bold">Emplacement :
-									</span>
-									{{product.user.city }}
+									{{ product.description }}
 								</p>
-							{% endif %}
-						</p>
-						<div>
-							<button type="submit" class="mb-8 shadow-md rounded p-2 border-0 text-clair bg-fonce" style="font-size: 14px;">
-								Demander une offre
+							</div>
+						</summary>
+					</details>
+
+					<form class="mt-8">
+						<div class="flex mt-8">
+							<a	class="block px-5 py-3 ml-3 text-white bg-clair rounded duration-300 favorite-heart favorite-heart-{{ product.id }} cursor-pointer no-underline" data-product-id="{{ product.id }}">
+									Ajouter aux favoris <i class="{% if isFavoris(product.id) %}fas{% else %}far{% endif%} fa-heart"></i>
+							</a>
+							<button	type="submit"	class="block px-5 py-3 ml-3 text-white bg-fonce rounded hover:bg-clair duration-300">
+								Faire une offre
 							</button>
 						</div>
-
-						{% if sended is defined %}
-							{{ sended }}
-						{% endif %}
-
-						<a href="#" class="underline font-bold pointer">Voir les autres articles de ce vendeur</a>
-					</div>
+					</form>
 				</div>
 			</div>
 		</div>
-
-		<div class="mt-5">
-			<h3>Articles similaires</h3>
-			<section class="py-2" id="favorite_card_section">
-				{% for product in related_products %}
-					{{
-        include("/product/vignette_view_product.html.twig", {
-          product: product
-        })
-      }}
-				{% endfor %}
-			</section>
-		</div>
-	</div>
+	</section>
 
 	<script>
-		$('.second-img').on('click', function () {
-var main = document.querySelector('#main-img');
-main.src = this.src
-})
-var seller = '<input type="hidden" name="seller" id="seller" value="                       {{ product.id }}"/>'
-var csrf = '<input type="hidden" name="token" id="token" value="                        {{ csrf_token('send-message') }}"/>'
-var input = '<div class="input-group mb-3">' + '<input name="input-message" id="input-message" type="text" class="form-control" placeholder="Votre message..." required>' + '</div>'
-$('#send-a-message').click(function () {
-$('.send-message-sender').removeAttr('hidden')
-$('#send-a-message').html(input + csrf + seller)
-this.id = ''
-})
-
-$('.send-message-sender').click(function () {
-var token = $('#token').val()
-var seller = $('#seller').val()
-var message = $('#input-message').val()
-if (message !== "") {
-$.ajax({
-url: '{{ path('messages_send') }}',
-method: 'POST',
-data: {
-'token': token,
-'seller': seller,
-'message': message
-},
-success: function (data) {
-toastr.success('Votre message a bien été envoyé !')
-}
-})
-} else {
-toastr.warning('Veuillez remplir votre message !')
-}
-})
+		$('.favorite-heart')
+			.click(function(){
+				var productId = $(this).data('product-id');
+				if($('.favorite-heart-'+ productId  + ' i').hasClass('fas')){
+					$('.favorite-heart-'+ productId  + ' i').removeClass('fas').addClass('far')
+				} else {
+					$('.favorite-heart-'+ productId  + ' i').removeClass('far').addClass('fas')
+				}
+				$.ajax({
+					url : "/ajouter-un-favoris",
+					method : "POST",
+					data : {
+						'productId' : productId
+					},
+					success : function(data){
+						console.log(data)
+					},
+					error : function(data){
+						console.log(data);
+					}
+				})
+			});
 	</script>
 {% endblock %}

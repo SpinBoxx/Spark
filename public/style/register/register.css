@@ -70,7 +70,6 @@ h2{
 .right_register_div{
     width: inherit;
     height: 100%;
-    background-color: rgba(211, 211, 211, 0.4);
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -94,14 +93,14 @@ h2{
     top: 20px;
     left: 20px;
     display: flex;
-    height: 65px;
-    /* justify-content: flex-end; */
+    height: 70px;
+    justify-content: flex-start;
 }
 
 .register_logo_lg>img {
     position: absolute;
     top: 3%;
-    height: 60px;
+    height: 40px;
     width: auto;
 }
 
@@ -118,7 +117,6 @@ h2{
     margin-top: 3rem;
     width: 175px;
     height: 50px;
-    background-color: #6FCF97;
     border-radius: 6px;
     color: whitesmoke;
     border: none;
@@ -203,10 +201,6 @@ i{
     height: 25px !important;
     vertical-align: inherit !important;
     margin: 0 0 5px 0 !important;
-}
-
-.main_link{
-    margin: 0 !important;
 }
 
 .secondary_link{

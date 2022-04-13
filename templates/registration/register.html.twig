@@ -11,16 +11,14 @@
     {% for flashError in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
-    <img src={{ asset('images/header/logo.png') }} class="logo_findygo_md" alt="logo_findygo" style="display: none">
-
     <div class="register_section">
         <div class="left_register_div">
             <img src="{{ asset('images/login/image_login' ~ random(5) ~ '.png') }}">
             <div class="register_logo_lg">
-                <img src={{ asset('images/header/logo.png') }} alt="logo_findygo">
+                <img src={{ asset('images/findygo_logo.png') }} alt="logo_findygo">
             </div>
         </div>
-        <div class="right_register_div">
+        <div class="right_register_div bg-gray-100 z-0">
             <section>
                 {% include 'components/register-progress-bar.html.twig'
                 with {
@@ -45,8 +43,8 @@
                     <div class="label_input">
                         <label>
                             <i class="fa fa-lock"></i>
-                            <input class="text_input" type="password" name="password" placeholder="Mot de passe*" required>
-                            <span class="eye"><i class="fa fa-eye"></i></span>
+                            <input class="text_input" type="password" name="password" id="password-input" placeholder="Mot de passe*" required>
+                            <span class="eye"><i class="fa fa-eye fa-eye-password cursor-pointer"></i></span>
                         </label>
                     </div>
                     <div class="is-password-correct" style="margin-top: 10px">
@@ -57,18 +55,18 @@
                             <li><span class="fa-li"><i class="fa fa-close"></i></span>1 chiffre</li>
                         </ul>
                     </div>
-                    <div class="label_input" style="margin-top: 0">
+                    <div class="label_input " style="margin-top: 0">
                         <label>
                             <i class="fa fa-lock"></i>
-                            <input class="text_input" type="password" name="password_confirm" placeholder="Confirmer le mot de passe*" required>
-                            <span class="eye"><i class="fa fa-eye"></i></span>
+                            <input class="text_input" type="password" id="confirm-password-input" name="password_confirm" placeholder="Confirmer le mot de passe*" required>
+                            <span class="eye"><i class="fa fa-eye fa-eye-confirm cursor-pointer"></i></span>
                         </label>
                     </div>
                     
-                    <button class="register_submit_btn" type="submit">Étape suivante</button>
+                    <button class="register_submit_btn bg-fonce hover:bg-clair duration-300" type="submit">Étape suivante</button>
                 </form>
                 <div>
-                    <a class="main_link" href="{{ path('app_login') }}">Retour à la connexion</a>
+                    <a class="main_link text-fonce underline underline-offset-2 ml-1 hover:decoration-clair" href="{{ path('app_login') }}">Retour à la connexion</a>
                 </div>
                 <div></div>
             </section>
@@ -78,16 +76,20 @@
 
     <script>
         $(document).ready(function() {
-            $(".show-password, .hide-password").on('click', function() {
-                var passwordId = $(this).parents('li:first').find('input').attr('id');
-                if ($(this).hasClass('show-password')) {
-                    $("#" + passwordId).attr("type", "text");
-                    $(this).parent().find(".show-password").hide();
-                    $(this).parent().find(".hide-password").show();
+            $(".fa-eye-confirm").on('click', function() {
+                var attr = $('#confirm-password-input').attr('type');
+                if (attr == "password") {
+                    $("#confirm-password-input").attr("type", "text");
                 } else {
-                    $("#" + passwordId).attr("type", "password");
-                    $(this).parent().find(".hide-password").hide();
-                    $(this).parent().find(".show-password").show();
+                    $("#confirm-password-input").attr("type", "password");;
+                }
+            });
+            $(".fa-eye-password").on('click', function() {
+                var attr = $('#password-input').attr('type');
+                if (attr == "password") {
+                    $("#password-input").attr("type", "text");
+                } else {
+                    $("#password-input").attr("type", "password");;
                 }
             });
         });

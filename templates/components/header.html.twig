@@ -58,59 +58,26 @@
 		</div>
 	</div>
 
-<<<<<<< HEAD
-    <div class="sub_header">
-        <div class="left_sub_header dropdown-header">
-            <span>Catégories</span>
-            <div class="dropdown-header-content">
-                <a id="woman-title"><h3>Femme</h3></a>
-                <a id="man-title"><h3>Homme</h3></a>
-                <a id="children-title"><h3>Enfant</h3></a>
-            </div>
-        </div>
-        <div class="right_sub_header">
-            <a href="{{ path('faq') }}"><h3 style="width: auto">F.A.Q</h3></a>
-            <div style="margin-right: 40px"></div>
-            <a href="{{ path('app_apropos') }}"><h3 style="width: auto;">A propos</h3></a>
-            <form id="search_expand_header">
-                <input type="search" placeholder="Search" spellcheck="false">
-            </form>
-        </div>
-        {% set gender = ["Femme", "Homme", "Enfant"] %}
-        {% set genderEn = ["woman", "man", "children"] %}
-        {% set other = ["Sport", "Marques"] %}
-=======
 	<div class="sub_header">
-		<div class="left_sub_header dropdown-header">
-			<span>Catégories</span>
-			<div class="dropdown-header-content">
-				<a id="woman-title">
-					<h3>Femme</h3>
-				</a>
-				<a id="man-title">
-					<h3>Homme</h3>
-				</a>
-				<a id="children-title">
-					<h3>Enfant</h3>
-				</a>
+			<div class="left_sub_header dropdown-header">
+					<span>Catégories</span>
+					<div class="dropdown-header-content">
+							<a id="woman-title"><h3>Femme</h3></a>
+							<a id="man-title"><h3>Homme</h3></a>
+							<a id="children-title"><h3>Enfant</h3></a>
+					</div>
 			</div>
-		</div>
-		<div class="right_sub_header">
-			<a href="{{ path('faq') }}">
-				<h3 style="width: auto">F.A.Q</h3>
-			</a>
-			<div style="margin-right: 40px"></div>
-			<a href="">
-				<h3 style="width: auto;">A propos</h3>
-			</a>
-			<form id="search_expand_header">
-				<input type="search" placeholder="Search" spellcheck="false">
-			</form>
-		</div>
-		{% set gender = ["Femme", "Homme", "Enfant"] %}
-		{% set genderEn = ["woman", "man", "children"] %}
-		{% set other = ["Sport", "Marques"] %}
->>>>>>> ef50f01a71ba42a2660edce404f1496e3f682e9f
+			<div class="right_sub_header">
+					<a href="{{ path('faq') }}"><h3 style="width: auto">F.A.Q</h3></a>
+					<div style="margin-right: 40px"></div>
+					<a href="{{ path('app_apropos') }}"><h3 style="width: auto;">A propos</h3></a>
+					<form id="search_expand_header">
+							<input type="search" placeholder="Search" spellcheck="false">
+					</form>
+			</div>
+			{% set gender = ["Femme", "Homme", "Enfant"] %}
+			{% set genderEn = ["woman", "man", "children"] %}
+			{% set other = ["Sport", "Marques"] %}
 
 		{% for i in 0..2 %}
 			<div class="row bg-light text-dark background-header-gender" id="{{ genderEn[i] }}-window" style="margin-left: -1rem">

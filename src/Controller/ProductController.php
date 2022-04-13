@@ -11,7 +11,6 @@ use App\Entity\Product;
 use App\Entity\Quality;
 use App\Entity\Size;
 use App\Entity\State;
-use App\Entity\Brand;
 use App\Service\FileUploader;
 use App\Service\SecurityCheckService;
 use Doctrine\ORM\EntityManagerInterface;

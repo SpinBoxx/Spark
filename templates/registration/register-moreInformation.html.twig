@@ -21,7 +21,7 @@
                 <img src={{ asset('images/header/logo.png') }} alt="logo_findygo">
             </div>
         </div>
-        <div class="right_register_div">
+        <div class="right_register_div bg-gray-100 z-0">
             <section>
                 {% include 'components/register-progress-bar.html.twig'
                 with {
@@ -61,7 +61,7 @@
                             <input class="text_input" type="text" name="telephone" placeholder="Téléphone*" required>
                         </label>
                     </div>
-                    <button class="register_submit_btn" type="submit">Je fonce !</button>
+                    <button class="register_submit_btn bg-fonce hover:bg-clair duration-300" type="submit">Je fonce !</button>
                 </form>
                 <div>
                     <a class="main_link" href="{{ path('app_login') }}">Rentrer ses informations plus tard</a>

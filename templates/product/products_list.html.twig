@@ -7,7 +7,9 @@
 {% endblock %}
 {% block body %}
 	{% if products is empty %}
-		<h1>Aucun produits</h1>
+		<div class="flex justify-center h-96">
+			<h1 class="text-center w-full my-auto mx-2">Malheuresement aucun produits ne correspond à votre recherche 😕</h1>
+		</div>
 	{% else %}
 		<div class="flex flex-wrap justify-center">
 			{% for product in products %}

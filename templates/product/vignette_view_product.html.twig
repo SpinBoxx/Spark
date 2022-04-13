@@ -1,33 +1,42 @@
 {% block product_vignette %}
-    <div class="favorite_card_div ">
-        <div class="w-60">
-            <div class="favorite_card_align_heart">
-                <div class="favorite_card_heart favorite_card_heart-{{ product.id }} pointer" data-product-id="{{ product.id }}">
-                    <i class="{% if isFavoris(product.id) %}fas{% else %}far{% endif%} fa-heart"></i>
-                </div>
-            </div>
-            <div class="favorite_card_price">
-                <p class="">{{ product.price }}</p>
-            </div>
-            <div class="favorite_card_div_image">
-            </div>
-            <div class="favorite_card_top_line_description">
-                <div class="favorite_card_seller">
-                    <div>
-                        <p class="favorite_card_seller_username">{{ product.user.username | capitalize }}</p>
-                    </div>
-                </div>
-                <div class="favorite_card_date">
-                    <p class="favorite_card_date_creationDateTime">{{ product.creationDatetime|date("m/d/Y") }}</p>
-                </div>
-            </div>
-            <div class="favorite_card_description">
-                <h4 class="favorite_card_description_title">{{ product.title }}</h4>
-                <p class="favorite_card_description_description">{{ product.description }}</p>
-            </div>
-            <div class="favorite_card_sub_line_description">
-                <p><a href="{{ path('product_show', {'id':  product.id })}}" class="favorite_card_sub_line_see_article">Voir l'article ></a></p>
-            </div>
-        </div>
-    </div>
+	<div class="favorite_card_div ">
+		<div class="w-60">
+			<div class="favorite_card_align_heart">
+				<div class="favorite_card_heart favorite_card_heart-{{ product.id }} pointer" data-product-id="{{ product.id }}">
+					<i class="{% if isFavoris(product.id) %}fas{% else %}far{% endif%} fa-heart"></i>
+				</div>
+			</div>
+			<div class="favorite_card_price">
+				<p class="">{{ product.price }}</p>
+			</div>
+			<div class="favorite_card_div_image"></div>
+			<div class="favorite_card_top_line_description">
+				<div class="favorite_card_seller">
+					<div>
+						<p class="favorite_card_seller_username">{{ product.user.username | capitalize }}</p>
+					</div>
+				</div>
+				<div class="favorite_card_date">
+					<p class="favorite_card_date_creationDateTime">{{ product.creationDatetime|date("m/d/Y") }}</p>
+				</div>
+			</div>
+			<div class="favorite_card_description">
+				<h4 class="favorite_card_description_title">{{ product.title }}</h4>
+				<p class="favorite_card_description_description">{{ product.description }}</p>
+			</div>
+			{% if product.category %}
+				<div class="favorite_card_category my-1">
+					<button class="text-xs w-fit bg-fonce hover:bg-clair text-white font-bold py-1 px-2 rounded-full">
+						{{ product.category.label }}
+					</button>
+				</div>
+			{% endif %}
+
+			<div class="favorite_card_sub_line_description">
+				<p>
+					<a href="{{ path('product_show', {'id': product.id })}}" class="favorite_card_sub_line_see_article">Voir l'article ></a>
+				</p>
+			</div>
+		</div>
+	</div>
 {% endblock %}

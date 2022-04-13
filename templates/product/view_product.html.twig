@@ -14,7 +14,7 @@
 		<div class="w-full text-dark">
 			<h4 class="mb-4">{{ product.title }}</h4>
 			<div class="rounded-t-xl pb-2 overflow-hidden border-neutral-400 col-12 border p-0 m-0">
-				<div class="w-full flex items-center justify-between bg-main p-4">
+				<div class="w-full flex items-center justify-between bg-clair p-4">
 					<div>
 						{% if not product.category is empty %}
 							<div>
@@ -54,10 +54,10 @@
 					<div>
 						<div class="flex-col sm:flex-row mb-2 flex items-center justify-between">
 							<div class="flex items-center" style="font-style: normal;font-weight: 600;font-size: 36px;line-height: 54px;">
-								<span class="h-10 w-10 mr-2 inline-block rounded-full bg-main  border-1"></span>
+								<span class="h-10 w-10 mr-2 inline-block rounded-full bg-clair  border-1"></span>
 								{{ product.user.username }}
 							</div>
-							<button type="submit" class="btn shadow-md" style="font-size: 14px;background: white;color: #6fcf97;border-radius: 6px;border-color: #6fcf97;height: fit-content;">
+							<button type="submit" class="shadow-md rounded p-2 text-clair border border-clair" style="font-size: 14px;background: white;border-radius: 6px;height: fit-content;">
 								Ajouter au favoris
 							</button>
 						</div>
@@ -99,7 +99,7 @@
 							{% endif %}
 						</p>
 						<div>
-							<button type="submit" class="mb-8 btn shadow-md rounded p-2 text-white border-0" style="font-size: 14px;background: #262a5c;">
+							<button type="submit" class="mb-8 shadow-md rounded p-2 border-0 text-clair bg-fonce" style="font-size: 14px;">
 								Demander une offre
 							</button>
 						</div>
@@ -115,7 +115,7 @@
 		</div>
 
 		<div class="mt-5">
-			<h3>Article similaires</h3>
+			<h3>Articles similaires</h3>
 			<section class="py-2" id="favorite_card_section">
 				{% for product in related_products %}
 					{{
@@ -133,8 +133,8 @@
 var main = document.querySelector('#main-img');
 main.src = this.src
 })
-var seller = '<input type="hidden" name="seller" id="seller" value="    {{ product.id }}"/>'
-var csrf = '<input type="hidden" name="token" id="token" value="     {{ csrf_token('send-message') }}"/>'
+var seller = '<input type="hidden" name="seller" id="seller" value="                       {{ product.id }}"/>'
+var csrf = '<input type="hidden" name="token" id="token" value="                        {{ csrf_token('send-message') }}"/>'
 var input = '<div class="input-group mb-3">' + '<input name="input-message" id="input-message" type="text" class="form-control" placeholder="Votre message..." required>' + '</div>'
 $('#send-a-message').click(function () {
 $('.send-message-sender').removeAttr('hidden')

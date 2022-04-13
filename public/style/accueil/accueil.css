@@ -1,236 +1,238 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
-body {}
+body {
+}
 
 .banner-area {
-    background-image: url(../../images/accueil/header-photo.png);
-    height: 595px;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    position: relative;
-    width: 100%;
+  background-image: url(../../images/accueil/header-photo.png);
+  height: 595px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  position: relative;
+  width: 100%;
 }
 
-.sports-bar >h2, .show-articles >h2{
-    color: rgba(0, 0, 0, 0.75) !important;
+.sports-bar > h2,
+.show-articles > h2 {
+  color: rgba(0, 0, 0, 0.75) !important;
 }
 
 @media (max-width: 1100px) {
-    .image-sport-container img {
-        width: auto !important;
-        height: 100px !important;
-    }
+  .image-sport-container img {
+    width: auto !important;
+    height: 100px !important;
+  }
 
-    #chevron-left, #chevron-right {
-        font-size: 75px !important;
-    }
+  #chevron-left,
+  #chevron-right {
+    font-size: 75px !important;
+  }
 }
 
 @media (max-width: 900px) {
-    .inner-container {
-        position: relative;
-        background-color: #e7e5e5;
-        width: 400px;
-        height: 200px;
-        line-height: 50px;
-        left: 20%;
-        top: 34%;
-        border: 2px solid white;
-        border-bottom-left-radius: 40px;
-        border-top-right-radius: 40px;
-        opacity: 0.9;
-    }
+  .inner-container {
+    position: relative;
+    background-color: #e7e5e5;
+    width: 400px;
+    height: 200px;
+    line-height: 50px;
+    left: 20%;
+    top: 34%;
+    border: 2px solid white;
+    border-bottom-left-radius: 40px;
+    border-top-right-radius: 40px;
+    opacity: 0.9;
+  }
 
-    .sports-bar, .show-articles{
-        margin-left: 0 !important;
-    }
+  .sports-bar,
+  .show-articles {
+    margin-left: 0 !important;
+  }
 }
 
 @media (max-width: 800px) {
-    .image-sport-container{
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-    }
+  .image-sport-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
 
-    .image-sport-container img {
-        width: min-content !important;
-        height: min-content !important;
-    }
+  .image-sport-container img {
+    width: min-content !important;
+    height: min-content !important;
+  }
 
-    #chevron-left, #chevron-right {
-        margin: 0 !important;
-        margin-bottom: 3.5rem !important;
-        transform: rotate(90deg);
-    }
+  #chevron-left,
+  #chevron-right {
+    margin: 0 !important;
+    margin-bottom: 3.5rem !important;
+    transform: rotate(90deg);
+  }
 }
 
-
 @media (max-width: 500px) {
-    .inner-container {
-        margin: auto;
-        left: initial;
-        width: 250px;
-        height: 200px;
-    }
+  .inner-container {
+    margin: auto;
+    left: initial;
+    width: 250px;
+    height: 200px;
+  }
 
-    .inner-container>h2 {
-        font-size: 1.3rem;
-    }
+  .inner-container > h2 {
+    font-size: 1.3rem;
+  }
 
-    .btn-header-container {
-        display: flex;
-        flex-direction: column;
-    }
+  .btn-header-container {
+    display: flex;
+    flex-direction: column;
+  }
 
-    .btn-header-container>a {
-        margin: auto;
-    }
+  .btn-header-container > a {
+    margin: auto;
+  }
 
-    h2 {
-        margin-left: 2rem !important;
-    }
+  h2 {
+    margin-left: 2rem !important;
+  }
 }
 
 @media (min-width: 901px) {
-    .inner-container {
-        position: relative;
-        background-color: #e7e5e5;
-        width: 360px;
-        height: 200px;
-        line-height: 50px;
-        left: 25%;
-        top: 34%;
-        border: 2px solid white;
-        border-bottom-left-radius: 40px;
-        border-top-right-radius: 40px;
-        opacity: 0.87;
-    }
+  .inner-container {
+    position: relative;
+    background-color: #e7e5e5;
+    width: 360px;
+    height: 200px;
+    line-height: 50px;
+    left: 25%;
+    top: 34%;
+    border: 2px solid white;
+    border-bottom-left-radius: 40px;
+    border-top-right-radius: 40px;
+    opacity: 0.87;
+  }
 }
 
-.inner-container>h2 {
-    margin-top: 30px;
-    margin-left: 13px;
+.inner-container > h2 {
+  margin-top: 30px;
+  margin-left: 13px;
 }
 
 .sell {
-    margin-left: 13px;
-    height: 40px;
-    width: 140px;
-    line-height: 38px;
-    vertical-align: middle;
-    display: inline-block;
-    text-align: center;
-    border-radius: 18px;
-    color: white;
-    background-color: #4C5059;
-
+  margin-left: 13px;
+  height: 40px;
+  width: 140px;
+  line-height: 38px;
+  vertical-align: middle;
+  display: inline-block;
+  text-align: center;
+  border-radius: 18px;
+  color: white;
+  background-color: #4c5059;
 }
 
 .sell:hover {
-    transition: 0.5s;
-    color: black;
-    background-color: #A4B5BF;
-    text-decoration: none;
+  transition: 0.5s;
+  color: black;
+  background-color: #a4b5bf;
+  text-decoration: none;
 }
 
 .how-this-work {
-    margin-left: 12px;
-    height: 30px;
-    width: 158px;
-    line-height: 30px;
-    vertical-align: middle;
-    display: inline-block;
-    color: black;
-    border-bottom: 1px solid black;
-
+  margin-left: 12px;
+  height: 30px;
+  width: 158px;
+  line-height: 30px;
+  vertical-align: middle;
+  display: inline-block;
+  color: black;
+  border-bottom: 1px solid black;
 }
 
 .how-this-work:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .sports-bar {
-    -webkit-touch-callout: none;
-    /* iOS Safari */
-    -webkit-user-select: none;
-    /* Safari */
-    -khtml-user-select: none;
-    /* Konqueror HTML */
-    -moz-user-select: none;
-    /* Old versions of Firefox */
-    -ms-user-select: none;
-    /* Internet Explorer/Edge */
-    user-select: none;
-    /* Non-prefixed version, currently */
-    margin-top: 30px;
-    margin-left: 40px;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently */
+  margin-top: 30px;
+  margin-left: 40px;
 }
 
-.sports-bar>h2 {
-    color: black;
+.sports-bar > h2 {
+  color: black;
 }
 
 .fa-chevron-circle-left {
-    position: relative;
-    margin-right: 30px;
-    top: 30px;
+  position: relative;
+  margin-right: 30px;
+  top: 30px;
 }
 
 .fa-chevron-circle-right {
-    top: 30px;
-    position: relative;
-    margin-left: 30px;
+  top: 30px;
+  position: relative;
+  margin-left: 30px;
 }
 
 .show-articles {
-    margin-top: 55px;
-    margin-left: 40px;
+  margin-top: 55px;
+  margin-left: 40px;
 }
 
-.show-article-title>h2 {
-    color: black;
+.show-article-title > h2 {
+  color: black;
 }
 
 #favorite_card_section {
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: 40px;
-    margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 40px;
+  margin-top: 30px;
 }
 
 .favorite_card_div {
-    height: 29rem;
-    width: 18rem;
-    background-color: #FFFFFF;
-    margin: 1.5rem;
-    border-radius: 9px;
-    box-shadow: 0px 10px 23px -6px rgba(0, 0, 0, 0.25);
+  height: 29rem;
+  width: 18rem;
+  background-color: #ffffff;
+  margin: 1.5rem;
+  border-radius: 9px;
+  box-shadow: 0px 10px 23px -6px rgba(0, 0, 0, 0.25);
 }
 
-.favorite_card_div>div {
-    display: flex;
-    flex-direction: column;
-    margin: 1rem;
-    height: 100%;
+.favorite_card_div > div {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  height: 100%;
 }
 
 #main-img {
-    height: 100%;
-    width: 100%;
-    background-size: cover;
-    border-radius: 9px;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  border-radius: 9px;
 }
 
 h2 {
-    /*font-family: "Poppins", sans-serif;*/
-    font-weight: 700;
-    font-size: 2.5rem;
-    color: rgba(0, 0, 0, 0.75);
-    text-align: left;
-    margin-bottom: 0;
+  /*font-family: "Poppins", sans-serif;*/
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: rgba(0, 0, 0, 0.75);
+  text-align: left;
+  margin-bottom: 0;
 }

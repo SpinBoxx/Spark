@@ -17,7 +17,7 @@
 .favorite_card_div > div {
   display: flex;
   flex-direction: column;
-  margin: 1rem;
+  margin: 1rem auto;
   height: 90%;
 }
 .favorite_card_div_image {
@@ -48,12 +48,10 @@
   display: flex;
 }
 .favorite_card_seller > div > p {
-  font-family: "Gill Sans", sans-serif;
   font-weight: 400;
   font-size: 1rem;
   margin: auto;
   color: rgba(0, 0, 0, 0.75);
-  padding-left: 8px;
 }
 .favorite_card_date {
   display: flex;
@@ -81,11 +79,9 @@
   text-overflow: ellipsis;
   display: -webkit-box;
   margin: auto;
-  margin-left: 6px;
   word-break: break-word;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-  font-family: "Georgia", sans-serif;
   font-weight: 400;
   font-size: 0.8rem;
   color: rgba(0, 0, 0, 0.75);

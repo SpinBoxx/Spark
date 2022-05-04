@@ -104,6 +104,7 @@ class ProductController extends AbstractController
    */
   public function insertProduct(Request $request, FileUploader $fileUploader): Response
   {
+
     if ($this->isGranted('ROLE_USER') === false) {
       return  $this->redirectToRoute('app_login');
     } else {
@@ -137,14 +138,30 @@ class ProductController extends AbstractController
           $product->setUser($this->getUser());
           $this->em->persist($product);
           $this->em->flush();
-          $product->setImagePath($fileUploader->getTargetDirectory() . "/" . $this->getUser()->getId() . "/" . $product->getId());
           $fileUploader->setTargetDirectory($fileUploader->getTargetDirectory() . "/" . $this->getUser()->getId() . "/" . $product->getId());
           $images = $request->files->get('images');
+          $i = 1;
           foreach ($images as $image) {
             if ($image instanceof UploadedFile) {
               if ($image->getError() === 0) {
                 if ($image->getMimeType() === "image/jpeg" || $image->getMimeType() === "image/png" || $image->getMimeType() === "image/jpg") {
-                  $fileUploader->upload($image);
+                  $filename = $fileUploader->upload($image);
+                  if($i == 1){
+                    $product->setImagePath1("upload/" . $this->getUser()->getId() . "/" . $product->getId() . "/" . $filename);
+                  }
+                  if($i == 2){
+                    $product->setImagePath2("upload/" . $this->getUser()->getId() . "/" . $product->getId() . "/" . $filename);
+                  }
+                  if($i == 3){
+                    $product->setImagePath3("upload/" . $this->getUser()->getId() . "/" . $product->getId() . "/" . $filename);
+                  }
+                  if($i == 4){
+                    $product->setImagePath4("upload/" . $this->getUser()->getId() . "/" . $product->getId() . "/" . $filename);
+                  }
+                  if($i == 5){
+                    $product->setImagePath5("upload/" . $this->getUser()->getId() . "/" . $product->getId() . "/" . $filename);
+                  }
+                  $i++;
                 }
               }
             }
@@ -303,5 +320,20 @@ class ProductController extends AbstractController
       'title' => $category->getLabel()
 
     ]);
+  }
+
+  /**
+   * @Route("/produits/produit/{productId}/commande", name="product_checkout")
+   * @return Response
+   */
+  public function buyProduct($productId){
+    $product = $this->em->getRepository(Product::class)->find($productId);
+    if($product instanceof Product){
+      return $this->render('product/buy.html.twig',[
+        'product' => $product
+      ]);
+    } else {
+      return $this->redirectToRoute('product_show', ['id' => $productId]);
+    }
   }
 }

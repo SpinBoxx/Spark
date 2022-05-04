@@ -70,7 +70,31 @@ class Product
      * @ORM\Column(type="text", nullable=true)
      * @Groups({"product:read"})
      */
-    private $image_path;
+    private $image_path_1;
+
+  /**
+   * @ORM\Column(type="text", nullable=true)
+   * @Groups({"product:read"})
+   */
+  private $image_path_2;
+
+  /**
+   * @ORM\Column(type="text", nullable=true)
+   * @Groups({"product:read"})
+   */
+  private $image_path_3;
+
+  /**
+   * @ORM\Column(type="text", nullable=true)
+   * @Groups({"product:read"})
+   */
+  private $image_path_4;
+
+  /**
+   * @ORM\Column(type="text", nullable=true)
+   * @Groups({"product:read"})
+   */
+  private $image_path_5;
 
     /**
      * @Groups({"product:read"})
@@ -379,4 +403,84 @@ class Product
     {
         $this->image_path = $picture_product;
     }
+
+  /**
+   * @return mixed
+   */
+  public function getImagePath1()
+  {
+    return $this->image_path_1;
+  }
+
+  /**
+   * @param mixed $image_path_1
+   */
+  public function setImagePath1($image_path_1): void
+  {
+    $this->image_path_1 = $image_path_1;
+  }
+
+  /**
+   * @return mixed
+   */
+  public function getImagePath2()
+  {
+    return $this->image_path_2;
+  }
+
+  /**
+   * @param mixed $image_path_2
+   */
+  public function setImagePath2($image_path_2): void
+  {
+    $this->image_path_2 = $image_path_2;
+  }
+
+  /**
+   * @return mixed
+   */
+  public function getImagePath3()
+  {
+    return $this->image_path_3;
+  }
+
+  /**
+   * @param mixed $image_path_3
+   */
+  public function setImagePath3($image_path_3): void
+  {
+    $this->image_path_3 = $image_path_3;
+  }
+
+  /**
+   * @return mixed
+   */
+  public function getImagePath4()
+  {
+    return $this->image_path_4;
+  }
+
+  /**
+   * @param mixed $image_path_4
+   */
+  public function setImagePath4($image_path_4): void
+  {
+    $this->image_path_4 = $image_path_4;
+  }
+
+  /**
+   * @return mixed
+   */
+  public function getImagePath5()
+  {
+    return $this->image_path_5;
+  }
+
+  /**
+   * @param mixed $image_path_5
+   */
+  public function setImagePath5($image_path_5): void
+  {
+    $this->image_path_5 = $image_path_5;
+  }
 }

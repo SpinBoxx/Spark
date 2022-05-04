@@ -38,35 +38,51 @@
 					<div class="aspect-w-1 aspect-h-1">
 						<img
 							alt="Mobile Phone Stand"
-							class="object-cover rounded-xl h-full"
-							src="https://images1.vinted.net/t/03_0095d_AUrozU5qYFvWZSPmSNg2cBCo/f800/1626272425.jpeg?s=3a043e76e47850446d3731edd2a5269e5d4b36fa"
+							class="object-cover rounded-xl h-full w-full"
+							src="{{ asset(product.imagePath1) }}"
 						/>
 					</div>
 
 					<div class="grid grid-cols-2 gap-4 lg:mt-4">
-						<div class="aspect-w-1 aspect-h-1">
-							<img
-								alt="Mobile Phone Stand"
-								class="object-cover rounded-xl h-full"
-								src="https://images1.vinted.net/t/03_003bc_VLWDV4P6ZuKFTY9ndt2c1CGX/310x430/1649553812.jpeg?s=d5a860fdf1d279833faa5b583f27c6d929f3d1a1"
-							/>
-						</div>
+						{% if product.imagePath2 is not null %}
+							<div class="aspect-w-1 aspect-h-1">
+								<img
+									alt="Mobile Phone Stand"
+									class="object-cover rounded-xl h-full w-full"
+									src="{{ asset(product.imagePath2) }}"
+								/>
+							</div>
+						{% endif %}
 
-						<div class="aspect-w-1 aspect-h-1">
-							<img
-								alt="Mobile Phone Stand"
-								class="object-cover rounded-xl h-full"
-								src="https://images1.vinted.net/t/01_01f44_tcETGckYgpKSfgtDpMLFiuPN/f800/1630248601.jpeg?s=985195efb0f24bee6bd7d7f089374ff0d5298357"
-							/>
-						</div>
+						{% if product.imagePath3 is not null %}
+							<div class="aspect-w-1 aspect-h-1">
+								<img
+									alt="Mobile Phone Stand"
+									class="object-cover rounded-xl h-full w-full"
+									src="{{ asset(product.imagePath3) }}"
+								/>
+							</div>
+						{% endif %}
 
-						<div class="aspect-w-1 aspect-h-1">
-							<img
-								alt="Mobile Phone Stand"
-								class="object-cover rounded-xl"
-								src="https://images1.vinted.net/t/01_009be_KXksFSWpnddKLDAAZRB6iKCY/f800/1601621902.jpeg?s=fc9b0c89c23f46b4e561c0a8aea9211218f77aae"
-							/>
-						</div>
+						{% if product.imagePath4 is not null %}
+							<div class="aspect-w-1 aspect-h-1">
+								<img
+									alt="Mobile Phone Stand"
+									class="object-cover rounded-xl h-full w-full"
+									src="{{ asset(product.imagePath4) }}"
+								/>
+							</div>
+						{% endif %}
+
+						{% if product.imagePath5 is not null %}
+							<div class="aspect-w-1 aspect-h-1">
+								<img
+									alt="Mobile Phone Stand"
+									class="object-cover rounded-xl h-full w-full"
+									src="{{ asset(product.imagePath5) }}"
+								/>
+							</div>
+						{% endif %}
 					</div>
 				</div>
 
@@ -79,7 +95,7 @@
 							<hr>
 							<p class="mt-0.5 text-sm">Qualité : <span class="text-fonce font-bold">{{ product.quality.label }}</span></p>
 							<p class="mt-0.5 text-sm">Marque : <span class="text-fonce font-bold">{{ product.brand.label }}</span></p>
-							<p class="mt-0.5 text-sm">Taille : <span class="text-fonce font-bold">{{ product.size.label }}</span></p>
+							{% if product.size is not null %}<p class="mt-0.5 text-sm">Taille : <span class="text-fonce font-bold">{{ product.size.label }}</span></p>{% endif %}
 						</div>
 
 						<p class="text-lg font-bold">
@@ -99,12 +115,12 @@
 
 					<form class="mt-8">
 						<div class="flex mt-8">
-							<a	class="block px-5 py-3 ml-3 text-white bg-clair rounded duration-300 favorite-heart favorite-heart-{{ product.id }} cursor-pointer no-underline" data-product-id="{{ product.id }}">
-									Ajouter aux favoris <i class="{% if isFavoris(product.id) %}fas{% else %}far{% endif%} fa-heart"></i>
+							<a 	class="block px-5 py-3 ml-3 text-white bg-clair rounded duration-300 favorite-heart favorite-heart-{{ product.id }} cursor-pointer no-underline" data-product-id="{{ product.id }}">
+								{% if isFavoris(product.id) %}Supprimer des favoris{% else %}Ajouter aux favoris{% endif%} <i class="{% if isFavoris(product.id) %}fas{% else %}far{% endif%} fa-heart"></i>
 							</a>
-							<button	type="submit"	class="block px-5 py-3 ml-3 text-white bg-fonce rounded hover:bg-clair duration-300">
+							<a href="{{ path('product_checkout', {productId : product.id}) }}"	type="button"	class="no-underline block px-5 py-3 ml-3 text-white bg-fonce rounded hover:bg-clair duration-300">
 								Faire une offre
-							</button>
+							</a>
 						</div>
 					</form>
 				</div>

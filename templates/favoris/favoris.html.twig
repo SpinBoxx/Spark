@@ -5,37 +5,39 @@
     <link rel="stylesheet" href="{{ asset('style/favoris/favorite_card.css')}}">
 {% endblock %}
 {% block body %}
-
-<h2>Mes favoris</h2>
+  <div class="container">
+    <h2 class="mt-10">Mes favoris</h2>
     <section id="favorite_card_section">
-        {% for favorite in productsFavorite %}
-            {% set product = favorite.product %}
-            {{ block("product_vignette", "/product/vignette_view_product.html.twig") }}
-        {% endfor %}
+      {% for favorite in productsFavorite %}
+        {% set product = favorite.product %}
+        {{ block("product_vignette", "/product/vignette_view_product.html.twig") }}
+      {% endfor %}
     </section>
+  </div>
 
-    <script>
-        $('.favorite_card_heart')
-          .click(function(){
-              var productId = $(this).data('product-id');
-              if($('.favorite_card_heart-'+ productId  + ' i').hasClass('fas')){
-                  $('.favorite_card_heart-'+ productId  + ' i').parent('div').parent('div').parent('div').parent('div').remove()
-              } else {
-                  $('.favorite_card_heart-'+ productId  + ' i').removeClass('far').addClass('fas')
+
+  <script>
+    $('.favorite_card_heart')
+      .click(function(){
+          var productId = $(this).data('product-id');
+          if($('.favorite_card_heart-'+ productId  + ' i').hasClass('fas')){
+              $('.favorite_card_heart-'+ productId  + ' i').parent('div').parent('div').parent('div').parent('div').remove()
+          } else {
+              $('.favorite_card_heart-'+ productId  + ' i').removeClass('far').addClass('fas')
+          }
+          $.ajax({
+              url : "{{ path('product_add_or_delete_favorite') }}",
+              method : "POST",
+              data : {
+                  'productId' : productId
+              },
+              success : function(data){
+                  // TODO ADD FLASH NOTIFIACTION
+              },
+              error : function(data){
+                  // TODO ADD FLASH NOTIFIACTION
               }
-              $.ajax({
-                  url : "{{ path('product_add_or_delete_favorite') }}",
-                  method : "POST",
-                  data : {
-                      'productId' : productId
-                  },
-                  success : function(data){
-                      // TODO ADD FLASH NOTIFIACTION
-                  },
-                  error : function(data){
-                      // TODO ADD FLASH NOTIFIACTION
-                  }
-              })
-          });
-    </script>
+          })
+      });
+  </script>
 {% endblock %}

@@ -22,12 +22,14 @@
         <h2>Vêtements et articles de sport d’occasion</h2>
         <h4 style="" class="ml-4 text-gray-500">Récemment mis en ligne</h4>
     </div>
-    <section class="container flex overflow-x-scroll relative">
+    <section class="container flex overflow-x-scroll relative overflow-y-hidden slider cursor-grab">
         {% if products is empty %}
             <h1>{{ product_not_found }}</h1>
         {% else %}
             {% for product in products %}
-                {{ block("product_vignette", "/product/vignette_view_product.html.twig") }}
+                <div class="hover:scale-105">
+                    {{ block("product_vignette", "/product/vignette_view_product.html.twig") }}
+                </div>
             {% endfor %}
         {% endif %}
     </section>
@@ -36,10 +38,10 @@
         <div id="left" class="relative">
             <h3 class="mt-10 bg-black text-white px-3 rounded-md py-2 text-2xl ">Notre sélection de marques de vetements d'occasion</h3>
             <div class="flex justify-center gap-5 relative mt-3 flex-wrap">
-                {% set brands = ['Nike', 'Adidas', 'Puma','Reebook', 'New Balance', 'Asics'] %}
+                {% set brands = ['Nike', 'Adidas', 'Puma','Reebook', 'Umbro', 'Asics'] %}
                 {% for brand in brands %}
                     <div class="px-6 w-36 mt-3 py-1 bg-white shadow-xl rounded-xl hover:scale-110 flex flex-col items-center cursor-pointer">
-                        <img class="w-28 h-20" src="{{ asset('images/logo/' ~ brand ~'_logo.png') }}" alt="">
+                        <img class="w-28 h-20" src="{{ asset('images/logo/' ~ brand ~'.png') }}" alt="">
                     </div>
                 {% endfor %}
             </div>
@@ -116,6 +118,34 @@
 
 
     <script>
+        const slider = document.querySelector('.slider');
+        let mouseDown = false;
+        let startX, scrollLeft;
+
+        let startDragging = function (e) {
+            mouseDown = true;
+            $('.slider').removeClass('cursor-grab').addClass('cursor-grabbing')
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        };
+        let stopDragging = function (event) {
+            mouseDown = false;
+            $('.slider').addClass('cursor-grab').removeClass('cursor-grabbing')
+        };
+
+        slider.addEventListener('mousemove', (e) => {
+            e.preventDefault();
+            if(!mouseDown) { return; }
+            const x = e.pageX - slider.offsetLeft;
+            const scroll = x - startX;
+            slider.scrollLeft = scrollLeft - scroll;
+        });
+
+        // Add the event listeners
+        slider.addEventListener('mousedown', startDragging, false);
+        slider.addEventListener('mouseup', stopDragging, false);
+        slider.addEventListener('mouseleave', stopDragging, false);
+
         $('#chevron-left').click(function (){
             moveSportLeft()
         })

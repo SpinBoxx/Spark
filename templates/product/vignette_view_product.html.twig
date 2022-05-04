@@ -1,6 +1,6 @@
 {% block product_vignette %}
-	<div class="favorite_card_div ">
-		<div class="w-60">
+	<div class="favorite_card_div pt-1">
+		<div class="w-64">
 			<div class="favorite_card_align_heart">
 				<div class="favorite_card_heart favorite_card_heart-{{ product.id }} pointer" data-product-id="{{ product.id }}">
 					<i class="{% if isFavoris(product.id) %}fas{% else %}far{% endif%} fa-heart"></i>
@@ -9,7 +9,9 @@
 			<div class="favorite_card_price">
 				<p class="">{{ product.price }}</p>
 			</div>
-			<div class="favorite_card_div_image"></div>
+			<div class="favorite_card_div_image">
+				<img class="object-cover h-full w-full rounded-lg" src="{{ asset(product.imagePath1) }}" alt="">
+			</div>
 			<div class="favorite_card_top_line_description">
 				<div class="favorite_card_seller">
 					<div>

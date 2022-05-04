@@ -23,7 +23,7 @@
 .favorite_card_div_image {
   height: 60%;
   width: 100%;
-  background: no-repeat center/50% url(../../images/favoris/raquette.png);
+  /*background: no-repeat center/50% url(../../images/favoris/raquette.png);*/
   background-size: cover;
   border-radius: 9px;
   margin-bottom: 5px;
@@ -115,7 +115,7 @@
   justify-content: center;
 }
 .favorite_card_heart > i {
-  font-size: 25px;
+  font-size: 30px;
   color: #f26f6f;
   margin: auto 0;
 }
